@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class=" govuk-grid-column-full govuk-!-padding-bottom-5" style="max-width: 830px;">
+
+
+      <h1 class="govuk-heading-xl" style="">
+        Add a user
+      </h1>
+
+	<div class="govuk-form-group" style="width:800px;">
+		<fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+			<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+				<h1 class="govuk-fieldset__heading">
+					Select the user type
+				</h1>
+			</legend>
+			<div id="contact-hint" class="govuk-hint">
+				Additional user types within teams will show once the team has been selected.
+			</div>
+			<div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+				<div class="govuk-radios__item">
+					<input class="govuk-radios__input" id="contact-11" name="contact" type="radio" value="email" data-aria-controls="conditional-contact-11">
+					<label class="govuk-label govuk-radios__label" for="contact">
+						Local authority (LA) team
+					</label>
+				</div>
+				<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-11">
+					<div class="govuk-form-group">
+						<fieldset class="govuk-fieldset">
+							<div class="govuk-radios">
+							 <div class="govuk-radios__item">
+								 <input class="govuk-radios__input" id="admin1" name="where-do-you-live" type="radio" value="admin2">
+								 <label class="govuk-label govuk-radios__label" for="contact-by-email">
+									 Admin
+								 </label>
+								 <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+								LA user with management functionality
+								</div>
+							 </div>
+							 <div class="govuk-radios__item">
+								 <input class="govuk-radios__input" id="user2" name="where-do-you-live" type="radio" value="user2">
+								 <label class="govuk-label govuk-radios__label" for="contact-by-email">
+									 User
+								 </label>
+								 <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+								LA User
+								</div>
+							 </div>
+							</div>
+						</fieldset>
+							</div>
+
+				</div>
+
+				<div class="govuk-radios__item">
+					<input class="govuk-radios__input" id="contact-9" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-9">
+					<label class="govuk-label govuk-radios__label" for="contact-9">
+						Other originating authority (OOA) team
+					</label>
+				</div>
+				<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-9">
+					<div class="govuk-form-group">
+						<fieldset class="govuk-fieldset">
+							<div class="govuk-radios">
+							 <div class="govuk-radios__item">
+								 <input class="govuk-radios__input" id="admin1" name="where-do-you-live" type="radio" value="admin1">
+								 <label class="govuk-label govuk-radios__label" for="contact-by-email">
+									 Admin
+								 </label>
+								 <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+								OOA user with management functionality
+								</div>
+							 </div>
+							 <div class="govuk-radios__item">
+								 <input class="govuk-radios__input" id="user1" name="where-do-you-live" type="radio" value="user1">
+								 <label class="govuk-label govuk-radios__label" for="contact-by-email">
+									 User
+								 </label>
+								 <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+								OOA user
+								</div>
+							 </div>
+							</div>
+						</fieldset>
+							</div>
+
+				</div>
+
+				</div>
+
+				<div class="govuk-radios__item">
+					<input class="govuk-radios__input" id="contact-8" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-8">
+					<label class="govuk-label govuk-radios__label" for="contact-8">
+						Sensitive other originiating authority (SOOA) user
+					</label>
+					<div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+				 SOOA user
+				 </div>
+				</div>
+
+			</div>
+			<div class="govuk-!-padding-bottom-5"></div>
+
+			        <div class="govuk-form-group" style="margin-bottom:15px;width: 100%;">
+			            <button class="govuk-button" type="submit" formaction="summary">Continue</button>
+			        </div>
+		 </div>
+		</div>
+	</fieldset>
+	</div>
+
+</form>
+</div>
+</div>
+</div>
+
+
+
+{# <script type="text/javascript">
+  <!--
+      // function toggle_visibility(id) {
+      //    var e = document.getElementById(id);
+      //    if(e.style.display == 'block')
+      //       e.style.display = 'none';
+      //    else
+      //       e.style.display = 'block';
+      // }
+      //
+			// function toggle_visibility(id) {
+      //    var e = document.getElementById(id);
+      //    if(e.style.display == 'none')
+      //       e.style.display = 'block';
+      //    else
+      //       e.style.display = 'none';
+      }
+  //-->
+
+
+
+
+
+  </script> #}
+
+<style>
+.govuk-body-m, .govuk-body, p {
+    margin-bottom: 30px;
+}
+
+.govuk-heading-xl {
+    margin-bottom: 30px;
+}
+
+.govuk-heading-l {
+    margin-bottom: 20px;
+}
+
+
+
+</style>
+
+
+{% endblock %}

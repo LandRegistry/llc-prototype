@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class=" govuk-grid-column-full govuk-!-padding-bottom-5" style="max-width: 830px;">
+
+
+      <h1 class="govuk-heading-xl" style="">
+        Add a user
+      </h1>
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" aria-describedby="nationality-hint nationality-error">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Select the user type
+            </h1>
+          </legend>
+          <div id="nationality-hint" class="govuk-hint">
+            Additional user types within teams will show once the team has been selected.
+          </div>
+          <span id="nationality-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select the user type
+          </span>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nationality" name="nationality" type="radio" value="british">
+              <label class="govuk-label govuk-radios__label" for="nationality">
+                Local authority (LA)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nationality-2" name="nationality" type="radio" value="irish">
+              <label class="govuk-label govuk-radios__label" for="nationality-2">
+                Other originating authority (OOA) team
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="nationality-3" name="nationality" type="radio" value="other">
+              <label class="govuk-label govuk-radios__label" for="nationality-3">
+                Sensitive other originating authority (SOOA) user
+              </label>
+              <div id="sign-in-hint" class="govuk-hint">
+     SOOA user
+   </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+			<div class="govuk-!-padding-bottom-5"></div>
+
+			        <div class="govuk-form-group" style="margin-bottom:15px;width: 100%;">
+			            <button class="govuk-button" type="submit" formaction="summary">Continue</button>
+			        </div>
+		 </div>
+		</div>
+	</fieldset>
+	</div>
+
+</form>
+</div>
+</div>
+</div>
+
+
+
+{# <script type="text/javascript">
+  <!--
+      // function toggle_visibility(id) {
+      //    var e = document.getElementById(id);
+      //    if(e.style.display == 'block')
+      //       e.style.display = 'none';
+      //    else
+      //       e.style.display = 'block';
+      // }
+      //
+			// function toggle_visibility(id) {
+      //    var e = document.getElementById(id);
+      //    if(e.style.display == 'none')
+      //       e.style.display = 'block';
+      //    else
+      //       e.style.display = 'none';
+      }
+  //-->
+
+
+
+
+
+  </script> #}
+
+<style>
+.govuk-body-m, .govuk-body, p {
+    margin-bottom: 30px;
+}
+
+.govuk-heading-xl {
+    margin-bottom: 30px;
+}
+
+.govuk-heading-l {
+    margin-bottom: 20px;
+}
+
+
+
+</style>
+
+
+{% endblock %}

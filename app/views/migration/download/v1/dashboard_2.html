@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<HEAD>
+ <STYLE type="text/css">
+  H3 { text-align: right}
+ </STYLE>
+<BODY>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l"> Capture and edit charge data menu <h1>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <h3 class="govuk-heading-m"> Images processed: 98</h3>
+  </div>
+</div>
+
+    {# <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        Capture and edit charge data menu
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">
+        Images processed: 98
+      </h2> #}
+      <div class="govuk-width-container">
+
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+        <p class="govuk-body govuk-!-font-weight-bold">Item</p>
+      </dt>
+      <dd class="govuk-summary-list__actions">
+        <p class="govuk-body govuk-!-font-weight-bold">Images</p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <p class="govuk-body govuk-!-font-weight-bold">Action</p>
+      </dd>
+    </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+              Scanned images with charges left to capture and edit
+            </dt>
+            <dd class="govuk-summary-list__actions">
+              321
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+              {{ govukButton({
+                classes: 'govuk-button--tertiary',
+                html: 'Get image',
+                disabled: false
+              }) }}
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+              Scanned images with deferred charges
+            </dt>
+            <dd class="govuk-summary-list__actions">
+              16
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+              {{ govukButton({
+                classes: 'govuk-button--tertiary',
+                html: 'View deferrals'
+              }) }}
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+              Images in progress/locked to users
+            </dt>
+            <dd class="govuk-summary-list__actions">
+              4
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+              {{ govukButton({
+                classes: 'govuk-button--tertiary',
+                html: 'Clear images in progress',
+                disabled: false
+              }) }}
+
+            </dd>
+          </div>
+
+
+
+          </div>
+
+          </div>
+
+
+
+    </div>
+  </div>
+{% endblock %}

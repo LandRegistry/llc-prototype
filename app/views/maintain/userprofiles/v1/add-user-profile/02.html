@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Add details for the new user
+    </h1>
+  </legend>
+
+<main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+
+
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label--s" for="address-line-1">
+      First name <span class="govuk-visually-hidden">line 1 of 2</span>
+    </label>
+    <input class="govuk-input" id="address-line-1" name="address-line-1" type="text"></div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label--s" for="address-line-1">
+        Family name <span class="govuk-visually-hidden">line 1 of 2</span>
+      </label>
+      <input class="govuk-input" id="address-line-1" name="address-line-1" type="text"></div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label--s" for="address-line-1">
+          Email address <span class="govuk-visually-hidden">line 1 of 2</span>
+        </label>
+        <input class="govuk-input" id="address-line-1" name="address-line-1" type="text"></div>
+
+        <div class="govuk-form-group">
+
+          {% set laItems = [{value: '',text: 'Select local authority'}] %}
+
+
+          {# Include all of the LA's which are set in deafulat data #}
+          {% for i in data['local-authorities'] %}
+            {% set laItems = laItems | push ({
+              value: i,
+              text: i,
+              selected: true if data['select-local-authority'] == i
+            }) %}
+          {% endfor %}
+
+          {# Select adds all items from the above array and is then progressivly enhanced in app.js #}
+          {{ govukSelect({
+            id: 'select-local-authority',
+            name: 'select-local-authority',
+            label: {
+              html: 'Local authority',
+              classes: 'govuk-label--s',
+              isPageHeading: 'true'
+            },
+            value: data['select-local-authority'],
+            items: laItems
+          }) }}
+
+
+</fieldset>
+
+
+  <div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button">
+    Add user
+  </button>
+</div>
+  </main>
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}

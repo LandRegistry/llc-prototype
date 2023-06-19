@@ -1,0 +1,291 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full govuk-!-padding-bottom-3 govuk-!-padding-top-6">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-9">
+        Capture charge details
+      </h1>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Image reference</th>
+
+            <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 600px;">Box102_94-0829_2.jpg</th>
+
+            <td class="govuk-table__cell">
+            <a href="Box102_94-0829_2.html" class="govuk-link" rel="noreferrer noopener" target="_blank">View (opens in new tab)</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table govuk-!-margin-bottom-7">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Charge item</th>
+            <th scope="col" class="govuk-table__header">Information</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 300px;">Authority reference</th>
+            <td class="govuk-table__cell"><input class="govuk-input" id="authority-reference" name="authority-reference" value="{{ '94/0829' }}" style="width: 300px;">
+            </td>
+          </tr>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Old register part</th>
+          <td class="govuk-table__cell">
+            <div class="govuk-form-group">
+              <select class="govuk-select" id="sort" name="sort">
+                <option value="published">1</option>
+                <option value="updated">2</option>
+                <option value="views">3</option>
+                <option value="comments" selected="selected">4</option>
+                <option value="comments">5</option>
+                <option value="comments">6a</option>
+                <option value="comments">6b</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" style="width:25%">Creation date</th>
+          <td class="govuk-table__cell">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+                <div id="passport-issued-hint" class="govuk-hint">
+                  For example, 27 3 2007
+                </div>
+                <div class="govuk-date-input" id="passport-issued">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+          </td>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width:25%">Registration date</th>
+            <td class="govuk-table__cell">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+                  <div id="passport-issued-hint" class="govuk-hint">
+                    For example, 27 3 2007
+                  </div>
+                  <div class="govuk-date-input" id="passport-issued">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="21">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="07">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="1980">
+                      </div>
+                    </div>
+                  </div>
+
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width: 300px;">Address</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group">
+
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5">JUNCTION HOUSE FARM, EASINGTON
+                        </textarea>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width: 300px;">Description</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group">
+                        <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="more-detail" name="more-detail" rows="5">
+
+                        </textarea>
+                        <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+   You can enter up to 200 characters
+ </div>
+                        {# <div id="more-detail-hint" class="govuk-hint govuk-!-margin-bottom-1">
+                          You have 200 characters remaining
+                        </div> #}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width: 300px;">Law</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group govuk-!-width-two-thirds">
+                        <select class="govuk-select" name="choose-country" id="choose-country">
+                  <option value="territory:A-Z">Town and Country Planning Act 1971 section 159</option>
+                  <option value="territory:A-Z" selected="selected">Town and Country Planning Act 1971 section 158</option>
+                  <option value="territory:LA-LZ">Town and Country Planning Act 1990 section 108</option>
+                  <option value="territory:LA-LZ">Town and Country Planning Act 1990 section 109</option>
+                    </select>
+                  </div>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width: 300px;">Category</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group">
+
+                        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text" value="Planning">
+                      </div>
+                      {# <div class="govuk-form-group govuk-!-width-one-half">
+                        <select class="govuk-select" name="choose-category" id="choose-category">
+                  <option value="territory:A-Z"> </option>
+                  <option value="territory:FA-FJ">Financial</option>
+                  <option value="territory:BA-HO">Housing or buildings</option>
+                  <option value="territory:LA-LB">Land compensation</option>
+                  <option value="territory:LA-LJ">Listed building</option>
+                  <option value="territory:OA-OU">Other</option>
+                  <option value="territory:PA-PM">Planning</option>
+                    </select>
+                  </div> #}
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width: 300px;">Charge sub-category</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group">
+
+                        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text" value="Planning notice">
+                      </div>
+                      {# <div class="govuk-form-group govuk-!-width-one-half">
+                        <select class="govuk-select" name="choose-subcategory" id="choose-subcategory">
+                  <option value="territory:A-Z"> </option>
+                  <option value="territory:CA-CO">Conditional planning consent</option>
+                  <option value="territory:CA-CP">Conservation area</option>
+                  <option value="territory:EO-NP">Enforcement notice</option>
+                  <option value="territory:MP-RF">Modification or rectification orders</option>
+                  <option value="territory:NA-PF">No permitted development or article 4</option>
+                  <option value="territory:PA-AH">Planning agreement</option>
+                  <option value="territory:PA-NP">Planning notice</option>
+                  <option value="territory:PA-TPO">Tree preservation order (TPO)</option>
+                    </select>
+                  </div> #}
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Originating authority</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group govuk-!-width-one-half">
+                        <select class="govuk-select" name="choose-country" id="choose-country">
+                  <option value="territory:A-Z">District of Basingstoke</option>
+                  <option value="territory:A-Z" selected="selected">Durham Country Council</option>
+                  <option value="territory:LA-LZ">Lambeth Borough of London</option>
+                  <option value="territory:LA-LZ">Lancaster City Council</option>
+                  <option value="territory:LA-LV">Luton Borough Council</option>
+                    </select>
+                  </div>
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width: 300px;">Further information location</th>
+                    <td class="govuk-table__cell">
+                      <div class="govuk-form-group">
+
+                        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text" value="Council offices, Easington">
+                      </div>
+                    </td>
+                  </tr>
+
+                </tr>
+
+              </fieldset>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">
+      Charge status
+    </h2>
+    <div class="govuk-form-group">
+      <select class="govuk-select" id="sort" name="sort" style="width: 500px;">
+        <option value="published">All data captured according to instructions</option>
+        <option value="updated" selected="selected">Not all data according to instructions has been captured</option>
+        <option value="views">Charge data does not require capturing</option>
+      </select>
+    </div>
+
+    <h2 class="govuk-heading-m">
+      Notes
+    </h2>
+    <div class="govuk-form-group">
+      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" style="width: 600px;"></textarea>
+      <div id="more-detail-hint" class="govuk-hint">
+        You have 200 characters remaining
+      </div>
+    </div>
+
+    <div class="govuk-!-margin-bottom-3">
+      <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='/migration/process-scanned-images/v1/dashboard_4.html'">
+        Submit
+      </button>
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Save and go back
+      </button>
+    </div>
+
+  </form>
+
+</div>
+
+</div>
+
+</div>
+</div>
+{% endblock %}

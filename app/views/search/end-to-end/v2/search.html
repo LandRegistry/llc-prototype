@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if error %}
+        {{ govukErrorSummary({
+          titleText: 'There is a problem',
+          errorList: [
+            {
+              text: error,
+              href: '#search-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      <form method="post">
+
+        {{ govukInput({
+          id: 'search',
+          name: 'search',
+          value: data['search'] or 'KY15 5EH',
+          classes: 'govuk-input--width-20',
+          formGroup: {
+            classes: 'govuk-!-margin-bottom-3'
+          },
+          label: {
+            html: 'Search by postcode or street name',
+            classes: 'govuk-label--l',
+            isPageHeading: 'true'
+          },
+          hint: {
+            html: 'For example, &lsquo;SW1A 2AA&rsquo; or &lsquo;High Street&rsquo;'
+          },
+          errorMessage: {
+            text: error
+          } if error
+        }) }}
+
+
+
+        {{ govukButton({
+          html: 'Search'
+        }) }}
+
+        {# <h2 class="govuk-heading-m govuk-!-margin-top-3">
+          Other ways to find a charge
+        </h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li><a href="#0">Search by browsing to a place using a map</a></li>
+          <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
+        </ul> #}
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Other ways to find a charge
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-list--spaced govuk-!-font-size-16">
+            <li><a href="#0">Search by browsing to a place using a map</a></li>
+            <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

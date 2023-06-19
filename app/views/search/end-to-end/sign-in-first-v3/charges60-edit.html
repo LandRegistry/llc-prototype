@@ -1,0 +1,287 @@
+{% extends "layout.html" %}
+
+{% set query = data['search'] or 'S10 4BG' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'results'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Local land charge search results
+        </h1>
+
+        <img src="/public/images/60-knatchbull-results-edit.png" alt="Search extent" style="height:300px">
+        <figcaption  class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <p>There are <b>3 local land charges</b> for your search area.</p>
+        <p>Not the right area? <a href="search">Search again</a>.</p>
+
+
+        <h2 class="govuk-heading-m">
+          Planning
+        </h2>
+
+
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-with-summary-sections">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-1">
+              Listed building
+            </span>
+          </h2>
+          <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+          <p class="govuk-body">Change of use to 1 flats & 4 bedsits. Approved subject to conditions </p>
+          <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+            <p> <b>Creation date</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04 July 2020</p>
+
+          </div>
+        </div>
+        </div>
+      <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body"><b>Location</b></p>
+          </div>
+
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">60 Knatchbull Road, London SE5 9QY </p>
+          </div>
+        </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body"><b>Originating authority</b></p>
+        </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">	London Borough of Lambeth </p>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+       <p class="govuk-body"><b>Authority Reference</b></p>
+       </div>
+
+      <div class="govuk-grid-column-two-thirds">
+       <p class="govuk-body">	17/04366/FUL</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Registration date</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">08 January 2018</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Law</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Town and Country Planning Act 1990 section 70</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Legal document</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Planning permission</p>
+      </div>
+      </div>
+
+      </div>
+    </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-1">
+              Listed building
+            </span>
+          </h2>
+          <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+          <p class="govuk-body">Installation of a part timber, part glazed veranda to the rear ground floor and replacement of the existing ground windows with new timber double doors</p>
+     </p>
+          <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+            <p> <b>Creation date</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13 April 2018</p>
+
+          </div>
+        </div>
+        </div>
+      <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body"><b>Location</b></p>
+          </div>
+
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">60 Knatchbull Road, London SE5 9QY </p>
+          </div>
+        </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body"><b>Originating authority</b></p>
+        </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">	London Borough of Lambeth </p>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+       <p class="govuk-body"><b>Authority Reference</b></p>
+       </div>
+
+      <div class="govuk-grid-column-two-thirds">
+       <p class="govuk-body">	17/04372/FUL</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Registration date</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">31 May 2016</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Law</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Town and Country Planning Act 1990 section 70</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Legal document</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Planning permission</p>
+      </div>
+      </div>  </div>
+      </div>
+      <div class="govuk-accordion__section ">
+      <div class="govuk-accordion__section-header">
+        <h2 class="govuk-accordion__section-heading">
+          <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-1">
+            Listed building
+          </span>
+        </h2>
+        <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+        <p class="govuk-body">Installation of an extension that is part timber, part glazed veranda to the front ground floor with new timber double doors and windows</p>
+   </p>
+        <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+          <p> <b>Creation date</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30 November 1978</p>
+
+        </div>
+      </div>
+      </div>
+      <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-body"><b>Location</b></p>
+          </div>
+
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">60 Knatchbull Road, London SE5 9QY </p>
+          </div>
+        </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body"><b>Originating authority</b></p>
+        </div>
+
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">	London Borough of Lambeth </p>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+       <p class="govuk-body"><b>Authority Reference</b></p>
+       </div>
+
+      <div class="govuk-grid-column-two-thirds">
+       <p class="govuk-body">	17/04321/FUL</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Registration date</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">08 January 2006</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Law</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Town and Country Planning Act 1990 section 70</p>
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+      <p class="govuk-body"><b>Legal document</b></p>
+      </div>
+
+      <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">Planning permission</p>
+      </div>
+      </div>  </div>
+      </div>
+
+
+      </div>
+      </div>
+
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Download an official search result for £15
+        </h2>
+        <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+            <p class= "govuk-body-s">By purchasing an official search result from us, you’ll receive a document that:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <li>is secure and digitally signed by HM Land Registry</li>
+            <li>highlights local land charge boundaries on a map</li>
+            <li>enables you to get free, repeat searches for 6 months</li>
+<li>includes a link to the source information</li>
+          </ul>
+
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%" onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

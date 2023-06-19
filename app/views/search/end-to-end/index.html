@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "LLC prototypes",
+	      href: "/"
+	    },
+      {
+	      text: "Search prototypes",
+	      href: "../"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        Search for a Local Land Charge
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>In scope amends (March 2022)</p>
+      <h2 class="govuk-heading-m">
+        Sign in - Search - Confirm - Results
+      </h2>
+      {{ govukButton({
+        text: 'In scope prototype',
+        href: 'sign-in-first-v5/start'
+      }) }}
+
+      <p>In scope amends (November 2021)</p>
+      <h2 class="govuk-heading-m">
+        Sign in - Search - Confirm - Results
+      </h2>
+      {{ govukButton({
+        text: 'In scope prototype',
+        href: 'sign-in-first-v3/start'
+      }) }}
+
+      <p>The following prototypes reflect varying flows developed for user research on the end-to-end search service (Aug/Sept 2021)</p>
+
+      <h2 class="govuk-heading-m">
+        1. Sign in - Search - Confirm - Results
+      </h2>
+      {{ govukButton({
+        text: 'Sign in first',
+        href: 'sign-in-first/start'
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        2. Check area  – Sign in – Search – Confirm – Results
+      </h2>
+      {{ govukButton({
+        text: 'Check area first',
+        href: 'check-area-first/start'
+      }) }}
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Version 3
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <h2 class="govuk-heading-m">
+              <p>The original 2 user flows that were successful in user testing prior to implementing UR's recommendations</p>
+
+
+              1. Sign in - Search - Confirm - Results
+            </h2>
+            {{ govukButton({
+              text: 'Sign in first',
+              href: 'sign-in-first-v1/start'
+            }) }}
+
+            <h2 class="govuk-heading-m">
+              2. Check area  – Sign in – Search – Confirm – Results
+            </h2>
+            {{ govukButton({
+              text: 'Check area first',
+              href: 'check-area-first-v1/start'
+            }) }}
+
+            <p>The additional 3 user flows that were not successful in user testing</p>
+
+            <h2 class="govuk-heading-m">
+              3. Search – Confirm – Sign in - Results
+            </h2>
+            {{ govukButton({
+              text: 'Confirm extent first',
+              href: 'confirm-extent-first/start'
+            }) }}
+
+            <h2 class="govuk-heading-m">
+              4. Sign in – Search - Results
+            </h2>
+
+            {{ govukButton({
+              text: 'No confirm extent page',
+              href: 'no-confirm-sign-in-first/start'
+            }) }}
+
+            <h2 class="govuk-heading-m">
+              5. Search - Sign in - Results
+            </h2>
+
+            {{ govukButton({
+              text: 'No confirm extent page',
+              href: 'no-confirm-sign-in-last/start'
+            }) }}
+
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Version 2
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+            <p>The second round of recomendations were done by the previous designer, Chris A.</p>
+
+            {{ govukButton({
+              text: 'View prototype',
+              href: 'v2/start'
+            }) }}
+
+
+
+          </div>
+        </div>
+        <div class="govuk-accordion__section ">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Version 1
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+            <p>The initial round of recomendations were done by the previous designer, Ash O</p>
+
+            {{ govukButton({
+              text: 'View feedback slide deck',
+              href: 'https://docs.google.com/presentation/d/1wDEABXNlojMy9CRSm7EIQ0QVnarmYX026YabJ-nrRRY/edit#slide=id.gbd37c5e0f2_0_119'
+            }) }}
+
+            {{ govukButton({
+              text: 'View Prototype',
+              href: 'v1'
+            }) }}
+
+
+
+          </div>
+        </div>
+
+
+
+    </div>
+  </div>
+{% endblock %}

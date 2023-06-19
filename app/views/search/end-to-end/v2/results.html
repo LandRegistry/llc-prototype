@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% set query = data['search'] or 'S10 4BG' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Search results for &lsquo;{{ query }}&rsquo;
+        </h1>
+
+        <p>45 addresses found:</p>
+        <ul class="govuk-list govuk-list--spa/ced">
+          {% for i in range(2, 97, 2) %}
+            <li>
+              <a href="charges?address={{ i }} High Street, City, {{ query }}">{{ i }} High Street, City, {{ query }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Other ways to find a charge
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-list--spaced govuk-!-font-size-16">
+            <li><a href="#0">Search by browsing to a place using a map</a></li>
+            <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

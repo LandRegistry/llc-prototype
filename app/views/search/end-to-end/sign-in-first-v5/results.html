@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% set query = data['search'] or 'SE5 9QY' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Search results for 'Stanley Street'
+        </h1>
+
+        <p>Your search has found <b>11 addresses.</b> Select an address to continue.</p>
+        <ul class="govuk-list govuk-list--spa/ced">
+          <li>  <a href="confirm38.html">Anthony Street, Stanley DH9</a> </li>
+          <li>  <a href="#0"> Wylam Street, Stanley DH9</a> </li>
+          <li>  <a href="#0"> From Junction With Town Quay To Junction With Back Stanley Street 9 To 27, Workington CA14</a> </li>
+          <li>  <a href="#0"> Stanley Street, Rosehill, Wallsend NE28</a> </li>
+          <li>  <a href="#0"> Broad Street, Kings Stanley GL10</a> </li>
+          <li>  <a href="#0"> Charlotte Street, Stanley PH1</a> </li>
+          <li>  <a href="#0"> Stanley Street, Close House DL14</a> </li>
+          <li>  <a href="#0"> Stanley Street, Ramsbottom BL0</a> </li>
+          <li>  <a href="#0"> Stanley Street, Lees OL4</a> </li>
+          <li>  <a href="#0"> Stanley Street, Jarrow NE32</a> </li>
+          <li>  <a href="#0"> Scott Street, Stanley DH9</a> </li>
+          <li>  <a href="results-stanley"> Stanley Street, Garston, Liverpool L19 8LP</a> </li>
+    </ul>
+    </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Other ways to identify a search area
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-list--spaced govuk-link">
+          <li>
+            <a href="searchbymap">Search by map</a>
+          </li>
+
+          <li class="govuk-body--no-underline">
+            Contact HM Land Registry on
+            <b>0300 006 0444</b>
+            if you are struggling to use this service</li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+</div>
+{% endblock %}

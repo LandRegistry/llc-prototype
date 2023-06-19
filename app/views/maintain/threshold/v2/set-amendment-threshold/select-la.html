@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{# {% block beforeContent %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: '../dashboard'
+  }) }}
+{% endblock %} #}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post">
+
+        {# Create an array for the LA select below #}
+        {% set laItems = [{value: '',text: 'Select local authority'}] %}
+
+        {# Include all of the LA's which are set in deafulat data #}
+        {% for i in data['local-authorities'] %}
+          {% set laItems = laItems | push ({
+            value: i,
+            text: i,
+            selected: true if data['select-local-autohority'] == i
+          }) %}
+        {% endfor %}
+
+        {# Select adds all items from the above array and is then progressivly enhanced in app.js #}
+        {{ govukSelect({
+          id: 'select-local-autohority',
+          name: 'select-local-autohority',
+          label: {
+            html: 'Local authority name',
+            classes: 'govuk-label--l',
+            isPageHeading: 'true'
+          },
+          value: data['select-local-authority'],
+          items: laItems
+        }) }}
+
+        {# hint: {
+          text: 'Start typing an authority name to search'
+        }, #}
+
+
+
+
+        {{ govukButton({
+          html: 'Continue'
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

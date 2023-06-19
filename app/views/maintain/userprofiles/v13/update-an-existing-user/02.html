@@ -1,0 +1,366 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Update an existing user</h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+   <div class="govuk-grid-column-full">
+      <form class="form" action="03" method="post">
+         <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+               <div>
+                  <h3 class="govuk-heading-m">Select {{ data['administrator-first-name'] }} {{ data['administrator-family-name'] }}'s team
+                  </h3>
+               </div>
+               <div class="govuk-radios" id="myRadioGroup">
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="question1" value="A" id="Q1A">
+                     <label class="govuk-label govuk-radios__label" for="Q1A">
+                     Business Analysis (BA)
+                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="question1" value="B" id="Q1B">
+                     <label class="govuk-label govuk-radios__label" for="Q1B">
+                     Data Management
+                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="question1" value="C" id="Q1C">
+                     <label class="govuk-label govuk-radios__label" for="Q1C">
+                     Data Transformation and Delivery
+                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="question1" value="D" id="Q1D">
+                     <label class="govuk-label govuk-radios__label" for="Q1D">
+                     External services cell (ESC)
+                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="question1" value="E" id="Q1E">
+                     <label class="govuk-label govuk-radios__label" for="Q1E">
+                     Quality Assurance (QA)
+                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="question1" value="F" id="Q1F">
+                     <label class="govuk-label govuk-radios__label" for="Q1F">
+                     Service Performance and Integration (SPI)
+                     </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                     <input class="govuk-radios__input" type="radio" name="" value="" id="" checked>
+                     <label class="govuk-label govuk-radios__label" for="Q">
+                     General
+                     </label>
+                  </div>
+               </div>
+            </fieldset>
+         </div>
+      </form>
+   </div>
+</div>
+
+                                                                          <div class="govuk-grid-row">
+                                                                             <div class="govuk-grid-column-full">
+                                                                                <form class="form" action="03" method="post">
+                                                                                   <div class="govuk-form-group">
+                                                                                      <fieldset class="govuk-fieldset">
+
+
+                                                                                                <hr style="margin-bottom:25px;">
+                                                                                                <h3 class="govuk-heading-m" style="margin-bottom: 10px;">
+                                                                                                  Select {{ data['administrator-first-name'] }} {{ data['administrator-family-name'] }}'s role
+                                                                                                </h3>
+                                                                                                <div id="changed-name-hint" class="govuk-hint" style="margin-top: -10px; margin-bottom: 25px;max-width: 95%;">
+                                                                                                   Below are the user roles available to the team members
+                                                                                                 </div>
+                                                                                                <div class="govuk-radios" id="myRadioGroup2">
+                                                                                                   <div class="govuk-radios__item">
+                                                                                                      <input class="govuk-radios__input" type="radio" name="question2" value="A" id="Q2A">
+                                                                                                      <label class="govuk-label govuk-radios__label" for="Q2A">
+                                                                                                      HMLR admin
+                                                                                                      </label>
+                                                                                                      <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                                                                                     Can access all functionality
+                                                                                                     </div>
+                                                                                                   </div>
+                                                                                                   <div class="govuk-radios__item">
+                                                                                                      <input class="govuk-radios__input" type="radio" name="question2" value="A" id="Q2A" checked>
+                                                                                                      <label class="govuk-label govuk-radios__label" for="Q2A">
+                                                                                                      HMLR read only user
+                                                                                                      </label>
+                                                                                                      <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                                                                                     Read only access
+                                                                                                     </div>
+                                                                                                   </div>
+                                                                                                   <div class="govuk-radios__item">
+                                                                                                      <input class="govuk-radios__input" type="radio" name="question2" value="A" id="Q2A">
+                                                                                                      <label class="govuk-label govuk-radios__label" for="Q2A">
+                                                                                                      HMLR account only user
+                                                                                                      </label>
+                                                                                                      <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                                                                                     Can create and edit accounts
+                                                                                                     </div>
+                                                                                                   </div>
+
+                                                                                                 </div>
+                                                                                              </fieldset>
+                                                                                           </div>
+                                                                                        </form>
+                                                                                     </div>
+                                                                                  </div>
+
+
+
+                                                                                  <div class="govuk-grid-row">
+                                                                                     <div class="govuk-grid-column-full">
+                                                                                        <form class="form" action="03" method="post">
+                                                                                           <div class="govuk-form-group">
+                                                                                              <fieldset class="govuk-fieldset">
+                                                                                                               <hr style="margin-bottom:25px;">
+                                                                                                               <h3 class="govuk-heading-m" style="margin-bottom: 10px;">
+                                                                                                                 Select {{ data['administrator-first-name'] }} {{ data['administrator-family-name'] }}'s status
+                                                                                                               </h3>
+
+                                                                                                               <div class="govuk-radios" id="myRadioGroup2">
+                                                                                                                  <div class="govuk-radios__item">
+                                                                                                                     <input class="govuk-radios__input" type="radio" name="question2" value="A" id="Q2A" checked>
+                                                                                                                     <label class="govuk-label govuk-radios__label" for="Q2A">
+                                                                                                                     Active
+                                                                                                                     </label>
+                                                                                                                     <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                                                                                                    User has access to The Local Land Charges Register.
+                                                                                                                    </div>
+                                                                                                                  </div>
+                                                                                                                  <div class="govuk-radios__item">
+                                                                                                                     <input class="govuk-radios__input" type="radio" name="question2" value="A" id="Q2A">
+                                                                                                                     <label class="govuk-label govuk-radios__label" for="Q2A">
+                                                                                                                     Inactive
+                                                                                                                     </label>
+                                                                                                                     <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                                                                                                    User is temporarily locked out or suspended.
+                                                                                                                    </div>
+                                                                                                                  </div>
+                                                                                                                  <div class="govuk-radios__item">
+                                                                                                                     <input class="govuk-radios__input" type="radio" name="question2" value="A" id="Q2A">
+                                                                                                                     <label class="govuk-label govuk-radios__label" for="Q2A">
+                                                                                                                     Archived
+                                                                                                                     </label>
+                                                                                                                     <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                                                                                                                    User no longer has access to their account.
+                                                                                                                    </div>
+                                                                                                                  </div>
+
+                                                                                                                  <div class="govuk-!-padding-bottom-5"></div>
+
+                                                                                                                          <div class="govuk-form-group" style="margin-bottom:15px;width: 100%;">
+                                                                                                                              <button class="govuk-button" type="submit" onclick="window.location.href='03.html'">Continue</button>
+                                                                                                                          </div>
+
+                                                                                                                        </div>
+                                                                                                                        </fieldset>
+                                                                                                                        </div>
+                                                                                                                        </form>
+                                                                                                                        </div>
+                                                                                                                        </div>
+
+
+
+</div>
+
+<script>
+   $(document).ready(function() {
+       $("input[name$='question1']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc").hide();
+           $("#question1" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question2']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc2").hide();
+           $("#question2" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question3']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc3").hide();
+           $("#question3" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question4']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc4").hide();
+           $("#question4" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question5']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc5").hide();
+           $("#question5" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question6']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc6").hide();
+           $("#question6" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question7']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc7").hide();
+           $("#question7" + test).show();
+       });
+   });
+
+
+   $(document).ready(function() {
+       $("input[name$='question8']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc8").hide();
+           $("#question8" + test).show();
+       });
+   });
+
+
+   $(document).ready(function() {
+       $("input[name$='question9']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc9").hide();
+           $("#question9" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question10']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc10").hide();
+           $("#question10" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question11']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc11").hide();
+           $("#question11" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question12']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc12").hide();
+           $("#question12" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question13']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc13").hide();
+           $("#question13" + test).show();
+       });
+   });
+
+   $(document).ready(function() {
+       $("input[name$='question14']").click(function() {
+           var test = $(this).val();
+
+           $("div.desc14").hide();
+           $("#question14" + test).show();
+       });
+   });
+
+</script>
+
+
+<style>
+   .desc {
+   display:none;
+   }
+   .desc2 {
+   display:none;
+   }
+   .desc3 {
+   display:none;
+   }
+   .desc4 {
+   display:none;
+   }
+   .desc5 {
+   display:none;
+   }
+   .desc6 {
+   display:none;
+   }
+   .desc7 {
+   display:none;
+   }
+   .desc8 {
+   display:none;
+   }
+   .desc9 {
+   display:none;
+   }
+   .desc10 {
+   display:none;
+   }
+   .desc11 {
+   display:none;
+   }
+   .desc12 {
+   display:none;
+   }
+   .desc13 {
+   display:none;
+   }
+   .desc14 {
+   display:none;
+   }
+
+
+</style>
+
+
+{% endblock %}

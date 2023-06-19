@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        What type of user are you adding?
+      </h1>
+    </legend>
+    <div class="govuk-!-padding-bottom-4"></div>
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+          Service performance and integration team (SPI)
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          General SPI team/customer service
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+          Service performance and integration team (SPI) admin
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Manage users and access data analysis, plus SPI team functions
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+          Business Analyst (BA)
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          BA user functions
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Data Managers
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Manages charges, migration data and users
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Data transformation and delivery
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Access migration data functions
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Quality assurance (QA)
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Access scanned images & review migration data
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Quality assurance (QA) admin
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Manage users & access data analysis, plus QA functions
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          External services cell (ESC)
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Manage banner messages only
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          HM Land Registry admin
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Restricted user type. <br> Can access all functionality. </br>
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Authority administrator
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          Local authority (LA) user with user management functionality
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Authority user
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          LA user
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Other originating authority (non-local authority) (OOA) admin
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          OOA	user with user management functionality
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Other originating authority (non-local authority) (OOA) user
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+          OOA user
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          HM Land Registry user (read only)
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+        Read only access
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          HM Land Registry user (account manager)
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+        Create and edit accounts
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+          Sensitive other orginating authority (non-local authority) (SOOA) user
+        </label>
+        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+        SOOA user
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+
+  <div class="govuk-!-padding-bottom-7"></div>
+
+  <div class=" govuk-grid-column-full" style="padding:30px 0px 0px 0px;">
+          <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='02.html'">
+              Continue
+          </button>
+        </div>
+        </div>
+</div>
+
+
+{% endblock %}

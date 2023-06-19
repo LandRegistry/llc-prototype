@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "LLC prototypes",
+	      href: "/"
+	    },
+      {
+	      text: "Migration Helper prototypes",
+	      href: "../"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l"> Dashboards <h1>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m"> </h2>
+    </div>
+  </div>
+
+      {# <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+          Capture and edit charge data menu
+        </h1>
+      </div>
+
+      <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">
+          Images processed: 98
+        </h2> #}
+        <div class="govuk-width-container">
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+          <p class="govuk-body govuk-!-font-weight-bold"></p>
+        </dt>
+        <dd class="govuk-summary-list__actions">
+          <p class="govuk-body govuk-!-font-weight-bold"></p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <p class="govuk-body govuk-!-font-weight-bold"></p>
+        </dd>
+      </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+        Download data
+      </dt>
+      <dd class="govuk-summary-list__actions">
+
+      </dd>
+      <dd class="govuk-summary-list__actions">
+
+        {{ govukButton({
+          classes: 'govuk-button',
+          html: 'View prototype',
+          href: "/download/v1/dashboard_1",
+          disabled: false
+        }) }}
+
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+        Capture and edit charge data menu
+      </dt>
+      <dd class="govuk-summary-list__actions">
+
+      </dd>
+      <dd class="govuk-summary-list__actions">
+
+        {{ govukButton({
+          classes: 'govuk-button',
+          html: 'View prototype',
+          href: "/download/v1/dashboard_2",
+          disabled: false
+        }) }}
+
+      </dd>
+    </div>
+
+
+    {# <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+        Download data
+      </dt>
+      <dd class="govuk-summary-list__actions">
+
+      </dd>
+      <dd class="govuk-summary-list__actions">
+
+        {{ govukButton({
+          classes: 'govuk-button',
+          html: 'View prototype',
+          href: '/download/v1/dashboard_1',
+          disabled: false
+        }) }}
+
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-two-thirds">
+        Capture and edit charge data menu
+      </dt>
+
+      <dd class="govuk-summary-list__actions">
+
+        {{ govukButton({
+          classes: 'govuk-button',
+          html: 'View prototype'
+          href: '/download/v1/dashboard_2',
+          disabled: false
+        }) }}
+
+      </dd>
+    </div> #}
+
+      {# <h3 class="govuk-heading-s">Changes</h3>
+      <p>Information about this version.</p>
+
+      <h3 class="govuk-heading-s">Research notes</h3>
+      <p>Information about the research.</p>
+      <p><a href="#0">View user research report</a>.<p> #}
+
+
+
+
+        {# <h3 class="govuk-heading-s">Changes</h3>
+        <p>Information about this version.</p>
+
+        <h3 class="govuk-heading-s">Research notes</h3>
+        <p>Information about the research.</p>
+        <p><a href="#0">View user research report</a>.<p> #}
+
+
+
+</div>
+
+
+
+
+
+      {# {% set v1 %}
+        <h3 class="govuk-heading-s">Changes</h3>
+        <p>Information about this version.</p>
+
+        <h3 class="govuk-heading-s">Research notes</h3>
+        <p>Information about the research.</p>
+        <p><a href="#0">View user research report</a>.<p>
+
+        {{ govukButton({
+          text: 'View prototype',
+          href: 'v1/page'
+        }) }}
+      {% endset %}
+
+      {{ govukAccordion({
+        items: [
+          {
+            heading: { text: 'Version 1' },
+            content: { html: v1 }
+          }
+        ]
+      }) }} #}
+
+    </div>
+
+  </div>
+{% endblock %}

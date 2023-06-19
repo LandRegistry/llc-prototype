@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <div class="govuk-phase-banner">
+<p class="govuk-phase-banner__content">
+  <strong class="govuk-tag govuk-tag--pink">
+    prototype
+  </strong>
+  <span class="govuk-phase-banner__text">
+    This is not a full service. It is not production code and you might experience problems.
+  </span>
+</p>
+</div>
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Local land charge spatial data (INSPIRE)</a>
+          </li>
+          <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Download dataset</a>
+          </li>
+        </ol>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width">
+
+          <span class="govuk-caption-xl govuk-!-margin-left-3">Download</span>
+    <h1 class="govuk-heading-xl govuk-!-margin-left-3">Local land charges spatial data (INSPIRE)</h1>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Data showing the indicative extent and position of local land charges (categorised as being within INSPIRE theme groups) in England and Wales.</p>
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Not every local authority dataset has been migrated to HM Land Registry. As more are migrated, more will appear in the list below.</p>
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This dataset was published on 6 March 2022. You can access the data until we update the files. New files are published on the sixth of every month.</p>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">You can:</p>
+    <div class="govuk-!-padding-bottom-1"></div>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+      <li> <a class="govuk-link" href="https://data.gov.uk/data/map-preview?e=1.74944&n=60.8433&s=49.9553&url=http%3A%2F%2Finspire.landregistry.gov.uk%2Finspire%2Fows%3FService%3DWMS%26Request%3DGetcapabilities&w=-8.17167">view all polygons on a map</a> </li>
+      <li> <a class="govuk-link" href="https://use-land-property-data.service.gov.uk/datasets/inspire/download#download">download polygons by local authority</a></li>
+    </ul>
+
+        </div>
+      </div>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <p>Contents</p>
+              <ul class="govuk-list">
+              <li>
+                - <a class="govuk-link" href="">A</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">B</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">C</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">D</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">E</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">F</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">G</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">H</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">I</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">J</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">K</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">L</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">M</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">N</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">O</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">P</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">Q</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">R</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">S</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">T</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">U</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">V</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">W</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">X</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">Y</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">Z</a>
+              </li>
+            </ul>
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-heading-l">Download polygons </p>
+              <div class="govuk-grid-row">
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">The files are listed by local authority.</p>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">You’ll need a Geographical Information System (GIS) to view the downloaded INSPIRE Index Polygons.</p>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3"> By downloading these datasets, you are agreeing to the <a class="govuk-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL Conditions of Use</a>.
+                </div>
+
+                <img src="/public/images/A.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/B.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/C.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/C2.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/D.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/E.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/F.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/G.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/H.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/I.png" alt="A" style="width:100%; margin-left:0px">
+
+                <img src="/public/images/K.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/L.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/M.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/N.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/O.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/P.png" alt="A" style="width:100%; margin-left:0px">
+
+                <img src="/public/images/R.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/S.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/S2.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/Y.png" alt="A" style="width:100%; margin-left:0px">
+
+                <img src="/public/images/U.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/V.png" alt="A" style="width:100%; margin-left:0px">
+                <img src="/public/images/W.png" alt="A" style="width:100%; margin-left:0px">
+
+                <img src="/public/images/Y.png" alt="A" style="width:100%; margin-left:0px">
+
+
+
+    </div>
+
+
+
+        </div>
+
+
+
+
+
+
+        <div class="govuk-grid-column-one-third">
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

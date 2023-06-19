@@ -1,0 +1,293 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full govuk-!-padding-bottom-3 govuk-!-padding-top-6">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-9">
+        Check charge details
+      </h1>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Extent</th>
+            <th scope="col" class="govuk-table__header app-custom-class"></th>
+            <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 210px;">1 of 3</th>
+            <td class="govuk-table__cell"><img src="/public/images/spatialinfo.png" alt="Map key" style="width:80%"></td>
+            <td class="govuk-table__cell">
+              {{ govukButton({
+              classes: 'govuk-button--tertiary',
+              html: 'Previous extent',
+              disabled: true
+            }) }}
+              <br>
+              <br>
+              {{ govukButton({
+            classes: 'govuk-button--tertiary',
+            html: 'Next extent',
+            disabled: false
+          }) }}
+              <br>
+              <br>
+              {{ govukButton({
+          classes: 'govuk-button--tertiary',
+          html: 'Edit',
+          disabled: false
+        }) }}
+              <br>
+              <br>
+              {{ govukButton({
+        classes: 'govuk-button--tertiary',
+        html: 'Select extent',
+        disabled: false
+      }) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table govuk-!-margin-bottom-7">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Charge item</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Information</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Action</th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 300px;">Address</th>
+            <td class="govuk-table__cell">37 MOORS TERRACE, SHOTTON COLLITRY
+
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="spatial-info-address.html">
+                Change<span class="govuk-visually-hidden">
+                  name</span>
+              </a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 300px;">Description</th>
+            <td class="govuk-table__cell">Environmental Protection Act 1990<br>
+              Section 8/A<br>
+              Notice requiring recovery of costs<br>
+              Following default works
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="summary-org-name.html">
+                Change<span class="govuk-visually-hidden">
+                  name</span>
+              </a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 300px;">Law</th>
+            <td class="govuk-table__cell">Local Land Charges Act 1975 section 6(2)</td>
+            <td class="govuk-table__cell">
+              
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Old register part</th>
+            <td class="govuk-table__cell">2</td>
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width:25%">Creation date</th>
+            <td class="govuk-table__cell">
+              <div class="govuk-form-group">
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="summary-org-name.html">
+                    Change<span class="govuk-visually-hidden">
+                      name</span>
+                  </a>
+                </td>
+
+              </tr>
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width:25%">Registration date</th>
+                <td class="govuk-table__cell"><div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+                    <div id="passport-issued-hint" class="govuk-hint">
+                      For example, 27 3 2007
+                    </div>
+                    <div class="govuk-date-input" id="passport-issued">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric" value="21">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric" value="08">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric" value="1995">
+                        </div>
+                      </div>
+                    </div>
+                    <td class="govuk-table__cell">
+                      <a class="govuk-link" href="spatial-info-registration.html">
+                        <span class="govuk-visually-hidden">
+                          name</span>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header" style="width:25%">Originating authority</th>
+                    <td class="govuk-table__cell">Luton Borough Council<div class="govuk-form-group">
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            Change<span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Authority reference</th>
+                        <td class="govuk-table__cell">78/01088/HST</td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            Change<span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header" style="width: 300px;">Category</th>
+                        <td class="govuk-table__cell">Financial</td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            Change<span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header" style="width: 300px;">Charge sub-category</th>
+                        <td class="govuk-table__cell"></td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            Change<span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Charge reference</th>
+                        <td class="govuk-table__cell">87284</td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            <span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Amount originally secured</th>
+                        <td class="govuk-table__cell">£</td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            Change<span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Rate of interest</th>
+                        <td class="govuk-table__cell">%</td>
+                        <td class="govuk-table__cell">
+                          <a class="govuk-link" href="summary-org-name.html">
+                            Change<span class="govuk-visually-hidden">
+                              name</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                    </fieldset>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <h2 class="govuk-heading-m">
+            What do you want to do with this charge?
+          </h2>
+          <div class="govuk-form-group">
+            <select class="govuk-select" id="sort" name="sort" style="width: 210px;">
+              <option value="published">Accept</option>
+              <option value="views">Flag for cancellation</option>
+              <option value="updated" selected="selected">Defer charge</option>
+
+            </select>
+          </div>
+
+          <h2 class="govuk-heading-m">
+            Notes
+          </h2>
+          <div class="govuk-form-group">
+            <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" style="width: 600px;"></textarea>
+          </div>
+          <div id="more-detail-hint" class="govuk-hint">
+              You have 200 characters remaining
+              <br>
+              <br>
+            </div>
+
+          <div class="govuk-!-margin-bottom-3">
+            <button class="govuk-button" data-module="govuk-button" onclick="0">
+              Submit
+            </button>
+           <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="window.location.href='/migration/missing-spatial-data/v1/dashboard_2.html'">
+
+              Save and go back
+            </button>
+          </div>
+
+          <a class="govuk-body govuk-link" href="llc-inspire">Go back to dashboard</a>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+
+{% set amend = true if data['select-local-autohority'] == 'Bournemouth, Christchurch and Poole Council' %}
+{% set disabled = true if data['select-local-autohority'] == 'Adur District Council' %}
+
+{# {% block beforeContent %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'select-la'
+  }) }}
+{% endblock %} #}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if not disabled %}
+
+        <form method="post">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+            <span class="govuk-caption-l">
+              {{ data["select-local-autohority"] }}
+              <span class="govuk-visually-hidden"> &ndash; </span>
+            </span>
+            {{ 'Update' if amend else 'Set' }} register amendment thresholds
+          </h1>
+          <p class="govuk-!-margin-bottom-6">{{ 'Update' if amend else 'Set' }} the thresholds for when the local authority will get an email notification and when the system will stop them making more changes in a 24 hour period.</p>
+
+          {% call govukFieldset({
+            legend: {
+              html: 'Adding new charges',
+              classes: 'govuk-fieldset__legend--m',
+              isPageHeading: true
+            }
+          }) %}
+
+            {{ govukInput({
+              id: 'notify-threshold',
+              name: 'notify-threshold',
+              value: '40' if amend else data['notify-threshold'],
+              classes: 'govuk-input--width-4',
+              label: {
+                html: 'Notify threshold'
+              },
+              formGroup: {
+                classes: 'govuk-!-margin-bottom-2'
+              }
+            }) }}
+
+            {{ govukInput({
+              id: 'stop-threshold',
+              name: 'stop-threshold',
+              value: '50' if amend else data['stop-threshold'],
+              classes: 'govuk-input--width-4',
+              label: {
+                html: 'Stop threshold'
+              }
+            }) }}
+
+          {% endcall %}
+
+
+
+
+          {% call govukFieldset({
+            legend: {
+              html: 'Editing charges',
+              classes: 'govuk-fieldset__legend--m',
+              isPageHeading: true
+            }
+          }) %}
+
+            {{ govukInput({
+              id: 'notify-threshold',
+              name: 'notify-threshold',
+              value: '40' if amend else data['notify-threshold'],
+              classes: 'govuk-input--width-4',
+              label: {
+                html: 'Notify threshold'
+              },
+              formGroup: {
+                classes: 'govuk-!-margin-bottom-2'
+              }
+            }) }}
+
+            {{ govukInput({
+              id: 'stop-threshold',
+              name: 'stop-threshold',
+              value: '50' if amend else data['stop-threshold'],
+              classes: 'govuk-input--width-4',
+              label: {
+                html: 'Stop threshold'
+              }
+            }) }}
+
+          {% endcall %}
+
+
+
+          {% call govukFieldset({
+            legend: {
+              html: 'Cancelling charges',
+              classes: 'govuk-fieldset__legend--m',
+              isPageHeading: true
+            }
+          }) %}
+
+            {{ govukInput({
+              id: 'notify-threshold',
+              name: 'notify-threshold',
+              value: '40' if amend else data['notify-threshold'],
+              classes: 'govuk-input--width-4',
+              label: {
+                html: 'Notify threshold'
+              },
+              formGroup: {
+                classes: 'govuk-!-margin-bottom-2'
+              }
+            }) }}
+
+            {{ govukInput({
+              id: 'stop-threshold',
+              name: 'stop-threshold',
+              value: '50' if amend else data['stop-threshold'],
+              classes: 'govuk-input--width-4',
+              label: {
+                html: 'Stop threshold'
+              }
+            }) }}
+
+          {% endcall %}
+
+
+          {{ govukCheckboxes({
+            idPrefix: 'disable-thresholds',
+            name: 'disable-thresholds',
+            fieldset: {
+              legend: {
+                text: 'Disable thresholds',
+                classes: 'govuk-fieldset__legend--m govuk-!-margin-top-6'
+              }
+            },
+            items: [
+              {
+                html: 'Disable thresholds for 48 hours',
+                value: 'Disable thresholds for 48 hours',
+                checked: checked('disable-thresholds','Disable thresholds for 48 hours')
+              }
+            ]
+          }) if amend }}
+
+
+
+          {{ govukButton({
+            html: 'Update thresholds' if amend else 'Set thresholds'
+          }) }}
+          <p>or <a class="govuk-link--no-visited-state" href="../dashboard">cancel and return to main menu</a></p>
+
+        </form>
+
+
+
+
+      {% else %}
+
+
+
+
+        <h1 class="govuk-heading-l">
+          <span class="govuk-caption-l">
+            {{ data["select-local-autohority"] }}<span class="govuk-visually-hidden"> &ndash; </span>
+          </span>
+          Register amendment thresholds disabled
+        </h1>
+
+        {{ govukInsetText({
+          html: '<p>The thresholds are disabled for another 16 hours 30 minutes (until '+ today | date("add", 16.5, "hours") | date("h:mma on dddd D MMMM") +') for this local authority.</p>'
+        }) }}
+
+
+
+        {{ govukButton({
+          html: 'Re-enable thresholds',
+          href: 'confirmation?reenabled=true'
+        }) }}
+        <p>or <a class="govuk-link--no-visited-state" href="../dashboard">return to main menu</a></p>
+
+      {% endif %}
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+    $('#disable-thresholds').change(function () {
+      if ($(this).is(':checked')) {
+        $('input').prop('disabled', true)
+        $(this).prop('disabled', false)
+      } else {
+        $('input').prop('disabled', false)
+        $(this).prop('disabled', false)
+      }
+    });
+  </script>
+{% endblock %}

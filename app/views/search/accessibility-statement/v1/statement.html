@@ -1,0 +1,227 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--pink">
+          prototype
+        </strong>
+        <span class="govuk-phase-banner__text">
+          This is not a full service. It is not production code and you might experience problems.
+        </span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main" {% if mainLang %} lang="{{ mainLang }}" {% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width">
+
+          <h1 class="govuk-heading-xl govuk-!-margin-left-3">Accessibility statement for HM Land Registry – Local land charges, search service</h1>
+
+        </div>
+        <div class="govuk-grid-column-full-width">
+          <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This accessibility statement is for the
+            <a class="govuk-link" href="https://search-local-land-charges.service.gov.uk/">search for local land charges service</a>.
+            <br>HM Land Registry update this.</p>
+
+        </div>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p>Contents</p>
+          <ul class="govuk-list">
+            <li>
+              -
+              <a class="govuk-link" href="#sectionone">How you can use this website</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectiontwo">How accessible this website is</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionthree">How to get information in an accessible format</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionfour">Enforcement procedure</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionfive">Technical information about this website's accessibility</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionsix">Non-accessible content</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionseven">How we tested this website</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectioneight">What we are doing to improve
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+
+          <p class="govuk-heading-l" id="sectionone">How you can use this website</p>
+          <div class="govuk-grid-row">
+            <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">On this website you should be able to:
+              <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                <li>change colours, contrast levels and fonts</li>
+                <li>zoom in up to 200% without the text spilling off the screen</li>
+                <li>navigate most of the website using only a keyboard</li>
+                <li>navigate most of the website using speech recognition software</li>
+                <li>listen to most of the website using a screen reader (including the most recent versions of JAWS (Job Access With Speech), NVDA (NonVisual Desktop Access) and Voiceover</li>
+              </ul>
+
+              <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We have made the website text as simple as possible to understand. We only use technical terms where there is no easier wording to use without changing the meaning.</p>
+
+              <div class="govuk-inset-text govuk-!-margin-left-3">
+                <a class="govuk-link" href="https://mcmw.abilitynet.org.uk/">AbilityNet</a>
+                has advice on making your device easier to use if you have a disability.</div>
+
+              <p class="govuk-heading-l govuk-!-margin-left-3" id="sectiontwo">How accessible this website is</p>
+              <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We know the following parts are not accessible:
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                  <li>some pages do not display certain error messages</li>
+                  <li>some screen readers and browsers may repeat, miss, or misread text on the page when using Google Chrome and the Apple voiceover feature</li>
+                  <li>users with keyboard-only control cannot access all map features</li>
+                  <li>users with keyboard-only control cannot draw a search extent</li>
+                </ul>
+
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We are working on these issues to improve the accessibility of this website.</p>
+
+                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionthree">How to get information in an accessible format</p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We are always looking to improve the accessibility of this website.</p>
+
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">You can contact us:</p>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                  <li>about any problems accessing information</li>
+                  <li>to request information in a different format, such as audio recordings, braille or an accessible PDF</li>
+                  <li>if you find any problems that are not listed on this page</li>
+                  <li>to tell us how we are not meeting accessibility requirements</li>
+                </ul>
+
+                <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Online form</p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">
+                  <a class="govuk-link" href="https://customerhelp.landregistry.gov.uk/local-land-charges/">Use this form</a>
+                  to ask for information about local land charges only.<br>We aim to get back to you in 5 working days.</p>
+
+                <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Telephone</p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Telephone: 0300 006 0444<br>
+
+                  Monday to Friday, 9am to 5pm (except public holidays)</p>
+
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Welsh language: 0300 006 0422<br>
+
+                  Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+
+                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionfour">Enforcement procedure</p>
+                <div class="govuk-grid-row govuk-!-margin-left-3">
+                  <p class="govuk-body govuk-!-font-weight-regular">
+                    <a class="govuk-link" href="https://www.equalityhumanrights.com/en">The Equality and Human Rights Commission (EHRC)</a>
+                    is responsible for enforcing the accessibility regulations.</p>
+                  <p class="govuk-body govuk-!-font-weight-regular">If you are not happy with how we respond to your complaint
+                    <a class="govuk-link" href="https://www.equalityadvisoryservice.com/">contact the Equality Advisory and Support Service (EASS)</a>.</p>
+                </div>
+
+                <div class="govuk-!-padding-bottom-4"></div>
+
+                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionfive">Technical information about this website's accessibility</p>
+                <div class="govuk-grid-row govuk-!-margin-left-3">
+                  <p class="govuk-body govuk-!-font-weight-regular">HM Land Registry commit to making its website accessible, in accordance with
+                    <a class="govuk-link" href="https://www.legislation.gov.uk/uksi/2018/852/contents/made">the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018</a>.
+                  </p>
+                  <p class="govuk-heading-m">Compliance status</p>
+                  <p class="govuk-body govuk-!-font-weight-regular">This website is partially compliant with the
+                    <a class="govuk-link" href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1
+                    </a>AA standard, due to the following non-compliances.</p>
+                </div>
+                <div class="govuk-!-padding-bottom-4"></div>
+                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionsix">Non-accessible content</p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">The following content is not accessible. We have provided an explanation and reference to the relevant WCAG section.</p>
+                <p class="govuk-heading-m govuk-!-margin-left-3">Error messages</p>
+                <p class="govuk-!-margin-left-3">
+                  <div class="govuk-!-margin-left-3" style="background-color: #f3f2f1 ; padding: 10px;;">
+                    <p class="govuk-body govuk-!-font-weight-regular">Some pages do not display certain error messages. This means users are not told how to fix errors and get a ‘Something went wrong’ page.</p>
+                  </div>
+                </p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This fails
+                  <a class="govuk-link" href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification">3.3.1 (Error Identification)</a>
+                  and
+                  <a class="govuk-link" href="https://www.w3.org/WAI/WCAG21/Understanding/error-suggestion">3.3.3 (Error Suggestion)</a>. We are investigating this issue and will aim to fix it as soon as possible.</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-left-3">
+                <p class="govuk-heading-m govuk-!-margin-left-3">Google Chrome and the Apple voiceover feature</p>
+                <p class="govuk-!-margin-left-3">
+                  <div class="govuk-!-margin-left-3" style="background-color: #f3f2f1 ; padding: 10px;;">
+                    <p class="govuk-body govuk-!-font-weight-regular">Sometimes when using Google Chrome or the Apple voiceover feature, screen readers will:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>not finish words or sentences</li>
+                      <li>repeat some words on the page</li>
+                      <li>tell users if there is an incorrect number of radio buttons</li>
+                    </ul>
+                  </div>
+                </p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Currently this issue is not in the scope of the accessibility regulations.</p>
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-left-3">
+                <p class="govuk-heading-m govuk-!-margin-left-3">Accessing all map features</p>
+                <p class="govuk-!-margin-left-3">
+                  <div class="govuk-!-margin-left-3" style="background-color: #f3f2f1 ; padding: 10px;;">
+                    <p class="govuk-body govuk-!-font-weight-regular">Users with keyboard-only control cannot access all map features.</p>
+                  </div>
+                </p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This fails
+                  <a class="govuk-link" href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">2.1.1 Keyboard Only Input</a>. Currently this issue is not in the scope of the accessibility regulations.</p>
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-left-3">
+                <p class="govuk-heading-m govuk-!-margin-left-3">Drawing a search extent</p>
+                <p class="govuk-!-margin-left-3">
+                  <div class="govuk-!-margin-left-3" style="background-color: #f3f2f1 ; padding: 10px;;">
+                    <p class="govuk-body govuk-!-font-weight-regular">If a user has access to the Search area report page, they may notice an issue if they disable CSS. The location markers and extents do not appear on the map preview area.</p>
+                  </div>
+                </p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This fails
+                  <a class="govuk-link" href="https://www.w3.org/WAI/WCAG21/Understanding/meaningful-sequence">1.3.2 Meaningful Sequence</a>. Currently this issue is not in the scope of the accessibility regulations.</p>
+
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We have provided alternative features to help users. For example, uploading a shapefile with pre-drawn extents.</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-left-3">
+                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionseven">How we tested this website</p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We tested this website on 1 July 2020.</p>
+                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Our internal audit team conduct all testing. This includes:
+                  <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                    <li>internal testing against the W3C WAI Web Content Accessibility Guidelines version 2.1</li>
+                    <li>logging all results and defects in Quality Center</li>
+                    <li>WAVE evaluation to check for contrast detection, heading, legend and label checks</li>
+                    <li>W3C Markup Validation Service (for HTML validation)</li>
+                    <li>Web Developer devices to disable JavaScript and check table layout, links, field sets and images with alt text</li>
+                    <li>Dragonspeak and JAWS screen readers</li>
+                    <li>PAC3 (PDF Accessibility Checker 3) automated devices, to assess PDF accessibility compliance</li>
+                  </ul>
+
+                  <p class="govuk-heading-l govuk-!-margin-left-3" id="sectioneight">What we are doing to improve</p>
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">We are aware of the accessibility issues on this website. We aim to fix them as soon as possible.</p>
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This statement was prepared on 1 November 2022. It was last updated on 1 November 2022.</p>
+
+                </div>
+
+                <div class="govuk-grid-column-one-third"></div>
+              </div>
+            </main>
+          </div>
+        {% endblock %}

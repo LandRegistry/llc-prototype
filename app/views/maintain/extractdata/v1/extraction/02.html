@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+{# <a href="dashboard" class="govuk-back-link">Back</a>
+
+<p class="govuk-body govuk-!-margin-bottom-7"></p> #}
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Extract register data
+      </h1>
+    </legend>
+    <div class="govuk-!-padding-bottom-4"></div>
+    <p> Use the fields below to filter data within your report. </p>
+    <div class="govuk-!-padding-bottom-4"></div>
+
+    <div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
+    Originating authority name (optional)
+  </label>
+  <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text"></div>
+
+  <div class="govuk-form-group">
+  <label class="govuk-label" for="two-thirds">
+    Migrating authority name (optional)
+  </label>
+  <input class="govuk-input govuk-!-width-two-thirds" id="two-thirds" name="two-thirds" type="text"></div>
+
+
+        <div class="govuk-form-group">
+      <label class="govuk-label" for="sort">
+        Select charge category (optional)
+      </label>
+      <select class="govuk-select govuk-!-width-two-thirds" id="sort" name="sort">
+        <option value="published">Planning</option>
+        <option value="updated" selected>Financial</option>
+        <option value="views">Listed building</option>
+        <option value="comments">Land compensation</option>
+        <option value="comments">Housing/buildings</option>
+        <option value="comments">Land compensation</option>
+        <option value="comments">Light obstruction notice</option>
+        <option value="comments">Other</option>
+        <option value="comments">Testing STP Categories</option>
+        <option value="comments">Test category</option>
+        <option value="comments">Ordering testing</option>
+      </select>
+    </div>
+
+    <div class="govuk-form-group">
+    <label class="govuk-label" for="sort">
+    Select charge sub-category (optional)
+    </label>
+    <select class="govuk-select govuk-!-width-two-thirds" id="sort" name="sort">
+      <option value="published">Conditional planning consent</option>
+      <option value="updated" selected>Conservation area</option>
+      <option value="views">Enforcement notice</option>
+      <option value="comments">Modification/rectification orders</option>
+      <option value="comments">Planning agreeement</option>
+      <option value="comments">Planning notice</option>
+      <option value="comments">Tree preservations order (TPO)</option>
+    </select>
+    </div>
+
+  </fieldset>
+<div class="govuk-!-padding-bottom-4"></div>
+​
+<div class="govuk-grid-column-full" style="margin-left: -15px">
+​
+  <div id="passport-issued-hint" class="govuk-label" style="margin-bottom: -5px">
+    Charge registration date range​
+  </div>
+
+
+​
+  <div class="govuk-grid-column-one-third" float="">
+  <div class="govuk-form-group">
+
+    <fieldset class="govuk-fieldset" style="margin-left: -15px" role="group" aria-describedby="passport-issued-hint">
+​
+      <div class="govuk-date-input" id="passport-issued">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+      </div>
+      <p class="govuk-label" style="margin-top: -20px" align="right"> to </p>
+    </fieldset>
+    </div>
+​
+​
+    </div>
+​
+      <div class="govuk-grid-column-one-third">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+​
+​
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+        </div>
+​
+      </fieldset>
+      </div>
+​
+​
+  </div>
+​
+</div>
+
+<div class="govuk-!-padding-bottom-4"></div>
+​
+<div class="govuk-grid-column-full" style="margin-left: -15px">
+​
+  <div id="passport-issued-hint" class="govuk-label" style="margin-bottom: -45px">
+    Charge creation date range​
+  </div>
+
+  <div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper">
+​
+  <div class="govuk-grid-column-one-third" float="left">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" style="margin-left: -15px" role="group" aria-describedby="passport-issued-hint">
+​
+      <div class="govuk-date-input" id="passport-issued">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+      </div>
+      <p class="govuk-label" style="margin-top: -20px" align="right"> to </p>
+    </fieldset>
+    </div>
+​
+​
+    </div>
+​
+      <div class="govuk-grid-column-one-third" float="left">
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+​
+​
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+        </div>
+      </fieldset>
+      </div>
+​
+​
+  </div>
+
+</main>
+​
+</div>
+
+<div class="govuk-grid-column-one-third" float="left" style="margin-top: -30px">
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          Include empty date fields
+        </label>
+      </div>
+
+    </div>
+
+  </fieldset>
+</div>
+</div>
+
+  <div class="govuk-!-padding-bottom-7"></div>
+
+
+  <div class=" govuk-grid-column-full" style="padding:30px 0px 0px 0px;">
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        This data report contains 160 charges
+      </strong>
+    </div>
+
+    <form method="get" action="/public/images/extractiondata.csv">
+   <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" formaction="02" type="submit">Download Data</button>
+</form>
+        </div>
+
+        <div class="govuk-inset-text">
+   Data reports containing more charges may take longer to download.
+</div>
+
+
+<a href="dashboard">Return to main menu</a>
+
+        </div>
+</div>
+
+
+{% endblock %}

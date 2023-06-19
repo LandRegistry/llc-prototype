@@ -1,0 +1,276 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <div class="govuk-phase-banner">
+<p class="govuk-phase-banner__content">
+  <strong class="govuk-tag govuk-tag--pink">
+    prototype
+  </strong>
+  <span class="govuk-phase-banner__text">
+    This is not a full service. It is not production code and you might experience problems.
+  </span>
+</p>
+</div>
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width">
+
+          <span class="govuk-caption-xl">Dataset</span>
+    <h1 class="govuk-heading-xl">Local land charges spatial data (INSPIRE)</h1>
+
+        </div>
+      </div>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <p>Contents</p>
+              <ul class="govuk-list">
+              <li>
+                - <a class="govuk-link" href="">The dataset</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">How can you use the data</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">Access the data</a>
+              </li>
+              <li>
+                - <a class="govuk-link" href="">Contact us</a>
+              </li>
+            </ul>
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <p class="govuk-heading-l">The dataset </p>
+              <div class="govuk-grid-row">
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This is an open-source dataset, developed to follow the <a class="govuk-link" href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=OJ%3AL%3A2007%3A108%3ATOC">INSPIRE Directive</a>.</p>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">The dataset uses spatial data from HM Land Registry’s local land charges register. It shows the indicative locations of local land charges in England and Wales. These charges form part of a category group in the <a class="govuk-link" href="https://inspire.ec.europa.eu/theme">INSPIRE themes register</a>.</p>
+
+                  <p class="govuk-heading-m govuk-!-margin-left-3">INSPIRE themes</p>
+
+                  <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <div class="govuk-accordion__section govuk-!-margin-left-3">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Area management, Restrictions, Regulation zones and Reporting units
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+      <p class='govuk-body'><p class="govuk-body govuk-!-font-weight-regular">This theme covers areas under an environmental policy or activity impacting the environment.</p>
+
+      <p class="govuk-body">Policies include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>reducing pollution levels </li>
+        <li>conserving natural resources</li>
+        <li>protecting plant, animal, and human health</li>
+        <li>controlling development</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-font-weight-regular">Local land charges which form part of this theme group include smoke control orders.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section govuk-!-margin-left-3">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          Land use
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+      <p class='govuk-body'><p class="govuk-body govuk-!-font-weight-regular">This theme covers the use and functions of a territory and its description of land. This depends on its socio-economic and ecological purpose.</p>
+
+      <p class="govuk-body">The 2 types of land use are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>The existing land use, which outlines the use and functions as they are now</li>
+        <li>The planned land use, defined by spatial planning authorities to outline ways to use the land</li>
+
+      </ul>
+
+      <p class="govuk-body govuk-!-font-weight-regular">Local land charges which form part of this theme group include Legal agreements as to the use of land, and Tree Preservation Orders.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section govuk-!-margin-left-3">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+        Protected sites
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+      <p class="govuk-body">This theme focuses on the specific conservation of designated areas of land or sea. It protects and maintains:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>listed buildings </li>
+        <li>biological diversity</li>
+        <li>conservation areas</li>
+      </ul>
+
+      <p class="govuk-body govuk-!-font-weight-regular">Local land charges which form part of these theme group include Ancient Monuments and Sites of Special Scientific Interest.</p>
+    </div>
+  </div>
+</div>
+
+                  {# <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Area management, Restrictions, Regulation zones and Reporting units</p>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This theme covers areas under an environmental policy or activity impacting the environment.</p>
+
+                  <p class="govuk-body govuk-!-margin-left-3">Policies include:</p>
+                  <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                    <li>reducing pollution levels </li>
+                    <li>conserving natural resources</li>
+                    <li>protecting plant, animal, and human health</li>
+                    <li>controlling development</li>
+                  </ul>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Local land charges which form part of this theme group include smoke control orders.</p>
+
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Land use</p>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This theme covers the use and functions of a territory and its description of land. This depends on its socio-economic and ecological purpose.</p>
+
+                  <p class="govuk-body govuk-!-margin-left-3">The 2 types of land use are:</p>
+                  <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                    <li>The existing land use, which outlines the use and functions as they are now</li>
+                    <li>The planned land use, defined by spatial planning authorities to outline ways to use the land</li>
+
+                  </ul>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Local land charges which form part of this theme group include Legal agreements as to the use of land, and Tree Preservation Orders.</p>
+
+                  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Protected sites</p>
+
+                  <p class="govuk-body govuk-!-margin-left-3">This theme focuses on the specific conservation of designated areas of land or sea. It protects and maintains:</p>
+                  <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                    <li>listed buildings </li>
+                    <li>biological diversity</li>
+                    <li>conservation areas</li>
+                  </ul>
+
+                  <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Local land charges which form part of these theme group include Ancient Monuments and Sites of Special Scientific Interest.</p> #}
+
+                  <div class="govuk-inset-text govuk-!-margin-left-3">
+                    We are currently migrating local land charge data from local authorities. This means not all local authority areas are available on our service yet.</div>
+
+
+                </div>
+
+
+
+
+
+                <p class="govuk-heading-m">About INSPIRE polygons </p>
+                <div class="govuk-grid-row">
+                    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Each polygon has a unique identification number called an INSPIRE ID. You can use an INSPIRE ID to
+ <a class="govuk-link" href="https://search-local-land-charges.service.gov.uk/">Search for a local land charge</a>.</p>
+
+ <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Each local land charge will have a polygon associated with it and may have more than one.
+</p>
+
+<p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Polygons divide into separate data files for each local authority area. If a polygon is on the boundary between local authorities, it will appear in both data files.</p>
+
+<p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">To find out the definitive extent of land in a local land charge, you need to inspect the source documents. The originating authority will hold these.</p>
+
+<div class="govuk-!-padding-bottom-5"></div>
+
+<p class="govuk-heading-l govuk-!-margin-left-3">How you can use the data </p>
+<p class="govuk-heading-m govuk-!-margin-left-3">Conditions of use </p>
+
+<p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">
+Your use of the INSPIRE local land charges spatial data polygons service is governed by conditions.</p>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This dataset is available for use and reuse under the
+<a class="govuk-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence (OGL)</a>. This licence enables public bodies to make their data available free of charge for reuse.</p>
+
+<p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Use under the OGL is free. If you fail to comply with any of the conditions of the OGL, then the rights granted to you under the licence will end automatically.</p>
+
+<p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Under the OGL, when reusing the data, you must acknowledge the source of the data. and include the following attribution statement:
+</p>
+
+{# <blockquote class="noquotes">
+  <p class="govuk-body govuk-body">This information is subject to Crown copyright and database rights 2020 and is reproduced with the permission of HM Land Registry.</p>
+</blockquote> #}
+
+<p class="govuk-!-margin-left-3"> <img src="/public/images/quote1.png" alt="quote" style="width:100%"> </p>
+
+<p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">If you are reusing the polygons (including the associated geometry, namely x, y co-ordinates), you must also display the following Ordnance Survey attribution statement:</p>
+
+<p class="govuk-!-margin-left-3"> <img src="/public/images/quote2.png" alt="quote" style="width:100%"> </p>
+
+ <div class="govuk-inset-text govuk-!-margin-left-3">
+   You must provide a link to the following conditions:
+    https://use-land-property-data.service.gov.uk/datasets/inspire/#conditions.</div>
+
+
+<div class="govuk-!-padding-bottom-5"></div>
+
+
+
+<p class="govuk-heading-l govuk-!-margin-left-3">Access the data </p>
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">The dataset updates on the sixth of each month and shows data from the previous month. For example, data published in April will contain data from March.</p>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">You will be able to access the data until we publish new data the following month.</p>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">The files are published as GML files. You will need a Geographical Information System (GIS) to view downloaded polygons.</p>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">GIS will enable you to store or edit downloaded data. You can then compare or integrate with other available datasets.</p>
+
+    <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3"> <a class="govuk-link" href="https://use-land-property-data.service.gov.uk/datasets/inspire/tech-guidance">Read the guidance on using GML format files.</a></p>
+    <button class="govuk-button govuk-!-margin-left-3" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='download-inspire.html'">Access data</button>
+
+
+
+    <p class="govuk-heading-l govuk-!-margin-left-3">Contact us </p>
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Telephone</p>
+
+        <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">Telephone: 0300 006 0444 <br>Monday to Friday, 9am to 5pm</p>
+
+        <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3"></p>
+
+        <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3"> <a class="govuk-link" href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Email</p>
+
+        <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3"> <a class="govuk-link" href="0">SPITeam@landregistry.gov.uk</a> <br>We aim to respond within 2 working days</p>
+
+        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-left-3">Address</p>
+
+        <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">HMLR Local Land Charges <br> Processing Team
+<br>PO Box 326<br>Mitcheldean<br>GL14 9BQ</p>
+
+
+    </div>
+
+
+
+        </div>
+
+
+
+
+
+
+        <div class="govuk-grid-column-one-third">
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

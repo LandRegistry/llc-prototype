@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% set query = data['search'] or 'S10 4BG' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Local land charges for '38 Knatchbull Road, London SE5 9QY'
+        </h1>
+
+        <img src="/public/images/38-knatchbull-results.png" alt="38 Knatchull road extent" style="height:300px">
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+        <p>There are <b>6 local land charges</b> for '38 Knatchbull Road, London SE5 9QY'. You can view them free of charge, or <a href="#0">download an official search result for £15</a>.</p>
+        <p>Not the right area? <a href="search">Search again</a>.</p>
+
+
+
+        <h2 class="govuk-heading-m">
+          Listed building
+        </h2>
+        <div class="govuk-accordion" data-module="govuk-accordion">
+          {% for i in range(2, 100, 17) %}
+
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header govuk-!-padding-top-2 govuk-!-padding-bottom-2">
+                <h3 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button govuk-!-font-size-19">
+                    LLC-F{{ range(1, 51) | random }}F{{ range(1, 51) | random }} &ndash; Listed building
+                  </span>
+                </h3>
+              </div>
+              <div class="govuk-accordion__section-content">
+                {{ govukSummaryList({
+                  classes: 'govuk-summary-list--no-border',
+                  rows: [
+                    {
+                      key: {
+                        text: 'Description'
+                      },
+                      value: {
+                        text: 'Installation of a part timber, part glazed veranda to the rear ground floor and replacement of the existing ground windows with new timber double doors'
+                      }
+                    },
+                    {
+                      key: {
+                        text: 'Originating authority'
+                      },
+                      value: {
+                        text: 'London Borough of Lambeth'
+                      }
+                    },
+                    {
+                      key: {
+                        text: 'Authority reference'
+                      },
+                      value: {
+                        text: '17/04366/FUL'
+                      }
+                    },
+                    {
+                      key: {
+                        text: 'Creation date'
+                      },
+                      value: {
+                        text: today | date("subtract", i, "months") | date("D MMMM YYYY")
+                      }
+                    },
+                    {
+                      key: {
+                        text: 'Registration date'
+                      },
+                      value: {
+                        text: '08 January 2018'
+                      }
+                    },
+                    {
+                      key: {
+                        text: 'Law'
+                      },
+                      value: {
+                        html: 'Town and Country Planning Act 1990 section 70'
+                      }
+                    },
+                    {
+                      key: {
+                        text: 'Legal document'
+                      },
+                      value: {
+                        html: 'Planning permission'
+                      }
+                    }
+                  ]
+                }) }}
+
+                {# {
+                  key: {
+                    text: 'Location'
+                  },
+                  value: {
+                    text: '133, Warwick Road'
+                  }
+                },
+                {
+                  key: {
+                    text: 'Category'
+                  },
+                  value: {
+                    text: 'Planning - Conditional planning consent'
+                  }
+                },
+                {
+                  key: {
+                    text: 'Description'
+                  },
+                  value: {
+                    text: 'Change of use to 1 flats & 4 bedsits Approved subject to conditions'
+                  }
+                },
+                {
+                  key: {
+                    text: 'HM Land Registry reference'
+                  },
+                  value: {
+                    text: 'LLC-F9F8'
+                  }
+                }#}
+              </div>
+            </div>
+
+          {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Download an official search results for £15
+        </h2>
+        <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Secure (tamper-proof) document</li>
+          <li>Digitally signed and guranteed by HM Land Registry</li>
+          <li>Local Land Charge boundary on a map</li>
+          <li>Link to source documents</li>
+          <li>Free repeat searches for 6 months</li>
+        </ul>
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%" onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

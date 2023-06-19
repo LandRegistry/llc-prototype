@@ -1,0 +1,457 @@
+{% extends "layout.html" %} {% block pageTitle %} Question page {% endblock %} {% block beforeContent %} <a class="govuk-back-link" href="">Back</a>
+{% endblock %} {% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">Add a user</h1>
+	</div>
+</div>
+<form class="form" action="" method="post">
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-full">
+			<form class="form" action="" method="post">
+				<div class="govuk-form-group">
+					<fieldset class="govuk-fieldset">
+						<div>
+							<h3 class="govuk-heading-m">Do you know the type of user you are adding?
+              </h3>
+						</div>
+						<div class="govuk-radios" id="myRadioGroup">
+							<div class="govuk-radios__item">
+								<input class="govuk-radios__input" type="radio" name="question1" value="A" id="Q1A">
+								<label class="govuk-label govuk-radios__label" for="Q1A">Yes</label>
+							</div>
+							<div class="govuk-radios__item">
+								<input class="govuk-radios__input" type="radio" name="question1" value="B" id="Q1B">
+								<label class="govuk-label govuk-radios__label" for="Q1B">No</label>
+							</div>
+							<div class="govuk-grid-row desc" id="question1A">
+								<div class="govuk-grid-column-full govuk-!-padding-bottom-3">
+									<hr style="margin-bottom:25px;">
+									<h3 class="govuk-heading-m" style="margin-bottom: 10px;">
+                            Select the user type
+                          </h3>
+									<div class="govuk-form-group">
+										<fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+											<div class="govuk-radios">
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2A" name="question2" type="radio" value="A">
+													<label class="govuk-label govuk-radios__label" for="Q2A">  Service performance and integration (SPI) team
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           General SPI team/customer service
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2B" name="question2" type="radio" value="B">
+													<label class="govuk-label govuk-radios__label" for="Q2B"> Service performance and integration (SPI) team admin
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Manage users and access data analysis, plus SPI team functions
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2C" name="question2" type="radio" value="C">
+													<label class="govuk-label govuk-radios__label" for="Q2C"> Business Analyst (BA)
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           BA user functions
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2D" name="question2" type="radio" value="D">
+													<label class="govuk-label govuk-radios__label" for="Q2D"> Data Managers
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Manages charges, migration data and users
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2E" name="question2" type="radio" value="E">
+													<label class="govuk-label govuk-radios__label" for="Q2E"> Data transformation and delivery
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Access migration data functions
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2F" name="question2" type="radio" value="F">
+													<label class="govuk-label govuk-radios__label" for="Q2F"> Quality assurance (QA)
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Access scanned images and review migration data
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2G" name="question2" type="radio" value="G">
+													<label class="govuk-label govuk-radios__label" for="Q2G"> Quality assurance (QA) admin
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Manage users & access data analysis, plus QA functions
+                        </div>
+												</div>
+												<div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2H" name="question2" type="radio" value="H">
+													<label class="govuk-label govuk-radios__label" for="Q2H"> External services cell (ESC)
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Manage banner messages only
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2Y" name="question2" type="radio" value="Y">
+													<label class="govuk-label govuk-radios__label" for="Q2Y"> HM Land Registry user
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Restricted user type. Can access all functionality.
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2W" name="question2" type="radio" value="W">
+													<label class="govuk-label govuk-radios__label" for="Q2W"> Authority admin
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Local authority (LA) user with user management functionality
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2X" name="question2" type="radio" value="X">
+													<label class="govuk-label govuk-radios__label" for="Q2X"> Authority user
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Local authority (LA) user
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2K" name="question2" type="radio" value="K">
+													<label class="govuk-label govuk-radios__label" for="Q2K"> Other originating authority (non-local authority) (OOA) admin
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           OOA user with user management functionality
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2L" name="question2" type="radio" value="L">
+													<label class="govuk-label govuk-radios__label" for="Q2L"> Other originating authority (non-local authority) (OOA) user
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           OOA user
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2M" name="question2" type="radio" value="M">
+													<label class="govuk-label govuk-radios__label" for="Q2M"> HM Land Registry user (read only)
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           Read only access
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2N" name="question2" type="radio" value="N">
+													<label class="govuk-label govuk-radios__label" for="Q2N"> HM Land Registry user (account manager)
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                          Create and edit accounts
+                        </div>
+												</div>
+                        <div class="govuk-radios__item">
+													<input class="govuk-radios__input" id="Q2O" name="question2" type="radio" value="O">
+													<label class="govuk-label govuk-radios__label" for="Q2O"> Sensitive other originating authority (non-local authority) (SOOA) user
+													</label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                           SOOA user
+                        </div>
+												</div>
+											</div>
+										</fieldset>
+                    <div class="govuk-!-padding-bottom-7"></div>
+
+                    <div class=" govuk-grid-column-full" style="padding:30px 0px 0px 0px;">
+                            <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='02.html'">
+                                Continue
+                            </button>
+                          </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<div class="govuk-grid-row desc" id="question1B">
+						<div class="govuk-grid-column-full govuk-!-padding-bottom-3 govuk-!-padding-top-3">
+							<hr style="margin-bottom:25px;">
+							<div class="govuk-form-group">
+						  <fieldset class="govuk-fieldset" aria-describedby="nationality-hint">
+						    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+						      <h1 class="govuk-fieldset__heading">
+						        Which permissions would you like the user to have?
+						      </h1>
+						    </legend>
+						    <div id="nationality-hint" class="govuk-hint">
+						      Select all permissions applicable for your user
+						    </div>
+						    <div class="govuk-checkboxes">
+						      <div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions" name="question2" type="checkbox" value="I" aria-describedby="nationality-item-hint">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2I">
+						          Manage charges
+						        </label>
+						      </div>
+						      <div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-2" name="question2" type="checkbox" value="J">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2J">
+						          Perform, repeat and view official searches
+						        </label>
+						      </div>
+						      <div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-3" name="question2" type="checkbox" value="K">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2K">
+						          Send a payment link
+						        </label>
+						      </div>
+									<div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-4" name="question2" type="checkbox" value="L">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2L">
+						          Manage users
+						        </label>
+						      </div>
+									<div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-5" name="question2" type="checkbox" value="M">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2M">
+						          Manage migration data
+						        </label>
+						      </div>
+									<div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-6" name="question2" type="checkbox" value="N">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2N">
+						          Manage search service
+						        </label>
+						      </div>
+									<div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-7" name="question2" type="checkbox" value="O">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q20">
+						          Manage law and categories
+						        </label>
+						      </div>
+									<div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-8" name="question2" type="checkbox" value="P">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2P">
+						          Amend API
+						        </label>
+						      </div>
+									<div class="govuk-checkboxes__item">
+						        <input class="govuk-checkboxes__input" id="permissions-9" name="question2" type="checkbox" value="Q">
+						        <label class="govuk-label govuk-checkboxes__label" for="Q2Q">
+						          Manage SOURCE information
+						        </label>
+						      </div>
+
+									<div class="govuk-!-padding-bottom-7"></div>
+
+									<div class="govuk-button-group">
+								  <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='02.html'">
+								    Continue
+								  </button>
+
+								  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="window.location.href='03.html'">
+								    See full user permissions
+								  </button>
+								</div>
+
+
+											</div>
+										</div>
+
+						    </div>
+
+
+						  </fieldset>
+						</div>
+
+	</div>
+	</form>
+
+	<script>
+		$(document).ready(function() {
+		         $("input[name$='question1']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc").hide();
+		             $("#question1" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question2']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc2").hide();
+		             $("#question2" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question3']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc3").hide();
+		             $("#question3" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question4']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc4").hide();
+		             $("#question4" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question5']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc5").hide();
+		             $("#question5" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question6']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc6").hide();
+		             $("#question6" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question7']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc7").hide();
+		             $("#question7" + test).show();
+		         });
+		     });
+
+
+		     $(document).ready(function() {
+		         $("input[name$='question8']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc8").hide();
+		             $("#question8" + test).show();
+		         });
+		     });
+
+
+		     $(document).ready(function() {
+		         $("input[name$='question9']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc9").hide();
+		             $("#question9" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question10']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc10").hide();
+		             $("#question10" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question11']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc11").hide();
+		             $("#question11" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question12']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc12").hide();
+		             $("#question12" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question13']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc13").hide();
+		             $("#question13" + test).show();
+		         });
+		     });
+
+		     $(document).ready(function() {
+		         $("input[name$='question14']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc14").hide();
+		             $("#question14" + test).show();
+		         });
+		     });
+
+         $(document).ready(function() {
+		         $("input[name$='question15']").click(function() {
+		             var test = $(this).val();
+
+		             $("div.desc15").hide();
+		             $("#question15" + test).show();
+		         });
+		     });
+	</script>
+
+	<style>
+		     .desc {
+		     display:none;
+		     }
+		     .desc2 {
+		     display:none;
+		     }
+		     .desc3 {
+		     display:none;
+		     }
+		     .desc4 {
+		     display:none;
+		     }
+		     .desc5 {
+		     display:none;
+		     }
+		     .desc6 {
+		     display:none;
+		     }
+         .desc7 {
+		     display:none;
+		     }
+         .desc8 {
+		     display:none;
+		     }
+         .desc9 {
+		     display:none;
+		     }
+         .desc10 {
+		     display:none;
+		     }
+         .desc11 {
+		     display:none;
+		     }
+         .desc12 {
+		     display:none;
+		     }
+         .desc13 {
+		     display:none;
+		     }
+         .desc14 {
+		     display:none;
+		     }
+         .desc15 {
+		     display:none;
+		     }
+	</style>{% endblock %}

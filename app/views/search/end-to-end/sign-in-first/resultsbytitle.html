@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set query = data['search'] or 'SE5 9QY' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search-by-title-number'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Search results for 'XX123456'
+        </h1>
+
+        <p>Your search has found <b>2 addresses.</b> Select an address to continue.</p>
+        <ul class="govuk-list govuk-list--spa/ced">
+          <li>  <a href="confirm50"> 50a Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="confirm50"> 50b Knatchbull Road, SE5 9QY</a> </li>
+        </ul>
+    </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        Other ways to find an extent area
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-list--spaced govuk-!-font-size-16">
+          <li><a href="searchbymap">Search by map</a></li>
+          <li><a href="search-by-title-number">Search by postcode or street name</a></li>
+          <li>Contact HM Land Registry on <b>0300 006 0444</b> if you are struggling to use this service</li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+</div>
+{% endblock %}

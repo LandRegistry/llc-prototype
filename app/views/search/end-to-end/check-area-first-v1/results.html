@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% set query = data['search'] or 'SE5 9QY' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Search results for &lsquo;{{ query }}&rsquo;
+        </h1>
+
+        <p>Your search has found <b>20 addresses.</b> Select an address to continue.</p>
+        <ul class="govuk-list govuk-list--spa/ced">
+          <li>  <a href="confirm38.html"> 38 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 40 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 42 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 44 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> Flat A, 44 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> Flat B, 44 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 46 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 48 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 50 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> Minet Library, 52 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="drawextent5456.html"> 54-56 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 58 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="confirm02.html"> 60 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 62 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="drawextent77.html"> 77 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 115 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 117 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="confirm119.html"> 119 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 121 Knatchbull Road, SE5 9QY</a> </li>
+          <li>  <a href="#0"> 123 Knatchbull Road, SE5 9QY</a> </li>
+        </ul>
+    </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        Other ways to find an extent area
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-list--spaced govuk-!-font-size-16">
+          <li><a href="searchbymap">Search by map</a></li>
+          <li><a href="search-by-title-number">Search by title number</a></li>
+          <li>Contact HM Land Registry on <b>0300 006 0444</b> if you are struggling to use this service</li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+</div>
+{% endblock %}

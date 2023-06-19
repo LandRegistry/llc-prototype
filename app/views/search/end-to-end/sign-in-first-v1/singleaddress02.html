@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'results'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">
+            Does this description match your extent area?
+          </h2>
+      </div>
+<div class="govuk-grid-column-full" style="width:800px;">
+<ul class="govuk-body-m govuk-list govuk-list--bullet">
+  <li>Minet Library, 52 Knatchbull Road, London SE5 9QY</li>
+  <li>103 Knatchbull Road, London SE5 9QY</li>
+  <li>Longfield Hall, 104 Knatchbull Road, London SE5 9QY</li>
+  <li>105 Knatchbull Road, London SE5 9QY</li>
+  <li>107 Knatchbull Road, London SE5 9QY</li>
+  <li>109 Knatchbull Road, London SE5 9QY</li>
+  <li>111 Knatchbull Road, London SE5 9QY</li>
+  <li>113 Knatchbull Road, London SE5 9QY</li>
+  <li>115 Knatchbull Road, London SE5 9QY</li>
+</ul>
+<div class="govuk-inset-text">
+This description will be used on your official copy.
+</div>
+<p class="govuk-body-l"></p>
+</div>
+
+
+<div class="govuk-grid-column-full">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="contact">
+          Yes
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+        <label class="govuk-label govuk-radios__label" for="contact-2">
+          No
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="more-detail">
+      Describe the search area
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    For example, ‘flats 1-5 Church lane’ or ‘Land to the north of the bypass’. Please include all search areas.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <div id="more-detail-hint" class="govuk-hint">
+    Answer must be shorter than 1000 characters (about 160 words).
+  </div>
+
+  <p> <a class="govuk-link" href="search">Start a new search</a> </p>
+
+</div>
+
+
+      </div>
+    </div>
+  </div>
+
+<div class="govuk-!-padding-bottom-4"></div>
+
+
+      <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    You can't change your search area after you have paid.
+</div>
+</div>
+
+<div class="govuk-grid-column-full" style="margin-left: -35px;">
+<p class="govuk-body-m">Your payment will be processed by our payment service provider, WorldPay, through GOV UK Pay. You should refer to the Privacy Notices of those organisations for details of how your personal data is used.</p>
+
+
+
+<div class="govuk-!-padding-bottom-7"></div>
+
+        <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='/search/end-to-end/sign-in-first/paynow'">
+        Continue
+        </button>
+      </div>
+
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+{% endblock %}

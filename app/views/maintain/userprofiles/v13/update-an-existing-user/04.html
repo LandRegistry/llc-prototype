@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row govuk-body">
+    <div class=" govuk-grid-column-full govuk-!-padding-bottom-2" style="max-width: 890px;">
+
+     <form action="02" method="post" class="form">
+      <h1 class="govuk-heading-xl">
+        Update an existing user
+      </h1>
+
+      <p> Please ensure the user you're updating is authorised to make changes in the authority selected. </p>
+
+
+
+        <div style="display: inline-block;">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="administrator-first-name">
+                First/Given names
+                </label>
+                <input class="govuk-input" id="administrator-first-name" name="administrator-first-name" value="{{ data['administrator-first-name'] }}" type="text" style="width: 300px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="administrator-family-name">
+                    Surname/Family name
+                </label>
+                <input class="govuk-input" id="administrator-family-name" name="administrator-family-name" value="{{ data['administrator-family-name'] }}" type="text" style="width: 300px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="administrator-email">
+                Email address
+                </label>
+                <input class="govuk-input" id="administrator-email" name="administrator-email" value="{{ data['administrator-email'] }}" spellcheck="false" aria-describedby="email-hint" autocomplete="email" style="width: 300px;">
+            </div>
+
+<p class="govuk-body govuk-!-margin-bottom-4"></p>
+
+            <h1 class="govuk-label" style="">
+              Authority
+            </h1>
+                  <p> HM Land Registry </p>
+
+                        </div>
+
+                        <div>
+                            <button class="govuk-button" type="submit">Continue</button>
+                        </div>
+
+
+
+            </fieldset>
+      </div>
+    </div>
+
+
+
+    </form>
+
+
+    </div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+  <!--
+      function toggle_visibility(id) {
+         var e = document.getElementById(id);
+         if(e.style.display == 'block')
+            e.style.display = 'none';
+         else
+            e.style.display = 'block';
+      }
+  //-->
+
+
+  $('input[type="radio"]').click(function(){
+      if($(this).attr("value")=="yes"){
+          $(".content2").hide('display');
+      }
+      if($(this).attr("value")=="no"){
+          $(".content2").show('display');
+
+      }
+  });
+
+
+  </script>
+
+{% endblock %}

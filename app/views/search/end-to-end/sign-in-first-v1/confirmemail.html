@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">
+          Check your email
+        </h2>
+
+        <p class="govuk-body" style="margin-bottom:0px";>We have sent an email to {{ data['email'] }}. </p>
+
+        <p class="govuk-body">Click the link inside this email to create your password. </p>
+
+<div class="govuk-!-padding-bottom-2"></div>
+
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      I have not recieved the email
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    The email may take a few minutes to arrive. Its subject line is: 'XXXXXXXXX'.
+  </div>
+  <div class="govuk-details__text">
+    Check your spam or junk folder-if it has still not arrived, you can <a class="govuk-link" href="#0">resend the email</a> or <a class="govuk-link" href="/search/end-to-end/sign-in-first/create">provide another email address</a>.
+  </div>
+</details>
+
+<p class="govuk-body-m"><a class="govuk-link" href="start">Return to start page</a></p>
+
+    </div>
+
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Contact HM Land Registry
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16" style="margin-right:-20px";>
+            <li>
+
+                Contact us on <b>0300 006 044</b> if you are struggling to use this service
+
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+
+    </div>
+  </div>
+{% endblock %}

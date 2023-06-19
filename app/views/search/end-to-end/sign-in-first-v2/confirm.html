@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/back.html"%}
+{% include "includes/lang-switcher.html"%}
+{% endblock %}
+
+{% block content %}
+      {# <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter">
+          <h2 class="govuk-heading-l" style="margin-left:-330px;width: 200%;">
+            Confirm extent
+          </h2> #}
+
+        {# <div class="govuk-grid-column-three-quarters"> #}
+
+                      <style>
+            .sticky-image-wrapper{
+                position: relative;
+                bottom:0%;
+                width: 80%;
+            }
+
+            .sticky-image-wrapper img{
+
+                display: table;
+                position: fixed;
+                top: 430px;
+                right:0;
+                bottom:100px;
+
+
+            }
+            </style>
+
+
+
+          {# <img src="/public/images/fullmapview.png" alt="Search extent" align="left" class="fix"/> #}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h1 class="govuk-heading-l" style="margin-left:-400px;">Identify a search area by map</h1>
+
+
+
+            <p class="govuk-body-m" style="margin-left:-400px;">Before you can view a local land charge, you will need to identify a property or area of land. We call this a search area.</p>
+
+
+      <p class="govuk-body-m" style="margin-left:-400px;">To start drawing your search area, select <b>'Copy from map'</b> or <b>'Add area'</b> on the map. You can also edit and delete areas.
+      </p>
+
+
+
+              <button disabled="disabled" aria-disabled="true" class="govuk-button govuk-button--disabled" data-module="govuk-button" style="margin-left:-400px;">
+                Confirm area
+          </button>
+
+
+
+            <ul class="govuk-list">
+        <li>
+        <a class="govuk-link govuk-body-m" href="#" style="margin-left:-400px;">Learn more about how to use this map</a>
+
+        </li>
+        </ul>
+
+
+
+          <p class="govuk-body-s" style="margin-left:-400px;">Use of address and mapping data (including the link between the address and its location) is subject to <a href="editextent">Ordnance Survey License Terms and Conditions</a>.</p>
+
+
+          </div>
+          </div>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+          <div class="sticky-image-wrapper">
+             <img src="/public/images/fullmapview.png" />
+          </div>
+        </div>
+
+
+      </div>
+
+  </div>
+  </div>
+{% endblock %}

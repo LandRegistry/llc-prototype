@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "LLC prototypes",
+	      href: "/"
+	    },
+      {
+	      text: "Maintain prototypes",
+	      href: "../"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        Inspire ID
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p>Overview of feature needs writing!</p>
+
+      <h2 class="govuk-heading-m">
+        Version 1
+      </h2>
+      <p>Redesign of Use of land and property data to include LLC spatial data (INSPIRE).</p>
+
+      {# <h3 class="govuk-heading-s">Changes</h3>
+      <p>Based on conversations with the team the follow changes have been made:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>new link on landing page</li>
+        <li>LA lookup on separate page</li>
+        <li>if already set show edit version of the page with pre-filled values</li>
+        <li>if disabled show time left and be able to turn off</li>
+      </ul> #}
+
+      {# <h3 class="govuk-heading-s">Research notes</h3>
+      <p>Information about the research.</p>
+      <p><a href="#0">View user research report</a>.<p> #}
+
+      {# <h3 class="govuk-heading-s">Prototype notes</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Adur District Council will show as thresholds disabled</li>
+        <li>Bournemouth, Christchurch and Poole Council will show as thresholds set</li>
+        <li>Any other LA will show as adding new thresholds</li>
+      </ul> #}
+
+      {{ govukButton({
+        text: 'View prototype',
+        href: 'v1/ulapd'
+      }) }}
+
+
+
+
+
+
+      {% set v1 %}
+        <p>Current cookie banner</p>
+
+        {{ govukButton({
+          text: 'View live version',
+          href: 'https://use-land-property-data.service.gov.uk/'
+        }) }}
+      {% endset %}
+
+      {{ govukAccordion({
+        items: [
+          {
+            heading: { text: 'Version 1' },
+            content: { html: v1 }
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

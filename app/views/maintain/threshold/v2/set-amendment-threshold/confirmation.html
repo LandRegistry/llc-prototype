@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% set amend = true if data['select-local-autohority'] == 'Bournemouth, Christchurch and Poole Council' %}
+{% set disabled = true if data['disable-thresholds'] == 'Disable thresholds for 48 hours' %}
+{% set reenabled = true if data['reenabled'] == 'true' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <style>
+        .govuk-panel__title {
+          font-size: 36px;
+          font-size: 2.25rem;
+          line-height: 1.11111;
+        }
+
+        .govuk-panel__body {
+          font-size: 24px;
+          font-size: 1.5rem;
+          line-height: 1.04167;
+        }
+      </style>
+
+      {% if reenabled %}
+        {{ govukPanel({
+          titleHtml: 'Thresholds re-enabled for '+data['select-local-autohority']
+        }) }}
+        <p>You can <a class="govuk-link--no-visited-state" href="#0">update the thresholds or disable them again</a> if you need to.</p>
+      {% elif disabled %}
+        {{ govukPanel({
+          titleHtml: 'Thresholds disabled for 48 hours for '+data['select-local-autohority']
+        }) }}
+        {{ govukInsetText({
+          html: '<p>The thresholds are disabled until '+ today | date("add", 48, "hours") | date("h:mma on dddd D MMMM") +'.</p>'
+        }) }}
+        <p>You can <a class="govuk-link--no-visited-state" href="#0">re-enable the thresholds</a> if you need to.</p>
+      {% else %}
+        {{ govukPanel({
+          titleHtml: 'Thresholds updated for '+data['select-local-autohority'] if amend else 'Thresholds set for '+data['select-local-autohority']
+        }) }}
+        <p>You can <a class="govuk-link--no-visited-state" href="#0">update the threshold{{ ' again' if amend }}</a> if you need to.</p>
+      {% endif %}
+
+      <p class="govuk-!-margin-top-6"><a class="govuk-link--no-visited-state" href="../dashboard">Return to main menu</a></p>
+
+    </div>
+  </div>
+{% endblock %}

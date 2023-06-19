@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <h1 class="govuk-heading-l" style="margin-top: 40px;">Identify a search area by map</h1>
+      <p class="govuk-body-m">Before you can view a local land charge, you will need to identify a property or area of land. We call this a search area.</p>
+<p class="govuk-body-m"><p class="govuk-body-m">To start drawing your search area, select <b>'Copy from map'</b> or <b>'Add area'</b> on the map. You can also edit and delete areas.
+</p>
+
+      <button disabled="disabled" aria-disabled="true" class="govuk-button govuk-button--disabled" data-module="govuk-button">
+          Search this area
+    </button>
+
+    <ul class="govuk-list">
+  <li>
+  <a class="govuk-link govuk-body-m" href="#">Learn more about how to use this map</a>
+
+  </li>
+  </ul>
+
+  <p class="govuk-body-s">Use of address and mapping data (including the link between the address and its location) is subject to <a href="editextent">Ordnance Survey License Terms and Conditions</a>.</p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <img src="/public/images/mapkey.png" alt="Map key" style="width:100%">
+      <a href="searchbymap2"><img src="/public/images/searchbymap.png" alt="Confirm extent" style="width:100%"></a>
+
+
+
+
+    </div>
+
+
+  </div>
+{% endblock %}

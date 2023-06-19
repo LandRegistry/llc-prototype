@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}{{ govukBackLink({
+    text: 'Back',
+    href: 'results'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">search area is not available</h1>
+
+
+      <p class="govuk-body-m">We do not have a registered search area for:<b> 77 Knatchbull Road, London SE5 9QY</b>.</p>
+
+      <div class="govuk-inset-text">
+        To continue, draw a search area for the address you want to search.
+      </div>
+      <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='drawextent77.html'">Draw extent</button>
+      <p> <a class="govuk-link" href="search">Start a new search</a> </p>
+
+
+    </div>
+
+
+
+  </div>
+{% endblock %}

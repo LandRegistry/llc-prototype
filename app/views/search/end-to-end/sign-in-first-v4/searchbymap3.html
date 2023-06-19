@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <h1 class="govuk-heading-l" style="margin-top: 40px;">Find a search area by map</h1>
+      <p class="govuk-body-m">To view a local land charge, you will need to identify a property or area of land. This is known as a search area.</p>
+      <div class="govuk-inset-text">
+      Not all areas are available on our register yet. If you cannot find an area, contact your local authority for information about local land charges.</div>
+  <p class="govuk-body-m"><p class="govuk-body-m">To start drawing your search area, select <b>'Add area'</b> on the map. You can also edit and delete areas.
+</p>
+      </p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Alternatively, search by postcode, town or streetname
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <a href="results"><img src="/public/images/postcodefinder.png" alt="Search bar" style="width:100%"></a>
+      </div>
+      </details>
+
+      <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='chargesbymap.html'">Confirm area</button>
+
+    <ul class="govuk-list">
+  <li>
+  <a class="govuk-link govuk-body-m" href="#">Learn more about how to use this map</a>
+
+  </li>
+  </ul>
+
+  <p class="govuk-body-s">Use of address and mapping data (including the link between the address and its location) is subject to <a href="editextent">Ordnance Survey License Terms and Conditions</a>.</p>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <img src="/public/images/mapkey.png" alt="Map key" style="width:100%">
+      <img src="/public/images/searchbymap3.png" alt="Map Knatchbull Road" style="width:100%">
+
+
+
+
+    </div>
+
+
+  </div>
+{% endblock %}

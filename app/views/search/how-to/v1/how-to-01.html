@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--pink">
+          prototype
+        </strong>
+        <span class="govuk-phase-banner__text">
+          This is not a full service. It is not production code and you might experience problems.
+        </span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main" {% if mainLang %} lang="{{ mainLang }}" {% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width">
+
+          {# <span class="govuk-caption-xl">Dataset</span> #}
+          <h1 class="govuk-heading-xl govuk-!-margin-left-3">How to use the map</h1>
+
+        </div>
+        {# <div class="govuk-grid-column-full-width">
+          <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This accessibility statement is for the
+            <a class="govuk-link" href="https://search-local-land-charges.service.gov.uk/">search for local land charges service</a>.
+            <br>HM Land Registry update this.</p>
+
+        </div> #}
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p>Contents</p>
+          <ul class="govuk-list">
+            <li>
+              -
+              <a class="govuk-link" href="#sectionone">Draw a search area</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectiontwo">Edit your search area</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionthree">Copy a building from the map</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionfour">Draw a shape with Snap to map</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionfive">Delete one search area</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionsix">Delete a whole search area</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionseven">Undo your last map interaction
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+
+          <p class="govuk-heading-l" id="sectionone">Draw a search area</p>
+          <div class="govuk-grid-row">
+            <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+              <li>Select <b>Add area</b> and choose a location on the map to start drawing. Make sure the ends of the shape meet.</li>
+              <ul class="govuk-list">
+              <li>Draw curves by holding down the SHIFT key.</li>
+            </ul>
+              <li>Select <b>Confirm area</b>. Make sure you capture all properties and land you want to search. This includes driveways, alleys, or gardens.</li>
+            </ol>
+            <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary govuk-!-margin-left-3">
+    <span class="govuk-details__summary-text">
+      Video guidance: Draw a search area
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+  Video to go here</div>
+</details>
+
+                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectiontwo">Edit your search area</p>
+                <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+                  <li>Select <b>Edit area</b>. The search area will highlight.</li>
+                  <li>Select and drag the outline of your search area to edit it.</li>
+                  <li>Select <b>Edit area</b> to finish.</li>
+                  <li>To delete a point in this mode:</li>
+                  <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-3">
+                  <li>hold down the ALT or OPTION key</li>
+                  <li>select the point you want to delete with the left mouse button</li>
+                </ul>
+                </ol>
+
+                  <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary govuk-!-margin-left-3">
+                    <span class="govuk-details__summary-text">
+                      Video guidance: Edit your search area
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                  Video to go here</div>
+                </details>
+
+
+                  <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionthree">Copy a building from the map</p>
+                    <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+                      <li>Select <b>Copy from map</b>.</li>
+                      <li>Select the building you want to copy. This will highlight it. Using this feature once on a property may not always be enough to capture the whole affected area.</li>
+                      <li>Select <b>Confirm</b>. Make sure you capture all properties and land you want to search. This includes driveways, alleys, or gardens.</li>
+                    </ol>
+                    <div class="govuk-inset-text govuk-!-margin-left-3">You can only copy from the map when you zoom in to a location. You should be able to see the outlines of buildings.</div>
+                    <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary govuk-!-margin-left-3">
+                      <span class="govuk-details__summary-text">
+                        Video guidance: Copy a building from the map
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                    Video to go here</div>
+                  </details>
+
+                            <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionfour">Draw a shape with Snap to map</p>
+                            <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+                              <li>Select <b>Add area</b>.</li>
+                              <li>Select <b>Snap to map</b>.</li>
+                              <li>Hover near the line or point you want to snap to. The cursor will jump to that point automatically. You can also use this feature during other map interactions, like editing.</li>
+                            </ol>
+
+                              <div class="govuk-inset-text govuk-!-margin-left-3">You can only use <b>Snap to map</b> when you zoom in to a location.</div>
+
+                              <details class="govuk-details" data-module="govuk-details">
+                              <summary class="govuk-details__summary govuk-!-margin-left-3">
+                                <span class="govuk-details__summary-text">
+                                  Video guidance: Draw a shape with snap to map
+                                </span>
+                              </summary>
+                              <div class="govuk-details__text">
+                              Video to go here</div>
+                            </details>
+
+                            <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionfive">Delete one search area</p>
+                            <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+                              <li>Select <b>Delete area</b>. This will highlight your search area.</li>
+                              <li>Select the search area you want to delete.</li>
+                              </ol>
+                          <details class="govuk-details" data-module="govuk-details">
+                              <summary class="govuk-details__summary govuk-!-margin-left-3">
+                                <span class="govuk-details__summary-text">
+                                  Video guidance: Delete one search area
+                                </span>
+                              </summary>
+                              <div class="govuk-details__text">
+                              Video to go here</div>
+                            </details>
+
+                            <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionsix">Delete a whole search area</p>
+                            <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+                              <li>Select <b>Clear all</b>.</li>
+                              <li>Select <b>Delete all</b>. This will delete everything you have drawn on the map.</li>
+                              </ol>
+                            <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary govuk-!-margin-left-3">
+                              <span class="govuk-details__summary-text">
+                                Video guidance: Delete a whole search area
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                            Video to go here</div>
+                          </details>
+
+                                <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionseven">Undo your last map interaction</p>
+                                <ol class="govuk-list govuk-list--number govuk-!-margin-left-3">
+                                  <li>Select <b>Undo</b>. Your last interactions with the map will be undone.</li>
+                                  </ol>
+                                <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">You can select <b>Undo</b> as many times as you want.</p>
+
+                                <details class="govuk-details" data-module="govuk-details">
+                                <summary class="govuk-details__summary govuk-!-margin-left-3">
+                                  <span class="govuk-details__summary-text">
+                                    Video guidance: Undo your last map interaction
+                                  </span>
+                                </summary>
+                                <div class="govuk-details__text">
+                                Video to go here</div>
+                                </details>
+
+
+
+                                </div>
+
+                                <div class="govuk-grid-column-one-third"></div>
+                              </div>
+                            </main>
+                          </div>
+                        {% endblock %}

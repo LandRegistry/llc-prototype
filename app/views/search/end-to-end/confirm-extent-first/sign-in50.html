@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">
+            Sign in
+          </h2>
+      </div>
+
+
+      <div class="govuk-grid-column-full">
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="email">
+    Email address
+  </label>
+  <input class="govuk-input govuk-!-width-one-third" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+</div>
+
+<div class="govuk-form-group">
+<label class="govuk-label" for="email">
+Password
+</label>
+<input class="govuk-input govuk-!-width-one-third" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+<p> <a class="govuk-link" href="#0">I forgot my password</a> </p>
+</div>
+</div>
+
+<div class="govuk-grid-column-full">
+
+        <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='/search/end-to-end/confirm-extent-first/chargesbytitle'">
+        Sign in
+        </button>
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">
+          Don't have an account?
+        </h2>
+        <p> <a class="govuk-link" href="/search/end-to-end/confirm-extent-first/create">Create an account</a> </p>
+      </div>
+
+
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+{% endblock %}

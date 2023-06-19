@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+    <a href="results" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+
+      <h1 class="govuk-heading-l">The search area is not on the register</h1>
+      {# <p class="govuk-body-m"> We do not currently have a search area for this search.</p> #}
+      <p>To continue with your search you will need to draw a search area on the map.</p>
+
+      <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='drawextent5456.html'">Draw extent</button>
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      {# <img src="/public/images/mapdialogue.png" alt="Confirm extent" style="width:100%"> #}
+      <img src="/public/images/extentonregister-unavailable.png" alt="Point for 54-56 Knatchbull Road" style="width:100%">
+
+
+
+
+    </div>
+
+
+  </div>
+{% endblock %}

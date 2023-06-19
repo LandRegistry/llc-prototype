@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if error %}
+        {{ govukErrorSummary({
+          titleText: 'There is a problem',
+          errorList: [
+            {
+              text: error,
+              href: '#search-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+  Check if your local authority has moved to this service
+</h1>
+
+<p class="govuk-body-m">Before you can find a local land charge, first you need to find out if your local authority is available on the service.</p>
+
+
+      <form method="post">
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">
+          Search local authority
+        </h2>
+        <div class="govuk-form-group">
+          <div id="event-name-hint" class="govuk-hint">
+            For example, 'Cornwall Council’
+          </div>
+          <select class="govuk-select" name="choose-country" id="choose-country">
+    <option value="territory:A-Z"> </option>
+    <option value="territory:CA-CZ">Cornwall Council</option>
+    <option value="territory:CA-CO">City of London Corporation</option>
+    <option value="territory:CA-CO">Corby Borough Council</option>
+    <option value="territory:LA-LZ">Lambeth Borough of London</option>
+    <option value="territory:LA-LE">Vale of Glamorgan Council</option>
+    </select>
+<div class="govuk-!-padding-bottom-4"></div>
+
+          <p class="govuk-body-m">By starting a search you agree to our <a href="#0">terms of use</a>.</p>
+
+          {{ govukButton({
+            text: 'Search',
+            href: 'isavailable'
+          }) }}
+
+        </div>
+
+
+
+        {# <h2 class="govuk-heading-m govuk-!-margin-top-3">
+          Other ways to find a charge
+        </h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li><a href="#0">Search by browsing to a place using a map</a></li>
+          <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
+        </ul> #}
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+              <ul class="govuk-list govuk-link" style="margin-right:-20px";>
+              <li>
+                <a href="https://www.gov.uk/government/publications/local-land-charges-pg79/local-land-charges?_ga=2.247180804.1427925140.1637054447-1248069630.1616574931#difference-in-the-information-that-an-official-search-will-provide-relative-to-a-personal-search" class="govuk-link">Differences between free and paid searches</a>
+              </li>
+              <li>
+                <a href="https://www.gov.uk/government/publications/local-land-charges-pg79/local-land-charges?_ga=2.80380183.1427925140.1637054447-1248069630.1616574931#the-environmental-information-regulations-2004" class="govuk-link">Environmental Information Regulations 2004</a>
+              </li>
+              <li>
+                <a href="https://www.gov.uk/topic/land-registration/practice-guides" class="govuk-link">Practice Guide 79</a>
+              </li>
+              <li>
+                <a href="https://help.landregistry.gov.uk/app/contactus_LLC" class="govuk-link">Contact HM Land Registry</a>
+              </li>
+            </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

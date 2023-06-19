@@ -1,0 +1,304 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--pink">
+          prototype
+        </strong>
+        <span class="govuk-phase-banner__text">
+          This is not a full service. It is not production code and you might experience problems.
+        </span>
+      </p>
+    </div>
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main" {% if mainLang %} lang="{{ mainLang }}" {% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full-width">
+
+          {# <span class="govuk-caption-xl">Dataset</span> #}
+          <h1 class="govuk-heading-xl govuk-!-margin-left-3">Search for local land charges: Terms of use</h1>
+
+        </div>
+        {# <div class="govuk-grid-column-full-width">
+          <p class="govuk-body govuk-!-font-weight-regular govuk-!-margin-left-3">This accessibility statement is for the
+            <a class="govuk-link" href="https://search-local-land-charges.service.gov.uk/">search for local land charges service</a>.
+            <br>HM Land Registry update this.</p>
+
+        </div> #}
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <p>Contents</p>
+          <ul class="govuk-list">
+            <li>
+              -
+              <a class="govuk-link" href="#sectionone">About this service</a>
+            </li>
+            <li class="govuk-!-margin-left-5">
+              -
+              <a class="govuk-link" href="#sectiontwo">Ways to search</a>
+            </li>
+            <li class="govuk-!-margin-left-5">
+              -
+              <a class="govuk-link" href="#sectionthree">Create an account</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionfour">Terms of use</a>
+            </li>
+            <li class="govuk-!-margin-left-5">
+              -
+              <a class="govuk-link" href="#sectionfive">Your agreement with us</a>
+            </li>
+            <li class="govuk-!-margin-left-5">
+              -
+              <a class="govuk-link" href="#sectionsix">How we protect your information</a>
+            </li>
+            <li class="govuk-!-margin-left-5">
+              -
+              <a class="govuk-link" href="#sectionseven">Service delays</a>
+            </li>
+            <li class="govuk-!-margin-left-5">
+              -
+              <a class="govuk-link" href="#sectioneight">Copyright and database rights</a>
+            </li>
+            <li>
+              -
+              <a class="govuk-link" href="#sectionnine">Make a complaint</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+
+          <p class="govuk-heading-l govuk-!-margin-left-3" id="sectionone">About this service</p>
+          <div class="govuk-grid-row govuk-!-margin-left-3">
+            <p class="govuk-body">Local land charges can restrict the way you use land and property. Use this service to check for local land charges in England and Wales.</p>
+            <div class="govuk-inset-text">Before you start, you should <a href="https://search-local-land-charges.service.gov.uk/check-if-an-authority-is-migrated" class="govuk-link govuk-link">check the authority you want to search is on the register</a>.</div>
+            <p>You can search for a local land charge by:</p>
+            <ul class="govuk-list govuk-list--bullet">
+            <li>postcode or street name</li>
+            <li>map</li>
+            <li>title number</li>
+            <li>coordinates</li>
+            <li>INSPIRE ID</li>
+          </ul>
+
+          <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    This service will not tell you if a local land charge is being added to the register while you search.</strong>
+</div>
+
+<p class="govuk-body">By using this service, you accept all the terms of use on this page. If a court decides any of the terms are unlawful, the rest will continue to be effective. The terms of use do not restrict your access to local land charges register information under the Environmental Information Regulations 2004 (EIR).</p>
+
+<div class="govuk-inset-text">
+You can stop using this service at any time. HM Land Registry can stop you from using this service if you do not follow its terms of use.
+</div>
+
+<p class="govuk-heading-l" id="sectiontwo">Ways to search</p>
+<p class="govuk-heading-m">Personal search</p>
+
+<p>A personal search is free. It provides:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>a description of the local land charge</li>
+<li>the registration dates</li>
+<li>contact details for the authority to answer questions about the charge (where available)</li>
+<li>access to the local land charges register under the EIR</li>
+</ul>
+
+<p class="govuk-heading-m">Official search</p>
+
+<p>An official search service costs £7.</p>
+<p>The official search will show the same information as the personal search plus:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>search boundary or area on a map</li>
+<li>originating authority name and reference</li>
+<li>any electronic links to a document or register that is relevant to a charge</li>
+<li>local land charge boundary</li>
+</ul>
+
+<p>You can also download and print the official search certificate as a secure document. This is digitally signed by HM Land Registry.</p>
+<p>After your first search, you can make free repeat ones on the same search area for 6 months. You will get an official search certificate for each search application.</p>
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+  <span class="govuk-details__summary-text">
+    Things to know when buying an official search certificate
+  </span>
+</summary>
+<div class="govuk-details__text">
+<p>By using the official search service, you agree to be bound by and pay for any official search certificate you apply for.</p>
+<p>Because the official search certificate information is provided immediately, once you pay for it you lose the right of cancellation you would normally have under The Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013.</p>
+<p>This means that by applying to buy an official search on land or property you have identified you agree:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>to pay the fee for this service by making an online transaction (through GOV.PAY)</li>
+<li>to receive the local land charge official search certificate as soon as you have paid</li>
+<li>to lose your right to cancel once the official search certificate is available to view or download</li>
+</ul>
+
+<p>HM Land Registry is not responsible for the security or privacy of information you provide when making a transaction through the service’s online payment provider. If you have an issue with this, you should:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>contact the online payment provider directly</li>
+<li>tell HM Land Registry about the outcome by calling 0300 006 0411 or Welsh (Monday to Friday 9am to 5pm)</li>
+</ul>
+</div>
+</details>
+
+<p class="govuk-heading-m">What is not included in the search service</p>
+
+<p>Searches do not provide information on:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>planning and development applications</li>
+<li>building controls</li>
+<li>road development schemes near to your property</li>
+</ul>
+
+<p>All CON29 standard search information enquiries about issues that affect a property should be to the relevant authority.</p>
+
+<p class="govuk-heading-l" id="sectiontwo">Create an account</p>
+<p class="govuk-body">You need to <a href="https://search-local-land-charges.service.gov.uk/register" class="govuk-link">create an account</a> to access the search service.</p>
+<p>To create an account you need to provide your:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>name</li>
+<li>email address</li>
+<li>password</li>
+</ul>
+
+<p>For 6 months your account will provide you with:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>a search result archive</li>
+<li>unlimited downloads</li>
+<li>a dashboard showing active and expired searches</li>
+<li>online storage for your searches</li>
+</ul>
+
+<div class="govuk-inset-text">
+If you do not use your account for 12 months, we will delete it.
+</div>
+
+<p>You are responsible for:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>keeping your username and password secure</li>
+<li>all activity that occurs on or through your account</li>
+</ul>
+
+<p>If you think your account security is at risk, contact HM Land Registry:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>phone: 0300 006 0411</li>
+<li>speak to a Welsh speaker: 0300 006 0422</li>
+</ul>
+
+<p>We are not responsible for any losses. For example, if someone uses your account details to sign in.</p>
+
+<p class="govuk-heading-l" id="sectionfour">Terms of use</p>
+
+<p>By using the service or registering an account, you agree that you will not:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>attempt to damage, impair, or interrupt the service or access to it</li>
+<li>use any automated software agents to search, copy, monitor, display, obtain links to or otherwise access this or any other HM Land Registry system</li>
+<li>copy or display the information provided for display on another website</li>
+<li>attempt to add, change, or delete any information provided and held by HM Land Registry</li>
+<li>allow anyone else access your account using your username and password</li>
+<li>use the information provided by the service to claim any arrangement or official partnership with HM Land Registry to supply or reuse data and/or information</li>
+<li>use the data for any fraudulent or unlawful activity including breaches of data protection law</li>
+</ul>
+
+<p>If you are not using this service in the agreed way:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>HM Land Registry can end your use of the service and cancel your account at any time, without notice</li>
+<li>you will have to pay any unpaid official search fees</li>
+</ul>
+
+<p class="govuk-heading-l" id="sectionfive">Your agreement with us</p>
+<p>When you use the Search for local land charges service, you enter into an agreement with HM Land Registry. We agree to provide you with the facility to exercise your right to personally inspect the register or to apply for an official search certificate for the land or property selected by you at the time and date of your transaction.</p>
+<p>You can end this agreement at any time before you make a payment (official search certificate). The agreement is between you and HM Land Registry and no-one else can enforce any of its terms.</p>
+<p>The online payment provider will confirm your payment and provide a transaction reference.</p>
+<p>Your agreement with HM Land Registry ends when you complete your personal inspection of the register or when your official search certificate is made available for you to view or download.</p>
+
+<p class="govuk-heading-l" id="sectionsix">How we protect your information</p>
+<p>HM Land Registry complies with the requirements set by the Data Protection Law.</p>
+<p>We use your personal information in accordance with the HM Land Registry’s Personal Information Charter to:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li>create and manage any account you open</li>
+<li>meet our agreement obligations by supplying the personal and official search results to you, once the online payment provider confirms that your payment has been processed and is complete (official search)</li>
+<li>record the search</li>
+<li>contact you using the email address you provide</li>
+</ul>
+
+<p>We may keep and share information with:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>other government departments</li>
+<li>law enforcement and regulatory bodies, including specified anti-fraud organisations under section 68 Serious Crime Act 2007</li>
+</ul>
+
+<p>This sharing of information helps to prevent and detect crime, for example, property fraud. It also helps with the investigation of land banking schemes.</p>
+
+<p>We will:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>keep your personal information secure</li>
+<li>not make it available for commercial use, such as marketing, without your permission</li>
+<li>share your information with other HM Land Registry teams to process your application</li>
+</ul>
+
+<p class="govuk-heading-l" id="sectionseven">Service delays</p>
+<p>HM Land Registry is not liable to you or any other person for losses caused by:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>delays to this service</li>
+<li>getting your search result</li>
+</ul>
+
+<p>For example, service delays from:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>interruptions to the internet</li>
+<li>services provided by third parties (anyone who is not HM Land Registry)</li>
+<li>false information from linked websites</li>
+</ul>
+
+<p class="govuk-heading-l" id="sectioneight">Copyright and database rights</p>
+<p>The information in this service is subject to Crown copyright and database right. Also, use of address and mapping data (including the link between the address and its location) in this service is subject to <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland" class="govuk-link">Ordnance Survey licence terms and conditions</a> (link opens in new tab).</p>
+<p>The information in the local land charges register may also include information in which other third parties (including the authority who registered the charge) claim copyright and/or database right. Therefore, reuse of this information for a purpose other than conducting a search of the local land charges register would require specific consent.</p>
+
+<p class="govuk-heading-m">Your information and how we use it</p>
+<p>We will hold your:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>name</li>
+<li>IP address</li>
+<li>email address</li>
+<li>password</li>
+</ul>
+
+<p class="govuk-heading-l" id="sectionnine">Make a complaint</p>
+
+<p>If you are unhappy with the service, contact HM Land Registry. You can:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>complete the online <a class="govuk-link" href="https://customerhelp.landregistry.gov.uk/local-land-charges/">contact form</a></li>
+  <li>phone: 0300 006 0411</li>
+  <li>speak to a Welsh speaker: 0300 006 0422</li>
+</ul>
+
+<p>If you are unhappy with the answer you receive, follow <a class="govuk-link" href="https://www.gov.uk/government/organisations/land-registry/about/complaints-procedure">the HM Land Registry’s internal complaints procedure</a>.</p>
+<p>You can also contact the <a class="govuk-link" href="https://ico.org.uk/concerns/getting/">Independent Complaints Reviewer’s Office (ICR)</a>. They can investigate your complaint independently from HM Land Registry.</p>
+
+
+
+                                </div>
+
+                                <div class="govuk-grid-column-one-third"></div>
+                              </div>
+                            </main>
+                          </div>
+                        {% endblock %}

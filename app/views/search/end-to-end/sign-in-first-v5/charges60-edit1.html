@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+
+{% set query = data['search'] or 'S10 4BG' %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'search-by-inspire-id'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Search result
+        </h1>
+
+        <img src="/public/images/60-knatchbull-results-edit.png" alt="Search extent" style="height:300px">
+        <figcaption  class="govuk-body-s">The dotted line shows the extent area of the INSPIRE ID.</figcaption>
+
+        <div class="govuk-!-padding-bottom-4"></div>
+
+
+
+        <h2 class="govuk-heading-s">
+          Planning notice
+        </h2>
+
+        <p>Change of use to commercial property. Approved subject to conditions.
+
+
+        <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Location</th>
+            <td class="govuk-table__cell">38 Knatchbull Road, London SE5</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Category</th>
+            <td class="govuk-table__cell">Planning- Conditional planning consent</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Law</th>
+            <td class="govuk-table__cell">Not provided</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Legal document</th>
+            <td class="govuk-table__cell">Planning permission</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Authority reference</th>
+            <td class="govuk-table__cell">88/01181/PLANAP</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Originating authority</th>
+            <td class="govuk-table__cell">London Borough of Lambeth</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Creation date</th>
+            <td class="govuk-table__cell">27 February 1989</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Registration date</th>
+            <td class="govuk-table__cell">27 February 1989</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">HM Land Registry reference</th>
+            <td class="govuk-table__cell">LLC-8204</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {# <div class="govuk-inset-text">
+Not the right area? <a href="search">Search again</a>
+</div> #}
+
+      <p class="govuk-body">Not the right area? <a href="search">Search again</a>.</p>
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

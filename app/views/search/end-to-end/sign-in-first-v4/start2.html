@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+{# {% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %} #}
+
+  <div class="govuk-width-container {{ containerClasses }}">
+
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+            Search for local land charges from HM Land Registry
+          </h1>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <p>Local land charges are restrictions on the use of a property or area of land. This can include:
+</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>planning conditions</li>
+            <li>highways agreements</li>
+            <li>tree preservation orders</li>
+            <li>conservation areas</li>
+            <li>listed buildings</li>
+            <li>environmental health notices</li>
+          </ul>
+
+          <p>We aim to hold a register of all local land charges across England and Wales.</p>
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              Before you start <a href="check-area2">
+                check the area
+              </a> you want to search is on the register
+            </strong>
+          </div>
+
+            <p>You can use this service to search the register for free or buy an official search certificate for £15.</p>
+
+          <div class="govuk-inset-text">To search the register, you will need to create an account.
+</div>
+
+          {{ govukButton({
+            text: 'Start now',
+            href: 'sign-in',
+            isStartButton: true,
+            classes: 'govuk-!-margin-bottom-9'
+          }) }}
+
+
+        </div>
+
+
+
+
+
+
+        <div class="govuk-grid-column-one-third">
+
+          <aside class="app-related-items" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+              Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+                  <ul class="govuk-list govuk-link" style="margin-right:-20px";>
+                  <li>
+                    <a href="https://www.gov.uk/government/publications/local-land-charges-pg79/local-land-charges?_ga=2.247180804.1427925140.1637054447-1248069630.1616574931#difference-in-the-information-that-an-official-search-will-provide-relative-to-a-personal-search" class="govuk-link">Differences between free and paid searches</a>
+                  </li>
+                  <li>
+                    <a href="https://www.gov.uk/government/publications/local-land-charges-pg79/local-land-charges?_ga=2.80380183.1427925140.1637054447-1248069630.1616574931#the-environmental-information-regulations-2004" class="govuk-link">Environmental Information Regulations 2004</a>
+                  </li>
+                  <li>
+                    <a href="https://www.gov.uk/topic/land-registration/practice-guides" class="govuk-link">Practice Guide 79</a>
+                  </li>
+                  <li>
+                    <a href="https://help.landregistry.gov.uk/app/contactus_LLC" class="govuk-link">Contact HM Land Registry</a>
+                  </li>
+                </ul>
+            </nav>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

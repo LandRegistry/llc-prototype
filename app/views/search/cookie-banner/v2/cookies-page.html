@@ -1,0 +1,310 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    <div class="govuk-phase-banner">
+<p class="govuk-phase-banner__content">
+  <strong class="govuk-tag govuk-tag--pink">
+    prototype
+  </strong>
+  <span class="govuk-phase-banner__text">
+    This is not a full service. It is not production code and you might experience problems.
+  </span>
+</p>
+</div>
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+            Cookies
+          </h1>
+        </div>
+      </div>
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <p><b>HM Land Registry </b> puts small files (known as 'cookies') onto your computer.These files collect information about how you use our service.</p>
+
+          <p>Cookies are used to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>measure how you use our service, so we can update and improve it based on your needs</li>
+            <li>remember the notifications you've seen, so we don't show them to you again</li>
+          </ul>
+
+          <div class="govuk-inset-text">
+            <b>HM Land Registry</b> cookies aren't used to identify you personally.
+          </div>
+
+          <p> You'll normally see a message on the service website before we store a cookie on your computer.</p>
+
+          <p>Find out more about <a href="https://ico.org.uk/your-data-matters/online/cookies/" target="_blank">how to manage cookies (opens in new tab)</a>.</p>
+
+          <h1 class="govuk-heading-l">
+            How cookies are used on Search for local land charges
+          </h1>
+
+          <p> You may see a cookies banner when you first visit Search for local land charges. We'll store a cookie so that your computer knows you've seen it and knows not to show it again.</p>
+
+          <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">seen_cookie_message</th>
+      <td class="govuk-table__cell">Saves a message to let us know that you've seen our cookie message</td>
+      <td class="govuk-table__cell">1 month</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+<h1 class="govuk-heading-m">
+  Making secure connections to websites
+</h1>
+
+<p>Your browser uses cookies to make secure connections to websites with a 'https' URL. There are different versions for different levels of security.</p>
+
+<table class="govuk-table">
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+<th scope="col" class="govuk-table__header app-custom-class">Name</th>
+<th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+<th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">AccessToken</th>
+<td class="govuk-table__cell">Makes security decisions and keeps tamper proof information about our service</td>
+<td class="govuk-table__cell">At end of session</td>
+</tr>
+</tbody>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">csrf_token</th>
+<td class="govuk-table__cell">Keeps a record of anything that interferes with your progress, for example a security threat</td>
+<td class="govuk-table__cell">20 minutes, or after you have submitted the form you're working on</td>
+</tr>
+</tbody>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">Cloudflare</th>
+<td class="govuk-table__cell">Identifies trusted web traffic</td>
+<td class="govuk-table__cell">5 years</td>
+</tr>
+</tbody>
+</table>
+
+<p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+<h1 class="govuk-heading-m">
+Remembering language selection
+</h1>
+
+<p>We use this to remember your language selection between browser sessions.</p>
+
+<table class="govuk-table">
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+<th scope="col" class="govuk-table__header app-custom-class">Name</th>
+<th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+<th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">Language</th>
+<td class="govuk-table__cell">The language you have selected</td>
+<td class="govuk-table__cell">31 days</td>
+</tr>
+</tbody>
+</table>
+
+<p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+<h1 class="govuk-heading-m">
+Remembering your authority selection
+</h1>
+
+<p>We use this to remember your authority selection on the authority check page, this allows the map page to automatically zoom and centre on your selected authority.</p>
+
+<table class="govuk-table">
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+<th scope="col" class="govuk-table__header app-custom-class">Name</th>
+<th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+<th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">ZoomToAuthority</th>
+<td class="govuk-table__cell">Name of your selected authority for the map page to zoom and centre on</td>
+<td class="govuk-table__cell">Expires when used or 1 year</td>
+</tr>
+</tbody>
+</table>
+
+<p class="govuk-body govuk-!-margin-bottom-8"></p>
+
+<h1 class="govuk-heading-m">
+  Measuring website usage (Google Analytics)
+</h1>
+
+<p> We use Google Analytics software to collect information about how you use Search for local land charges. We do this to help make sure the service website is meeting the needs of its users and to help us make improvements.</p>
+
+<p>Google Analytics stores information about:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the pages you visit on Search for local land charges</li>
+  <li>remember the notifications you've seen, so we don't show them to you again</li>
+</ul>
+
+<p> We don't collect or store your personal information (for example your name or address) so this information can't be used to identify who you are.</p>
+<p> We don't allow Google to use or share our analytics data.</p>
+<p>Google Analytics sets the following cookies:</p>
+<table class="govuk-table">
+<thead class="govuk-table__head">
+<tr class="govuk-table__row">
+<th scope="col" class="govuk-table__header app-custom-class">Name</th>
+<th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+<th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+</tr>
+</thead>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">_ga</th>
+<td class="govuk-table__cell">This helps us count how many people visit Search for local land charges by tracking if you've visited before</td>
+<td class="govuk-table__cell">2 years</td>
+</tr>
+</tbody>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">_gid</th>
+<td class="govuk-table__cell">This helps us count how many people visit Search for local land charges by tracking if you've visited before</td>
+<td class="govuk-table__cell">24 hours</td>
+</tr>
+</tbody>
+<tbody class="govuk-table__body">
+<tr class="govuk-table__row">
+<td class="govuk-table__cell">_gat</th>
+<td class="govuk-table__cell">Used to manage the rate at which page view requests are made</td>
+<td class="govuk-table__cell">10 minutes</td>
+</tr>
+</tbody>
+</table>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Do you want to accept analytics cookies?
+      </h1>
+    </legend>
+
+    <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="analytics-yes" name="analytics" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="analytics-yes">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="analytics-no" name="analytics" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="analytics-no">
+          No
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save cookie settings
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+          {# {% set whatHtml %}
+            <h2 class="govuk-heading-m">What is a local land charge?</h2>
+
+            <p>A local land charge is a restriction on a piece of land or property that can limit its use or bind the owner to a payment of a sum of money.</p>
+
+            <p>Local land charges can include: </p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>planning decisions</li>
+              <li>road agreements</li>
+              <li>tree preservation orders</li>
+              <li>conservation areas and listed building notices</li>
+              <li>Environmental health notices</li>
+            </ul>
+          {% endset -%}
+
+          {% set whyHtml %}
+            <h2 class="govuk-heading-m">Why do a local land charge search?</h2>
+
+            <p>Local land charges searches are normally required in the property and land buying process.</p>
+
+            <p>The local land charges search will reveal whether a property is subject to a charge if that charge has been registered.</p>
+
+            <p>If there are charges that have not been registered by the time your property or land buying process has completed you can refer back to your official land charge search document and make a claim for compensation. </p>
+          {% endset -%}
+
+          <style>
+            .js-enabled .govuk-tabs__panel {
+              border: 0;
+            }
+          </style>
+          {{ govukTabs({
+            items: [
+              {
+                label: "What is a local land charge?",
+                id: "what",
+                panel: {
+                  html: whatHtml
+                }
+              },
+              {
+                label: "Why do a local land charge search?",
+                id: "why",
+                panel: {
+                  html: whyHtml
+                }
+              }
+            ]
+          }) }} #}
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

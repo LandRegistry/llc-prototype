@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if error %}
+        {{ govukErrorSummary({
+          titleText: 'There is a problem',
+          errorList: [
+            {
+              text: error,
+              href: '#search-error'
+            }
+          ]
+        }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+Find an extent area by title number
+</h1>
+
+<p class="govuk-body-m">To view a local land charge, you will need to identify a property or area of land. This is known as an extent area.</p>
+<div class="govuk-inset-text">
+Not all areas are available on our register yet. If you cannot find an area, contact your local authority for information about local land charges.</div>
+
+
+      <form method="post">
+
+        <div class="govuk-form-group">
+          <div id="event-name-hint" class="govuk-hint">
+            For example, ‘XX123456’
+          </div>
+          <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text"></div>
+
+<p class="govuk-body-m">By starting a search you agree to our <a href="#0">terms of use</a>. For further information about the service see <a href="#0">Practice Guide 79</a>.</p>
+
+          {{ govukButton({
+            text: 'Search',
+            href: 'resultsbytitle'
+          }) }}
+        {# <h2 class="govuk-heading-m govuk-!-margin-top-3">
+          Other ways to find a charge
+        </h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li><a href="#0">Search by browsing to a place using a map</a></li>
+          <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
+        </ul> #}
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items govuk-!-margin-bottom-" role="complementary">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Other ways to find an extent area
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-list--spaced govuk-!-font-size-16">
+            <li><a href="searchbymap">Search by map</a></li>
+            <li><a href="search">Search by postcode or street name</a></li>
+            <li>Contact HM Land Registry on <b>0300 006 0444</b> if you are struggling to use this service</li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

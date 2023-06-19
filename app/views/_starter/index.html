@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "LLC prototypes",
+	      href: "/"
+	    },
+      {
+	      text: "[Feature name] prototypes",
+	      href: "../"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        [Feature name]
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p>Overview of feature.</p>
+
+      <h2 class="govuk-heading-m">
+        Version 2
+      </h2>
+
+      <h3 class="govuk-heading-s">Changes</h3>
+      <p>Information about this version.</p>
+
+      <h3 class="govuk-heading-s">Research notes</h3>
+      <p>Information about the research.</p>
+      <p><a href="#0">View user research report</a>.<p>
+
+      {{ govukButton({
+        text: 'View prototype',
+        href: 'v2/page'
+      }) }}
+
+
+
+
+
+
+      {% set v1 %}
+        <h3 class="govuk-heading-s">Changes</h3>
+        <p>Information about this version.</p>
+
+        <h3 class="govuk-heading-s">Research notes</h3>
+        <p>Information about the research.</p>
+        <p><a href="#0">View user research report</a>.<p>
+
+        {{ govukButton({
+          text: 'View prototype',
+          href: 'v1/page'
+        }) }}
+      {% endset %}
+
+      {{ govukAccordion({
+        items: [
+          {
+            heading: { text: 'Version 1' },
+            content: { html: v1 }
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

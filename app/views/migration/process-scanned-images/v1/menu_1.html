@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        Edit and capture charges from scanned image
+      </h1>
+    </div>
+
+<div class="govuk-grid-column-full">
+
+    <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <p>Link:</p>
+  </div>
+  <div class="govuk-grid-column-three-quarters">
+    <p> <a href="Box102_94-0829_1.html" class="govuk-link" rel="noreferrer noopener" target="_blank">scanned_images/Box102/94-0829/94-829.jpg</a> (link opens in new tab)
+      </div>
+</div>
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter">
+<p>Address:</p>
+</div>
+<div class="govuk-grid-column-three-quarters">
+  <p>37 MOORS TERRACE, SHOTTON COLLITRY</p>
+</div>
+</div>
+
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">
+        Showing 1 charge
+      </h2>
+      <div class="govuk-width-container">
+
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key govuk-!-width-one-quarter">
+        <p class="govuk-body govuk-!-font-weight-bold">Reference</p>
+      </dt>
+      <dd class="govuk-summary-list__actions">
+        <p class="govuk-body govuk-!-font-weight-bold">Authority reference</p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <p class="govuk-body govuk-!-font-weight-bold">Registration date</p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <p class="govuk-body govuk-!-font-weight-bold">Status</p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <p class="govuk-body govuk-!-font-weight-bold">Action</p>
+      </dd>
+    </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-quarter">
+            Box102_94-0829_1
+            </dt>
+
+            <dd class="govuk-summary-list__actions">
+              94/0829
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              11/08/1995
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              Needing capture
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <a href="text-vad_1" class"govuk-link">Edit</a>
+            </dd>
+          </div>
+
+        </div>
+
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add charge
+          </button>
+
+
+
+          <h2 class="govuk-heading-m">
+            Submit charges captured from image
+          </h2>
+          <p>Add a note (optional)</p>
+          <div class="govuk-form-group">
+            <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" style="width: 600px;"></textarea>
+            <div id="more-detail-hint" class="govuk-hint">
+              You have 200 characters remaining
+            </div>
+          </div>
+
+          <div class="govuk-!-margin-bottom-3">
+            <button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" onclick="window.location.href='/migration/process-scanned-images/v1/dashboard_2.html'">
+              Submit
+            </button>
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="window.location.href='/migration/process-scanned-images/v1/menu_5.html'">
+              Save and go back
+            </button>
+          </div>
+
+          <br>
+          <a class="govuk-body govuk-link" href="0">Release image and return to menu</a>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

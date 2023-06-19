@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    <h1 class="govuk-fieldset__heading">
+      Add a user
+    </h1>
+  </legend>
+<main class="govuk-main-wrapper">
+  <div>
+     <h3 class="govuk-heading-m">Confirm user details
+     </h3>
+  </div>
+
+<main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['administrator-first-name'] }} {{ data['administrator-family-name'] }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> name</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Email
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['administrator-email'] }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> date of birth</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Authority
+    </dt>
+    <dd class="govuk-summary-list__value">
+      HM Land Registry
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> contact information</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Role
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">Data Manager</p>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> contact details</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Permissions
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">Manage charges <br>Manage users <br>Manage migration data <br>Manage search service</p>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="04">
+        See full permissions granted<span class="govuk-visually-hidden"></span>
+      </a>
+    </dd>
+  </div>
+</dl>
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="more-detail">
+      Please select the additional permissions your user requires
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Your request will be forwarded to the appropriate HMLR colleague who will consider your request. It will also be considered for the development of user profiles and automatic permissions.
+  </div>
+      <div class="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions" name="question2" type="checkbox" value="I" aria-describedby="nationality-item-hint">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2I">
+            Manage charges
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-2" name="question2" type="checkbox" value="J">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2J">
+            Perform, repeat and view official searches
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-3" name="question2" type="checkbox" value="K">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2K">
+            Send a payment link
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-4" name="question2" type="checkbox" value="L">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2L">
+            Manage users
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-5" name="question2" type="checkbox" value="M">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2M">
+            Manage migration data
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-6" name="question2" type="checkbox" value="N">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2N">
+            Manage search service
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-7" name="question2" type="checkbox" value="O">
+          <label class="govuk-label govuk-checkboxes__label" for="Q20">
+            Manage law and categories
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-8" name="question2" type="checkbox" value="P">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2P">
+            Amend API
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="permissions-9" name="question2" type="checkbox" value="Q">
+          <label class="govuk-label govuk-checkboxes__label" for="Q2Q">
+            Manage SOURCE information
+          </label>
+        </div>
+
+        <div class="govuk-!-padding-bottom-7"></div>
+
+<div class=" govuk-grid-column-full" style="padding:0px 0px 0px 0px;">
+              <button class="govuk-button govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='08.html'">
+                  Send request
+              </button>
+            </div>
+
+
+
+
+</fieldset>
+
+  </main>
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}

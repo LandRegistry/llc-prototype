@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">
+            Enter card details
+          </h2>
+      </div>
+
+      <div class="govuk-grid-two-thirds">
+        <img src="/public/images/payment summary.png" alt="Card type" style="width:60%; margin-left:10px">
+
+
+      <div class="govuk-grid-column-full">
+      <div class="govuk-form-group">
+  <h2 class="govuk-heading-s" for="email" style="margin-bottom:3px; margin-top: 20px">
+    Card number
+  </h2>
+  <div id="more-detail-hint" class="govuk-hint" style="padding-top:-30px;">
+    Accepted credit and debit card types
+  </div>
+  <img src="/public/images/cardtype.png" alt="Card type" style="width:20%">
+  <div class="govuk-row">
+  <input class="govuk-input govuk-!-width-two-thirds" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<div class="govuk-form-group">
+<h2 class="govuk-heading-s" for="email" style="margin-bottom:3px">
+Expiry date
+</h2>
+<div id="more-detail-hint" class="govuk-hint">
+For example, 10/23
+</div>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+    <div class="govuk-date-input" id="dob">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-day">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" autocomplete="bday-day" pattern="[0-9]*" inputmode="numeric"></div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-month">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric"></div>
+      </div>
+  </fieldset>
+</div>
+
+<div class="govuk-!-padding-bottom-2"></div>
+
+
+<h2 class="govuk-heading-s" for="email" style="margin-bottom:3px">
+Name on card
+</h2>
+<div class="govuk-row">
+<input class="govuk-input govuk-!-width-two-thirds" id="cardname" name="cardname" type="cardname" spellcheck="false" aria-describedby="cardname">
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<h2 class="govuk-heading-s" for="email" style="margin-bottom:3px">
+  Card security code
+</h2>
+<div id="more-detail-hint" class="govuk-hint" style="margin-bottom:3px">
+  The last three digits on the back of the card
+</div>
+<input class="govuk-input govuk-!-width-one-quarter" style="padding: 0px;" id="sortnumber" name="sortnumber" type="sortnumber" spellcheck="false" aria-describedby="sortnumber">
+<img src="/public/images/cardback.png" alt="Card back" style="width:8%">
+</div>
+
+<div class="govuk-form-group">
+  <h2 class="govuk-heading-m" for="email" style="margin-bottom:3px">
+    Billing address
+  </h2>
+  <div id="more-detail-hint" class="govuk-hint" style="margin-bottom:30px">
+    This is the address associated with the card
+  </div>
+  <h2 class="govuk-body-m" for="email" style="margin-bottom:3px">
+    Country or territory
+  </h2>
+  <div class="govuk-row">
+  <input class="govuk-input govuk-!-width-two-thirds" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<h2 class="govuk-body-m" for="email" style="margin-bottom:3px">
+  Building number or name and street
+</h2>
+<div class="govuk-row">
+<input class="govuk-input govuk-!-width-two-thirds" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+<div class="govuk-!-padding-bottom-3"></div>
+<div class="govuk-row">
+  <input class="govuk-input govuk-!-width-two-thirds" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<h2 class="govuk-body-m" for="email" style="margin-bottom:3px">
+  Town or city
+</h2>
+<div class="govuk-row">
+<input class="govuk-input govuk-!-width-one-third" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<h2 class="govuk-body-m" for="email" style="margin-bottom:3px">
+  Postcode
+</h2>
+<div class="govuk-row">
+<input class="govuk-input govuk-!-width-one-quarter" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+
+<div class="govuk-!-padding-bottom-6"></div>
+
+<div class="govuk-form-group">
+  <h2 class="govuk-heading-m" for="email" style="margin-bottom:3px">
+    Contact details
+  </h2>
+  <div id="more-detail-hint" class="govuk-hint" style="margin-bottom:30px">
+    We'll send your payment confirmation here
+  </div>
+  <h2 class="govuk-body-m" for="email" style="margin-bottom:3px">
+    Email
+  </h2>
+  <div class="govuk-row">
+  <input class="govuk-input govuk-!-width-two-thirds" id="cardnumber" name="cardnumber" type="cardnumber" spellcheck="false" aria-describedby="cardnumber">
+</div>
+
+<div class="govuk-!-padding-bottom-8"></div>
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='/search/end-to-end/sign-in-first/confirmation'">
+        Continue
+        </button>
+      </div>
+
+        <p> <a class="govuk-link" href="/search/end-to-end/sign-in-first/charges">Cancel payment</a> </p>
+  </div>
+
+
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+{% endblock %}

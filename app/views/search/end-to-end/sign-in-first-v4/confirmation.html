@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Payment complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your reference number<br><strong>HDJ2123F</strong>
+            </div>
+          </div>
+
+          <p class="govuk-body">We have sent you a confirmation email.</p>
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+
+          <p class="govuk-body">
+            We’ve sent your application to Local Land Charges.
+          </p>
+          <p class="govuk-body">
+            They will contact you with your official copy of Local Land Charges.
+          </p>
+          <p class="govuk-body">
+            Your official search can also be found on your account.
+          </p>
+
+          <p class="govuk-body">
+            <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+{% endblock %}

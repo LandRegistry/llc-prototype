@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container {{ containerClasses }}">
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-full">
+          <h2 class="govuk-heading-l">
+            Create an account
+          </h2>
+      </div>
+
+      <div class="govuk-grid-column-full">
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="firstname">
+    First name
+  </label>
+  <input class="govuk-input govuk-!-width-one-third" id="firstname" name="firstname" type="firstname" spellcheck="false" aria-describedby="email-hint" autocomplete="firstname">
+</div>
+
+<div class="govuk-form-group">
+<label class="govuk-label" for="lastname">
+Last name
+</label>
+<input class="govuk-input govuk-!-width-one-third" id="lastname" name="lastname" type="lastname" spellcheck="false" aria-describedby="email-hint" autocomplete="lastname">
+</div>
+
+<div class="govuk-form-group">
+<label class="govuk-label" for="email">
+Email address
+</label>
+<input class="govuk-input govuk-!-width-one-third" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+</div>
+
+<div class="govuk-form-group">
+<label class="govuk-label" for="email">
+Confirm email address
+</label>
+<input class="govuk-input govuk-!-width-one-third" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+</div>
+
+</div>
+
+<div class="govuk-!-padding-bottom-9"></div>
+
+<div class="govuk-grid-column-full">
+<div class="govuk-grid-column-full" style="margin-left: -16px;">
+
+  <p> By creating an account, you agree to our <a class="govuk-link" href="#"> terms of use.</a> </p>
+  <p> Your personal information will be used to manage your account, process search requests and to contact you. Your account will not be used for marketing purposes. We may retain and share it to help detect and prevent fraud, in line with our <a class="govuk-link" href="#">personal information charter. </a> </p>
+
+</div>
+
+</div>
+<div class="govuk-grid-column-full">
+
+<div class="govuk-!-padding-bottom-2"></div>
+
+        <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='/search/end-to-end/sign-in-first/confirmemail'">
+        Create an account
+        </button>
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">
+        Already have an account?
+        </h2>
+        <p> <a class="govuk-link" href="/search/end-to-end/sign-in-first/sign-in">Sign in now</a> </p>
+      </div>
+
+      </div>
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block main %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    {{ govukBreadcrumbs({
+      items: [
+        {
+          text: 'Home',
+          href: '#0'
+        },
+        {
+          text: 'Housing and local services',
+          href: '#0'
+        },
+        {
+          text: 'Owning and renting a property',
+          href: '#0'
+        }
+      ]
+    }) }}
+
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+            {{ serviceName }}
+          </h1>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <p>Use this service to:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>search for restrictions (local land charges) on land or property</li>
+            <li>view search results free of charge</li>
+            <li>get an official search certificate for £15 (account required)</li>
+            <li>repeat or view an official search done in the last 6 months (account required)</li>
+          </ul>
+
+          {{ govukInsetText({
+            html: 'You can <a href="#0">sign in</a> if you already have an account.'
+          }) }}
+
+          <p>By starting a search you agree to our <a href="#0">terms of use</a>. For further information about the service see <a href="#0">Practice Guide 79</a>.</p>
+
+          {{ govukButton({
+            text: 'Start now',
+            href: 'search',
+            isStartButton: true,
+            classes: 'govuk-!-margin-bottom-9'
+          }) }}
+
+
+
+
+
+          {% set whatHtml %}
+            <h2 class="govuk-heading-m">What is a local land charge?</h2>
+
+            <p>A local land charge is a restriction on a piece of land or property that can limit its use or bind the owner to a payment of a sum of money.</p>
+
+            <p>Local land charges can include: </p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>planning decisions</li>
+              <li>road agreements</li>
+              <li>tree preservation orders</li>
+              <li>conservation areas and listed building notices</li>
+              <li>Environmental health notices</li>
+            </ul>
+          {% endset -%}
+
+          {% set whyHtml %}
+            <h2 class="govuk-heading-m">Why do a local land charge search?</h2>
+
+            <p>Local land charges searches are normally required in the property and land buying process.</p>
+
+            <p>The local land charges search will reveal whether a property is subject to a charge if that charge has been registered.</p>
+
+            <p>If there are charges that have not been registered by the time your property or land buying process has completed you can refer back to your official land charge search document and make a claim for compensation. </p>
+          {% endset -%}
+
+          <style>
+            .js-enabled .govuk-tabs__panel {
+              border: 0;
+            }
+          </style>
+          {{ govukTabs({
+            items: [
+              {
+                label: "What is a local land charge?",
+                id: "what",
+                panel: {
+                  html: whatHtml
+                }
+              },
+              {
+                label: "Why do a local land charge search?",
+                id: "why",
+                panel: {
+                  html: whyHtml
+                }
+              }
+            ]
+          }) }}
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+        <div class="govuk-grid-column-one-third">
+
+          <aside class="app-related-items" role="complementary">
+            <h2 class="govuk-heading-m" id="subsection-title">
+              Related content
+            </h2>
+            <nav role="navigation" aria-labelledby="subsection-title">
+              <ul class="govuk-list govuk-!-font-size-16">
+                <li>
+                  <a href="#0">
+                    Differences between free and paid searches
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    Environmental Information Regulations 2004
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

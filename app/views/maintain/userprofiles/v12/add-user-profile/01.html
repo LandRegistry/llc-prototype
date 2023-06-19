@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-body">
+    <div class=" govuk-grid-column-full govuk-!-padding-bottom-2" style="max-width: 890px;">
+
+     <form action="02" method="post" class="form">
+      <h1 class="govuk-heading-xl">
+        Add a user
+      </h1>
+
+      <p> Please ensure the user you're adding is authorised to make changes in the authority selected. </p>
+
+
+
+        <div style="display: inline-block;">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="administrator-first-name">
+                First/Given names
+                </label>
+                <input class="govuk-input" id="administrator-first-name" name="administrator-first-name" value="{{ data['administrator-first-name'] }}" type="text" style="width: 300px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="administrator-family-name">
+                    Surname/Family name
+                </label>
+                <input class="govuk-input" id="administrator-family-name" name="administrator-family-name" value="{{ data['administrator-family-name'] }}" type="text" style="width: 300px;">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="administrator-email">
+                Email address
+                </label>
+                <input class="govuk-input" id="administrator-email" name="administrator-email" value="{{ data['administrator-email'] }}" spellcheck="false" aria-describedby="email-hint" autocomplete="email" style="width: 300px;">
+            </div>
+
+
+            <h1 class="govuk-heading-m" style="">
+              Select the user's authority
+            </h1>
+            <div class="govuk-inset-text">
+              If you are adding an internal user, select HM Land Registry as the user's authority.
+              Additional authorities will show once the authority category has been selected.
+            </div>
+            <form method="post" class="form">
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="conditional-contact">
+                  <div class="govuk-radios govuk-radios">
+
+               <div class="govuk-radios__item">
+                 <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+                 <label class="govuk-label govuk-radios__label" for="contact-3">
+                   HM Land Registry
+                 </label>
+               </div>
+
+               <div class="govuk-radios__item">
+                 <input class="govuk-radios__input" id="contact-5" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-5">
+                 <label class="govuk-label govuk-radios__label" for="contact-5">
+                   Local authority (LA)
+                 </label>
+               </div>
+                 <div class="govuk-form-group">
+                   <fieldset class="govuk-fieldset">
+                     <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-5">
+                    <div class="govuk-form-group">
+                      <select class="govuk-select" id="sort" name="sort">
+                      <option value="published">Adur District Council</option>
+                      <option value="updated" selected>Allerdale Borough Council</option>
+                      <option value="views">Amber Valley Borough Council</option>
+                      <option value="comments">**Full list of Local Authorities**</option>
+                    </select>
+
+                  </div>
+                   </fieldset>
+                     </div>
+                   </div>
+
+                     <div class="govuk-radios__item">
+                       <input class="govuk-radios__input" id="contact-6" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-6">
+                       <label class="govuk-label govuk-radios__label" for="contact-6">
+                         Other originating authority (OOA)
+                       </label>
+                       <div class="govuk-form-group">
+                         <fieldset class="govuk-fieldset">
+                           <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-6">
+                          <div class="govuk-form-group">
+                            <select class="govuk-select" id="sort2" name="sort">
+                            <option value="published">Anglian Water</option>
+                            <option value="updated" selected>British Pipeline Authority</option>
+                            <option value="views">Broads Authority</option>
+                            <option value="comments">**Full list of OOAs**</option>
+                          </select>
+
+                        </div>
+                        </div>
+                         </fieldset>
+
+                         </div>
+
+
+
+            </fieldset>
+
+
+
+      </div>
+    </div>
+
+        <div>
+            <button class="govuk-button" type="submit">Continue</button>
+        </div>
+    </form>
+
+
+    </div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+  <!--
+      function toggle_visibility(id) {
+         var e = document.getElementById(id);
+         if(e.style.display == 'block')
+            e.style.display = 'none';
+         else
+            e.style.display = 'block';
+      }
+  //-->
+
+
+  $('input[type="radio"]').click(function(){
+      if($(this).attr("value")=="yes"){
+          $(".content2").hide('display');
+      }
+      if($(this).attr("value")=="no"){
+          $(".content2").show('display');
+
+      }
+  });
+
+
+  </script>
+
+{% endblock %}

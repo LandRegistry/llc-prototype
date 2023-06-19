@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    <h1 class="govuk-fieldset__heading">
+      Add a user
+    </h1>
+  </legend>
+<main class="govuk-main-wrapper">
+  <div>
+     <h3 class="govuk-heading-m">Confirm user details
+     </h3>
+  </div>
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Name
+    </dt>
+      <dd class="govuk-summary-list__value">
+      <input class="govuk-input" id="organisation-name" name="organisation-name" value="{{ data['administrator-first-name'] }} {{ data['administrator-family-name'] }}"  style="width: 300px;">
+    </dd>
+
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="03">
+        Update<span class="govuk-visually-hidden"> name</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Email
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ data['administrator-email'] }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> date of birth</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Authority
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Adur District Council
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> contact information</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Role
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">LA user</p>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="#">
+        Change<span class="govuk-visually-hidden"> contact details</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Permissions
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">User permissions
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl>
+
+<div class="govuk-button-group">
+  <button class="govuk-button" data-module="govuk-button" onclick="window.location.href='06.html'">
+    Confirm and add user
+  </button>
+</div>
+
+
+
+</div>
+
+</fieldset>
+
+  </main>
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}

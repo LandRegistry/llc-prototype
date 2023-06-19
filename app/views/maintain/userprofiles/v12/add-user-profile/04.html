@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Blank page
+{% endblock %}
+
+{% block content %}
+
+<a href="03.html" class="govuk-back-link">Back</a>
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Full permissions for {{ data['administrator-family-name'] }} {{ data['administrator-first-name'] }}
+    </h1>
+  </legend>
+
+<main class="govuk-main-wrapper">
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Permission title</th>
+              <th scope="col" class="govuk-table__header">Full details of permissions </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Manage charges</th>
+              <td class="govuk-table__cell">Add a charge <br> Add a charge on behalf of anothe organisation <br> Find, update or cancel a charge <br> Expired charges</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Manage users</th>
+              <td class="govuk-table__cell">Add a new user <br> Update an existiing user</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Manage migration data</th>
+              <td class="govuk-table__cell">Process scanned images <br> Manage migration data <br> Review/ search deffered charges <br> Charges currently in progress <br> Charges flagged for cancellation <br> Data extraction snapshot from Migration Helper</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Manage search service</th>
+              <td class="govuk-table__cell">Find search information</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+
+
+
+
+</fieldset>
+
+  </main>
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}

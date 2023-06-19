@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include "includes/lang-switcher.html" %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: 'results'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-width-container {{ containerClasses }}">
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main" {% if mainLang %} lang="{{ mainLang }}" {% endif %}>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-l">
+              Does ‘38 Knatchbull Road, London SE5 9QY’ match the exact search area?
+            </h2>
+            <div class="govuk-inset-text">
+              This description will be used on your official copy.
+            </div>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                    <label class="govuk-label govuk-radios__label" for="contact">
+                      Yes
+                    </label>
+                  </div>
+
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                    <label class="govuk-label govuk-radios__label" for="contact-2">
+                      No, I'd like to provide my own description
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                    <div class="govuk-form-group">
+                      <h1 class="govuk-label-wrapper">
+                        <label class="govuk-label govuk-label--s" for="more-detail">
+                          Describe all search areas
+                        </label>
+                      </h1>
+                      <div id="more-detail-hint" class="govuk-hint">
+                        For example, ‘flats 1-5 Church lane’ or ‘Land to the north of the bypass’.
+                      </div>
+                      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      <div id="more-detail-hint" class="govuk-hint">
+                        Answer must be shorter than 1000 characters (about 160 words).
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                You cannot change your search area after you have paid.</strong>
+              </div>
+            <div>
+              <p class="govuk-body-m" style="">Your payment will be processed by our payment service provider, WorldPay, through GOV UK Pay. You should refer to the Privacy Notices of those organisations for details of how your personal data is used.</p>
+            </div>
+              <div class="govuk-!-padding-bottom-7"></div>
+              <button class="govuk-button" style="margin-left:" data-module="govuk-button" onclick="window.location.href='/search/end-to-end/sign-in-first/paynow'">
+                Continue
+              </button>
+            <div>
+            <p>
+              <a class="govuk-link" style="margin-left:" href="search">Cancel and start a new search</a>
+            </p>
+          </div>
+        </div>
+
+
+            <div class="govuk-grid-column-one-half">
+              <img src="/public/images/boundarywarning.png" alt="Extent 38 Knatchbull Road" style="width:100%">
+              <figcaption  class="govuk-body-s">The dotted line shows your search area.</figcaption>
+
+            </div>
+
+
+          </div>
+        </main>
+        </div>
+
+    {% endblock %}
