@@ -717,6 +717,10 @@ table th, table td {
 element {
 
 }
+.column-half {
+    float: left;
+    width: 50%;
+}
 .column-half-hack {
     float: left;
     width: 35%;
