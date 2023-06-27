@@ -1,1 +1,21 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Add extra styles here
+
 @import "live-ui";
+
+// Hide the OGL licence
+.govuk-footer__licence-logo,
+.govuk-footer__licence-description {
+  display: none;
+}
+
+// Remove margin so links line up now we've removed the OLG
+.govuk-footer__inline-list,
+.govuk-footer__inline-list-item {
+  margin-bottom: 0;
+}
+
