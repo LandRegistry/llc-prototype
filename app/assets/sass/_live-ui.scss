@@ -553,6 +553,9 @@ span.icon.expanded.expand-icon {
 span.icon.expanded.expand-icon-plus-minus {
   background-position: 0 0;
 }
+span.icon.closed.expand-icon-plus-minus {
+  background-position: 0 -16px;
+}
 
 .sub-category-table {
   border-bottom-style: hidden;
