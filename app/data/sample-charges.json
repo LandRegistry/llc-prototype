@@ -1,0 +1,327 @@
+{
+  "address": "7-8 Newbury Street, City of London",
+  "categories": [
+    {
+      "category": "Planning",
+      "charges": [
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Extensions and alterations to the rear and interior of the existing office building (Use Class E) to provide upgraded office space at floors lower ground to 3, along with the provision of one residential dwelling (Use Class C3) within a newly created two storey roof extension levels 4 and 5 with a small roof terrace at 4th floor.",
+          "creationDate": "28 July 2022",
+          "location": "9 Newbury Street<br>London<br>EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "22/00215/FULL",
+          "registrationDate": "16 August 2022",
+          "law": "Town and Country Planning Act 1990",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-2XHZ9"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Installation and display of non-illuminated hoarding advertisements along Aldersgate Street measuring 2.44m in height and 50.6m in length for a temporary period until 31.12.2023.",
+          "creationDate": "13 January 2022",
+          "location": "150 Aldersgate Street<br>London<br>EC1A 4AB",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "21/01095/ADVT",
+          "registrationDate": "17 January 2022",
+          "law": "The Town and Country Planning (Control of Advertisements) (England) Regulations 2007",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-1QZJV"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "(i) Demolition of roof top plant enclosure, rear service ramp and removal of cladding to facilitate the refurbishment, recladding and extension of the existing Office (Class B1(a)) building at 150 Aldersgate Street to create a basement, ground plus nine storey building, including rear and roof top extensions, infill extensions to the rear courtyard (ground plus two storeys) to link with 3-4 Bartholomew Place; (ii) a part change of use at ground floor from Office (Class B1) to Cafe (Class A1). (iii) erection of a new building Office (Class B1(a) at 3-4 Bartholomew Place comprised of basement, ground plus three storeys; (iv) the amalgamation of the two buildings; (v) the creation of new accessible and inaccessible terraces, green roofs, hard and soft landscaping, and creation of external courtyards; (vi) upgrade works to Braidwood Passage, including new lighting; and (vii) reconfiguration of the loading bay and associated works.",
+          "creationDate": "21 May 2021",
+          "location": "150 Aldersgate Street<br>3-4 Bartholomew Place<br>London<br>EC1A",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "20/00371/FULMAJ",
+          "registrationDate": "24 May 2021",
+          "law": "Town and Country Planning Act 1990",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-Y047"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "i) Change of use of upper floors from office (Class B1) to residential (Class C3) to create a two-bedroom apartment (86.6sq.m); (ii) external alterations and extension at ground floor level including installation of a replacement shopfront and infill extension at the rear of the building; (iii) external alterations and extension at roof level including replacement of existing roof access and creation of a roof terrace; and (iv) associated external alterations (total uplift in floorspace 10.2sqm).",
+          "creationDate": "01 August 2019",
+          "location": "9 Newbury Street, London EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "19/00489/FULL",
+          "registrationDate": "02 August 2019",
+          "law": "Town and Country Planning Act 1990",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-B2XF"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Installation of a roof light, erection of a cedar fence and use of existing flat roof as a roof garden.",
+          "creationDate": "06 June 2019",
+          "location": "Flat 7, 1-3 Newbury Street, London EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "18/00796/FULL",
+          "registrationDate": "07 June 2019",
+          "law": "Town and Country Planning Act 1990",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-66WP"
+        },
+        {
+          "subcategory": "No permitted development / article 4",
+          "description": "Direction made under Article 4(1) to which Article 3 applies Whereas the City of London Corporation being the appropriate local planning authority, is satisfied that it is expedient that development of the description set out in the First Schedule below should not be carried out on land within the City of London, unless planning permission is granted on an application made under Part III of the Town and Country Planning Act 1990 (as amended). Now therefore the said Council in pursuance of the power conferred on them by Article 4(1) of the Town and Country Planning (General Permitted Development) (England) Order 2015 hereby directs that the permission granted by Article 3 of the said Order shall not apply to development specified in the First Schedule below in respect of the land described in the Second Schedule.<br /> First Schedule<br />Development consisting of a change of use of a building and any land within its curtilage from a use falling within Class B1(a) (offices) of the Schedule to the Town and Country Planning (Use Classes) Order 1987 (as amended) to a use falling within Class C3 (dwelling houses) of that Schedule, being development comprised within Class O of Part 3 of Schedule 2 to the Town and Country Planning (General Permitted Development) (England) Order 2015 and not being development comprised within any other Class.<br />Second Schedule<br />All land within the City of London, The Direction will come into force on 31.05.2019 if confirmed.",
+          "creationDate": "Not provided",
+          "location": "The Whole of the City of London",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "Not provided",
+          "registrationDate": "01 February 2018",
+          "law": "Town and Country Planning (General Permitted Development) (England) Order 2015 Direction made under Article 4(1) to which Article 3 applies",
+          "legalDocument": "Direction",
+          "hmlrReference": "LLC-4TWY"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Replacement of extant planning permission [08/00721/FULL] dated 01.10.2009 in order to extend the time limit for implementation of change of use from light industrial use (Class B1) to residential use (Class C3) at basement, ground, first and second floor levels (204 sqm). Extension at roof level, rear and side of building for residential (Class C3) use. (Total 173 sqm).",
+          "creationDate": "25 September 2012",
+          "location": "3-4 Bartholomew Place EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "12/00764/FULL",
+          "registrationDate": "26 September 2012",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4L9F"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use from light industrial use (Class B1) to residential use (Class C3) at basement, ground, first and second floor levels (204 sqm). Extension at roof level, rear and side of building for residential (Class C3) use. (Total 173 sqm).",
+          "creationDate": "01 October 2009",
+          "location": "3-4 Bartholomew Place EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "08/00721/FULL",
+          "registrationDate": "02 October 2009",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4L9D"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Extension of and alterations to the pitched roof creating a mezzanine level of 15 sqm for residential (Class C3) floorspace. Installation of one air condensing unit at roof level.",
+          "creationDate": "16 September 2008",
+          "location": "1-3 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "08/00112/FULL",
+          "registrationDate": "18 September 2008",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHR"
+        },
+        {
+          "subcategory": "Conservation area",
+          "description": "City of London Conservation Area (was St. Bartholomew’s Conservation Area, re-designated 16.05.1991)",
+          "creationDate": "Not provided",
+          "location": "Smithfield",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "Not provided",
+          "registrationDate": "14 June 2007",
+          "law": "Planning (Listed Buildings and Conservation Areas) Act 1990 section 69(4)",
+          "legalDocument": "Notice",
+          "hmlrReference": "LLC-4QLX"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Installation of new entrance doors and timber framed glazed stallrisers.",
+          "creationDate": "01 June 2006",
+          "location": "1-6 Newbury Street and 12 Kinghorn Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "06/00291/FULL",
+          "registrationDate": "01 June 2006",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHQ"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use from office (Class B1) use to residential (Class C3) use at part ground, 1st, 2nd, 3rd floor levels (6 Flats). Change of use from office (Class B1) to Class A1 use at basement level. Erection of a new extension at 4th floor level for residential use. External alterations",
+          "creationDate": "18 August 2005",
+          "location": "1-6 Newbury Street and 12 Kinghorn Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "05/00512/FULL",
+          "registrationDate": "19 August 2005",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHP"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use from light industrial (B1) to four flats and alterations to elevations",
+          "creationDate": "03 April 1998",
+          "location": "7-8 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "97-1228 L",
+          "registrationDate": "07 April 1998",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N7D"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Installation of an external kitchen extra duct.",
+          "creationDate": "02 September 1997",
+          "location": "1-3 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "4017/1L",
+          "registrationDate": "11 September 1997",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHN"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use from meat traders wholesaler (B8) to use as a workshop for framing pictures (B1) on ground floor.)",
+          "creationDate": "13 December 1994",
+          "location": "1-6 Newbury Street and 12 Kinghorn Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "4017/1K",
+          "registrationDate": "22 December 1994",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHM"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use from wholesale butcher (B2) to Art Gallery storage (B8) on ground floor and basement levels.",
+          "creationDate": "03 December 1993",
+          "location": "10-13 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "93-1228 K",
+          "registrationDate": "13 December 1993",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N7C"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Retention of works to entrance surround of office building.",
+          "creationDate": "21 October 1983",
+          "location": "5-6 Bartholomew Close EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "3387-1 C",
+          "registrationDate": "17 June 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4F8K"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Retention of use of 1st floor (part southwest) as a photographic studio.",
+          "creationDate": "18 April 1980",
+          "location": "1-6 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "4017/1G",
+          "registrationDate": "20 May 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHK"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use to light industrial/workshop/studio at 3rd floor west.",
+          "creationDate": "24 August 1984",
+          "location": "1-6 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "4017/1H",
+          "registrationDate": "20 May 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4CHL"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use from shop to office. Retention under Section 32 of Town and Country Planning Act 1971 of alterations being made to the elevations of the building.",
+          "creationDate": "25 October 1977",
+          "location": "9 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1228 D",
+          "registrationDate": "20 May 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N75"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Construction of an office extension on the flat roof.",
+          "creationDate": "09 October 1979",
+          "location": "9 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1228 G",
+          "registrationDate": "20 May 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N78"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Change of use of 2nd floor and 3rd floor to offices.",
+          "creationDate": "05 December 1980",
+          "location": "14-15 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1228 H",
+          "registrationDate": "20 May 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N79"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Use of existing space as a studio workshop for textile and fashion design at 2nd floor.",
+          "creationDate": "19 October 1984",
+          "location": "10-13 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1228 J",
+          "registrationDate": "20 May 1987",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N7B"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Demolition of existing and rebuilding on five floors for use as offices.",
+          "creationDate": "13 May 1980",
+          "location": "5-6 Bartholomew Close EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "3387-1 B",
+          "registrationDate": "15 December 1986",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4F8J"
+        },
+        {
+          "subcategory": "Conditional planning consent",
+          "description": "Use of 1st floor as workshop for design, industrial model making and typesetting.",
+          "creationDate": "09 February 1979",
+          "location": "10-13 Newbury Street EC1",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1228 F",
+          "registrationDate": "09 March 1979",
+          "law": "Town and Country Planning Act 1990 section 70",
+          "legalDocument": "Planning permission",
+          "hmlrReference": "LLC-4N77"
+        }
+      ]
+    },
+    {
+      "category": "other",
+      "charges": [
+        {
+          "subcategory": "Smoke control order",
+          "description": "The Whole of the City of London is a Smoke Control Area",
+          "creationDate": "Not provided",
+          "location": "The Whole of the City of London",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "Not provided",
+          "registrationDate": "01 April 1984",
+          "law": "Clean Air Act 1993, section 18",
+          "legalDocument": " Order",
+          "hmlrReference": "LLC-4QM3"
+        }
+      ]
+    }
+  ]
+}

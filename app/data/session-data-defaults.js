@@ -16,6 +16,9 @@ Example usage:
 ============================================================================
 
 */
+console.log("default values for user session data");
+var charges = require('./sample-charges.json')
+console.log(charges);
 
 module.exports = {
 
@@ -360,6 +363,8 @@ module.exports = {
     "Wycombe District Council",
     "Wyre Borough Council",
     "Wyre Forest District Council"
-  ]
+  ],
+  charges:charges
+
 
 }
