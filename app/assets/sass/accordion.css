@@ -1,0 +1,728 @@
+body{
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+}
+
+#global-header .header-proposition #proposition-links li {
+  float: left;
+}
+
+.js-enabled #global-header .header-proposition #proposition-link,
+.js-enabled #global-header .header-proposition #proposition-links {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  #global-header .header-proposition #proposition-links li {
+      float: none;
+  }
+}
+
+.check-authority-migrated-prompt {
+  margin-top: -1em;
+  padding-top: 1em;
+  position: relative;
+  top: 2em;
+}
+
+@media screen and (max-width: 640px) {
+  .check-authority-migrated-prompt {
+      top: 1em
+  }
+}
+
+.column-one-third {
+  width: 30% !important;
+  float: left;
+}
+
+.column-one-third h2 {
+  margin-top: 0px;
+}
+
+#search-results-map {
+  height: 150px;
+  width: 300px;
+}
+
+.margin-top-small {
+  margin-top: 0.3125em;
+}
+
+@media (min-width: 641px) {
+  .margin-top-small {
+      margin-top: 0.26316em;
+  }
+}
+
+.margin-top-medium {
+  margin-top: 30px;
+}
+
+.payPromo {
+  border: 10px solid #BFC1C3;
+  padding-left: 1em;
+}
+
+.payPromo:hover {
+  border-color: #2B8CC4;
+}
+
+.search-bar {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  height: 38px;
+  max-width: 90vw;
+}
+
+.search-button {
+  height: 38px;
+  width: 38px;
+  cursor: pointer;
+  background: #0b0c0c url("../images/search-button.png") no-repeat 2px 50%;
+  border: 0;
+  border-radius: 0;
+}
+
+.search-field {
+  height: 38px;
+}
+
+/* override for strange behavious/bug in gov uk styles */
+.search-fees td:last-child {
+  padding-right: 1.05263em;
+}
+
+.search-fees td {
+  padding-left: 0.5em;
+  border: 1px solid #DEE0E2;
+}
+
+.search-fees thead td {
+  background-color: #BFC1C3;
+  font-weight: bold;
+}
+
+.search-fees tbody tr:nth-child(2n+2) {
+  background-color: #F8F8F8;
+}
+
+#postcode-input {
+  margin-bottom: 30px;
+  width: 60%;
+}
+
+#applicant-name-text{
+  word-wrap: break-word;
+}
+
+#lon-land-interest-text{
+  word-wrap: break-word;
+}
+
+#height-text{
+  word-wrap: break-word;
+}
+
+#extent-coverage-text{
+  word-wrap: break-word;
+}
+
+#details-list{
+  table-layout: fixed;
+}
+
+#location-text{
+  word-wrap: break-word;
+}
+
+#description-text{
+  word-wrap: break-word;
+}
+
+#search-area{
+  word-wrap: break-word;
+}
+
+#details-list td,
+th {
+  border-bottom: none;
+}
+
+.charge-details th,
+.charge-details td {
+  border-bottom: none;
+}
+
+.charge-details {
+  overflow-wrap: break-word;
+  table-layout: fixed;
+}
+
+.charge-details th {
+  width: 33%;
+}
+
+.download-panel {
+  border-left-color: #DF3034;
+  background-color: rgba(223, 48, 52, 0.1) !important;
+}
+
+.download-link {
+  text-align: right;
+}
+
+/* override govuk template for centering confirmation message vertically */
+.govuk-box-highlight {
+  padding: 2em 0 1em;
+}
+
+.confirmation-message span {
+  display: block;
+}
+
+#address-finder ul {
+  max-height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.notice-multiline .icon {
+  margin-top: 0px;
+  left: 0;
+  top: 0;
+  position: relative;
+  float: left;
+  display: block;
+}
+
+.notice-multiline .strong {
+  display: block;
+  padding-left: 65px;
+  margin-left: -15px;
+}
+
+.list-indent {
+  margin-left: 30px;
+}
+
+.satisfaction-link {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media print {
+  .no-print {
+      display: none;
+  }
+}
+
+.benefits {
+  font-size: medium;
+}
+
+.reduced-border-heading {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.column-heading {
+  width: 88%;
+  padding-left: 15px;
+  float: left;
+  box-sizing: border-box;
+}
+
+.column-button {
+  float: right;
+  width: 12%;
+  box-sizing: border-box;
+  margin-top: 0.5em;
+}
+
+.column-pay {
+  border-top: 3px solid #005ea5;
+  width: 30%;
+  float: right;
+}
+
+.pay-button {
+  width: 100%;
+}
+
+.date {
+  text-align: right;
+}
+
+@media screen and (max-width: 641px) {
+  .column-pay {
+      width: 100%;
+      margin-top: 0.5em;
+      float: none;
+  }
+
+  .pay-button {
+      width: 50%;
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.notification-summary {
+  border: 4px solid #005ea5;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px 10px;
+}
+
+.notification-summary p {
+  max-width: 32em;
+  margin: 0px;
+}
+
+
+.check-search-area-margin {
+  margin-top: 10px;
+}
+
+@media (min-width: 641px) {
+  .notification-summary {
+      border: 5px solid #005ea5;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding: 20px 15px 15px;
+  }
+}
+
+.notification-information {
+  border: 5px solid #005ea5;
+  border-top: 0px solid;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  padding: 15px 20px;
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.notification-information p {
+  max-width: 32em;
+  margin: 0px;
+}
+
+.notification-information-heading {
+  background-color: #005ea5;
+  font-size: large;
+  font-weight: 700;
+  color: white;
+  padding: 10px 25px;
+
+}
+
+.reduced-column-width {
+  width: 23%;
+  float: left;
+}
+
+.margin-reset {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.search-box-padding {
+  padding-left: 0;
+}
+
+.nojs-content {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+  max-width: 1020px;
+  padding: 0 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+@media (min-width: 641px) {
+  .nojs-content {
+      font-size: 19px;
+      line-height: 1.31579;
+      padding: 0 30px;
+  }
+}
+
+.icon-next-page {
+  height: 1.5em;
+  width: 1.5em;
+  background-size: 1.5em;
+  vertical-align: bottom;
+  background-image: url("../images/arrow-next.png");
+}
+
+.icon-previous-page {
+  height: 1.5em;
+  width: 1.5em;
+  background-size: 1.5em;
+  vertical-align: bottom;
+  background-image: url("../images/arrow-previous.png");
+}
+
+.current-page{
+  padding: 0.3em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.pagination-div{
+  padding-top: 2em;
+}
+
+.pagination-div a {
+  text-decoration: none;
+}
+
+.pagination-div a:visited {
+  color: #005ea5;
+  text-decoration: none;
+}
+
+.page-number-link{
+  text-decoration: underline;
+  padding: 0.1em;
+  font-weight: 700;
+}
+
+.charge-amount{
+  float: right;
+  font-size: medium;
+}
+
+@media (max-width: 830px) and (min-width: 641px){
+  .charge-amount {
+      float: none;
+      padding: 0.5em;
+  }
+}
+
+.charge-amount span {
+  vertical-align: sub;
+}
+
+/* Styling to allow for user account/history pages side bar */
+.user-main-content {
+  float: right;
+  width: 80%;
+}
+
+.user-sidebar {
+  float: left;
+  width: calc(20% - 10px);
+}
+
+.panel-blue {
+  box-sizing: border-box;
+  clear: both;
+  border-left-style: solid;
+  border-color: #1d70b8;
+  border-left-width: thick;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.column-more-info {
+  border-top: 2px solid #005ea5;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 2px;
+  width: 28% !important;
+  float: right;
+}
+
+@media (max-width: 640px) {
+  .user-sidebar {
+      float: none;
+      width: 100%;
+  }
+
+  .user-main-content {
+      float: none;
+      width: 100%;
+  }
+
+  .column-more-info {
+      width: unset !important;
+      float: unset;
+  }
+
+}
+
+.govuk-warning-text {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.govuk-warning-text .icon {
+  margin-top: 4px;
+  margin-right: 10px;
+}
+
+.amend-search-link{
+  padding-top: 1em;
+  display: block;
+}
+
+#authority-ref-text{
+  word-wrap: break-word;
+}
+
+.link-text {
+  color: #005ea5;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clickable-accordion {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.clickable-accordion h2 {
+  padding-bottom: 0.1em;
+}
+
+.clickable-accordion:hover h2, .clickable-accordion:hover
+.expand-container, .expand-all-container:hover, .expand-all-container:focus,
+.clickable-accordion:focus .expand-container, .clickable-accordion:focus h2{
+  background-color: #ffdd00;
+  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+}
+
+.clickable-accordion:focus{
+  outline: none;
+}
+
+.charge-list-accordion {
+  cursor: pointer;
+}
+
+.expand-container, .expand-all-container{
+  width: fit-content;
+}
+
+.expand-icon {
+  margin-left: 5px;
+  height: 16px;
+  width: 16px;
+  background-image: url('../images/icon-expand-collapse.png');
+  background-repeat: no-repeat;
+  background-position: 0 -16px;
+}
+
+span.icon.expanded.expand-icon {
+  background-position: 0 0;
+}
+
+.expand-icon-plus-minus {
+  margin-left: 5px;
+  height: 16px;
+  width: 16px;
+  background-image: url('../images/icon-plus-minus.png');
+  background-repeat: no-repeat;
+  background-position: 0 -16px;
+}
+
+span.icon.expanded.expand-icon-plus-minus {
+  background-position: 0 0;
+}
+span.icon.closed.expand-icon-plus-minus {
+  background-position: 0 -16px;
+}
+
+.sub-category-table {
+  border-bottom-style: hidden;
+}
+
+#language-switcher-search {
+  padding-top: 1em;
+  text-align: end;
+  padding-bottom: 2em;
+}
+
+.top-aligned {
+  margin-top: 0;
+}
+
+.deep-header {
+  margin-top: 2em;
+}
+
+.open-all-link {
+  text-align: right;
+}
+
+.charge-search-overview {
+  display: flex;
+}
+
+.charge-search-header {
+  width: calc(100% - 40px);
+  overflow-wrap: break-word;
+}
+
+.charge-search-expand {
+  line-height: 8em;
+}
+
+.search-results-table-types {
+  border-bottom:1px solid #b1b4b6;
+}
+
+.search-results-table-charges {
+  border-top:1px solid #b1b4b6;
+}
+
+.list-wide {
+padding: 0;
+margin-top: 5px;
+margin-bottom: 20px;
+}
+
+.list-wide li {
+margin-bottom: 10px;
+}
+
+.column-one-fifth {
+  width: 20%;
+  float: left;
+}
+
+.small-grey-heading {
+  color: #666E73;
+  font-weight: 100;
+}
+
+.with-grey-heading {
+  margin-top: 0;
+}
+
+.free-search-box h3 {
+  font-weight: 900;
+}
+
+table .pagination-div {
+  padding-top: 0;
+}
+
+.user-main-content .hyperlink-button{
+  font-size: 19px;
+}
+
+.user-sidebar div{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.user-sidebar hr {
+  margin: 0;
+}
+
+.user-sidebar .heading-small {
+  margin-top: 0.5em;
+}
+
+.grey-background {
+  background-color: #f3f2f1;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.download-table {
+  width: 50%;
+}
+
+table th:last-child.download-table-heading-2 {
+  text-align: right;
+  padding-right: 1.4em;
+}
+
+.help-link {
+  padding-bottom: 0em;
+}
+
+.search-area-description-map{
+  float: right;
+}
+
+@media (max-width:641px){
+  .search-area-description-map{
+      float: unset;
+  }
+}
+.icon {
+  display: inline-block;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.bold-small {
+  font-family: "GDS Transport", arial, sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  font-size: 19px;
+  line-height: 1.31579;
+}
+
+table th, table td {
+  font-size: 19px;
+  line-height: 1.31579;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  padding: 0.63158em 1.05263em 0.47368em 0;
+  text-align: left;
+  border-bottom: 1px solid #bfc1c3;
+}
+
+
+.visually-hidden,
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+.column-one-third{
+  width:33%;
+}
+
+.column-half {
+    float: left;
+    width: 50%;
+}
+.column-half-hack {
+    float: left;
+    width: 35%;
+}
