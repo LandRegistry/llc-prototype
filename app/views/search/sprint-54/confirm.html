@@ -1,9 +1,24 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search search area for local land charges - GOV.UK" %}
 
 {% block beforeContent %}
-  {% include "includes/lang-switcher.html" %}
-  <a href="results" class="govuk-back-link">Back</a>
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      PROTOTYPE
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is not a full service. It is not production code and you might experience problems.
+      <!-- This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it. -->
+    </span>
+  </p>
+</div>
+<div class="govuk-width-container">
+  {% include "includes/language-switcher-heading.html" %}
+</div>
 {% endblock %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -18,7 +33,7 @@
 
 
 
-      <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='charges'">Confirm area</button>
+      <button class="govuk-button" data-module="govuk-button" data-module="govuk-button" onclick="window.location.href='accordion'">Confirm area</button>
 
 
 
