@@ -44,8 +44,12 @@
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{charge.subcategory}}
         </h2>
-        <p class='govuk-body govuk-!-padding-top-1'><strong
-            class="govuk-tag govuk-!-text-align-right ">Boundary</strong>
+        <p class='govuk-body govuk-!-padding-top-1'>
+          {% if loop.index <= 13 %} 
+          <strong class="govuk-tag govuk-!-text-align-right ">Search area</strong>
+          {% else %} 
+          <strong class="govuk-tag govuk-!-text-align-right govuk-tag--blue">Boundary</strong>
+          {% endif %}
         </p>
       </div>
 
