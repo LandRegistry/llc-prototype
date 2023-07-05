@@ -1,72 +1,49 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search" %}
 
 {% block beforeContent %}
   {{ govukBreadcrumbs({
-	  items: [
-	    {
-	      text: "LLC prototypes",
-	      href: "/"
-	    }
-	  ]
-	}) }}
+    items: [
+      {
+        text: "LLC prototypes",
+        href: "/"
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
-        Search prototypes
-      </h1>
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Search for local land charges
+    </h1>
 
-      <p class="govuk-body-l">Search is a public facing service that allows users to search an area for local land charges.</p>
+    <p class="govuk-body-l">Search is a public facing service that allows users to search an area for local land
+      charges.</p>
 
-      <p>Anyone can use the service but an account is currently mandatory. Free and paid searches are both available; free searches list charges found but do not show the area the charge extent covers, while paid searches generate a PDF (JSON, CSV or XML are also available) with all charge and extent information which is then saved for 6 months and can be repeated in that time for free.</p>
+    <p>Anyone can use the service but an account is currently mandatory. Free and paid searches are both available; free searches list charges found but do not show the area the charge extent covers, while paid searches generate a PDF (JSON, CSV or XML are also available) with all charge and extent information which is then saved for 6 months and can be repeated in that time for free.</p>
 
- 
-
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
+    <h2 class="govuk-heading-m">
+      Sprint 54: 29 June - 12 July 2023
+    </h2>
 
-      <h2 class="govuk-heading-m">
-        Feature prototypes
-      </h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="sprint-54/start">End to end service</a></li>
+      <li><a href="sprint-54/accordion">Results page: accordion</a></li>
+      <li><a href="sprint-54/summary-card-with-image">Results page: summary card</a></li>
+    </ul>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="sprint-54/charges">Search results</a></li>
-        {# <li><a href=""></a></li> #}
-      </ul>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="inspire-ID/">Inspire ID</a></li>
-        {# <li><a href=""></a></li> #}
-      </ul>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="end-to-end/">End to end service enhancements</a></li>
-        {# <li><a href=""></a></li> #}
-      </ul>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/cookie-banner">Cookie banner recommendations</a></li>
-        {# <li><a href=""></a></li> #}
-      </ul>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="/accessibility-statement">Accessibility statement</a></li>
-        {# <li><a href=""></a></li> #}
-      </ul>
-
-    </div>
-
-    <p><a href="https://search-local-land-charges.service.gov.uk/">View the live search service</a></p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="sprint-54/charges-with-survey">Example survey messages</a></li>
+    </ul>
 
   </div>
-
-
-
+</div>
 
 {% endblock %}
