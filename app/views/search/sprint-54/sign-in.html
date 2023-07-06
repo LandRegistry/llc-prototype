@@ -3,20 +3,8 @@
 {% set pageName="Sign in to search for local land charges - GOV.UK" %}
 
 {% block beforeContent %}
-<div class="govuk-phase-banner">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      PROTOTYPE
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is not a full service. It is not production code and you might experience problems.
-      <!-- This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it. -->
-    </span>
-  </p>
-</div>
-<div class="govuk-width-container">
-  {% include "includes/language-switcher-heading.html" %}
-</div>
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
 {% endblock %}
 
 {% block content %}

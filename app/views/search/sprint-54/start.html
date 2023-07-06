@@ -1,15 +1,16 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search results for 'Stanley Street' for local land charges - GOV.UK" %}
 
 {% block beforeContent %}
-  {% include "includes/lang-switcher.html" %}
-{% endblock %}
 
+<div class="govuk-width-container">
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/language-switcher-heading.html" %}
+</div>
+{% endblock %}
 {% block content %}
 
-{# {% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader() }}
-{% endblock %} #}
 
   <div class="govuk-width-container {{ containerClasses }}">
 
