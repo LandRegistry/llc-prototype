@@ -3,7 +3,9 @@
 {% set pageName="Search" %}
 
 {% block beforeContent %}
-  {{ govukBreadcrumbs({
+{% include "includes/phase-banner.html" %}
+
+{{ govukBreadcrumbs({
     items: [
       {
         text: "LLC prototypes",
