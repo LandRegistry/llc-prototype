@@ -1,0 +1,54 @@
+
+.hmrc-user-research-banner {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.31579;
+}
+
+.hmrc-user-research-banner {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1d70b8;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: GDS Transport,arial,sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+}
+.hmrc-user-research-banner {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.hmrc-user-research-banner__container {
+  overflow: auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-left: max(30px,calc(15px + env(safe-area-inset-left)));
+  margin-right: max(30px,calc(15px + env(safe-area-inset-right)));
+}
+.hmrc-user-research-banner--show {
+  display: block;
+}
+.hmrc-user-research-banner::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.hmrc-user-research-banner__text {
+  float: left;
+  margin: 0 0 5px;
+}
+.hmrc-user-research-banner__title {
+  color: #fff;
+  margin-bottom: 5px;
+}
+.hmrc-user-research-banner__link:link, .hmrc-user-research-banner__link:visited {
+  color: #fff;
+}
