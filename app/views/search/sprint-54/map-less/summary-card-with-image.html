@@ -1,0 +1,169 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Local land charges search results
+    </h1>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/maps/newbury-street.png"
+        alt="Map showing search area for '38 Knatchbull Road, Liverpool L7 0TH'" style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+    </div>
+
+    <p>There are <b>25 local land charges</b> for your search area.</p>
+    <p>Not the right area? <a href="search">Search again</a>.</p>
+
+    <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
+
+    {% set charges = data.charges.categories[0].charges %}
+    {% for charge in data.charges.categories[0].charges %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">{{charge.subcategory}}
+        </h2>
+        <p class='govuk-body govuk-!-padding-top-1'>
+          {% if loop.index <= 13 %} 
+          <strong class="govuk-tag govuk-!-text-align-right ">Search area</strong>
+          {% else %} 
+          <strong class="govuk-tag govuk-!-text-align-right govuk-tag--blue">Boundary</strong>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            {% if loop.index <= 13 %} 
+            <img src="/public/images/maps/charge_v2_{{loop.index}}.png" 
+            {% else %} 
+            <img src="/public/images/maps/charge_v2_4.png" 
+            {% endif %}
+              alt="Map showing charge area for '9 Marmalade Street, Liverpool L7 0TH" style="height:120px">
+              <figcaption class="govuk-body-s">Map showing charge area</figcaption>
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class='govuk-body'>{{ charge.description | safe }}</p>
+          </div>
+        </div>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Creation Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.creationDate }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.location | safe }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Originating Authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.originatingAuthority }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Authority Reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.authorityReference }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registration Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.registrationDate }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Law
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.law }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal document
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.legalDocument }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HM Land Registry reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.hmlrReference }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+
+    {% endfor %}
+
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-2" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Download an official search result for £15
+      </h2>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body-s">By purchasing an official search result from us, you’ll receive a document that:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <li>is secure and digitally signed by HM Land Registry</li>
+            <li>highlights local land charge boundaries on a map</li>
+            <li>enables you to get free, repeat searches for 6 months</li>
+            <li>includes a link to the source information</li>
+          </ul>
+
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%"
+        onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+    </aside>
+
+  </div>
+</div>
+
+
+{% endblock %}
