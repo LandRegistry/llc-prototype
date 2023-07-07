@@ -1,0 +1,149 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Migration data differences</h1>
+      <h2 class="govuk-heading-m">Knowsley Metropolitan Borough Council</h2>
+
+      <h3 class="govuk-heading-s">Charge Creation Dates</h3>
+      <p class="govuk-body">
+        The creation date for all charges has been found to be inconsistent with the registration date. A policy decision has been made to align all charge creation dates to the registration date on the charge.
+      </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class"></th>
+            <th scope="col" class="govuk-table__header app-custom-class">Before</th>
+            <th scope="col" class="govuk-table__header app-custom-class">After</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Creation date</th>
+            <td class="govuk-table__cell">01/01/2006</td>
+            <td class="govuk-table__cell">09/07/1994</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Registration date</th>
+            <td class="govuk-table__cell">09/07/1994</td>
+            <td class="govuk-table__cell">09/07/1994</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="govuk-heading-s">Originating Authority</h3>
+      <p class="govuk-body">
+        Historic Originating Authorities were updated to reflect the current version (With updated address being moved to further information location, as deemed a better fit).
+      </p>
+      <p class="govuk-body">
+      Originating Authority for Ancient Monument charges has been updated to “Secretary of State”.
+      </p>
+      <p class="govuk-body">
+      Originating Authority for charges relating to “Highways England”, “Livv Housing Group” and “United Utilities” have been changed to the names mentioned respectively
+      </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class"></th>
+            <th scope="col" class="govuk-table__header app-custom-class">Before</th>
+            <th scope="col" class="govuk-table__header app-custom-class">After</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Originating Authority</th>
+            <td class="govuk-table__cell">KMBC, Public Health & Consumer Protection,
+              Yorkon Building, Archway Road, Huyton, L36 9FB</td>
+            <td class="govuk-table__cell">Knowsley Metropolitan Borough Council
+              <br/><br/>
+              Further Information Location: KMBC, Public Health & Consumer Protection,
+              Municipal Buildings, Archway Road, Huyton, L36 9YU</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Originating Authority</th>
+            <td class="govuk-table__cell">KMBC, Planning Services, Yorkon Building,
+              Archway Road, Knowsley L36 9FB</td>
+            <td class="govuk-table__cell">Secretary of State</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Originating Authority</th>
+            <td class="govuk-table__cell">United Utilities, Map Services, Stephens Way,
+              Goose Green, Wigan WN3 6PJ Tel: 0870 7510101</td>
+            <td class="govuk-table__cell">United Utilities</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="govuk-heading-s">Further Information Location</h3>
+      <p class="govuk-body">
+        A policy decision was applied to allow customers to self-serve where possible. Based on charge specifics, customers will be directed to the appropriate website/given contact details in order to find further information.
+      </p>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class"></th>
+            <th scope="col" class="govuk-table__header app-custom-class">Before</th>
+            <th scope="col" class="govuk-table__header app-custom-class">After</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Further Information Location</th>
+            <td class="govuk-table__cell">This matches its respective Originating Authority.</td>
+            <td class="govuk-table__cell">This is now Charge dependent, e.g.
+              https://historicengland.org.uk/ for Ancient Monuments,
+              dcsubmissions@knowsley.gov.uk for Part 3b’s etc.</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h3 class="govuk-heading-s">Charge Types, Charge Sub-Categories and Statutory Provision</h3>
+      <p class="govuk-body">
+        Charge Types, Charge Sub- Categories and Statutory Provisions have either been populated through an OACI list rule (where the field was blank), or re-assigned (Where the Local Authorities version and the recognised legislation differed)
+      </p>
+      <p class="govuk-body">
+        The process was introduced to ensure all charge variations were aligned to a specific variable, so that the nature of the charge was easier to identify en masse
+      </p>
+      
+
+
+      <h3 class="govuk-heading-s">Charge Geographic Description</h3>
+      <p class="govuk-body">
+        Charge Geographic Descriptions have been populated for all charges (where the field was blank) or shortened (where there were multiple addresses for part 3b’s).
+      </p>      
+
+      <p class="govuk-body">
+        The process was introduced to ensure every record was assigned a single address, albeit property/land specific, master or summary.
+      </p>      
+
+
+      <h3 class="govuk-heading-s">Financial Charges</h3>
+      <p class="govuk-body">
+        All charges will have a rate of interest section populated with a contact suggestion for further details
+      </p>      
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+
+    </div>
+
+
+  </div>
+{% endblock %}

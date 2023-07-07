@@ -19,7 +19,8 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
-    <p>There are <b>25 local land charges</b> for your search area.</p>
+    <p>There are <b>10 local land charges</b> for your search area.</p>
+    <p>There are <b>16 local land charges</b> for boundaries to the area.</p>
     <p>Not the right area? <a href="search">Search again</a>.</p>
 
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
@@ -33,7 +34,13 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <div class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              {{charge.subcategory}} <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
+              {{charge.subcategory}} 
+              {% if loop.index <= 10 %} 
+              <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
+              {% else %} 
+              <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
+              {% endif %}
+              
             </div>
           </h2>
         </div>
