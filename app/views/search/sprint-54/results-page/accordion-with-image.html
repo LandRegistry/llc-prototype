@@ -10,21 +10,19 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Local land charges search results for <br/>
-      {% if data.alt == "true" %} 
-      Post Box 35m From Ashwood, Slough Lane 6m From Unnamed Road, U1955 From Junction With Slough Road To Bridge, Stanley DH9 8BF
-      {% else %} 
-      1 Anthony Street, Stanley DH9 8AF
-      {% endif %}
+      Local land charges search results
     </h1>
 
     <div class="govuk-!-padding-bottom-4">
-      <p>There are <strong>10</strong> local land charges</b> for the area.</p>
-      <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
-
-      <p><a href="../results-page/results-guidance">View data migration notes for Knowsley Metropolitan Borough Council</a>.</p>
-      <p>Not the right area? <a href="search">Search again</a>.</p>
+      <img src="/public/images/maps/newbury-street.png"
+        alt="Map showing search area for '38 Knatchbull Road, Liverpool L7 0TH'" style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
+
+    <p>There are <strong>10</strong> local land charges</b> for your <strong>search area</strong>.</p>
+    <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
+    <p><a href="results-guidance">View data migration notes for Knowsley Metropolitan Borough Council</a>.<p>
+    <p>Not the right area? <a href="search">Search again</a>.</p>
 
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
     {% set charges = data.charges.categories[0].charges %}
@@ -47,7 +45,21 @@
             </div>
           </h2>
         </div>
-          <p class='govuk-body'>{{ charge.description | safe }}</p>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            {% if loop.index <= 13 %} 
+            <img src="/public/images/maps/charge_v2_{{loop.index}}.png" 
+            {% else %} 
+            <img src="/public/images/maps/charge_v2_4.png" 
+            {% endif %}
+            alt="Map showing charge area for '9 Marmalade Street, Liverpool L7 0TH" style="height:120px">
+            <figcaption class="govuk-body-s">Map showing charge area</figcaption>
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class='govuk-body'>{{ charge.description | safe }}</p>
+          </div>
+        </div>
+
           <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-0">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
