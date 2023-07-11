@@ -16,17 +16,22 @@
       {% elseif data.alt == "coords" %} 
       coordinates 380739, 396297
       {% else %} 
-      1 Anthony Street, Stanley DH9 8AF
+      Land on the west side of Sunny Terrace, Stanley
       {% endif %}
     </h1>
 
-    <div class="govuk-!-padding-bottom-4">
-      <p>There are <strong>10</strong> local land charges</b> for the area.</p>
-      <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
+    <div class="govuk-!-padding-bottom-4 img-alt-wrap">
+      <img src="/public/images/maps/newbury-streetx.png"
+        alt="Map showing boundary area for 'Land on the west side of Sunny Terrace, Stanley'" style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+    </div>
 
-     
+    <div class="govuk-!-padding-bottom-4">
+      <p>There are <strong>10</strong> local land charges</b> for your <strong>search area</strong>.</p>
+      <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
       <p>Not the right area? <a href="search">Search again</a>.</p>
     </div>
+    
 
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
     {% set charges = data.charges.categories[0].charges %}
@@ -160,8 +165,8 @@
       </button>
 
       <div class="govuk-!-margin-top-3">
-        <h2 class="govuk-heading-s" id="subsection-title">
-          Migration notes
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Updates to local land charges
         </h2>
         {% include "includes/migration-guidance.html" %}
       </div>

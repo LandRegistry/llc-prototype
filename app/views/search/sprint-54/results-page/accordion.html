@@ -19,12 +19,21 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
+    <div class="">
     <p>There are <strong>10</strong> local land charges</b> for your <strong>search area</strong>.</p>
     <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
-
-    {% include "includes/migration-guidance.html" %}
-
     <p>Not the right area? <a href="search">Search again</a>.</p>
+  </div>
+
+<!--     <h2 class="govuk-heading-m" id="subsection-title">
+      Updates to local land charges
+    </h2> -->
+
+      {% include "includes/migration-guidance.html" %}
+
+    
+
+
 
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
     {% set charges = data.charges.categories[0].charges %}
