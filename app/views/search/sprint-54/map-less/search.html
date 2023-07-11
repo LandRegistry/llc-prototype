@@ -8,77 +8,88 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      {% if error %}
-        {{ govukErrorSummary({
-          titleText: 'There is a problem',
-          errorList: [
-            {
-              text: error,
-              href: '#search-error'
-            }
-          ]
+    {% if error %}
+    {{ govukErrorSummary({
+    titleText: 'There is a problem',
+    errorList: [
+    {
+    text: error,
+    href: '#search-error'
+    }
+    ]
+    }) }}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">
+      Identify a search area
+    </h1>
+
+    <p class="govuk-body-m">To search for a local land charge, you will need to identify a property or area of land. We
+      call this a search area.</p>
+    <div class="govuk-inset-text">
+      <a href="check-area1">Check if a local authority has moved to our central register.</a>
+    </div>
+
+
+    <form method="post">
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Search by postcode or street name
+      </h2>
+      <div class="govuk-form-group">
+        <div id="event-name-hint" class="govuk-hint">
+          For example, ‘Stanley Street’
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+      </div>
+
+      {# <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            How we use this information
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          Use of this address data (including any link between the address and its location) is subject to <a
+            href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland">Ordnance
+            Survey licence terms and conditions</a> (link opens in new tab).
+        </div>
+      </details> #}
+
+<!--       <p class="govuk-body-m"> Use of this data (including any link between the address and its location) is subject to
+        <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland">Ordnance
+          Survey licence terms and conditions (opens in new tab)</a>.
+      </p>
+ -->
+
+      <p class="govuk-body-m">By starting a search you agree to our <a href="#0">terms of use</a>. For further
+        information about the service see <a href="#0">Practice Guide 79</a>.</p>
+
+
+      <p class="govuk-body">You can also search by coordinates, map, title number and INSPIRE ID.</p>
+
+      {{ govukButton({
+          text: 'Continue',
+          href: 'results'
         }) }}
-      {% endif %}
+      {# <h2 class="govuk-heading-m govuk-!-margin-top-3">
+        Other ways to find a charge
+      </h2>
+      <ul class="govuk-list govuk-list--spaced">
+        <li><a href="#0">Search by browsing to a place using a map</a></li>
+        <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
+      </ul> #}
 
-      <h1 class="govuk-heading-l">
-        Identify a search area
-      </h1>
+    </form>
 
-      <p class="govuk-body-m">To search for a local land charge, you will need to identify a property or area of land. We call this a search area.</p>
-      <div class="govuk-inset-text">
-        <a href="check-area1">Check if a local authority has moved to our central register.</a></div>
-
-
-      <form method="post">
-
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">
-          Search by postcode or street name
-        </h2>
-        <div class="govuk-form-group">
-          <div id="event-name-hint" class="govuk-hint">
-            For example, ‘Stanley Street’
-          </div>
-          <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text"></div>
-
-          {# <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                How we use this information
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              Use of this address data (including any link between the address and its location) is subject to <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland">Ordnance Survey licence terms and conditions</a> (link opens in new tab).
-            </div>
-          </details> #}
-
-          <p class="govuk-body-m">  Use of this data (including any link between the address and its location) is subject to <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland">Ordnance Survey licence terms and conditions (opens in new tab)</a>.
-        </p>
-
-
-        <p class="govuk-body-m">By starting a search you agree to our <a href="#0">terms of use</a>. For further information about the service see <a href="#0">Practice Guide 79</a>.</p>
-
-        {{ govukButton({
-            text: 'Continue',
-            href: 'results'
-          }) }}
-        {# <h2 class="govuk-heading-m govuk-!-margin-top-3">
-          Other ways to find a charge
-        </h2>
-        <ul class="govuk-list govuk-list--spaced">
-          <li><a href="#0">Search by browsing to a place using a map</a></li>
-          <li>Contact us on 0300 006 0444 if you are struggling to use this service</li>
-        </ul> #}
-
-      </form>
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-      {% include "includes/search-methods.html" %}
-    </div>
-    
   </div>
+
+  <div class="govuk-grid-column-one-third">
+    {% include "includes/search-methods.html" %}
+  </div>
+
+</div>
 {% endblock %}

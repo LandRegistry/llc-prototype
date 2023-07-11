@@ -10,9 +10,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Local land charges search results for <br/>
+      Local land charges for <br/>
       {% if data.alt == "true" %} 
       Post Box 35m From Ashwood, Slough Lane 6m From Unnamed Road, U1955 From Junction With Slough Road To Bridge, Stanley DH9 8BF
+      {% elseif data.alt == "coords" %} 
+      coordinates 380739, 396297
       {% else %} 
       1 Anthony Street, Stanley DH9 8AF
       {% endif %}
@@ -22,8 +24,7 @@
       <p>There are <strong>10</strong> local land charges</b> for the area.</p>
       <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
 
-      <p><a href="../results-page/results-guidance">View data migration notes for Knowsley Metropolitan Borough Council</a>.</p>
-      
+     
       <p>Not the right area? <a href="search">Search again</a>.</p>
     </div>
 
@@ -157,6 +158,15 @@
         onclick="window.location.href='singleaddress.html'">
         Pay now
       </button>
+
+      <div class="govuk-!-margin-top-3">
+        <h2 class="govuk-heading-s" id="subsection-title">
+          Migration notes
+        </h2>
+        {% include "includes/migration-guidance.html" %}
+      </div>
+
+
     </aside>
 
   </div>
