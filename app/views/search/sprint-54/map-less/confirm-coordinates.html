@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Confirm search area for coordinates 380739, 396297</h1>
+    <p class="govuk-body-m">These coordinates correspond to
+      Post Box 35m From Ashwood, Slough Lane
+      6m From Unnamed Road, U1955 From Junction With Slough Road To Bridge, Stanley DH9 8BF.</p>
+    <p class="govuk-body-m">If this is correct, click <b>‘Confirm area’</b>.</p>
+    <p class="govuk-body-m"> You can also <a href="#0">edit the search area</a>.</p>
+
+<!--     <div class="govuk-inset-text">
+      This search area is near a local authority’s boundary, not available on the register yet.
+      <br>
+      <br>
+      Your results will not include any charges for this authority.
+    </div> -->
+
+    <a href="accordion?alt=coords" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Confirm area
+    </a>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    {# <img src="/public/images/mapdialogue.png" alt="Confirm extent" style="width:100%"> #}
+    <img src="/public/images/field.png" alt="Extent 1 Stanley Street" style="width:300px">
+
+  </div>
+
+
+</div>
+{% endblock %}
