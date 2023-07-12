@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+
+      <h1 class="govuk-heading-l">Put a marker on the map</h1>
+
+
+      <div class="govuk-!-padding-bottom-4">
+        <img src="/public/images/map-marker.png"
+          alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'">
+        <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <p>
+            <a href="map" role="button" draggable="false" class="govuk-button govuk-!-margin-top-6"
+              data-module="govuk-button">
+              Continue
+            </a>
+          </p>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I cannot find what I need with the map
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              If you know the postcode or street name, you can <a href="/search/map-search/find-by-address"
+                class="govuk-link">try a different map search</a>.
+            </div>
+          </details>
+
+
+          <div class="govuk-inset-text">
+            <p class="govuk-body govuk-!-margin-bottom-0">
+              By using this service, you agree to our
+              <a href="/search/terms-of-use" class="govuk-link">
+                terms of use</a>.
+            </p>
+            <p class="govuk-body">
+              You are not permitted to copy, sub-license, distribute, or sell this map without the prior consent
+              of Ordnance Survey. Use of this address data (including any link between the address and its location,
+              and any underlying co-ordinates) is subject to
+              <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland"
+                target="_blank" class="govuk-link" rel="noreferrer noopener">
+                Ordnance Survey licence terms and conditions
+              </a>
+              (link opens in new tab).
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+
+        <li>
+          <a class="govuk-link" href="/search/">Search by postcode</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/search/search-by-address">Search by street and town</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/search/search-by-title-number">Search by title number</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/search/search-by-inspire-id">Search by INSPIRE ID</a>
+        </li>
+      </ul>
+
+
+    </main>
+  </div>
+</div>
+{% endblock %}
