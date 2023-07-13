@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Edit search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+
+    <h1 class="govuk-heading-l">Edit search area</h1>
+    <p class="govuk-body-m">Use the <strong>‘Edit area’</strong> button to edit the search area for this address. You
+      can also clear, add and delete areas drawn.</p>
+
+
+    <!--    <p class="govuk-body-m"> You can also <a href="#0">edit the search area</a>.</p>
+     <div class="govuk-inset-text">
+      This search area is near a local authority’s boundary, not available on the register yet.<br> <br> Your results
+      will not include any charges for this authority.
+    </div>
+ -->
+    <button class="govuk-button" data-module="govuk-button" data-module="govuk-button"
+      onclick="window.location.href='accordion-with-image'">Confirm area</button>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Learn more about how to use this map (opens in new tab)</a>.
+    </p>
+
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <!--       <div class="column-third">
+          <span class="bold-xsmall">
+              Map key
+          </span>
+      </div>
+      <div class="column-third">
+          <img class="map-key-image" src="/static/images/information_available.png" alt="Location available key" width="19" height="19">
+          <span class="map-key-text">Location available</span> 
+      </div>
+  
+      <div class="column-third">
+          <img class="map-key-image" src="/static/images/information_not_available.png" alt="Location not available key" width="19" height="19">
+          <span class="map-key-text">Location not available</span>
+      </div> -->
+
+    <img src="/public/images/boundarywarning.png" alt="Extent 1 Stanley Street" style="width:100%">
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body">
+        Use of address and mapping data (including the link between the address and its location) is subject to
+        <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland"
+          target="_blank" class="govuk-link" rel="noreferrer noopener">
+          Ordnance Survey licence terms and conditions
+        </a>
+        (opens in new tab).
+      </p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+    </div>
+  </div>
+
+
+  <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-top-9 govuk-!-padding-bottom-9">
+  <div class="govuk-grid-column-one-third govuk-!-padding-top-3">
+    <a href="edit" class="govuk-link">Alternative draw the search area</a>
+  </div>
+</div>
+{% endblock %}
