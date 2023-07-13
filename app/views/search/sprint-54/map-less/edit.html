@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Draw a search area</h1>
+
+    <p class="govuk-body">
+      To continue, you will need to draw a search area on the map.
+    </p>
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Learn more about how to use this map (opens in new tab)</a>.
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Use <strong>‘Add area’</strong> to draw a search area on the map</li>
+      <li>You can also edit and delete areas</li>
+    </ul>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/map-with-controls.png"
+        alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" style="width:960px">
+      <!-- <figcaption class="govuk-body-s">The shaded area with the dotted line shows your search.</figcaption> -->
+    </div>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <p>Not the right area? <a href="search-by-coordinates">Search again</a>.</p>
+
+        <a href="accordion" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Confirm area
+        </a>
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body">
+            Use of address and mapping data (including the link between the address and its location) is subject to  
+            <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland"
+              target="_blank" class="govuk-link" rel="noreferrer noopener">
+              Ordnance Survey licence terms and conditions
+            </a>
+            (opens in new tab).
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+    <h2 class="govuk-heading-m">Other ways to search</h2>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="/search/">Search by postcode</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/search/search-by-address">Search by street and town</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/search/search-by-title-number">Search by title number</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/search/search-by-inspire-id">Search by INSPIRE ID</a>
+      </li>
+    </ul>
+
+
+
+  </div>
+  {% endblock %}
