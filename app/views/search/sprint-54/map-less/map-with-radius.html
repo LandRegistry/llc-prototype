@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Confirm your search area</h1>
+
+    <p class="govuk-body">
+      If the land or property you want is not in the radius, you can:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>use the slider to make the radius bigger (up to 100m)</li>
+      <li>go back and choose a new area to search</li>
+    </ul>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/map-radius.png"
+        alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'">
+      <figcaption class="govuk-body-s">The shaded area with the dotted line shows your search.</figcaption>
+    </div>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <p>Not the right area? <a href="search-by-coordinates">Search again</a>.</p>
+
+        <a href="street-results" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Continue
+        </a>
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body govuk-!-margin-bottom-0">
+            By using this service, you agree to our
+            <a href="/search/terms-of-use" class="govuk-link">
+              terms of use</a>.
+          </p>
+          <p class="govuk-body">
+            You are not permitted to copy, sub-license, distribute, or sell this map without the prior consent
+            of Ordnance Survey. Use of this address data (including any link between the address and its location,
+            and any underlying co-ordinates) is subject to
+            <a href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland"
+              target="_blank" class="govuk-link" rel="noreferrer noopener">
+              Ordnance Survey licence terms and conditions
+            </a>
+            (link opens in new tab).
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+    <h2 class="govuk-heading-m">Other ways to search</h2>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="/search/">Search by postcode</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/search/search-by-address">Search by street and town</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/search/search-by-title-number">Search by title number</a>
+      </li>
+      <li>
+        <a class="govuk-link" href="/search/search-by-inspire-id">Search by INSPIRE ID</a>
+      </li>
+    </ul>
+
+
+
+  </div>
+  {% endblock %}
