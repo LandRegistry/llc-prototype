@@ -10,7 +10,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Local land charges search results
+      Local land charges for <br/>
+      1 Anthony Street, Stanley DH9 8AF 
     </h1>
 
     <div class="govuk-!-padding-bottom-4">
@@ -19,10 +20,14 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
+    <div class="govuk-!-padding-bottom-4">
+      <p>There are <strong>10</strong> local land charges</b> for your <strong>search area</strong>.</p>
+      <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
+      <p>Not the right area? <a href="search">Search again</a>.</p>
+    </div>
+
     {% include "includes/migration-guidance.html" %}
     
-    <p>Not the right area? <a href="search">Search again</a>.</p>
-
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
     {% set charges = data.charges.categories[0].charges %}
 
