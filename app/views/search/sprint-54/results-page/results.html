@@ -8,35 +8,38 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">
-          Search results for 'Stanley Street'
-        </h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-bottom-9">
+      <h1 class="govuk-heading-l">
+        Search results for 'Stanley Street'
+      </h1>
 
-        <p>Your search has found <b>11 addresses.</b> Select an address to continue.</p>
-        <ul class="govuk-list govuk-list--spaced">
-          <li>  <a href="street-results">Anthony Street, Stanley DH9</a> </li>
-          <li>  <a href="street-results"> Wylam Street, Stanley DH9</a> </li>
-          <li>  <a href="street-results"> From Junction With Town Quay To Junction With Back Stanley Street 9 To 27, Workington CA14</a> </li>
-          <li>  <a href="street-results"> Stanley Street, Rosehill, Wallsend NE28</a> </li>
-          <li>  <a href="street-results"> Broad Street, Kings Stanley GL10</a> </li>
-          <li>  <a href="street-results"> Charlotte Street, Stanley PH1</a> </li>
-          <li>  <a href="street-results"> Stanley Street, Close House DL14</a> </li>
-          <li>  <a href="street-results"> Stanley Street, Ramsbottom BL0</a> </li>
-          <li>  <a href="street-results"> Stanley Street, Lees OL4</a> </li>
-          <li>  <a href="street-results"> Stanley Street, Jarrow NE32</a> </li>
-          <li>  <a href="street-results"> Scott Street, Stanley DH9</a> </li>
-          <li>  <a href="street-results"> Stanley Street, Garston, Liverpool L19 8LP</a> </li>
-    </ul>
+      <p>Your search has found <b>11 addresses.</b> Select an address to continue.</p>
+      <ul class="govuk-list govuk-list--spaced">
+        <li> <a href="street-results">Anthony Street, Stanley DH9</a> </li>
+        <li> <a href="street-results"> Wylam Street, Stanley DH9</a> </li>
+        <li> <a href="street-results"> From Junction With Town Quay To Junction With Back Stanley Street 9 To 27,
+            Workington CA14</a> </li>
+        <li> <a href="street-results"> Stanley Street, Rosehill, Wallsend NE28</a> </li>
+        <li> <a href="street-results"> Broad Street, Kings Stanley GL10</a> </li>
+        <li> <a href="street-results"> Charlotte Street, Stanley PH1</a> </li>
+        <li> <a href="street-results"> Stanley Street, Close House DL14</a> </li>
+        <li> <a href="street-results"> Stanley Street, Ramsbottom BL0</a> </li>
+        <li> <a href="street-results"> Stanley Street, Lees OL4</a> </li>
+        <li> <a href="street-results"> Stanley Street, Jarrow NE32</a> </li>
+        <li> <a href="street-results"> Scott Street, Stanley DH9</a> </li>
+        <li> <a href="street-results"> Stanley Street, Garston, Liverpool L19 8LP</a> </li>
+      </ul>
     </div>
+    {% include "includes/search-methods-v2.html" %}
+  </div>
 
 
 
+  <div class="govuk-grid-column-one-third">
 
-    <div class="govuk-grid-column-one-third">
-      {% include "includes/search-methods.html" %}
-    </div>
+  </div>
 
 </div>
 {% endblock %}
