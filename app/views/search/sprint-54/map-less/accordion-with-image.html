@@ -47,7 +47,7 @@
       {% for charge in data.charges.categories[0].charges %}
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
+          <h3 class="govuk-accordion__section-heading">
             <div class="govuk-accordion__section-button" id="accordion-default-heading-1">
               {{charge.subcategory}} 
               {% if loop.index <= 10 %} 
@@ -57,7 +57,7 @@
               {% endif %}
               
             </div>
-          </h2>
+          </h3>
         </div>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
