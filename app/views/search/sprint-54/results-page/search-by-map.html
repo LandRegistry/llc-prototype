@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search by map - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+
+    <h1 class="govuk-heading-l">Search by map</h1>
+    <p class="govuk-body-m">Add an area on the map to search.</p>
+    <p class="govuk-body-m">You can also copy from map and snap to map.</p>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="#">Learn more about how to use this map (opens in new tab)</a>.
+    </p>
+
+    <a href="map" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Search
+    </a>
+
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <img src="/public/images/edit-5-church-mount.png" alt="Extent 1 Stanley Street" style="width:100%">
+  </div>
+</div>
+
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "includes/not-yet-available.html" %}
+
+    {% include "includes/search-inset-terms.html" %}
+
+    {% include "includes/search-methods-v2.html" %}
+  </div>
+  <div class="govuk-grid-column-one-third">
+  </div>
+</div>
+
+
+<!--   <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-top-9 govuk-!-padding-bottom-9">
+  <div class="govuk-grid-column-one-third govuk-!-padding-top-3">
+    <a href="edit" class="govuk-link">Alternative draw the search area</a>
+  </div> -->
+</div>
+{% endblock %}
