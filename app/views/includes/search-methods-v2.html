@@ -4,11 +4,21 @@
   </h2>
 
   <ul class="govuk-list govuk-list--spaced govuk-!-margin-bottom-4">
-    <!-- <li><a href="search">Search by postcode</a></li> -->
+    {% if method != "postcode" %}
+    <li><a href="search">Search by postcode</a></li>
+    {% endif %}
+    {% if method != "map" %}
     <li><a href="search-by-map">Search by map</a></li>
+    {% endif %}
+    {% if method != "title" %}
     <li><a href="search-by-title-number">Search by title number</a></li>
+    {% endif %}
+    {% if method != "coords" %}
     <li><a href="search-by-coordinates">Search by coordinates</a></li>
+    {% endif %}
+    {% if method != "inspire" %}
     <li><a href="search-by-inspire-id">Search by INSPIRE ID</a></li>
+    {% endif %}
     <li></li>
   </ul>
 </div>
@@ -18,12 +28,12 @@
   <details class="govuk-details" data-module="govuk-details">
     <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">
-        Get help using this service 
+        Get help using this service
       </span>
     </summary>
     <div class="govuk-details__text">
       <p class="govuk-body">Contact HM Land Registry if you need help in using this service.</p>
-      <h3 class="govuk-heading-s" >
+      <h3 class="govuk-heading-s">
         Telephone
       </h3>
       <ul class="govuk-list">
@@ -37,14 +47,16 @@
       <p class="govuk-body">
         <a class="govuk-link" href="https://www.gov.uk/call-charges">Find out about call charges (opens in new tab)</a>
       </p>
-      <h3 class="govuk-heading-s" >
-        Online contact form 
+      <h3 class="govuk-heading-s">
+        Online contact form
       </h3>
       <ul class="govuk-list">
-        <li>Submit an enquiry through our <a class="govuk-link" href="https://customerhelp.landregistry.gov.uk/local-land-charges/">online contact form (opens in new tab)</a></li>
+        <li>Submit an enquiry through our <a class="govuk-link"
+            href="https://customerhelp.landregistry.gov.uk/local-land-charges/">online contact form (opens in new
+            tab)</a></li>
       </ul>
     </div>
   </details>
 
- 
+
 </div>

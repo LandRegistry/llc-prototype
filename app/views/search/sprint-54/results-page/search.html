@@ -22,14 +22,14 @@
       <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
     </div>
 
-    <a href="map" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+    <a href="results" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
       Search
     </a>
 
     {% include "includes/not-yet-available.html" %}
 
     {% include "includes/search-inset-terms.html" %}
-
+    {% set method = "postcode" %}
     {% include "includes/search-methods-v2.html" %}
 
 
