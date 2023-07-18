@@ -1,0 +1,34 @@
+{% set serviceName="Maintain LLC" %}
+{% extends "layouts/main.html" %}
+
+{% set pageName="LLC-123456 quality check results" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Record updated
+      </h1>
+      <div class="govuk-panel__body">
+        <!-- For charge <br> -->
+        <strong>LLC-123456</strong>
+      </div>
+    </div>
+
+    <p class="govuk-body govuk-!-margin-top-9">
+      <a href="#" class="govuk-link">Return to main menu</a> 
+    </p>    
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">Find another charge</a> 
+    </p>
+  </div>
+</div>
+
+
+{% endblock %}
