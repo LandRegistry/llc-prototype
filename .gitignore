@@ -10,3 +10,4 @@ usage-data-config.json
 # General ignores
 .DS_Store
 .idea
+app/views/ignore
