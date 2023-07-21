@@ -1,0 +1,192 @@
+{% extends "layouts/fullscreen.html" %}
+
+{% block pageTitle %}
+Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<!-- 
+
+<div id="map-outlook" class="defra-map" role="dialog" open="true" aria-modal="true" aria-labelledby="mapLabel">
+
+  <div class="defra-map-key__content">
+
+    <div class="defra-map-key__section">
+      <span class="defra-map-key__section-title">Forecast flood risk areas</span>
+      <div class="defra-map-key__item">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input data-journey-click="" class="govuk-checkboxes__input" id="vl" name="vl" type="checkbox" value="vl"
+              aria-controls="viewport" data-risk-level="1" checked="">
+            <label class="govuk-label govuk-checkboxes__label" for="vl">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--very-low"></span>
+                Very low risk
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="defra-map-key__item">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input data-journey-click="" class="govuk-checkboxes__input" id="l" name="l" type="checkbox" value="l"
+              aria-controls="viewport" data-risk-level="2" checked="">
+            <label class="govuk-label govuk-checkboxes__label" for="l">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--low"></span>
+                Low risk
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="defra-map-key__item">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input data-journey-click="" class="govuk-checkboxes__input" id="m" name="m" type="checkbox" value="m"
+              aria-controls="viewport" data-risk-level="3" checked="">
+            <label class="govuk-label govuk-checkboxes__label" for="m">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--medium"></span>
+                Medium risk
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="defra-map-key__item">
+        <div class="govuk-checkboxes govuk-checkboxes--small">
+          <div class="govuk-checkboxes__item">
+            <input data-journey-click="" class="govuk-checkboxes__input" id="h" name="h" type="checkbox" value="h"
+              aria-controls="viewport" data-risk-level="4" checked="">
+            <label class="govuk-label govuk-checkboxes__label" for="h">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--severe defra-map-key__symbol--big"></span>
+                High risk
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+ -->
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-quarter">
+
+    <div class="defra-map-key__section">
+      <span class="defra-map-key__section-title">Edit mode</span>
+    </div>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+
+        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway"
+              aria-describedby="sign-in-item-hint">
+            <label class="govuk-label govuk-radios__label" for="h">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--very-low defra-map-key__symbol--big"></span>
+                Add area
+              </span>
+            </label>
+            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              Add points to the map to create an area
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway"
+              aria-describedby="sign-in-item-hint">
+            <label class="govuk-label govuk-radios__label" for="h">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--low defra-map-key__symbol--big"></span>
+                Edit area
+              </span>
+            </label>
+            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              Drag the edges on an existing area to change it
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify"
+              aria-describedby="sign-in-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="h">
+              <span class="defra-map-key__symbol-container">
+                <span class="defra-map-key__symbol defra-map-key__symbol--severe defra-map-key__symbol--big"></span>
+                Delete area
+              </span>
+            </label>
+            <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              Remove individual areas
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <span class="defra-map-key__section-title">Options</span>
+
+
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-margin-bottom-9" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british"
+              aria-describedby="nationality-item-hint">
+            <label class="govuk-label govuk-checkboxes__label" for="nationality">
+              Snap to map
+            </label>
+            <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+              Place points directly on map elements
+            </div>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+            <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+              Copy from map
+            </label>
+            <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+              Copy existing map boundaries
+            </div>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+            <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+              Toggle shading
+            </label>
+          </div>
+        </div>
+
+        <div class="govuk-!-padding-top-9">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Undo
+          </button>
+          <br />
+          <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+            Clear all
+          </button>
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm area
+        </button>
+
+
+
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+    <img src="/public/images/map-with-controls.png"
+      alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" style="width: 1600px">
+  </div>
+</div>
+
+
+{% endblock %}
