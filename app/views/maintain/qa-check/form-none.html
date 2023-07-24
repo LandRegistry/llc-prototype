@@ -17,27 +17,27 @@
       Update quality check results
     </h1>
  
-<!--      <div class=" govuk-!-margin-bottom-9">
-      <h2 class="govuk-heading-m">
-        Selected charge
-      </h2>
+
       <p class="govuk-body">
-        LLC-123456
-      <br/>
-        The North Yorkshire Council (formerly Richmondshire District Council)
+        This was last updated on [date] by [name of user].
       </p>
-    </div> -->
+
+
+
 
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
           <h2 class="govuk-fieldset__heading">
-            Which quality checks did this charge fail?
+            Which quality check results does the charge now pass?
           </h2>
         </legend>
+        <p class="govuk-body">
+          Selecting a quality check result means that the local authority has confirmed this charge now passes.
+        </p>
         <div id="waste-hint" class="govuk-hint">
-          Select all that apply
+          Select all that apply.
         </div>
         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item">
@@ -94,7 +94,7 @@
           <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
             <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-              None, this charge did not fail any quality checks
+              None<!-- , this charge did not fail any quality checks -->
             </label>
           </div>
         </div>
@@ -137,7 +137,7 @@
 
   </div>
 </div>
-
+<!-- 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 <a href="form"  class="" >Form</a>
 <br/>
@@ -146,5 +146,5 @@
 <a href="form-headers" class="">Form with checkbox titles
 </a>
 
-
+ -->
 {% endblock %}
