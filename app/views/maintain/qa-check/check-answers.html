@@ -44,7 +44,7 @@
         {% if data.isFirst != "true" %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Invalid characters</th>
-          <td class="govuk-table__cell govuk-table__cell">Unavailable</td>
+          <td class="govuk-table__cell govuk-table__cell">No</td>
           <td class="govuk-table__cell govuk-table__cell">Yes</td>
         </tr>
         <tr class="govuk-table__row">
@@ -55,7 +55,7 @@
         {% endif %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Spatial position</th>
-          <td class="govuk-table__cell govuk-table__cell">{% if data.isFirst == "true" %}Unavailable{% else %}Yes{% endif %}</td>
+          <td class="govuk-table__cell govuk-table__cell">{% if data.isFirst == "true" %}No{% else %}Yes{% endif %}</td>
           <td class="govuk-table__cell govuk-table__cell">Yes</td>
         </tr>
       </tbody>
