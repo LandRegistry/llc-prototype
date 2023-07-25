@@ -24,16 +24,16 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Quality check result</th>
-          <th scope="col" class="govuk-table__header govuk-table__header">Previous</th>
+<!--           <th scope="col" class="govuk-table__header govuk-table__header">Previous</th> -->
           <th scope="col" class="govuk-table__header govuk-table__header">Update</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Date and time issues</th>
-          <td class="govuk-table__cell govuk-table__cell">
+<!--           <td class="govuk-table__cell govuk-table__cell">
             {% if data.isFirst == "true" %}-{% else %}Yes{% endif %}
-          </td>
+          </td> -->
           <td class="govuk-table__cell govuk-table__cell">No</td>
         </tr>
 <!--         <tr class="govuk-table__row">
@@ -44,7 +44,7 @@
         {% if data.isFirst != "true" %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Invalid characters</th>
-          <td class="govuk-table__cell govuk-table__cell">Unavailable</td>
+          <td class="govuk-table__cell govuk-table__cell">-</td>
           <td class="govuk-table__cell govuk-table__cell">Yes</td>
         </tr>
         <tr class="govuk-table__row">
@@ -55,7 +55,7 @@
         {% endif %}
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Spatial position</th>
-          <td class="govuk-table__cell govuk-table__cell">{% if data.isFirst == "true" %}Unavailable{% else %}Yes{% endif %}</td>
+         <!--  <td class="govuk-table__cell govuk-table__cell">{% if data.isFirst == "true" %}-{% else %}Yes{% endif %}</td> -->
           <td class="govuk-table__cell govuk-table__cell">Yes</td>
         </tr>
       </tbody>
