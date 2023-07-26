@@ -30,3 +30,33 @@
   margin-top:4px;
   margin-right:4px;
 }
+
+.govuk-grid-column-one-fifth {
+  width:20%;
+  float: left;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.govuk-grid-column-four-fifths {
+  width:75%;
+  float: left;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+.govuk-table__cell--no-border{
+  border-bottom: none;
+  padding: 10px 0;
+}
+.panel-blue {
+  box-sizing: border-box;
+  clear: both;
+  border-left-style: solid;
+  border-color: #1d70b8;
+  border-left-width: thick;
+  padding: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
