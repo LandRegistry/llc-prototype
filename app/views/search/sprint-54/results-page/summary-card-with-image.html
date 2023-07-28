@@ -12,11 +12,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Local land charges search results
+      Local land charges search results <br/>
+      1 Anthony Street, Stanley DH9 8AF 
     </h1>
 
     <div class="govuk-!-padding-bottom-4">
-      <img src="/public/images/maps/newbury-street.png"
+      <img src="/public/images/maps/results-page-map.png"
         alt="Map showing search area for '38 Knatchbull Road, Liverpool L7 0TH'" style="height:300px">
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
@@ -33,7 +34,7 @@
         <h2 class="govuk-summary-card__title">{{charge.subcategory}}
         </h2>
         <p class='govuk-body govuk-!-padding-top-1'>
-          {% if loop.index <= 13 %} 
+          {% if loop.index <= 10 %} 
           <strong class="govuk-tag govuk-!-text-align-right ">Search area</strong>
           {% else %} 
           <strong class="govuk-tag govuk-!-text-align-right govuk-tag--blue">Boundary</strong>
@@ -44,10 +45,13 @@
       <div class="govuk-summary-card__content">
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
-            {% if loop.index <= 13 %} 
-            <img src="/public/images/maps/charge_v2_{{loop.index}}.png" 
+            {% if loop.index <= 10 %} 
+            <img src="/public/images/maps/new-search-area.png" 
             {% else %} 
-            <img src="/public/images/maps/charge_v2_4.png" 
+            {% set count = loop.index - 10 %}
+            {% set items = [1,2,3,1,2,3,1,2,3,1,2,3,1,2,12,13] %}
+            {% set image = items[count]%}
+            <img src="/public/images/maps/new_search_{{image}}.png" 
             {% endif %}
               alt="Map showing charge area for '9 Marmalade Street, Liverpool L7 0TH" style="height:120px">
               <figcaption class="govuk-body-s">Map showing charge area</figcaption>
