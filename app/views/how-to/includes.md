@@ -1,7 +1,6 @@
 # Prototype kit “includes”
+
 ## How to re-use content with includes
-
-
 
 Create code that can be re-used, eg across a journey
 

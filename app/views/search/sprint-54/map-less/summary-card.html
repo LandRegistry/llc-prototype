@@ -32,7 +32,7 @@
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
 
     {% set charges = data.charges.categories[0].charges %}
-    {% for charge in data.charges.categories[0].charges %}
+    {% for charge in charges %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{charge.subcategory}}
