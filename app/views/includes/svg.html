@@ -1,0 +1,37 @@
+<svg fill="none" viewBox="0 0 112 96" xmlns="http://www.w3.org/2000/svg" width="112" height="96">
+        <style>
+            .svg-text {
+                font-size: 10px; /* Adjust to match the GOV.UK .govuk-body-s class */
+                text-anchor: start;
+                font-family: Arial, sans-serif;
+                font-weight: bold;
+                fill: #000000;
+            }
+        </style>
+        <a href="https://ap-prototypes.herokuapp.com/example-flow/v1/01-preliminary" target="_blank">
+        <rect x="1" y="1" width="110" height="94" stroke="#0B0C0C" stroke-width="2"/>
+        <rect width="112" height="10" fill="#0B0C0C"/>
+        <g filter="url(#a)">
+            <rect x="7" y="74" width="26" height="10" fill="#006637"/>
+        </g>
+        <rect x="20" y="61" width="25" height="1" fill="#0B0C0C"/>
+        <circle cx="12" cy="61" r="4.5" fill="#fff" stroke="#0B0C0C"/>
+        <rect x="20" y="48" width="25" height="1" fill="#0B0C0C"/>
+        <circle cx="12" cy="48" r="4.5" fill="#fff" stroke="#0B0C0C"/>
+        <defs>
+            <filter id="a" x="7" y="74" width="26" height="10" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                <feOffset dy="-1"/>
+                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+                <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.368627 0 0 0 0 0.647059 0 0 0 1 0"/>
+                <feBlend in2="shape" result="effect1_innerShadow_509_212"/>
+            </filter>
+        </defs>
+
+        <!-- This is where the text is added -->
+        <text class="svg-text" x="10" y="23">{{ title }}</text>
+        <text class="svg-text" x="10" y="34">{{ subtitle }}</text>
+        </a>
+    </svg>
