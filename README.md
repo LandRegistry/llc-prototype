@@ -20,6 +20,11 @@ This repo is a copy of GOV.UK Prototype Kit version 13
 
 
 
+## Notes
+
+This prototype uses [default json data](https://github.com/LandRegistry/llc-prototype/blob/main/app/views/how-to/server-side-data.md) for local land charges. It also has an [example of conditional logic](https://github.com/LandRegistry/llc-prototype/blob/main/app/views/how-to/includes.md) with `includes` files
+
+
 ## About the Prototype Kit
 
 Go to the [GOV.UK Prototype Kit site](https://govuk-prototype-kit.herokuapp.com/docs) to download the latest version and read the documentation.
