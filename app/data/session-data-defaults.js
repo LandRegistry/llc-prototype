@@ -17,7 +17,7 @@ Example usage:
 
 */
 console.log("default values for user session data");
-var charges = require('./sample-charges.json')
+var charges = require('./sample-charges-v2.json')
 console.log(charges);
 
 module.exports = {

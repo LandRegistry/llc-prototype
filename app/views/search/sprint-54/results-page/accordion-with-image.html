@@ -11,25 +11,25 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
       Local land charges for <br/>
-      1 Anthony Street, Stanley DH9 8AF 
+      9 Newbury Street, London, EC1A 7HU
     </h1>
 
     <div class="govuk-!-padding-bottom-4">
-      <img src="/public/images/maps/results-page-map.png"
-        alt="Map showing search area for '1 Anthony Street, Stanley DH9 8AF'" style="height:300px">
+      <img src="/public/images/number9.png"
+        alt="Map showing search area for 9 Newbury Street, London, EC1A 7HU" style="height:300px">
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
     <div class="govuk-!-padding-bottom-4">
-      <p>There are <strong>10</strong> local land charges</b> for your <strong>search area</strong>.</p>
-      <p>There are <strong>16</strong> local land charges for <strong>boundaries</strong> to the area.</p>
+      <p>There are <strong>9</strong> local land charges</b> for your <strong>search area</strong>.</p>
+      <p>There are <strong>8</strong> local land charges for <strong>boundaries</strong> to the area.</p>
       <p>Not the right area? <a href="search">Search again</a>.</p>
     </div>
 
     {% include "includes/migration-guidance.html" %}
     
     <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
-    {% set charges = data.charges.categories[0].charges %}
+    {% set charges = data.charges.categories[1].charges %}
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
@@ -39,8 +39,135 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <div class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              {{charge.subcategory}}
+              {% if charge.isSearchArea == "true" %}
+              <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
+              {% else %} 
+              <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
+              {% endif %}
+            </div>
+          </h2>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            {% if charge.isSearchArea == "true" %} 
+            {% if loop.index == "4" %} 
+              <img src="/public/images/number9/charge_13.png" 
+            {% elif loop.index == "5" %} 
+              <img src="/public/images/number9/charge_12.png" 
+            {% elif loop.index == "8" %} 
+              <img src="/public/images/number9/charge_13.png" 
+            {% else %} 
+              <img src="/public/images/number9.png" 
+            {% endif %}
+
+            {% else %} 
+            {% set items = [1,2,3,4,3,3,4,3,3] %}
+            {% set count = loop.index - 9 %}
+            {% set image = items[count]%}
+            <img src="/public/images/number9/address{{image}}.png" 
+            {% endif %}
+            alt="Map showing charge area for {{ charge.location | safe }}" style="height:120px">
+            <figcaption class="govuk-body-s">Map showing charge area</figcaption>
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class='govuk-body'>{{ charge.description | safe }}</p>
+          </div>
+        </div>
+
+          <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-0">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Creation Date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.creationDate }}
+              </dd>
+            </div>
+          </dl>
+
+        
+
+        <div id="accordion-default-content-{{index}}" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-{{index}}">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Location
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.location | safe }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Originating Authority
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.originatingAuthority }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Authority Reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.authorityReference }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Registration Date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.registrationDate }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Law
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.law }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Legal document
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.legalDocument }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                HM Land Registry reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.hmlrReference }}
+              </dd>
+            </div>
+          </dl>
+
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+    
+    <h2 class="chargeCategory heading-medium govuk-heading-l">Financial</h2>
+    {% set charges = data.charges.categories[1].charges %}
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
+
+      {% for charge in charges %}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <div class="govuk-accordion__section-button" id="accordion-default-heading-1">
               {{charge.subcategory}} 
-              {% if loop.index <= 10 %} 
+              {% if charge.isSearchArea == "true" %}
               <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
               {% else %} 
               <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
@@ -51,13 +178,125 @@
         </div>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
-            {% if loop.index <= 10 %} 
-            <img src="/public/images/maps/search-area.png" 
+             <img src="/public/images/number9/address5.png"  
+            alt="Map showing charge area for '9 Marmalade Street, Liverpool L7 0TH" style="height:120px">
+            <figcaption class="govuk-body-s">{{image}} Map showing charge area</figcaption>
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class='govuk-body'>{{ charge.description | safe }}</p>
+          </div>
+        </div>
+
+          <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-0">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Creation Date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.creationDate }}
+              </dd>
+            </div>
+          </dl>
+
+        
+
+        <div id="accordion-default-content-{{index}}" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-{{index}}">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Location
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.location | safe }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Originating Authority
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.originatingAuthority }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Authority Reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.authorityReference }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Registration Date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.registrationDate }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Law
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.law }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Legal document
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.legalDocument }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                HM Land Registry reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ charge.hmlrReference }}
+              </dd>
+            </div>
+          </dl>
+
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+        
+    <h2 class="chargeCategory heading-medium govuk-heading-l">Other</h2>
+    {% set charges = data.charges.categories[2].charges %}
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
+
+      {% for charge in charges %}
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <div class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              {{charge.subcategory}} 
+              {% if charge.isSearchArea == "true" %} 
+              <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
+              {% else %} 
+              <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
+              {% endif %}
+              
+            </div>
+          </h2>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            {% if charge.isSearchArea == "true" %} 
+            <img src="/public/images/number9/charge_13.png" 
             {% else %} 
-            {% set count = loop.index - 10 %}
-            {% set items = [1,2,3,1,2,3,1,2,3,1,2,3,1,2,12,13] %}
+            {% set items = [1,2,3,1,2,3,1,2,3,1,2,3,1,2,1,2] %}
+            {% set count = loop.index - 9 %}
             {% set image = items[count]%}
-            <img src="/public/images/maps/new_charge_{{image}}.png" 
+            <img src="/public/images/number9/address{{image}}.png" 
             {% endif %}
             alt="Map showing charge area for '9 Marmalade Street, Liverpool L7 0TH" style="height:120px">
             <figcaption class="govuk-body-s">Map showing charge area</figcaption>
@@ -146,7 +385,6 @@
       {% endfor %}
 
     </div>
-
   </div>
 
   <div class="govuk-grid-column-one-third">
