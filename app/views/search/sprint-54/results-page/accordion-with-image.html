@@ -20,9 +20,9 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
-    <div class="govuk-!-padding-bottom-4">
-      <p>There are <strong>9</strong> local land charges</b> for your <strong>search area</strong>.</p>
-      <p>There are <strong>8</strong> local land charges for <strong>boundaries</strong> to the area.</p>
+    <div class="">
+      <p>There are 9 local land charges for your search area.</p>
+      <p>There are 8 local land charges that border your search area.</p>
       <p>Not the right area? <a href="search">Search again</a>.</p>
     </div>
 
@@ -42,8 +42,6 @@
               {{charge.subcategory}}
               {% if charge.isSearchArea == "true" %}
               <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
-              {% else %} 
-              <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
               {% endif %}
             </div>
           </h2>
