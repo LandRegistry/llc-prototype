@@ -22,7 +22,7 @@
 
     <div class="">
       <p>There are 9 local land charges for your search area.</p>
-      <p>There are 8 local land charges that border your search area.</p>
+      <p>There are also 8 local land charges that border your search area.</p>
       <p>Not the right area? <a href="search">Search again</a>.</p>
     </div>
 
@@ -167,8 +167,6 @@
               {{charge.subcategory}} 
               {% if charge.isSearchArea == "true" %}
               <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
-              {% else %} 
-              <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
               {% endif %}
               
             </div>
@@ -279,8 +277,6 @@
               {{charge.subcategory}} 
               {% if charge.isSearchArea == "true" %} 
               <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
-              {% else %} 
-              <strong class="govuk-tag govuk-tag--blue govuk-!-text-align-right align-tag-right">Boundary</strong> 
               {% endif %}
               
             </div>
