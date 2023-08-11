@@ -60,3 +60,25 @@
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
+.language-switcher {
+  float: right;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.subnav-item {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.subnav-item-current {
+  background-color: #fff;
+  border-left: 4px solid #1d70b8;
+  margin-left: -14px;
+  padding-left: 10px;
+}
+.subnav-item-current-link {
+  font-weight: 700;
+}
+.quarter-width {
+  width: 25%;
+}

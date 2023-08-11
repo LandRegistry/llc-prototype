@@ -3,7 +3,11 @@
 
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
-{% include "includes/language-switcher-heading.html" %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "includes/language-switcher-heading.html" %}
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -11,27 +15,42 @@
 
   <div class="govuk-grid-column-one-fifth">
 
-      <div class="user-sidebar">
-      <a href="/my-account">Manage account</a>
-      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <ul class="govuk-list">
+      <li class="subnav-item ">
+        <a href="/account/my-account" class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state">Manage
+          account</a>
+      </li>
+    </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-      <p class="govuk-heading-m">My searches</p>
+    <h2 class="govuk-heading-s">My searches</h2>
+
       <div>
-        <div class="panel-blue">
-          <a href="/active-searches">Active searches</a>
-        </div>
-      </div>
-      <div>
-        <a href="/expired-searches">Expired searches</a>
-      </div>
-      <div>
-        <a href="/free-searches">Free searches</a>
-      </div>
+        <ul class="govuk-list">
+          <li class="subnav-item  subnav-item-current">
+            <a class="govuk-link govuk-link--no-underline subnav-item-current-link govuk-link--no-visited-state"
+              href="active-search">Active searches</a>
+          </li>
+          <li class="subnav-item ">
+            <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state"
+              href="expired-search">Expired searches</a>
+          </li>
+          <li class="subnav-item">
+            <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state"
+              href="free-search">Free searches</a>
+          </li>
+          <li class="subnav-item ">
+            <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state"
+              href="updates-search">Updates</a>
+          </li>
+        </ul>
     </div>
+
   </div>
+
   <div class="govuk-grid-column-four-fifths">
 
-    <h1 class="govuk-heading-l">Active searches</h1>
+    <h1 class="govuk-heading-xl">Active searches</h1>
 
     <div class="govuk-form-group">
       <label class="govuk-label" for="event-name">
