@@ -1,0 +1,277 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Draw a search area - Search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+
+<link rel="stylesheet"
+  href="https://search-local-land-charges.service.gov.uk/static/stylesheets/vendor/openlayers/7.1.0/ol.css"
+  type="text/css">
+<link rel="stylesheet"
+  href="https://search-local-land-charges.service.gov.uk/static/stylesheets/search-local-land-charge-ui/draw-controls.css"
+  type="text/css">
+<link rel="stylesheet"
+  href="https://search-local-land-charges.service.gov.uk/static/stylesheets/search-local-land-charge-ui/map-attributions.css"
+  type="text/css">
+<link rel="stylesheet"
+  href="https://search-local-land-charges.service.gov.uk/static/stylesheets/search-local-land-charge-ui/map.css"
+  type="text/css">
+
+<style>
+  /*     .ol-control button {
+  display: block;
+  margin: 1px;
+  padding: 0;
+  color: #fff;
+  font-size: 1.14em;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  height: 1.375em;
+  width: 1.375em;
+  line-height: .4em;
+  background-color: rgba(0,60,136,.5);
+  border: none;
+  border-radius: 2px;
+}
+.ol-control button {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #0b0c0c !important;
+  font-size: 2.14em !important;
+  font-weight: 400 !important;
+  font-family: "GDS Transport", arial, sans-serif !important;
+  height: 40px !important;
+  width: 40px !important;
+  background-color: white !important;
+  border: none !important;
+  border-radius: 0 !important;
+} */
+</style>
+<script>window.gtag = function () { console.log("Analytics turned off"); }</script>
+
+
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-full">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+
+      <h1 class="govuk-heading-l">Draw a search area</h1>
+
+      <!-- <p class="govuk-body">Use the <span class="bold">‘Edit area’</span> button to edit the search area for this address. You can also clear, add and delete areas drawn.</p> -->
+      <p class="govuk-body-m">To continue, you will need to draw a search area on the map.</p>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-three-quarters">
+          <div class="govuk-!-padding-bottom-4">
+            <div id="address-search-results-map" aria-label="Image showing search extent">
+              <img src="/public/images/map-edit.png"
+              alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" style="width: 715px">
+            </div>
+            <figcaption class="govuk-body-s"><!-- The shaded area with the dotted line shows your search. -->
+            </figcaption>
+
+            <div class="<div class=" govuk-grid-column-two-thirds">
+
+              <div>
+
+
+
+                <div class="govuk-grid-column-full map-key-bar">
+                  <div class="govuk-grid-column-one-third">
+                    <span class="govuk-heading-s">
+                      Map key
+                    </span>
+                  </div>
+                  <div class="govuk-grid-column-one-third">
+                    <img class="map-key-image" src="/public/images/information_available.png"
+                      alt="Location available key" height="19" width="19">
+                    <span class="map-key-text govuk-body-s">Location available</span>
+                  </div>
+
+                  <div class="govuk-grid-column-one-third">
+                    <img class="map-key-image" src="/public/images/information_not_available.png"
+                      alt="Location not available key" height="19" width="19">
+                    <span class="map-key-text govuk-body-s">Location not available</span>
+                  </div>
+                </div>
+
+                <p><a class="govuk-link govuk-body-m" href="#">Learn more about how to use this map</a></p>
+
+              </div>
+
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+
+                  <div class="govuk-!-margin-top-6">
+                    <p>Not the right area? <a href="/search/new">Search again.</a></p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+
+        <div class="govuk-grid-column-one-quarter">
+
+          <div class="defra-map-key__section">
+            <span class="defra-map-key__section-title">Edit mode</span>
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+
+              <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway"
+                    aria-describedby="sign-in-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="h">
+                    <span class="defra-map-key__symbol-container">
+                      <span
+                        class="defra-map-key__symbol defra-map-key__symbol--very-low defra-map-key__symbol--big"></span>
+                      Add area
+                    </span>
+                  </label>
+                  <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+                    Add points to the map to create an area
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway"
+                    aria-describedby="sign-in-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="h">
+                    <span class="defra-map-key__symbol-container">
+                      <span class="defra-map-key__symbol defra-map-key__symbol--low defra-map-key__symbol--big"></span>
+                      Edit area
+                    </span>
+                  </label>
+                  <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+                    Drag the edges on an existing area to change it
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify"
+                    aria-describedby="sign-in-2-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="h">
+                    <span class="defra-map-key__symbol-container">
+                      <span
+                        class="defra-map-key__symbol defra-map-key__symbol--severe defra-map-key__symbol--big"></span>
+                      Delete area
+                    </span>
+                  </label>
+                  <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+                    Remove individual areas
+                  </div>
+                </div>
+              </div>
+
+              <div class="">&nbsp;</div>
+
+              <!--  <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible "> -->
+              <span class="defra-map-key__section-title">Options</span>
+
+              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox"
+                    value="british" aria-describedby="nationality-item-hint">
+                  <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                    Snap to map
+                  </label>
+                  <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+                    Place points directly on map elements
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox"
+                    value="irish">
+                  <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
+                    Copy from map 
+                  </label>
+                  <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+                    Copy the exact boundary from the map
+                  </div>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox"
+                    value="other">
+                  <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
+                    Show shading
+                  </label>
+                </div>
+              </div>
+
+              <div class="">&nbsp;</div>
+
+              <div class="govuk-!-margin-top-7">
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible ">
+                <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Undo
+                </button>
+                <br />
+                <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Clear all
+                </button>
+              </div>
+
+              <button class="govuk-button" data-module="govuk-button">
+                Confirm area
+              </button>
+
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <div class="govuk-inset-text">
+            <p class="govuk-body">
+              Use of address and mapping data (including the link between the address and its location) is subject to
+              <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+                target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
+            </p>
+          </div>
+
+            <!-- 
+            <h2 class="govuk-heading-m">Other ways to search</h2>
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="/search/">Search by postcode</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="/search/search-by-address">Search by street and town</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="/search/search-by-title-number">Search by title number</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="/search/search-by-inspire-id">Search by INSPIRE ID</a>
+              </li>
+            </ul> -->
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
+  {% endblock %}
