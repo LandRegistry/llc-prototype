@@ -13,7 +13,7 @@
 {% block content %}
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-one-fifth">
+  <div class="govuk-grid-column-one-quarter">
 
     <ul class="govuk-list">
       <li class="subnav-item ">
@@ -25,25 +25,24 @@
 
     <h2 class="govuk-heading-s">My searches</h2>
 
-      <div>
-        <ul class="govuk-list">
-          <li class="subnav-item  subnav-item-current">
-            <a class="govuk-link govuk-link--no-underline subnav-item-current-link govuk-link--no-visited-state"
-              href="active-search">Active searches</a>
-          </li>
-          <li class="subnav-item ">
-            <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state"
-              href="expired-search">Expired searches</a>
-          </li>
-          <li class="subnav-item">
-            <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state"
-              href="free-search">Free searches</a>
-          </li>
-          <li class="subnav-item ">
-            <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state"
-              href="updates-search">Updates</a>
-          </li>
-        </ul>
+    <div>
+      <ul class="govuk-list">
+        <li class="subnav-item  subnav-item-current">
+          <a class="govuk-link govuk-link--no-underline subnav-item-current-link govuk-link--no-visited-state"
+            href="active-search">Active searches</a>
+        </li>
+        <li class="subnav-item ">
+          <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state" href="expired-search">Expired
+            searches</a>
+        </li>
+        <li class="subnav-item">
+          <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state" href="free-search">Free
+            searches</a>
+        </li>
+        <li class="subnav-item ">
+          <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state" href="updates-search">Updates</a>
+        </li>
+      </ul>
     </div>
 
   </div>
@@ -53,17 +52,23 @@
     <h1 class="govuk-heading-xl">Active searches</h1>
 
     <div class="govuk-form-group">
-      <label class="govuk-label" for="event-name">
+      <label class="govuk-label" for="search_term">
         Search by reference or area
       </label>
-      <div id="event-name-hint" class="govuk-hint">
+      <div id="search_term-hint" class="govuk-hint">
       </div>
-      <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
-      <a href="accordion-with-image" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-        Search
-      </a>
+      <input class="govuk-input govuk-input--width-20" id="search_term" name="search_term" type="text"
+        spellcheck="false" aria-describedby="search_term-hint" required="required">
     </div>
-    
+    <div class="govuk-button-group">
+      <button value="y" type="submit" name="submit" class="govuk-button" data-module="govuk-button" id="submit">
+        Search
+      </button>
+      <a class="govuk-link" href="#">Clear search</a>
+    </div>
+
+    <h2 class="govuk-heading-m">Active search information</h2>
+
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
       {% for charge in data.charges.categories[0].charges | slice(5) %}
@@ -74,7 +79,10 @@
               <div class="govuk-grid-row">
 
                 <div class="govuk-grid-column-one-half">
-                  <span class="govuk-body"><strong>{{loop.index + 52}} Victoria Street,<br/>Exeter<br/>EX8 6GG</strong></span>
+                  <span class="govuk-body"><strong>
+                    {{loop.index + 52}} Victoria Street,<br />
+                    Exeter<br />EX8 6GG</strong>
+                  </span>
                 </div>
                 <div class="govuk-grid-column-one-quarter">
                   <span class="govuk-body">000 0000 00{{loop.index + 3 * loop.index }}</span>
@@ -86,8 +94,8 @@
             </div>
           </h2>
         </div>
-  
-  
+
+
         <div id="accordion-default-content-{{index}}" class="govuk-accordion__section-content"
           aria-labelledby="accordion-default-heading-{{index}}">
           <div class="govuk-body govuk-!-margin-bottom-7">
@@ -98,37 +106,38 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header govuk-table__cell--no-border">Search date</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-table__cell--no-border">Search reference</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-table__cell--no-border">
+                  Search reference</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__cell--no-border"><a href="#"">20 June 2023</a></td>
-                <td class="govuk-table__cell--no-border govuk-table__cell--numeric">000 0000 00{{loop.index + 1 + loop.index*3}}</td>
+                <td class=" govuk-table__cell--no-border govuk-table__cell--numeric">000 0000 00{{loop.index + 1 +
+                    loop.index*3}}</td>
               </tr>
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__cell--no-border"><a href="#"">19 June 2023</a></td>
-                <td class="govuk-table__cell--no-border govuk-table__cell--numeric">000 0000 00{{loop.index + 2 + loop.index*3}}</td>
+                <td class=" govuk-table__cell--no-border govuk-table__cell--numeric">000 0000 00{{loop.index + 2 +
+                    loop.index*3}}</td>
               </tr>
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__cell--no-border"><a href="#"">18 June 2023</a></td>
-                <td class="govuk-table__cell--no-border govuk-table__cell--numeric">000 0000 00{{loop.index + 3 + loop.index*3}}</td>
+                <td class=" govuk-table__cell--no-border govuk-table__cell--numeric">000 0000 00{{loop.index + 3 +
+                    loop.index*3}}</td>
               </tr>
             </tbody>
           </table>
-          
+
         </div>
       </div>
       {% endfor %}
-  
+
     </div>
-
-
 
     <br>
     <a href="/search/new" class="govuk-body">Start a new search</a>
   </div>
-
 
 
 </div>
