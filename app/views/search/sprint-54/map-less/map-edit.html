@@ -15,7 +15,7 @@
   <div class="govuk-grid-column-three-quarters">
     <div class="">
       <div id="address-search-results-map" aria-label="Image showing search extent">
-        <img src="/public/images/map-edit.png"
+        <img id="map" src="/public/images/map-edit.png"
           alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" style="width: 715px">
       </div>
       <figcaption class="govuk-body-s"><!-- The shaded area with the dotted line shows your search. -->
@@ -71,5 +71,17 @@
 
   </div>
 </div>
+<script
+			  src="https://code.jquery.com/jquery-3.7.0.min.js"
+			  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+			  crossorigin="anonymous"></script>
+<script>
 
+$('input:radio').change(
+    function(){
+      let id = $(this).attr('id')
+            console.log(id);
+            $("#map").attr("src", "/public/images/hatching/" +id + ".png");
+    });
+</script>
 {% endblock %}

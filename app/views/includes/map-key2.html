@@ -5,8 +5,8 @@
   <div class="govuk-grid-column-full">
     <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway"
-          aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in">
+        <input class="govuk-radios__input" id="add" name="mode" type="radio" value="government-gateway"
+          aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in" checked>
         <label class="govuk-label govuk-radios__label" for="sign-in">
           <span class="">
             <span class=""></span>
@@ -22,8 +22,9 @@
           <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
 
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox"
-                value="irish">
+              <input class="govuk-checkboxes__input" id="copy" name="copy" type="checkbox" value="irish" >
+            <!--   <input class="govuk-checkboxes__input" id="copy" name="copy" type="checkbox" value="irish" disabled> -->
+              
               <label class="govuk-label govuk-checkboxes__label" for="nationality-2">
                 Select area from map
               </label>
@@ -35,7 +36,7 @@
         </div>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway"
+        <input class="govuk-radios__input" id="edit" name="mode" type="radio" value="government-gateway"
           aria-describedby="sign-in-item-hint">
         <label class="govuk-label govuk-radios__label" for="h">
           <span class="r">
@@ -48,7 +49,7 @@
         </div>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify"
+        <input class="govuk-radios__input" id="delete" name="mode" type="radio" value="govuk-verify"
           aria-describedby="sign-in-2-item-hint">
         <label class="govuk-label govuk-radios__label" for="h">
           <span class="">
@@ -85,7 +86,7 @@
         </div>
       </div>
       <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+        <input class="govuk-checkboxes__input" id="hatching" name="nationality" type="checkbox" value="other" checked="">
         <label class="govuk-label govuk-checkboxes__label" for="nationality-3">
           Show shading
         </label>
