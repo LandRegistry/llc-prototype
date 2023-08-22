@@ -6,6 +6,10 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/language-switcher-heading.html" %}
 <style>
+  #address-search-results-map{
+    height: 610px;
+    width: 715px;
+  }
   .zoomControl{
     position: relative;
     top: -595px;
@@ -24,7 +28,7 @@
     <div class="">
       <div id="address-search-results-map" aria-label="Image showing search extent">
         <img id="map" src="/public/images/hatching/add.png"
-          alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" style="width: 715px"> 
+          alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" > 
           <img class="zoomControl" src="/public/images/zoom-controls.png">
       </div>
       <figcaption class="govuk-body-s"><!-- The shaded area with the dotted line shows your search. -->
