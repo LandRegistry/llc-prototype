@@ -1,12 +1,18 @@
+{% set disabled = true if data.disabled == true %}
 <h2 class="govuk-heading-m">Add search area</h2>
-
 <!-- <h3 class="govuk-heading-s">Edit mode</h3> -->
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="add" name="mode" type="radio" value="government-gateway"
-          aria-describedby="sign-in-item-hint" checked>
+          aria-describedby="sign-in-item-hint"   
+          {% if data.disabled == 'true' %} disabled 
+          {% else %}
+          checked
+          {% endif %}
+
+          >
         <label class="govuk-label govuk-radios__label" for="sign-in">
           <span class="">
             <span class=""></span>
@@ -20,11 +26,14 @@
 
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="add" name="mode" type="radio" value="government-gateway"
-          aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in">
+          aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in"
+          {% if data.disabled == 'true' %} 
+          checked
+          {% endif %}>
         <label class="govuk-label govuk-radios__label" for="sign-in">
           <span class="">
             <span class=""></span>
-            Add area
+            Draw area
           </span>
         </label>
         <!-- <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
@@ -50,7 +59,7 @@
         <label class="govuk-label govuk-radios__label" for="h">
           <span class="">
             <span class="defra-map-key__symbol defra-map-key__symbol--big"></span>
-            Delete area
+            Delete an area
           </span>
         </label>
         <!-- <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
@@ -73,7 +82,10 @@
 
       <div class="govuk-checkboxes__item">
         <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british"
-          aria-describedby="nationality-item-hint">
+          aria-describedby="nationality-item-hint"
+          {% if data.disabled == 'true' %}
+          disabled="disabled" 
+          {% endif %}>
         <label class="govuk-label govuk-checkboxes__label" for="nationality">
           Snap to map
         </label>
