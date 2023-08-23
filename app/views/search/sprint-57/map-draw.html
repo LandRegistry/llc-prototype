@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Draw a search area - Search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+<style>
+  #address-search-results-map{
+    height: 610px;
+    width: 715px;
+  }
+  .zoomControl{
+    position: relative;
+    top: -595px;
+    left: 665px;
+  }
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<h1 class="govuk-heading-l">Draw a search area</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="">
+      <div id="address-search-results-map" aria-label="Image showing search extent">
+        <img id="map" src="/public/images/hatching/add.png"
+          alt="Map showing search area for 'Land on the west side of Sunny Terrace, Stanley'" > 
+          <img class="zoomControl" src="/public/images/zoom-controls.png">
+      </div>
+      <figcaption class="govuk-body-s"><!-- The shaded area with the dotted line shows your search. -->
+      </figcaption>
+
+
+      <div class="govuk-grid-column-full">
+        <div class="govuk-grid-column-one-third">
+          <span class="govuk-heading-s">
+            Map key
+          </span>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <img class="map-key-image" src="/public/images/information_available.png" alt="Location available key"
+            height="19" width="19">
+          <span class="map-key-text govuk-body-s">Location available</span>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <img class="map-key-image" src="/public/images/information_not_available.png" alt="Location not available key"
+            height="19" width="19">
+          <span class="map-key-text govuk-body-s">Location not available</span>
+        </div>
+      </div>
+
+      <p class="govuk-body-s">
+        Use of address and mapping data (including the link between the address and its location) is subject to <a class="govuk-link" href="https://www.ordnancesurvey.co.uk/business-government/licensing-agreements/terms-hmlr-scotland" target="_blank">Ordnance Survey Licence Terms and Conditions (link opens in new tab)</a>.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter govuk-!-padding-left-0">
+    {% set page = "draw" %}
+    {% include "./map-key4.html" %}
+  </div>
+
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+
+
+
+
+  </div>
+</div>
+<script
+			  src="https://code.jquery.com/jquery-3.7.0.min.js"
+			  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+			  crossorigin="anonymous"></script>
+<script>
+let mode = "add";
+let showHatching = true;
+
+$('input:radio').change(
+    function(){
+      mode = $(this).attr('id');
+      console.log(mode);
+      if(showHatching){
+        $("#map").attr("src", "/public/images/hatching/" + mode + ".png");
+      }else{
+        $("#map").attr("src", "/public/images/hatching/blank.png");
+      }
+
+    });
+
+  $('#hatching').change(function() {
+    showHatching = $(this).is(':checked');
+    console.log(showHatching);
+    if(showHatching){
+      $("#map").attr("src", "/public/images/hatching/" + mode + ".png");
+    }else{
+      $("#map").attr("src", "/public/images/hatching/blank.png");
+    }
+  });
+
+</script>
+
+{% endblock %}
