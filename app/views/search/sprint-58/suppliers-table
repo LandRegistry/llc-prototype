@@ -10,10 +10,9 @@
 <style>
   .gem-c-devolved-nations {
     background: #f3f2f1;
-    margin-bottom: 50px;
-    padding: 20px 30px;
-  }
-
+  margin-bottom: 50px;
+  padding: 20px 30px;
+}
   .gem-c-single-page-notification-button__submit {
     padding: 10px;
     margin: 0;
@@ -42,8 +41,7 @@
         HM Land Registry: Local land charges software suppliers
       </h1>
 
-      <p class="govuk-body-l">The following software suppliers are contracted to work with HM Land Registry to support
-        local authorities with the Local land charges service.</p>
+      <p class="govuk-body-l">The following software suppliers are contracted to work with HM Land Registry to support local authorities with the Local land charges service.</p>
     </div>
   </div>
 
@@ -56,13 +54,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p class="govuk-body-s">From: HM Land Registry<br />
-        Published 31 August 2017</p>
+<p class="govuk-body-s">From: HM Land Registry<br/>
+Published 31 August 2017</p>
 
 
 
 
-
+ 
 
 
 
@@ -87,12 +85,12 @@
         </div>
 
       </div>
-    </div>
-  </div>
+      </div>
+      </div>
 
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
       <section class="gem-c-devolved-nations">
         <h2 class="govuk-heading-s govuk-!-margin-bottom-0">
           Applies to England and Wales
@@ -100,10 +98,9 @@
       </section>
 
       <div class="govuk-inset-text">
-        HM Land Registry does not recommend or endorse any one product or service over another and will not be
-        responsible for any loss, damage, cost or expense in connection with using this software.
+        HM Land Registry does not recommend or endorse any one product or service over another and will not be responsible for any loss, damage, cost or expense in connection with using this software. 
       </div>
-
+     
       <p>Please contact the software supplier to:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>ensure the software product meets your specific needs</li>
@@ -111,62 +108,82 @@
         <li>request further information about the software</li>
       </ul>
 
-      <h2 class="govuk-heading-m">
-        Local land charges software suppliers contracted to work with HM Land Registry
-      </h2>
-      <p>The following software suppliers are contracted to work with HM Land Registry. They support a local authority
-        during local land charge migration activity and in live service.</p>
-      <p>The following links open in a new tab</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="#">Agile Applications Ltd</a></li>
-        <li><a href="#">Arcus Global Ltd</a></li>
-        <li><a href="#">DEF Software Ltd</a></li>
-        <li><a href="#">Idox Software Ltd</a></li>
-        <li><a href="#">NEC Software Solutions UK Limited</a></li>
-      </ul>
 
-      <p>They are able to:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>provide a local authority with data extracts from their local land charges software systems</li>
-        <li>provide a local authority with data imports back in to the local authorities local land charges software
-          systems to support migration activity</li>
-        <li>provide an originating authority with an Application Process Interface (API) from their Local land charges
-          software system. This enables an originating authority to add, vary and cancel local land charges</li>
-      </ul>
-
-
-
-      <h2 class="govuk-heading-m">
-        Local land charges software suppliers who work directly with local authorities
-      </h2>
-      <p>The following software suppliers work directly with local authorities to support local land charge migration activity and in live service:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li><a href="#">Ocella Software Systems (opens in new tab)</a></li>
-        <p>Ocella Software Systems are also able to:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>provide a local authority with data extracts from their local land charges software systems</li>
-          <li>provide an originating authority with an Application Process Interface (API) from their Local land charges software system. This  enables an originating authority to add, vary and cancel local land charges</li>
-        </ul>
-
-      <li><a href="#">StatMap (opens in new tab)</a></li>
-
-    </ul>
-
-
-
-<!-- 
+      <table class="govuk-table govuk-!-margin-top-9">
+        <caption class="govuk-table__caption govuk-table__caption--m">Software suppliers</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Software suppliers</th>
+            <th scope="col" class="govuk-table__header govuk-table__header">Migration&nbsp;and<br/>live support</th>
+            <th scope="col" class="govuk-table__header govuk-table__header">Data extracts</th>
+            <th scope="col" class="govuk-table__header govuk-table__header">Data imports</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Agile Applications Ltd</th>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Arcus Global Ltd</th>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">DEF Software Ltd</th>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Idox Software Ltd</th>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">NEC Software Solutions UK Limited</th>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+          </tr>
+<!--           <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"></th>
+            <td class="govuk-table__cell govuk-table__cell"></td>
+            <td class="govuk-table__cell govuk-table__cell"></td>
+            <td class="govuk-table__cell govuk-table__cell"></td>
+          </tr> -->
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Ocella Software Systems</th>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell govuk-table__cell">No</td>
+            <td class="govuk-table__cell govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">StatMap</th>
+            <td class="govuk-table__cell govuk-table__cell">No</td>
+            <td class="govuk-table__cell govuk-table__cell">No</td>
+            <td class="govuk-table__cell govuk-table__cell">No</td>
+          </tr>
+        </tbody>
+      </table>
+      
       <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
-        <p>The following Local land charges software solutions have at least one local authority using the Application
-          Process Interface API in live service to enable them to add, vary and cancel local land charges</p>
+
+        <p>The following Local land charges software solutions have at least one local authority using the Application Process Interface API in live service to enable them to add, vary and cancel local land charges</p>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="">NEC M3</a></li>
           <li><a href="">DEF Mastergov</a></li>
           <li><a href="">Idox TLC</a></li>
         </ul>
+        
       </div>
- -->
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-9">
+
+      <h2 class="govuk-heading-m">
         Help and support
       </h2>
       <p>If you have a query about software suppliers, please contact us, either:</p>
