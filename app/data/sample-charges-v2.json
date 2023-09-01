@@ -3,6 +3,8 @@
   "categories": [
     {
       "category": "Financial",
+      "hasSearchArea": "false",
+      "showAdjacent": "true",
       "charges": [
         {
           "subcategory": "Financial",
@@ -21,6 +23,7 @@
     },
     {
       "category": "Housing / buildings",
+      "hasSearchArea": "true",
       "charges": [
         {
           "subcategory": "Works, repairs or authority action",
@@ -52,6 +55,8 @@
     },
     {
       "category": "Listed building",
+      "hasSearchArea": "false",
+      "showAdjacent": "true",
       "charges": [
         {
           "subcategory": "Listed building",
@@ -83,6 +88,8 @@
     },
     {
       "category": "Planning",
+      "hasSearchArea": "true",
+      "showAdjacent": "true",
       "charges": [
         {
           "subcategory": "Conditional planning consent",
@@ -283,6 +290,8 @@
     },
     {
       "category": "Other",
+      "hasSearchArea": "true",
+      "showAdjacent": "false",
       "charges": [
         {
           "subcategory": "Smoke control order",
