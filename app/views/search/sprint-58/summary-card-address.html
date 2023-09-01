@@ -26,12 +26,13 @@
     <p>There are also 8 local land charges that border your search area.</p>
     <p>Not the right area? <a href="search">Search again</a>.</p>
 
-    {% include "includes/migration-guidance.html" %}
+    <!-- {% include "includes/migration-guidance.html" %} -->
+    {% set categories = data.charges.categories %}
 
-    <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
+    {% for item in categories %}
+    <h2 class="chargeCategory heading-medium govuk-heading-l">{{item.category}}</h2>
 
-    {% set charges = data.charges.categories[0].charges %}
-    {% for charge in charges %}
+    {% for charge in item.charges %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ charge.location | safe }}
@@ -47,13 +48,26 @@
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
             {% if charge.isSearchArea == "true" %}
-            {% if loop.index == "4" %}
-            <img src="/public/images/number9/charge_13.png" {% elseif loop.index=="5" %} <img
-              src="/public/images/number9/charge_12.png" {% elseif loop.index=="8" %} <img
-              src="/public/images/number9/charge_13.png" {% else %} <img src="/public/images/number9.png" {% endif %} {%
-              else %} {% set items=[1,2,3,4,3,3,4,3,3] %} {% set count=loop.index - 9 %} {% set image=items[count]%}
-              <img src="/public/images/number9/address{{image}}.png" {% endif %}
-              alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="height:120px">
+              {% if loop.index == "4" %}
+                <img src="/public/images/number9/charge_13.png" 
+                {% elseif loop.index=="5" %}
+                <img src="/public/images/number9/charge_12.png"
+                {% elseif loop.index=="8" %} 
+                <img src="/public/images/number9/charge_13.png"
+              {% else %} 
+                <img src="/public/images/number9.png"
+              {% endif %}
+            {% else %} 
+              {% set items=[1,2,3,4,3,3,4,3,3] %} 
+              {% set count=loop.index - 9 %} 
+              {% if count < 0 %}
+                {% set count = count+ 10 %}
+              {% endif %}
+              {% set image=items[count]%}
+              <img src="/public/images/number9/address{{image}}.png" 
+            {% endif %}
+
+            alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="height:120px">
             <!-- <figcaption class="govuk-body-s">Map showing charge area</figcaption> -->
           </div>
           <div class="govuk-grid-column-two-thirds">
@@ -140,6 +154,7 @@
     </div>
 
 
+    {% endfor %}
     {% endfor %}
 
   </div>
