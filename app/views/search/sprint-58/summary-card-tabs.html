@@ -49,7 +49,7 @@
         {% set categories = data.charges.categories %}
         {% for item in categories %}
           {% if item.hasSearchArea == "true" %}
-          <h2 class="chargeCategory heading-medium govuk-heading-l">{{item.category}}</h2>
+          <h3 class="chargeCategory heading-medium govuk-heading-m">{{item.category}}</h3>
             {% for charge in item.charges %}
 
               {% if charge.isSearchArea == "true" %}
@@ -67,7 +67,7 @@
         {% set categories = data.charges.categories %}
         {% for item in categories %}
           {% if item.showAdjacent == "true" %}
-          <h2 class="chargeCategory heading-medium govuk-heading-l">{{item.category}}</h2>
+          <h3 class="chargeCategory heading-medium govuk-heading-m">{{item.category}}</h3>
         
             {% for charge in item.charges %}
 
