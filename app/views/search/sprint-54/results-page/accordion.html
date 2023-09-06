@@ -34,7 +34,7 @@
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
 
-      {% for charge in data.charges.categories[0].charges %}
+      {% for charge in data.charges.categories[3].charges %}
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
@@ -136,7 +136,7 @@
     </div>
     
     <h2 class="chargeCategory heading-medium govuk-heading-l">Financial</h2>
-    {% set charges = data.charges.categories[1].charges %}
+    {% set charges = data.charges.categories[0].charges %}
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 
@@ -243,7 +243,7 @@
     </div>
         
     <h2 class="chargeCategory heading-medium govuk-heading-l">Other</h2>
-    {% set charges = data.charges.categories[2].charges %}
+    {% set charges = data.charges.categories[4].charges %}
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
 

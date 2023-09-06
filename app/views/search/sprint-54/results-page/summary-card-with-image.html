@@ -28,20 +28,18 @@
 
     {% include "includes/migration-guidance.html" %}
 
-    {% set categories = data.charges.categories %}
+    <h2 class="chargeCategory heading-medium govuk-heading-l">Planning</h2>
 
-    {% for item in categories %}
-    <h2 class="chargeCategory heading-medium govuk-heading-l">{{item.category}}</h2>
-
-
-    {% for charge in item.charges %}
+    {% for charge in data.charges.categories[3].charges %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{charge.subcategory}}
         </h2>
         <p class='govuk-body govuk-!-padding-top-1'>
-          {% if charge.isSearchArea == "true" %} 
-            <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
+          {% if loop.index <= 13 %} 
+          <strong class="govuk-tag govuk-!-text-align-right ">Search area</strong>
+          {% else %} 
+          <strong class="govuk-tag govuk-!-text-align-right govuk-tag--blue">Boundary</strong>
           {% endif %}
         </p>
       </div>
@@ -148,7 +146,6 @@
     </div>
 
 
-    {% endfor %}
     {% endfor %}
 
   </div>
