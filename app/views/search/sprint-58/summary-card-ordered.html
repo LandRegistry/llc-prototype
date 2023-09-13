@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Local land charges for <br />
+      9 Newbury Street, London, EC1A 7HU
+    </h1>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/number9.png" alt="Map showing search area for 9 Newbury Street, London EC1A 7HU"
+        style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+    </div>
+
+    <p>There are 11 local land charges for your search area.</p>
+    <p>There are also 10 local land charges that border your search area.</p>
+    <p>Not the right area? <a href="search">Search again</a>.</p>
+
+    <!-- {% include "includes/migration-guidance.html" %} -->
+    {% set categories = data.charges.categories %}
+
+    <h2 class="chargeCategory heading-medium govuk-heading-l">Matching search area</h2>
+    
+    {% for item in categories %}
+    {% for charge in item.charges %}
+    {% if charge.isSearchArea == "true" %}
+    {% include "./summary-card-with-address.html" %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+    <h2 class="chargeCategory heading-medium govuk-heading-l">Partial match to search area</h2>
+    {% for item in categories %}
+    {% for charge in item.charges %}
+    {% if charge.isSearchArea != "true" %}
+    {% include "./summary-card-with-address.html" %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-2" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Download an official search result for £15
+      </h2>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body-s">By purchasing an official search result from us, you’ll receive a document that:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <li>is secure and digitally signed by HM Land Registry</li>
+            <li>highlights local land charge boundaries on a map</li>
+            <li>enables you to get free, repeat searches for 6 months</li>
+            <li>includes a link to the source information</li>
+          </ul>
+
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%"
+        onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+    </aside>
+
+  </div>
+</div>
+
+
+{% endblock %}

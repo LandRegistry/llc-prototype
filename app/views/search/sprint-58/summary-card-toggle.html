@@ -22,9 +22,28 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
-    <p>There are 21 local land charges for your search area.</p>
-<!--     <p>There are also 8 local land charges that border your search area.</p> -->
+    <p><span id="count">There are 21 local land charges that match some or all of your search area</span></p>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+<!--         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Which types of waste do you transport?
+          </h1>
+        </legend> -->
+         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="partial-match" name="partialmatch" type="checkbox" value="partial">
+            <label class="govuk-label govuk-checkboxes__label" for="partial-match">
+              Hide partial matches
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
     <p>Not the right area? <a href="#">Edit the search area</a> or <a href="#">start the search again</a>.</p>
+
 
     <!-- {% include "includes/migration-guidance.html" %} -->
     {% set categories = data.charges.categories %}
@@ -34,9 +53,14 @@
 
 
     {% for charge in item.charges %}
-    <div class="govuk-summary-card">
+    {% if charge.isSearchArea == "true" %}
+    <div class="govuk-summary-card ">
+    {% else %} 
+    <div class="govuk-summary-card partial">
+    {% endif %}
+
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">{{charge.subcategory}}
+        <h2 class="govuk-summary-card__title">{{ charge.location | safe }} 
         </h2>
 <!--         <p class='govuk-body govuk-!-padding-top-1'>
           {% if charge.isSearchArea == "true" %}
@@ -80,14 +104,6 @@
 
 
         <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ charge.location | safe }}
-            </dd>
-          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
               Registration Date
@@ -188,5 +204,24 @@
   </div>
 </div>
 
+<script
+  src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+  crossorigin="anonymous">
+</script>
+<script>
+  $('#partial-match').change( function(){
+    console.log(this.checked);
+    if(this.checked) {
+      console.log("Are you sure?");
+      $('#count').html("There are 11 local land charges for your exact search area.");
+      $('.partial').addClass("govuk-visually-hidden");
+      
+    }else{
+      $('#count').html("There are 21 local land charges that match some or all of your search area.");
+      $('.partial').removeClass("govuk-visually-hidden");
+    }
+  });
+</script>
 
 {% endblock %}

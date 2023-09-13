@@ -36,15 +36,15 @@
     {% for charge in item.charges %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">{{charge.subcategory}}
+          <h2 class="govuk-summary-card__title">{{ charge.location | safe }}
         </h2>
-<!--         <p class='govuk-body govuk-!-padding-top-1'>
+        <p class='govuk-body govuk-!-padding-top-1'>
           {% if charge.isSearchArea == "true" %}
           <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
           {% else %}
           <strong class="govuk-tag govuk-tag--red govuk-!-text-align-right align-tag-right">Other area</strong>
           {% endif %}
-        </p> -->
+        </p>
       </div>
 
       <div class="govuk-summary-card__content">
@@ -53,12 +53,14 @@
             {% if charge.isSearchArea == "true" %}
               {% if loop.index == "4" %}
                 <img src="/public/images/number9/charge_13.png" 
-                {% elseif loop.index=="5" %}
+              {% elseif loop.index=="5" %}
                 <img src="/public/images/number9/charge_12.png"
-                {% elseif loop.index=="8" %} 
+              {% elseif loop.index=="8" %} 
+                <img src="/public/images/number9/charge_13.png"
+              {% elseif charge.subcategory=="Smoke control order" %} 
                 <img src="/public/images/number9/charge_13.png"
               {% else %} 
-                <img src="/public/images/number9.png"
+                <img src="/public/images/number9/number9_red.png"
               {% endif %}
             {% else %} 
               {% set items=[1,2,3,4,3,3,4,3,3] %} 
@@ -67,7 +69,7 @@
                 {% set count = count+ 10 %}
               {% endif %}
               {% set image=items[count]%}
-              <img src="/public/images/number9/address{{image}}.png" 
+              <img src="/public/images/number9/address{{image}}_red.png" 
             {% endif %}
 
               alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
@@ -130,6 +132,22 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              Category
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ item.category }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subcategory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.subcategory }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Legal document
             </dt>
             <dd class="govuk-summary-list__value">
@@ -153,6 +171,8 @@
 
     {% endfor %}
 
+    <h3 class="chargeCategory heading-medium govuk-heading-m">Data ownership</h3>
+    <p class="govuk-body-s">What to do if there are questions about these results?</p>
   </div>
 
 
