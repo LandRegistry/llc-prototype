@@ -37,11 +37,11 @@
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ charge.location | safe }} 
         </h2>
-        <p class='govuk-body govuk-!-padding-top-1'>
+<!--         <p class='govuk-body govuk-!-padding-top-1'>
           {% if charge.isSearchArea == "true" %}
           <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
           {% endif %}
-        </p>
+        </p> -->
       </div>
 
       <div class="govuk-summary-card__content">
@@ -67,7 +67,7 @@
               <img src="/public/images/number9/address{{image}}.png" 
             {% endif %}
 
-            alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="height:120px">
+            alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
             <!-- <figcaption class="govuk-body-s">Map showing charge area</figcaption> -->
           </div>
           <div class="govuk-grid-column-two-thirds">
