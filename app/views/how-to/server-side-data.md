@@ -6,13 +6,13 @@ Load an external file of dummy data to provide realistic data for pages.
 
 For example, use a list of anonymised LLC data to test results pages.
 The same content can be quickly re-used across multiple pages.
-![Screenshot showing 3 screens with the same search methods](results-iteration.png)
+![Screenshot showing 3 screens with the same search data presented in different ways](results-iteration.png)
 
 ## Code
 
 Create a json file in the app/data [folder](https://github.com/LandRegistry/llc-prototype/tree/main/app/data).
 
-Find and format the data. (I carried out a live search to see the data fields that were being returned as part of the search, then formatted the data into json, with a object for each result and key-values for each field. I then anonymised the data)
+Find and format the data. (I carried out a live search to see the data fields that were being returned as part of the search, then formatted the data into json, with an object for each result and key-values for each field. I then anonymised the data)
 
 Add the sample data to the [file](https://github.com/LandRegistry/llc-prototype/blob/main/app/data/sample-charges.json).
 
