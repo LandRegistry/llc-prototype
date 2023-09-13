@@ -1,0 +1,251 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+  .govuk-accordion__section-button{
+    font-size:19px;
+  }
+  .govuk-accordion__section-heading-text-focus{
+    color:#1D70B8;
+  }
+  </style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Area of interest</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div id="map-view-search-query-area" class="map-view-search-query-area" aria-label="Image showing search area"
+      role="img" title="Image showing search area">
+
+      <div id="map" class="maintain-llc-map">
+        <img id="map" src="/public/images/map-searches.png" style="height: 200px">
+      </div>
+    </div>
+    <div class="govuk-!-padding-top-5" >
+    <a href="/search-query/date">Change search criteria</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          01 January 2023 00:00:00
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          End date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          10 January 2023 23:59:00
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Paid searches
+        </dt>
+        <dd class="govuk-summary-list__value">
+          60
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Personal searches
+        </dt>
+        <dd class="govuk-summary-list__value">
+          3
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          API searches
+        </dt>
+        <dd class="govuk-summary-list__value">
+          0
+        </dd>
+      </div>
+    </dl>
+    
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-top-9">
+    <h2 class="govuk-heading-l">Available contact information</h2>
+
+    <div class="accordion with-js" id="result-accordion">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading govuk-heading-s">
+                <span class=" govuk-accordion__section-button " id="accordion-default-heading-1">
+                  Search service searches (paid)
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search Time</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email address</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search reference</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search result</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 13:43:26</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">000 023 232</td>
+                    <td class="govuk-table__cell"><a href="#  " target="_blank">View search
+                      certificate</a><br>(link opens in new tab)</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 16:29:45</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">000 023 234</td>
+                    <td class="govuk-table__cell"><a href="#" target="_blank">View search
+                      certificate</a><br>(link opens in new tab)</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 17:19:25</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">000 023 239</td>
+                    <td class="govuk-table__cell"><a href="#" target="_blank">View search
+                      certificate</a><br>(link opens in new tab)</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+<!--                 <p class="govuk-body">
+                  <a href="#" class="govuk-link">Copy email addresses</a>.
+                </p> -->
+            </div>
+          </div>
+
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                  Search service searches (free)
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search Time</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email address</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search reference</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search result</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 13:39:19</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">250</td>
+                    <td class="govuk-table__cell"><a href="/search-query/result/000%20023%20232" target="_blank">Show/hide 4 charges
+                      certificate</a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 15:09:45</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">251</td>
+                    <td class="govuk-table__cell">None</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 15:19:25</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">252</td>
+                    <td class="govuk-table__cell">None</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+<!--               <p class="govuk-body">
+                <a href="#" class="govuk-link">Copy email addresses</a>.
+              </p> -->
+            </div>
+          </div>
+
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                  Portal searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+              <p class="govuk-body">This is the content for Know your audience.</p>
+            </div>
+          </div>
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                  Business gateway searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+              <p class="govuk-body">This is the content for Business gateway searches.</p>
+            </div>
+          </div>
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                  Maintain service searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+              <p class="govuk-body">This is the content for Maintain service searches.</p>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        When complete, the CSV document can be found in your downloads folder.
+      </strong>
+    </div>
+    
+
+    <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button">
+      Download results as CSV
+    </button>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Send email to Search users
+    </button>
+  </div>
+
+  </div>
+</div>
+{% endblock %}

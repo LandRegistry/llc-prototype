@@ -1,0 +1,122 @@
+[
+  {
+  "reference": "000 024 909",
+  "area": "52 Victoria Street,<br />Exeter<br />EX8 6GG",
+  "date": "10 August 2023",
+  "type": "paid"
+},
+{
+  "reference": "000 024 908",
+  "area": "L7 0PH",
+  "date": "10 August 2023",
+  "type": "paid"
+},
+{
+  "reference": "000 024 907",
+  "area": "9 Newbury Street,<br />London,<br />EC1A 7HU",
+  "date": "10 August 2023",
+  "type": "paid"
+},
+{
+  "reference": "000 024 907",
+  "area": "EC1A 7HU",
+  "date": "10 August 2023",
+  "type": "paid"
+},
+{
+  "reference": "000 024 855",
+  "area": "Coordinates:<br />336614, 390407",
+  "date": "9 August 2023",
+  "type": "paid"
+},
+{
+  "reference": "1889076",
+  "area": "",
+  "date": "10 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1889040",
+  "area": "",
+  "date": "10 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1888922",
+  "area": "",
+  "date": "10 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1888296",
+  "area": "",
+  "date": "10 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1888078",
+  "area": "",
+  "date": "10 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1886735",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1886730",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1886619",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1885941",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1885851",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1885848",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1885801",
+  "area": "",
+  "date": "9 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1884121",
+  "area": "",
+  "date": "8 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1883629",
+  "area": "",
+  "date": "8 August 2023",
+  "type": "free"
+},
+{
+  "reference": "1883622",
+  "area": "",
+  "date": "8 August 2023",
+  "type": "free"
+}
+]

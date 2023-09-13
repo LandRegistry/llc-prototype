@@ -1,0 +1,1279 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+.govuk-accordion__section-button{
+  font-size:19px;
+}
+.govuk-accordion__section-heading-text-focus{
+  color:#1D70B8;
+}
+</style>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Area of interest</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <div id="map-view-search-query-area" class="map-view-search-query-area" aria-label="Image showing search area"
+      role="img" title="Image showing search area">
+
+      <div id="map" class="maintain-llc-map">
+        <img id="map" src="/public/images/map-searches.png" style="height: 200px">
+      </div>
+    </div>
+    <div class="govuk-!-padding-top-5" >
+    <a href="/search-query/date">Change search criteria</a>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <dl class="govuk-summary-list govuk-summary-list--no-border">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          01 January 2023 00:00:00
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          End date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          10 January 2023 23:59:00
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Paid searches
+        </dt>
+        <dd class="govuk-summary-list__value">
+          60
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Personal searches
+        </dt>
+        <dd class="govuk-summary-list__value">
+          3
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          API searches
+        </dt>
+        <dd class="govuk-summary-list__value">
+          0
+        </dd>
+      </div>
+    </dl>
+    
+  </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-padding-top-9">
+    <h2 class="govuk-heading-l">Available contact information</h2>
+    <h3 class="govuk-heading-m">Search service</h3>
+
+    <div class="accordion with-js" id="result-accordion">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading govuk-heading-s">
+                <span class=" govuk-accordion__section-button " id="accordion-default-heading-1">
+                  Paid searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search Time</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email address</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search reference</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search result</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 13:43:26</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">000 023 232</td>
+                    <td class="govuk-table__cell"><a href="#  " target="_blank">View search
+                      certificate</a><br>(link opens in new tab)</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 16:29:45</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">000 023 234</td>
+                    <td class="govuk-table__cell"><a href="#" target="_blank">View search
+                      certificate</a><br>(link opens in new tab)</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 17:19:25</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">000 023 239</td>
+                    <td class="govuk-table__cell"><a href="#" target="_blank">View search
+                      certificate</a><br>(link opens in new tab)</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+<!--                 <p class="govuk-body">
+                  <a href="#" class="govuk-link">Copy email addresses</a>.
+                </p> -->
+            </div>
+          </div>
+
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                  Free searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search Time</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email address</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search reference</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Search result</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 13:39:19</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">250</td>
+                    <td class="govuk-table__cell"><a href="/search-query/result/000%20023%20232" target="_blank">Show/hide 4 charges
+                      certificate</a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 15:09:45</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">251</td>
+                    <td class="govuk-table__cell">None</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">10/01/23 15:19:25</th>
+                    <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
+                    <td class="govuk-table__cell">252</td>
+                    <td class="govuk-table__cell">None</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+<!--               <p class="govuk-body">
+                <a href="#" class="govuk-link">Copy email addresses</a>.
+              </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Send email to all users
+      </button>
+          
+
+
+    <h3 class="govuk-heading-m">Business e-services</h3>
+
+    <div class="accordion with-js" id="result-accordion">
+        <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+
+
+
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                  Portal searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+              <p class="govuk-body">This is the content for Know your audience.</p>
+            </div>
+          </div>
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                  Business gateway searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+              <p class="govuk-body">This is the content for Business gateway searches.</p>
+            </div>
+          </div>
+          <div class="govuk-accordion__section">
+            <div class="govuk-accordion__section-header">
+              <h2 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                  Maintain service searches
+                </span>
+              </h2>
+            </div>
+            <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+              <p class="govuk-body">This is the content for Maintain service searches.</p>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+
+
+
+<!-- 
+      <div class="accordion-section" id="gateway-searches" aria-expanded="false" role="listbox">
+
+        <div class="accordion-section-header">
+          <h2 class="govuk-heading-s">Business gateway searches</h2>
+          <span class="icon" tabindex="0" aria-label="Show or hide searches information"></span>
+        </div>
+
+        <div class="accordion-section-body">
+          <ul class="list no-max-height">
+            <li>
+              <table id="gateway-information">
+                <tbody>
+                  <tr>
+                    <th scope="col" class="govuk-heading-s">Search time</th>
+                    <th scope="col" class="govuk-heading-s">Key number</th>
+                    <th scope="col" class="govuk-heading-s">Search reference</th>
+                    <th scope="col" class="govuk-heading-s">Search result</th>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:02:42
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 173
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20173" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:02:48
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 174
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20174" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:02:53
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 175
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20175" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:02:58
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 176
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20176" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:03:00
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 177
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20177" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:03:02
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 178
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20178" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 07:03:04
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 179
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20179" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:09:51
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 182
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20182" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:09:57
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 183
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20183" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:10:03
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 184
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20184" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:10:09
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 185
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20185" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:10:11
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 186
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20186" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:10:14
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 187
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20187" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      03/01/23 14:10:16
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 188
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20188" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:03:58
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 190
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20190" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:04:04
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 191
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20191" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:04:09
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 192
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20192" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:04:14
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 193
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20193" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:04:16
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 194
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20194" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:04:18
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 195
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20195" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      04/01/23 07:04:20
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 196
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20196" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:31
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 199
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20199" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:36
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 200
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20200" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:42
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 201
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20201" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:49
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 202
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20202" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:51
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 203
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20203" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:53
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 204
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20204" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      05/01/23 07:03:55
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 205
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20205" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:03:56
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 206
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20206" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:04:02
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 207
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20207" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:04:07
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 208
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20208" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:04:13
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 209
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20209" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:04:14
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 210
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20210" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:04:16
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 211
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20211" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      06/01/23 07:04:17
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 212
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20212" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:09
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 217
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20217" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:14
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 218
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20218" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:19
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 219
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20219" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:24
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 220
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20220" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:27
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 221
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20221" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:28
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 222
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20222" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      09/01/23 07:05:30
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 223
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20223" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:33
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 225
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20225" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:38
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 226
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20226" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:43
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 227
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20227" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:48
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 228
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20228" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:50
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 229
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20229" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:51
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 230
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20230" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                  <tr>
+                    <td>
+                      10/01/23 07:03:53
+                    </td>
+                    <td>
+                      1001234
+                    </td>
+                    <td>
+                      000 023 231
+                    </td>
+                    <td>
+
+                      <a href="/search-query/result/000%20023%20231" target="_blank">View search
+                        certificate</a><br>(link opens in new tab)
+
+                    </td>
+                  </tr>
+
+
+
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+ -->
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        When complete, the CSV document can be found in your downloads folder.
+      </strong>
+    </div>
+    
+
+    <button class="govuk-button" data-module="govuk-button">
+      Download results as CSV
+    </button>
+    
+
+
+  </div>
+</div>
+
+987-s4s-v1
+{% endblock %}
