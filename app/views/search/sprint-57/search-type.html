@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "includes/language-switcher-heading.html" %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+    <ul class="govuk-list">
+      <li class="subnav-item ">
+        <a href="/account/my-account" class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state">Manage
+          account</a>
+      </li>
+    </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-s">My searches</h2>
+    <ul class="govuk-list">
+      <li class="subnav-item ">
+        <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state" href="active-search">Active
+          searches</a>
+      </li>
+      <li class="subnav-item ">
+        <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state" href="expired-search">Expired
+          searches</a>
+      </li>
+      <li class="subnav-item">
+        <a class="govuk-link govuk-link--no-underline govuk-link--no-visited-state" href="free-search">Free searches</a>
+      </li>
+      <li class="subnav-item subnav-item-current">
+        <a class="govuk-link govuk-link--no-underline subnav-item-current-link govuk-link--no-visited-state"
+          href="updates-search">Searches to repeat</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+    <h1 class="govuk-heading-l">
+      Searches to repeat
+    </h1>
+    <form action="/form-handler" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              Which type of searches do you want to repeat?
+            </h2>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio"
+                value="england~search/sprint-57/updates-search-paid">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+                32 official searches
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio"
+                value="scotland~search/sprint-57/updates-search-free">
+              <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+                145 free searches
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+    </form>
+    
+    <div class="govuk-!-padding-top-9">
+      <a href="/search/search-by-postcode-address" class="govuk-link govuk-body">Start a new search</a>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

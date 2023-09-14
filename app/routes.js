@@ -7,6 +7,8 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
 
 // Clear session data without confirmation
 router.get('/prototype-admin/clear-data', function (req, res) {

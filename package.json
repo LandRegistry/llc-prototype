@@ -7,6 +7,7 @@
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "1.1.1",
     "govuk-frontend": "4.6.0",
-    "govuk-prototype-kit": "13.8.1"
+    "govuk-prototype-kit": "13.8.1",
+    "radio-button-redirect": "^1.2.0"
   }
 }
