@@ -1,1 +1,1 @@
-import{a$ as s,b0 as t,b2 as l,b1 as n}from"./Tile.js";let e=0;for(e=0;e<29;e++){console.log(e);const a=new s({source:new t});let o=e;e>19&&(o=40-e);let r=new l({center:[-165027.54,705297836e-2],zoom:o,maxZoom:20});new n({controls:[],target:"map"+e,layers:[a],view:r})}
+import{a$ as s,b0 as n,b2 as m,b1 as w}from"./Tile.js";let e=0;for(e=0;e<29;e++){console.log(e);const o=new s({source:new n});let a=17,r=-165e3+e*140,t=7053e3,l=new m({center:[r,t],zoom:a,maxZoom:20});new w({controls:[],target:"map"+e,layers:[o],view:l})}
