@@ -14,7 +14,13 @@
               
                 {% if charge.isSearchArea == "true" %}
                 <div class="govuk-grid-column-full">
+                  <div class="govuk-grid-column-one-third">
+                    <img src="/public/images/number9/number9_red.png"  alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
+
+                  </div>
+                  <div class="govuk-grid-column-two-thirds">
                   <p class='govuk-body'>{{ charge.description | safe }}</p>
+                  </div>
                 </div>
                 {% else %} 
 
