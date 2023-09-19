@@ -1,0 +1,109 @@
+<div class="govuk-accordion__section">
+
+  <div class="govuk-accordion__section-header">
+    <h2 class="govuk-accordion__section-heading">
+      <div class="govuk-accordion__section-button" id="accordion-default-heading-{{loop.index}}">
+        {{charge.subcategory}}
+      </div>
+    </h2>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      {% if charge.isSearchArea == "true" %}
+      {% if loop.index == "4" %}
+      <img src="/public/images/number9/charge_13.png" {% elseif loop.index=="5" %} <img
+        src="/public/images/number9/charge_12.png" {% elseif loop.index=="8" %} <img
+        src="/public/images/number9/charge_13.png" {% elseif charge.subcategory=="Smoke control order" %} <img
+        src="/public/images/number9/charge_13.png" {% else %} <img src="/public/images/number9/number9_red.png" {% endif
+        %} {% else %} {% set items=[1,2,3,4,3,3,4,3,3] %} {% set count=loop.index - 9 %} {% if count < 0 %} {% set
+        count=count+ 10 %} {% endif %} {% set image=items[count]%} <img
+        src="/public/images/number9/address{{image}}_red.png" {% endif %}
+        alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <p class='govuk-body'>{{ charge.description | safe }}</p>
+    </div>
+  </div>
+  <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-0">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Registration Date
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.registrationDate }}
+      </dd>
+    </div>
+  </dl>
+
+  <div id="accordion-default-content-{{loop.index}}" class="govuk-accordion__section-content"
+  aria-labelledby="accordion-default-heading-{{loop.index}}">
+  <dl class="govuk-summary-list">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Creation Date
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.creationDate }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        HM Land Registry reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.hmlrReference }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Authority Reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.authorityReference }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Originating Authority
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.originatingAuthority }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Category
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ item.category }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Subcategory
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.subcategory }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Legal document
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.legalDocument }}
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Law
+      </dt>
+      <dd class="govuk-summary-list__value">
+        {{ charge.law }}
+      </dd>
+    </div>
+  </dl>
+</div>
+</div>

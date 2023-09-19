@@ -1,0 +1,239 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Local land charges for <br />
+      9 Newbury Street, London, EC1A 7HU
+    </h1>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/number9.png" alt="Map showing search area for 9 Newbury Street, London EC1A 7HU"
+        style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+    </div>
+
+    <p>There are <a href="#match">20 local land charges for your search area</a>.</p>
+    <p>There is also <a href="#partial_match">1 local land charge that adjoins your search area</a>.</p>
+    <p>Not the right area? <a href="#">Edit the search area</a> or <a href="#">start the search again</a>.</p>
+
+    <!-- {% include "includes/migration-guidance.html" %} -->
+    {% set categories = data.charges.categories %}
+
+ 
+    
+
+
+    
+    
+{% macro navigation(charge) %}
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        {% include "./accordion-template.html" %}
+</div>
+{% endmacro %}
+
+
+
+
+
+
+    {% set item_list = [] %}  
+    {% set count = -1 %}  
+    {% set new = [] %}  
+
+    {% for item in categories %}
+    {% for charge in item.charges %}
+
+    {% set count = count+1 %}
+    {% set new =  {
+      "expanded":"true",
+      heading: {
+        text: charge.subcategory
+      },
+
+      summary: {
+        html:
+        '<div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <img src="/public/images/number9/address_red.png" style="width:100%">
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-body">' +
+              charge.description
+              + '</p>
+          </div>
+        </div>'
+      },
+
+
+      content: {
+        html:
+        '  <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Creation Date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.creationDate + '
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  HM Land Registry reference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.hmlrReference + '
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Authority Reference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.authorityReference + '
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Originating Authority
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.originatingAuthority + '
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Category
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  item.category + '}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Subcategory
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.legalDocument  + '
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Legal document
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.legalDocument  + '
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Law
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  ' +  charge.law  + '
+                </dd>
+              </div>
+            </dl>'},
+      "subcategory": charge.subcategory,
+      "description": charge.description,
+      "creationDate": charge.creationDate,
+      "location": charge.location,
+      "originatingAuthority": charge.originatingAuthority,
+      "authorityReference": charge.authorityReference,
+      "registrationDate": charge.registrationDate,
+      "law": charge.law,
+      "legalDocument": charge.legalDocument,
+      "hmlrReference": charge.hmlrReference,
+      "isSearchArea":charge.isSearchArea,
+      "expanded":"true",
+      "count": count
+    }
+    %}
+
+
+    {% set item_list = (item_list.push(new), item_list) %}
+    {% endfor %}
+    {% endfor %}
+
+
+  
+    <h2 id="match" class="chargeCategory heading-medium govuk-heading-l">Search area</h2>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      {% for charge in item_list %}
+      {% include "./accordion-template.html" %}
+      {% endfor %}
+    </div>
+
+
++++++++++++++++++++++++++++++++++
+{{ govukAccordion({
+  id: "accordion-with-summary-sections",
+  rememberExpanded: "false",
+  items: item_list
+}) }}
++++++++++++++++++++++++++++++++++
+
+
+
+
+
+    <h2 id="partial_match" class="chargeCategory heading-medium govuk-heading-l">Adjoining area</h2>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+    {% for item in categories %}
+    {% for charge in item.charges %}
+    {% if loop.index == "9" %}
+    {% include "./accordion-template.html" %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    </div>
+
+
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-2" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Download an official search result for £15
+      </h2>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body-s">By purchasing an official search result from us, you’ll receive a document that:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <li>is secure and digitally signed by HM Land Registry</li>
+            <li>highlights local land charge boundaries on a map</li>
+            <li>enables you to get free, repeat searches for 6 months</li>
+            <li>includes a link to the source information</li>
+          </ul>
+
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%"
+        onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+    </aside>
+
+  </div>
+</div>
+
+
+{% endblock %}
