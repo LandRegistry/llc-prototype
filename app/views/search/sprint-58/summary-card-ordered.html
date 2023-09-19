@@ -22,14 +22,14 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
-    <p>There are 11 local land charges for your search area.</p>
-    <p>There are also 10 local land charges that border your search area.</p>
-    <p>Not the right area? <a href="search">Search again</a>.</p>
+    <p>There are <a href="#match">11 local land charges for your search area</a>.</p>
+    <p>There are also <a href="#partial_match">10 local land charges that adjoin your search area</a>.</p>
+    <p>Not the right area? <a href="#">Edit the search area</a> or <a href="#">start the search again</a>.</p>
 
     <!-- {% include "includes/migration-guidance.html" %} -->
     {% set categories = data.charges.categories %}
 
-    <h2 class="chargeCategory heading-medium govuk-heading-l">Matching search area</h2>
+    <h2 id="match" class="chargeCategory heading-medium govuk-heading-l">Search area</h2>
     
     {% for item in categories %}
     {% for charge in item.charges %}
@@ -39,7 +39,7 @@
     {% endfor %}
     {% endfor %}
 
-    <h2 class="chargeCategory heading-medium govuk-heading-l">Partial match to search area</h2>
+    <h2 id="partial_match" class="chargeCategory heading-medium govuk-heading-l">Adjoining area</h2>
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if charge.isSearchArea != "true" %}

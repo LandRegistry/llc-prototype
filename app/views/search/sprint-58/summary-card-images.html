@@ -22,8 +22,8 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
-    <p>There are 21 local land charges for your search area.</p>
-<!--     <p>There are also 8 local land charges that border your search area.</p> -->
+    <p>There are 20 local land charges for your search area.</p>
+    <p>There is also 1 local land charge that adjoin your search area.</p>
     <p>Not the right area? <a href="#">Edit the search area</a> or <a href="#">start the search again</a>.</p>
 
     <!-- {% include "includes/migration-guidance.html" %} -->
@@ -39,10 +39,10 @@
           <h2 class="govuk-summary-card__title">{{ charge.location | safe }}
         </h2>
         <p class='govuk-body govuk-!-padding-top-1'>
-          {% if charge.isSearchArea == "true" %}
-          <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
+          {% if loop.index == "9" %}
+          <strong class="govuk-tag govuk-tag--red govuk-!-text-align-right align-tag-right">Adjoining area</strong>
           {% else %}
-          <strong class="govuk-tag govuk-tag--red govuk-!-text-align-right align-tag-right">Other area</strong>
+          <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
           {% endif %}
         </p>
       </div>

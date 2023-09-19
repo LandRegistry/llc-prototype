@@ -38,7 +38,7 @@
         </li>
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#adjacent">
-            Adjacent charges
+            Adjoining area
           </a>
         </li>
       </ul>
@@ -61,8 +61,8 @@
         {% endfor %}
       </div>
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="adjacent">
-        <h2 class="govuk-heading-l">Adjacent charges</h2>
-        <p>There are also 10 local land charges that border your search area.</p>
+        <h2 class="govuk-heading-l">Adjoining charges</h2>
+        <p>There are also 10 local land charges that adjoin your search area.</p>
         
         {% set categories = data.charges.categories %}
         {% for item in categories %}
