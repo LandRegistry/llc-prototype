@@ -34,7 +34,7 @@
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if charge.isSearchArea == "true" %}
-    {% include "./summary-card-with-address-v1.html" %}
+    {% include "./summary-card-template-v1.html" %}
     {% endif %}
     {% endfor %}
     {% endfor %}
@@ -43,7 +43,7 @@
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if charge.isSearchArea != "true" %}
-    {% include "./summary-card-with-address-v1.html" %}
+    {% include "./summary-card-template-v1.html" %}
     {% endif %}
     {% endfor %}
     {% endfor %}

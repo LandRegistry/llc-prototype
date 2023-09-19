@@ -34,7 +34,7 @@
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if loop.index != "9" %}
-    {% include "./summary-card-with-address.html" %}
+    {% include "./summary-card-template.html" %}
     {% endif %}
     {% endfor %}
     {% endfor %}
@@ -43,7 +43,7 @@
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if loop.index == "9" %}
-    {% include "./summary-card-with-address.html" %}
+    {% include "./summary-card-template.html" %}
     {% endif %}
     {% endfor %}
     {% endfor %}
