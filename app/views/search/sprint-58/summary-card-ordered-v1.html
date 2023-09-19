@@ -22,8 +22,8 @@
       <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
-    <p>There are <a href="#match">20 local land charges for your search area</a>.</p>
-    <p>There is also <a href="#partial_match">1 local land charge that adjoins your search area</a>.</p>
+    <p>There are <a href="#match">11 local land charges for your search area</a>.</p>
+    <p>There are also <a href="#partial_match">10 local land charges that adjoin your search area</a>.</p>
     <p>Not the right area? <a href="#">Edit the search area</a> or <a href="#">start the search again</a>.</p>
 
     <!-- {% include "includes/migration-guidance.html" %} -->
@@ -33,8 +33,8 @@
     
     {% for item in categories %}
     {% for charge in item.charges %}
-    {% if loop.index != "9" %}
-    {% include "./summary-card-with-address.html" %}
+    {% if charge.isSearchArea == "true" %}
+    {% include "./summary-card-with-address-v1.html" %}
     {% endif %}
     {% endfor %}
     {% endfor %}
@@ -42,8 +42,8 @@
     <h2 id="partial_match" class="chargeCategory heading-medium govuk-heading-l">Adjoining area</h2>
     {% for item in categories %}
     {% for charge in item.charges %}
-    {% if loop.index == "9" %}
-    {% include "./summary-card-with-address.html" %}
+    {% if charge.isSearchArea != "true" %}
+    {% include "./summary-card-with-address-v1.html" %}
     {% endif %}
     {% endfor %}
     {% endfor %}
