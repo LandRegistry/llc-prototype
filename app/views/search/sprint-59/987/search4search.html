@@ -17,7 +17,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Area of interest</h1>
+    <h1 class="govuk-heading-xl">Search results</h1>
   </div>
 </div>
 
@@ -27,12 +27,12 @@
       role="img" title="Image showing search area">
 
       <div id="map" class="maintain-llc-map">
-        <img id="map" src="/public/images/map-searches.png" style="height: 200px">
+        <img id="map" src="/public/images/map-searches.png" style="height: 220px">
       </div>
     </div>
-    <div class="govuk-!-padding-top-5" >
+<!--     <div class="govuk-!-padding-top-5" >
     <a href="/search-query/date">Change search criteria</a>
-    </div>
+    </div> -->
   </div>
 
   <div class="govuk-grid-column-two-thirds">
@@ -50,7 +50,7 @@
           End date
         </dt>
         <dd class="govuk-summary-list__value">
-          10 January 2023 23:59:00
+          10 January 2023 23:59:59
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -86,8 +86,8 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-top-9">
-    <h2 class="govuk-heading-l">Available contact information</h2>
-    <h3 class="govuk-heading-m">Search service</h3>
+    <h2 class="govuk-heading-l">Contact information</h2>
+    <!-- <h3 class="govuk-heading-m">Search service</h3> -->
 
     <div class="accordion with-js" id="result-accordion">
         <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
@@ -163,7 +163,7 @@
                     <th scope="row" class="govuk-table__header">10/01/23 13:39:19</th>
                     <td class="govuk-table__cell">llcuserlogin+testuser1@gmail.com</td>
                     <td class="govuk-table__cell">250</td>
-                    <td class="govuk-table__cell"><a href="/search-query/result/000%20023%20232" target="_blank">Show/hide 4 charges
+                    <td class="govuk-table__cell"><a href="/search-query/result/000%20023%20232" target="_blank">Show 4 charges
                       certificate</a></td>
                   </tr>
                   <tr class="govuk-table__row">
@@ -188,8 +188,12 @@
           </div>
         </div>
       </div>
+      
+      <p class="govuk-body">
+        <span id="msg"></span>
+      </p>
 
-      <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      <button id="email" class="govuk-button govuk-button--secondary" data-module="govuk-button">
         Send email to all users
       </button>
           
@@ -1257,23 +1261,46 @@
 
  -->
 
+    <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button">
+      Download results as CSV
+    </button>
+    <div class="" >
+      <a href="/search-query/date">Edit search</a>
+    </div>
+    </div>
+
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-warning-text__assistive">Warning</span>
-        When complete, the CSV document can be found in your downloads folder.
+        You can find your CSV file in your downloads folder.
       </strong>
     </div>
     
 
-    <button class="govuk-button" data-module="govuk-button">
-      Download results as CSV
-    </button>
-    
-
-
   </div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="search4search-v1">Alt version</a>
 
-987-s4s-v1
+
+<script
+  src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+  crossorigin="anonymous">
+</script>
+<script>
+  $('#email').click( function(){
+    console.log('click');
+      $('#msg').html("<strong class='govuk-tag'>Email sent 21 September 2023</strong>");
+      $('#email').addClass("govuk-button--disabled");
+      $('#email').remove();
+
+  });
+</script>
 {% endblock %}
