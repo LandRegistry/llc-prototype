@@ -1,0 +1,227 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-quarter">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h1 class="govuk-fieldset__heading">
+            Data fields
+          </h1>
+        </legend>
+        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="1">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+              Search reference
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="2">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+              Address
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="3">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+              Date of search
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="4">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+              Action
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <button id="plusOne" class="govuk-button" data-module="govuk-button">
+      Update table
+    </button>
+  </div>
+  <div class="govuk-grid-column-three-quarters">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Updates search information</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Search reference</th>
+          <th scope="col" class="govuk-table__header">Address</th>
+          <th scope="col" class="govuk-table__header quarter-width">Date of search</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1889076</td>
+          <td class="govuk-table__cell">52 Victoria Street,<br />Exeter<br />EX8 6GG</td>
+          <td class="govuk-table__cell">10 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1889040</td>
+          <td class="govuk-table__cell">L7 0PH</td>
+          <td class="govuk-table__cell">10 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1888922</td>
+          <td class="govuk-table__cell">9 Newbury Street,<br />London,<br />EC1A 7HU</td>
+          <td class="govuk-table__cell">10 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1888296</td>
+          <td class="govuk-table__cell">EC1A 7HU</td>
+          <td class="govuk-table__cell">10 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1888078</td>
+          <td class="govuk-table__cell">L7 0PH</td>
+          <td class="govuk-table__cell">10 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1886735</td>
+          <td class="govuk-table__cell">L7 0PH</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1886730</td>
+          <td class="govuk-table__cell">EX8 6GG</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1886619</td>
+          <td class="govuk-table__cell">EC1A 7HU</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1886186</td>
+          <td class="govuk-table__cell">Coordinates:<br />336614, 390407</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1885941</td>
+          <td class="govuk-table__cell">Electricity Sub Station 18m From 2 Marmaduke Street 22m From Back Towerlands
+            Street,<br />Back Towerlands Street,<br />Liverpool<br />L7 1PB </td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1885851</td>
+          <td class="govuk-table__cell">EX8 6GG</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1885848</td>
+          <td class="govuk-table__cell">L7 0PH</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1885801</td>
+          <td class="govuk-table__cell">EC1A 7HU</td>
+          <td class="govuk-table__cell">9 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1884121</td>
+          <td class="govuk-table__cell">L7 0PH</td>
+          <td class="govuk-table__cell">08 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1883629</td>
+          <td class="govuk-table__cell">L7 0PH</td>
+          <td class="govuk-table__cell">08 August 2023</td>
+          <td class="govuk-table__cell"> <a href="#" class="govuk-link">Repeat
+              search</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+  crossorigin="anonymous">
+</script>
+<script>
+  // button click
+  $('#plusOne').click( function(){
+    console.log('click');
+
+    // urgh! this is the wrong way round, but hide everything
+    $('.govuk-table__header').addClass("govuk-visually-hidden");
+    $('.govuk-table__cell').addClass("govuk-visually-hidden");
+
+    // get a list of althe checked boxes
+    var allVals = [];
+     $(':checked').each(function() {
+      console.log(this);
+       allVals.push($(this).val());
+     });
+
+
+    // then loop though and show the one in the list
+    for (var i=0; i<allVals.length; i++){
+      let count = allVals[i];
+      $('.govuk-table__header:nth-child('+ count +')').removeClass("govuk-visually-hidden");
+      $('.govuk-table__cell:nth-child('+ count +')').removeClass("govuk-visually-hidden");
+     };
+
+  });
+</script>
+
+{% endblock %}
