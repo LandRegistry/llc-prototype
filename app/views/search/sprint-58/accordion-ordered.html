@@ -50,6 +50,7 @@
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if loop.index == "9" %}
+    {% set isAdjoining = "true" %}
     {% include "./accordion-template.html" %}
     {% endif %}
     {% endfor %}

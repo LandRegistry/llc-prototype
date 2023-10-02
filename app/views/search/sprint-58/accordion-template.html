@@ -4,10 +4,10 @@
     <h2 class="govuk-accordion__section-heading">
       <div class="govuk-accordion__section-button" id="accordion-default-heading-{{loop.index}}">
         {{charge.subcategory}}
-        {% if charge.isSearchArea == "true" %} 
-        <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
-        {% else %} 
+        {% if isAdjoining == "true" %} 
         <strong class="govuk-tag govuk-tag--red govuk-!-text-align-right align-tag-right">Adjoining area</strong> 
+        {% else %} 
+        <strong class="govuk-tag govuk-!-text-align-right align-tag-right">Search area</strong>
         {% endif %}
       </div>
     </h2>
