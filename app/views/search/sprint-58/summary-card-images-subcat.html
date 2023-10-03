@@ -2,6 +2,14 @@
 
 {% set pageName="Local land charges search results - GOV.UK" %}
 
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Search for local land charges",
+  serviceUrl: "/search/"
+}) }}
+{% endblock %}
+
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
 {% include "includes/language-switcher-heading.html" %}
