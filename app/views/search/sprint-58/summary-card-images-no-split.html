@@ -44,7 +44,7 @@
     {% for charge in item.charges %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">{{ charge.location | safe }}
+          <h2 class="govuk-summary-card__title">{{ charge.subcategory }}
         </h2>
       </div>
 
@@ -83,14 +83,14 @@
 
 
         <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
-<!--           <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address
             </dt>
             <dd class="govuk-summary-list__value">
               {{ charge.location | safe }}
             </dd>
-          </div> -->
+          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
               Registration Date
@@ -139,14 +139,14 @@
               {{ item.category }}
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
+<!--           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Subcategory
             </dt>
             <dd class="govuk-summary-list__value">
               {{ charge.subcategory }}
             </dd>
-          </div>
+          </div> -->
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Legal document
