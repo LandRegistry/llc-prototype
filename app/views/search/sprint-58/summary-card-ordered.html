@@ -17,7 +17,7 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<div id="top" class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
       Local land charges for <br />
@@ -49,9 +49,18 @@
     {% endfor %}
     {% endfor %}
 
+    <div class="govuk-!-padding-bottom-3 govuk-!-text-align-right">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon govuk-!-padding-right-3" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>Back to top
+      </a>
+    </div>
+
     <h2 id="partial_match" class="chargeCategory heading-medium govuk-heading-l">Adjoining areas</h2>
 
     <p>Check the charges within the adjoining areas to ensure these do not affect your search area.</p>
+
     {% for item in categories %}
     {% for charge in item.charges %}
     {% if loop.index == "9" %}
@@ -59,6 +68,14 @@
     {% endif %}
     {% endfor %}
     {% endfor %}
+
+    <div class="govuk-!-padding-bottom-3 govuk-!-text-align-right">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon govuk-!-padding-right-3" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>Back to top
+      </a>
+    </div>
 
   </div>
 
