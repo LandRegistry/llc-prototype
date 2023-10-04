@@ -91,14 +91,6 @@
 
         <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ charge.location | safe }}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
               Registration Date
             </dt>
@@ -112,6 +104,14 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ charge.creationDate }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.location | safe }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
