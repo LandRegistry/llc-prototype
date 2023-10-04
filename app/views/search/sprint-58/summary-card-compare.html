@@ -1,0 +1,314 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Search for local land charges",
+  serviceUrl: "/search/"
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div id="top" class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Local land charges for <br />
+      9 Newbury Street, London, EC1A 7HU
+    </h1>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/number9.png" alt="Map showing search area for 9 Newbury Street, London EC1A 7HU"
+        style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+    </div>
+
+    <p>There are <a href="#match">20 local land charges for your search area</a>.</p>
+    <p>There is also <a href="#partial_match">1 local land charge that is in an adjoining area</a>.</p>
+    <p>Not the right area? <a href="#">Edit the search area</a> or <a href="#">start a new search</a>.</p>
+
+    <!-- {% include "includes/migration-guidance.html" %} -->
+    {% set categories = data.charges.categories %}
+
+    <h2 id="match" class="chargeCategory heading-medium govuk-heading-l">Search area</h2>
+    
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Conditional planning consent 
+        </h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+             
+               
+               
+              
+              
+              <img src="/public/images/number9/address3_red.png" alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-body">Change of use from wholesale butcher (B2) to Art Gallery storage (B8) on ground floor and basement levels.</p>
+          </div>
+        </div>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Registration Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              13 December 1993
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Creation Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              3 December 1993
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10-13 Newbury Street EC1
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HM Land Registry reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              LLC-3XH49
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Authority Reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              93-8888 K
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Originating Authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              City of London Corporation
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Category
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Planning
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subcategory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Conditional planning consent
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal document
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Planning permission
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Law
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Town and Country Planning Act 1990 section 70
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">10-13 Newbury Street EC1 
+        </h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+             
+               
+               
+              
+              
+              <img src="/public/images/number9/address3_red.png" alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class="govuk-body">Change of use from wholesale butcher (B2) to Art Gallery storage (B8) on ground floor and basement levels.</p>
+          </div>
+        </div>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Registration Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              13 December 1993
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Creation Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              3 December 1993
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10-13 Newbury Street EC1
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HM Land Registry reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              LLC-3XH49
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Authority Reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              93-8888 K
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Originating Authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              City of London Corporation
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Category
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Planning
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subcategory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Conditional planning consent
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal document
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Planning permission
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Law
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Town and Country Planning Act 1990 section 70
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+
+    
+    <h2 id="partial_match" class="chargeCategory heading-medium govuk-heading-l">Adjoining areas</h2>
+
+    <p>Check the charges within the adjoining areas to ensure these do not affect your search area.</p>
+    {% for item in categories %}
+    {% for charge in item.charges %}
+    {% if loop.index == "9" %}
+    {% include "./summary-card-template-subcat.html" %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    <div class="govuk-!-padding-bottom-3 govuk-!-text-align-right">
+      <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+        <svg role="presentation" focusable="false" class="app-back-to-top__icon govuk-!-padding-right-3" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+          <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>Back to top
+      </a>
+    </div>
+
+    <h3 class="chargeCategory heading-medium govuk-heading-m">Search results guidance</h3>
+    {% include "includes/migration-guidance.html" %}
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-2" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Download an official search result for £15
+      </h2>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body-s">By purchasing an official search result from us, you’ll receive a document that:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <li>is secure and digitally signed by HM Land Registry</li>
+            <li>highlights local land charge boundaries on a map</li>
+            <li>enables you to get free, repeat searches for 6 months</li>
+            <li>includes a link to the source information</li>
+          </ul>
+
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%"
+        onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+    </aside>
+
+  </div>
+</div>
+
+
+{% endblock %}
