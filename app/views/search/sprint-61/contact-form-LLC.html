@@ -1,0 +1,185 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<main class="govuk-main-wrapper govuk-!-padding-top-1" id="main-content" role="main">
+  
+    
+
+  <h1 class="govuk-heading-xl">Local Land Charges</h1>
+    
+  
+    
+      
+      
+      <style>
+          .instructions {
+              font-family: "GDS Transport",arial,sans-serif;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              font-weight: 400;
+              font-size: 1.1875rem;
+              line-height: 1.25;
+              display: block;
+              margin-bottom: 15px;
+              color: #505a5f;
+          }
+      </style>
+  
+    
+    
+  
+    <div class="page-copy">
+   <div class="xrm-editable-html xrm-attribute"><div class="xrm-attribute-value"><div style="float:right;font-size: 1.1875rem;">
+      <span><a class="govuk-link" href="#">English</a></span>&nbsp;|&nbsp;<span><a class="govuk-link" href="../local-land-charges-cy">Cymraeg</a></span>
+  </div>
+  <h1 class="govuk-heading-l">Submit an enquiry</h1>
+  <p style="color: rgb(11, 12, 12); font-family: 'GDS Transport', arial, sans-serif; -webkit-font-smoothing: antialiased; font-size: 1.1875rem; line-height: 1.31579; margin-bottom: 20px;">Use this form for enquiries about local land charges only.<br>
+  <br>
+  For other HM Land Registry matters, including land charges,<br>
+  try our&nbsp;<a class="govuk-link" href="/contactus" style="font-family: 'GDS Transport', arial, sans-serif; font-size: 1.1875rem; -webkit-font-smoothing: antialiased;" target="_blank">general enquiries</a>&nbsp;contact us form</p>
+  <br>
+  &nbsp;
+  
+  </div></div>
+  </div>
+  
+    
+        
+        
+        
+        
+          <script>
+  $(document).ready(function () {
+      var emailAttributeName = "emailaddress";
+      var confirmEmailAttributeName = "hmlr_emailaddress";
+      //Set default error message
+      if (typeof emailValidationErrorMessage === 'undefined') {
+          emailValidationErrorMessage = "Email Address and Re-type email address do not match";
+      }
+      if (typeof (Page_Validators) == 'undefined') return;
+      if ($('#' + emailAttributeName).length === 0 || $('#' + confirmEmailAttributeName).length === 0) return;
+      // Create new validator
+      var newValidator = document.createElement('span');
+      newValidator.style.display = "none";
+      newValidator.id = "emailaddress1Validator";
+      newValidator.controltovalidate = emailAttributeName;
+      newValidator.errormessage = "<a href='#" + confirmEmailAttributeName + "_label'>" + emailValidationErrorMessage +"</a>";
+      newValidator.validationGroup = ""; // Set this if you have set ValidationGroup on the form
+      newValidator.initialvalue = "";
+      newValidator.evaluationfunction = function () {
+          var emailAddress =  $("#" + emailAttributeName).val();
+          var reconfirmEmailAddress =  $("#" + confirmEmailAttributeName).val();
+          
+          if(reconfirmEmailAddress !== emailAddress) {
+              return false;
+          } else {
+              return true;
+          }
+      };
+  
+      // Add the new validator to the page validators array:
+      Page_Validators.push(newValidator);
+  
+      // Wire-up the click event handler of the validation summary link
+      $("a[href='#" + confirmEmailAttributeName + "_label']").on("click", function () {
+          scrollToAndFocus("'#" + confirmEmailAttributeName + "_label'", confirmEmailAttributeName);
+      });
+      $("input").each(function () {
+              $(this).attr('autocomplete','off');
+          });
+      $('.form-control:not([title])').prop('title','');
+      // Test Area
+      /*
+      var newValidator2 = document.createElement('span');
+      newValidator2.style.display = "none";
+      newValidator2.id = "inlineValidators";
+      //newValidator.controltovalidate = emailAttributeName;
+      //newValidator.errormessage = "<a href='#" + confirmEmailAttributeName + "_label'>" + emailValidationErrorMessage +"</a>";
+      //newValidator.validationGroup = ""; // Set this if you have set ValidationGroup on the form
+      //newValidator.initialvalue = "";
+      newValidator2.evaluationfunction = function () {
+         debugger;
+          if (Page_Validators !== 'undefined' && Page_Validators !== null) {
+          for(i=0;i < (Page_Validators.length-1) ;i++)
+          {
+              if(Page_Validators[i].isvalid)
+              {
+                  $('#' + Page_Validators[i].id+'-error').remove();
+                  $('#' + Page_Validators[i].controltovalidate).removeClass('govuk-input--error');
+                  $('#' + Page_Validators[i].controltovalidate).parent().parent().removeClass('govuk-form-group--error');
+              }
+              else
+              {
+                  if($('#' + Page_Validators[i].id+'-error').length == 0){
+                  $('#' + Page_Validators[i].controltovalidate).before('<span id="' +Page_Validators[i].id + '-error" class="govuk-error-message"><span class="govuk-visually-hidden">Error:</span>' + Page_Validators[i].errormessage + '</span>');
+                  $('#' + Page_Validators[i].controltovalidate).addClass('govuk-input--error');
+                  $('#' + Page_Validators[i].controltovalidate).parent().parent().addClass('govuk-form-group--error');
+                  }
+              }
+          }
+          return;
+          var emailAddress =  $("#" + emailAttributeName).val();
+          var reconfirmEmailAddress =  $("#" + confirmEmailAttributeName).val();
+          
+          if(reconfirmEmailAddress !== emailAddress) {
+              return false;
+          } else {
+              return true;
+          }
+          }
+      };
+      Page_Validators.push(newValidator2);
+      */
+  });
+  </script>
+  
+          <div id="WebFormControl_a4ba2304b7aceb118236000d3ad5cd11">
+    <div id="WebFormPanel" class="crmEntityFormView" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'NextButton')" role="form" aria-label="Basic Form">
+      <div id="EntityFormView" class="entity-form">
+        <input type="hidden" name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$EntityFormView_EntityName" id="EntityFormView_EntityName" value="incident" autocomplete="off"><input type="hidden" name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$EntityFormView_EntityID" id="EntityFormView_EntityID" autocomplete="off"><input type="hidden" name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$EntityFormView_EntityState" id="EntityFormView_EntityState" autocomplete="off"><input type="hidden" name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$EntityFormView_EntityStatus" id="EntityFormView_EntityStatus" autocomplete="off"><span id="EntityFormView_EntityLayoutConfig" data-form-layout="{&quot;EntityName&quot;:&quot;incident&quot;,&quot;Id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;SubmitActionLink&quot;:{&quot;Modal&quot;:{},&quot;Type&quot;:0,&quot;Enabled&quot;:false,&quot;ShowModal&quot;:0,&quot;FilterCriteriaId&quot;:&quot;2092e9e4-1cbe-4be5-a4c5-7a882495ee94&quot;},&quot;PreviousActionLink&quot;:{&quot;Type&quot;:0,&quot;Enabled&quot;:false,&quot;ShowModal&quot;:0,&quot;FilterCriteriaId&quot;:&quot;906bd16f-aeb9-44c8-b981-1b56640075f2&quot;},&quot;NextActionLink&quot;:{&quot;Type&quot;:0,&quot;Enabled&quot;:false,&quot;ShowModal&quot;:0,&quot;FilterCriteriaId&quot;:&quot;7df217e1-7bcc-4667-b96d-8dbb1ecf56e6&quot;},&quot;CreateRelatedRecordActionLink&quot;:{&quot;Modal&quot;:{},&quot;Type&quot;:0,&quot;Enabled&quot;:false,&quot;ShowModal&quot;:0,&quot;FilterCriteriaId&quot;:&quot;8ca61770-87b8-4d11-8082-ea81f54f20e5&quot;},&quot;EnableEntityPermissions&quot;:false,&quot;LanguageCode&quot;:0,&quot;EnableActions&quot;:false,&quot;ShowActionButtonContainer&quot;:0,&quot;AutoGenerateSteps&quot;:false}"></span><div id="ValidationSummaryEntityFormView" class="validation-summary alert alert-error alert-danger alert-block" role="alert" style="display:none;">
+  
+        </div><div data-name="tab_18" class="tab clearfix"><div class="tab-column" style="width:100%;"><div><fieldset aria-label="New Section"><table role="presentation" data-name="tab_18_section_1" class="section"><colgroup><col style="width:100%;"><col></colgroup><tbody><tr>
+          <td colspan="1" rowspan="1" class="clearfix cell text form-control-cell"><div class="info required"><label for="hmlr_firstname" id="hmlr_firstname_label" class="field-label">First Name</label><div class="validators"><span id="RequiredFieldValidatorhmlr_firstname" style="display:none;">*</span><span id="MaximumLengthValidatorhmlr_firstname" style="visibility:hidden;">*</span></div></div><div class="control"><input name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$hmlr_firstname" type="text" maxlength="80" id="hmlr_firstname" class="text form-control input govuk-input--width-10" onchange="setIsDirty(this.id);" aria-required="true" title="First Name is a required field." aria-label="First Name" onkeypress="javascript:return LengthError(this, event);" autocomplete="off"></div></td>
+          <td class="cell zero-cell"></td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" class="clearfix cell text form-control-cell"><div class="info required"><label for="hmlr_surname" id="hmlr_surname_label" class="field-label">Last Name</label><div class="validators"><span id="RequiredFieldValidatorhmlr_surname" style="display:none;">*</span><span id="MaximumLengthValidatorhmlr_surname" style="visibility:hidden;">*</span></div></div><div class="control"><input name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$hmlr_surname" type="text" maxlength="80" id="hmlr_surname" class="text form-control input govuk-input--width-10" onchange="setIsDirty(this.id);" aria-required="true" title="Last Name is a required field." aria-label="Last Name" onkeypress="javascript:return LengthError(this, event);" autocomplete="off"></div></td>
+          <td class="cell zero-cell"></td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" class="clearfix cell text form-control-cell"><div class="info"><label for="hmlr_telephonenumber" id="hmlr_telephonenumber_label" class="field-label">Telephone number</label><div class="validators"><span id="RegularExpressionValidatorhmlr_telephonenumber" style="display:none;"></span><span id="MaximumLengthValidatorhmlr_telephonenumber" style="visibility:hidden;">*</span></div></div><div class="control"><input name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$hmlr_telephonenumber" type="text" maxlength="40" id="hmlr_telephonenumber" class="text form-control input govuk-input--width-10" onchange="setIsDirty(this.id);" onkeypress="javascript:return LengthError(this, event);" autocomplete="off" title=""></div></td>
+          <td class="cell zero-cell"></td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" class="clearfix cell text form-control-cell"><div class="info required"><label for="emailaddress" id="emailaddress_label" class="field-label">Email Address</label><div class="validators"><span id="EmailFormatValidatoremailaddress" style="visibility:hidden;">*</span><span id="RequiredFieldValidatoremailaddress" style="display:none;">*</span><span id="RegularExpressionValidatoremailaddress" style="display:none;"></span><span id="MaximumLengthValidatoremailaddress" style="visibility:hidden;">*</span></div></div><div class="control"><input name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$emailaddress" maxlength="80" id="emailaddress" class="text form-control input govuk-input--width-20" type="email" ondblclick="launchEmail(this.value);" onchange="setIsDirty(this.id);" required="" onkeypress="javascript:return LengthError(this, event);" style="text-decoration:underline;" autocomplete="off" title=""></div></td>
+          <td class="cell zero-cell"></td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" class="clearfix cell text form-control-cell"><div class="info required"><label for="hmlr_emailaddress" id="hmlr_emailaddress_label" class="field-label">Confirm Email address</label><div class="validators"><span id="EmailFormatValidatorhmlr_emailaddress" style="visibility:hidden;">*</span><span id="RequiredFieldValidatorhmlr_emailaddress" style="display:none;">*</span><span id="RegularExpressionValidatorhmlr_emailaddress" style="display:none;"></span><span id="MaximumLengthValidatorhmlr_emailaddress" style="visibility:hidden;">*</span></div></div><div class="control"><input name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$hmlr_emailaddress" maxlength="80" id="hmlr_emailaddress" class="text form-control input govuk-input--width-20" type="email" ondblclick="launchEmail(this.value);" onchange="setIsDirty(this.id);" required="" onkeypress="javascript:return LengthError(this, event);" style="text-decoration:underline;" autocomplete="off" title=""></div></td>
+          <td class="cell zero-cell"></td>
+        </tr>
+        <tr>
+          <td colspan="1" rowspan="1" class="clearfix cell textarea form-control-cell"><div class="info required"><label for="hmlr_message" id="hmlr_message_label" class="field-label">What is your enquiry about?</label><div class="validators"><span id="RequiredFieldValidatorhmlr_message" style="display:none;">*</span><span id="MaximumLengthValidatorhmlr_message" style="visibility:hidden;">*</span></div></div><div class="control"><textarea name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$hmlr_message" rows="4" cols="20" maxlength="4000" id="hmlr_message" class="textarea form-control " onchange="setIsDirty(this.id);" aria-required="true" aria-label="What is your enquiry about?" title="What is your enquiry about? is a required field." onkeydown="javascript:return LimitInput(this, event);" oninput="javascript:return LimitInput(this, event);" onpaste="javascript:return LimitPaste(this, event);"></textarea></div></td>
+          <td class="cell zero-cell"></td>
+        </tr>
+        </tbody></table></fieldset></div></div></div><div class="tr"><div class="cell file-cell"><div class="info"><label for="AttachFile" id="AttachFileLabel">Attach a document (optional)</label></div><div class="control"><input type="file" name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$EntityFormView$AttachFile" id="AttachFile" accept="*" autocomplete="off" aria-label="Attach a file..."><span id="AttachFileAcceptValidatorAttachFile" style="display:none;"></span><span id="AttachFileSizeValidatorAttachFile" style="display:none;"></span></div></div></div>
+      </div><div class="actions"><div class="col-sm-6 clearfix">
+        <div role="group" class="btn-group entity-action-button"><input type="button" name="ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$NextButton" value="Submit" onclick="javascript:if(typeof webFormClientValidate === 'function'){if(webFormClientValidate()){if(typeof Page_ClientValidate === 'function'){if(Page_ClientValidate('')){clearIsDirty();disableButtons();this.value = 'Processing...';}}else{clearIsDirty();disableButtons();this.value = 'Processing...';}}else{return false;}}else{if(typeof Page_ClientValidate === 'function'){if(Page_ClientValidate('')){clearIsDirty();disableButtons();this.value = 'Processing...';}}else{clearIsDirty();disableButtons();this.value = 'Processing...';}};WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentContainer$WebFormControl_a4ba2304b7aceb118236000d3ad5cd11$NextButton&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" id="NextButton" class="btn btn-primary button next submit-btn" nonactionlinkbutton="true" autocomplete="off"></div>
+      </div></div>
+    </div>
+  </div>
+        
+    
+    </main>
+
+
+{% endblock %}

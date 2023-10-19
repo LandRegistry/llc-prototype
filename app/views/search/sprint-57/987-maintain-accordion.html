@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "includes/language-switcher-heading.html" %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">Contact information</h2>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h3 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Writing well for the web
+            </span>
+          </h3>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header app-custom-class">Date and time</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Email address</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Search reference</th>
+                <th scope="col" class="govuk-table__header app-custom-class">Charges found</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">04/08/20<br/>13:22:04</td>
+                <td class="govuk-table__cell">sam@smith.com</td>
+                <td class="govuk-table__cell">1834456</td>
+                <td class="govuk-table__cell">None</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">17/10/21<br/>10:17:22</td>
+                <td class="govuk-table__cell">sam@smith.com</td>
+                <td class="govuk-table__cell">1834657</td>
+                <td class="govuk-table__cell"><a href="#">Show 6 charges</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">21/12/21<br/>11:21:04</td>
+                <td class="govuk-table__cell">example@jones.com</td>
+                <td class="govuk-table__cell">1834999</td>
+                <td class="govuk-table__cell"><a href="#">Show 3 charges</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h3 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Writing well for specialists
+            </span>
+          </h3>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+          <p class="govuk-body">This is the content for Writing well for specialists.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h3 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+              Know your audience
+            </span>
+          </h3>
+        </div>
+        <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+          <p class="govuk-body">This is the content for Know your audience.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h3 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              How people read
+            </span>
+          </h3>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
