@@ -2,19 +2,19 @@ var add_colour = '#1d70b8';//'#5a41c6';
 var edit_colour = '#00703c';//'#007A7C';
 var delete_colour = '#d4351c';//'#c41919';
 
-var add_fill = [29, 112, 184, 0.1];//[90,65,198,0.1];
-var edit_fill = [0, 112, 60, 0.1];//[0,122,124,0.1];
-var delete_fill = [212, 53, 28, 0.1];//[196,25,25,0.1];
+var add_fill = [29, 112, 184, 0.2];//[90,65,198,0.1];
+var edit_fill = [0, 112, 60, 0.2];//[0,122,124,0.1];
+var delete_fill = [212, 53, 28, 0.2];//[196,25,25,0.1];
 
 var fill_none = new ol.style.Fill();
 fill_none.setColor([29, 112, 184, 0.1]);
 
-var fill_add = new ol.style.Fill();
-fill_add.setColor(hatch_pattern(add_colour));
-var fill_edit = new ol.style.Fill();
-fill_edit.setColor(hatch_pattern_2(edit_colour));
-var fill_delete = new ol.style.Fill();
-fill_delete.setColor(hatch_pattern_4(delete_colour));
+var hatched_fill_add = new ol.style.Fill();
+hatched_fill_add.setColor(hatch_pattern(add_colour));
+var hatched_fill_edit = new ol.style.Fill();
+hatched_fill_edit.setColor(hatch_pattern_2(edit_colour));
+var hatched_fill_delete = new ol.style.Fill();
+hatched_fill_delete.setColor(hatch_pattern_4(delete_colour));
 
 
 draw_layer_styles = {
@@ -126,9 +126,12 @@ draw_layer_styles = {
         color: 'rgba(0, 0, 255, 0)'
       })
     }),
+
+    // New styles with HATCHING
+    
     // DRAW | add (with HATCHING)
     10: new ol.style.Style({
-      fill: fill_add,
+      fill: hatched_fill_add,
       stroke: new ol.style.Stroke({
         color: add_colour,
         /* color: '#85994b', */
@@ -144,7 +147,7 @@ draw_layer_styles = {
     }),
     // EDIT (with HATCHING)
     11: [new ol.style.Style({
-      fill: fill_edit,
+      fill: hatched_fill_edit,
       stroke: new ol.style.Stroke({
         color: edit_colour,
         width: 3,
@@ -178,7 +181,7 @@ draw_layer_styles = {
         width: 3,
         lineDash: [5, 5]
       }),
-      fill: fill_delete,
+      fill: hatched_fill_delete,
       image: new ol.style.Circle({
         radius: 5,
         fill: new ol.style.Fill({
