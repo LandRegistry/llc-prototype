@@ -1,0 +1,56 @@
+.text-success {
+  color: #00823b;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.error-summary-list {
+  list-style-type: none;
+}
+
+.block-label {
+  display: block;
+  float: none;
+  clear: left;
+  position: relative;
+  padding: 8px 10px 9px 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+@media (min-width: 641px) {
+  .block-label {
+    float: left;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
+
+.block-label input {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+}
+
+.selection-button-radio {
+  position: static
+}
+
+.table-borderless td, th {
+  border-bottom: 0 !important;
+}
+
+.grey-background {
+  background-color: #f3f2f1;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.release-notice-table th {
+  border-bottom: 1px solid #bfc1cb !important;
+}

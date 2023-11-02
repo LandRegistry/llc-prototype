@@ -1,0 +1,343 @@
+/* Link bar */
+.action-links {
+    display: block;
+    float: right;
+    width: 100%;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    font-size: 19px;
+    line-height: 1.3157894737;
+}
+
+.action-links ol {
+    float: right;
+}
+
+.action-links ol li {
+    display: inline;
+}
+
+.hyperlink-button {
+    color: #005ea5;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 16px;
+    line-height: 1.25;
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hyperlink-button:active, .hyperlink-button:focus {
+    background-color: #ffbf47;
+}
+
+.hyperlink-button:hover {
+    color: #2b8cc4;
+}
+
+/* Globally have all table cells align vertically to the top of the cell. */
+th, td {
+    vertical-align: top;
+}
+
+.full-screen-map-wrapper {
+    display: table;
+    width: 100%;
+}
+
+#footer.llc-map-footer .footer-wrapper {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+.llc-map-footer li:last-child {
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 1120px) {
+    .llc-map-footer li {
+        display: inline;
+        padding-right: 15px;
+    }
+
+    #footer.llc-map-footer .footer-wrapper{
+        padding-bottom: 20px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    } 
+}
+
+#full-screen-map-sidebar, .two-thirds-map {
+    height: calc(94vh - 116px);
+    float: left;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .js-enabled #global-header .header-proposition #proposition-links {
+        display: block;
+        margin-top: 15px;
+    }
+
+    #global-header .header-proposition #proposition-links li {
+        float: none;
+    }
+
+    #global-header .header-proposition #proposition-links li:last-child {
+        border-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    #full-screen-map-sidebar, .two-thirds-map {
+        height: calc(94vh - 116px);
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .js-enabled #global-header .header-proposition #proposition-links {
+        float: right;
+    }
+
+    #global-header .header-proposition #proposition-links li:last-child {
+        padding-right: 0;
+    }
+}
+
+.image-button{
+    display: inline;
+    height: 24px;
+    width: 24px;
+    margin-right: 19px;
+    padding: 0px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 7px;
+    background-color: #005ea5;
+}
+
+.map-video{
+    width:75%;
+}
+
+.transcript-div{
+    padding-left: 0.78947em;
+}
+
+.transcript-text{
+    margin-top: 1.2em;
+    margin-bottom: 0;
+}
+
+.video-div{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Two factor auth code input */
+.security-code {
+    width: 100%;
+}
+
+@media (min-width: 641px) {
+    .security-code {
+        width: 16.5%;
+    }
+}
+
+
+.ol-unselectable.ol-control.layer-switcher.layer-switcher-group-select-style-children.layer-switcher-activation-mode-click.activationModeClick{
+    top: 6em;
+    right: 1em;
+}
+.cookies-banner-background {
+    background-color: #f3f2f1;
+}
+  
+.cookies-banner .button {
+    margin-bottom: 22px;
+}
+  
+.cookies-banner {
+    margin: auto;
+    max-width: 960px;
+    padding: 15px 15px 0 15px;
+    display: none;
+}
+  
+@media (min-width: 641px){
+    .cookies-banner {
+        padding: 30px 30px 0 30px
+    }
+  
+    .cookies-banner .button {
+        margin-bottom: 32px;
+    }
+
+}
+
+.button-secondary {
+    background-color: #f3f2f1;
+    box-shadow: 0 2px 0 #929191;   
+}
+
+.button-secondary, .button-secondary:link, .button-secondary:visited, .button-secondary:active, .button-secondary:hover, .button-secondary:focus {
+    color: #0b0c0c;
+}
+
+.button-secondary:active, .button-secondary:hover, .button-secondary:focus {
+    background-color: #dbdad9;
+}
+
+#language-switcher{
+    padding-top: 1em;
+    text-align: end;
+    padding-right: 1em;
+}
+
+#lang-text{
+    font-size: 16px;
+}
+
+#layer-error{
+    font-size: 0.9em;
+}
+
+#layer-error i{
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    background-size: 100%;
+    margin-right: 0.5em;
+}
+
+.float-right {
+    float: right;
+}
+.cookies-banner .hyperlink-button{
+    font-size: 19px;
+}
+
+.cookies-banner form{
+    display: inline;
+}
+
+@media (max-width: 641px){
+    .cookies-banner form{
+        display: block;
+        text-align: center;
+    }
+}
+
+#cookies-banner .hyperlink-button{
+    padding-left: 0.5em;
+    vertical-align: sub;
+}
+
+#footer .hyperlink-button{
+    color: #454a4c;
+}
+
+#cookies-success-banner h2{
+    background-color: #00703c;
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 1em;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#cookies-success-banner {
+    background-color: #00703c;
+    border: 1px solid #00703c;
+    border-top: 0px solid;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 5px;
+}
+
+#cookies-success-banner p{
+    max-width: 32em;
+    margin: 0px;
+    padding: 1em;
+    background-color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#cookies-success-banner p a{
+    color: #00703c;
+}
+
+.information-blue {
+    border: 5px solid #005ea5;
+    border-top: 0px solid;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: x-large;
+    margin: 0px;
+}
+
+.information-blue-heading {
+    background-color: #005ea5;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    padding: 10px 25px;
+
+}
+
+.information-green {
+    border: 5px solid #00703c;
+    border-top: 0px solid;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: x-large;
+    margin: 0px;
+}
+
+.information-green-heading {
+    background-color: #00703c;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    padding: 10px 25px;
+
+}
+
+.heading-secondary-medium {
+    color: #6f777b;
+    text-transform: none;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 1.25em;
+    margin-bottom: 0.5em;
+}
+
+.in-progress-page {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.in-progress-page .govuk-warning-text{
+    justify-content: center;
+}
