@@ -122,9 +122,9 @@
       mode = $(this).attr('id');
       console.log(mode);
       if (showHatching) {
-        $("#map").attr("src", "/public/images/hatching/" + mode + ".png");
+        $("#static-map").attr("src", "/public/images/hatching/" + mode + ".png");
       } else {
-        $("#map").attr("src", "/public/images/hatching/blank.png");
+        $("#static-map").attr("src", "/public/images/hatching/blank.png");
       }
 
     });
@@ -133,9 +133,9 @@
     showHatching = $(this).is(':checked');
     console.log(showHatching);
     if (showHatching) {
-      $("#map").attr("src", "/public/images/hatching/" + mode + ".png");
+      $("#static-map").attr("src", "/public/images/hatching/" + mode + ".png");
     } else {
-      $("#map").attr("src", "/public/images/hatching/blank.png");
+      $("#static-map").attr("src", "/public/images/hatching/blank.png");
     }
   });
 
