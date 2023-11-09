@@ -1,0 +1,274 @@
+{% extends "layouts/main.html" %}
+
+{% set page="1" %}
+{% if data.page %}
+  {% set page=data.page %}
+{% endif %}
+
+{% set pageName="Local land charges search results (page " + page + " of 6)" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Search for local land charges",
+  serviceUrl: "/search/"
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Local land charges for <br />
+      9 Newbury Street, London, EC1A 7HU
+    </h1>
+
+    <div class="govuk-!-padding-bottom-4">
+      <img src="/public/images/number9.png" alt="Map showing search area for 9 Newbury Street, London EC1A 7HU"
+        style="height:300px">
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
+    </div>
+
+    <p>There are 21 local land charges for your search area.</p>
+    <!-- <p>Check the local land charges within the adjoining areas to ensure these do not affect your search area.</p> -->
+    {% include "includes/migration-guidance.html" %}
+    <p>Not the right area? <a href="edit-map">Edit the search area</a> or <a href="search">start a new search</a>.</p>
+
+    <!-- {% include "includes/migration-guidance.html" %} -->
+    {% set categories = data.charges.categories %}
+
+    {% for item in categories %}
+    <h2 class="chargeCategory heading-medium govuk-heading-l">{{item.category}}</h2>
+
+
+    {% for charge in item.charges %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">{{ charge.subcategory }}
+        </h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            {% if charge.isSearchArea == "true" %}
+              {% if loop.index == "4" %}
+                <img src="/public/images/number9/charge_13.png" 
+              {% elseif loop.index=="5" %}
+                <img src="/public/images/number9/charge_12.png"
+              {% elseif loop.index=="8" %} 
+                <img src="/public/images/number9/charge_13.png"
+              {% elseif charge.subcategory=="Smoke control order" %} 
+                <img src="/public/images/number9/charge_13.png"
+              {% else %} 
+                <img src="/public/images/number9/number9_red.png"
+              {% endif %}
+            {% else %} 
+              {% set items=[1,2,3,4,3,3,4,3,3] %} 
+              {% set count=loop.index - 9 %} 
+              {% if count < 0 %}
+                {% set count = count+ 10 %}
+              {% endif %}
+              {% set image=items[count]%}
+              <img src="/public/images/number9/address{{image}}_red.png" 
+            {% endif %}
+
+              alt="Map showing charge area for '9 Newbury Street, London, EC1A 7HU'" style="width:100%">
+            <!-- <figcaption class="govuk-body-s">Map showing charge area</figcaption> -->
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <p class='govuk-body'>{{ charge.description | safe }}</p>
+          </div>
+        </div>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Registration Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.registrationDate }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Creation Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.creationDate }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Location
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.location | safe }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HM Land Registry reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.hmlrReference }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Authority Reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.authorityReference }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Originating Authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.originatingAuthority }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Category
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ item.category }}
+            </dd>
+          </div>
+<!--           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subcategory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.subcategory }}
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Legal document
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.legalDocument }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Law
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.law }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+
+    {% endfor %}
+
+    {% endfor %}
+
+    <nav class="govuk-pagination" role="navigation" aria-label="results">
+      {% if page !='1' %}
+      <div class="govuk-pagination__prev">
+        <a class="govuk-link govuk-pagination__link" href="?page=1" rel="prev">
+          <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+          </svg>
+          <span class="govuk-pagination__link-title">Previous</span></a>
+      </div>
+      {% endif %}
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item {% if page=='1' %} govuk-pagination__item--current {% endif %}">
+          <a class="govuk-link govuk-pagination__link" href="?page=1" aria-label="Page 1" aria-current="page">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item{% if page=='2' %} govuk-pagination__item--current {% endif %}">
+          <a class="govuk-link govuk-pagination__link" href="?page=2" aria-label="Page 2">
+            2
+          </a>
+        </li>
+        {% if page=='2' %} 
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="?page=3" aria-label="Page 3">
+            3
+          </a>
+        </li>
+        {% endif %}
+        <li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>
+        <li class="govuk-pagination__item{% if page=='6' %} govuk-pagination__item--current {% endif %}">
+          <a class="govuk-link govuk-pagination__link" href="?page=6" aria-label="Page 6">
+            6
+          </a>
+        </li>
+      </ul>
+      {% if page !='6' %}
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="?page={{ page|abs + 1 }}" rel="next"> <span
+            class="govuk-pagination__link-title">Next</span><svg
+            class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13"
+            width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+            </path>
+          </svg></a>
+      </div>
+      {% endif %}
+    </nav>
+
+
+  </div>
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items govuk-!-margin-bottom-2" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Download an official search result for £15
+      </h2>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Benefits of an official search
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body-s">By purchasing an official search result from us, you’ll receive a document that:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-body-s">
+            <li>is secure and digitally signed by HM Land Registry</li>
+            <li>highlights local land charge boundaries on a map</li>
+            <li>enables you to get free, repeat searches for 6 months</li>
+            <li>includes a link to the source information</li>
+          </ul>
+
+      </details>
+      <button class="govuk-button" data-module="govuk-button" style="width:100%"
+        onclick="window.location.href='singleaddress.html'">
+        Pay now
+      </button>
+    </aside>
+
+    <div>
+      <p class="govuk-body">
+        <a href="#">Contact HM Land Registry (opens in new tab)</a> if you need help in using this service.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
