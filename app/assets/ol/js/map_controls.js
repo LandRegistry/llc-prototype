@@ -19,6 +19,7 @@ MAP_CONTROLS.lineButtonId = 'map-button-line'
 MAP_CONTROLS.circleButtonId = 'map-button-circle'
 
 MAP_CONTROLS.current_interaction = null;
+MAP_CONTROLS.hover_interaction = null;
 MAP_CONTROLS.current_style = draw_layer_styles.DRAW;//NONE
 // Used to generate IDs for newly created features
 MAP_CONTROLS.feature_id = 0;
