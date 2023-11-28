@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your feedback will help us to improve it.
+    </span>
+  </p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Your enquiry has been sent
+          </h1>
+        </div>
+        <p class="govuk-body">
+          We’ve sent you a confirmation email.
+        </p>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+          We will reply within five working days. If we cannot do this, we'll contact you to let you know. 
+        </p>
+        <p class="govuk-body">
+          We respond to Data Protection Act requests within one calendar month and Freedom of Information Act requests within twenty working days.
+        </p>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

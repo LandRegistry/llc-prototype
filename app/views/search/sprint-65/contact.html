@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl govuk-!-padding-top-6 govuk-!-padding-bottom-6">
+      Get technical help using the Search for local land charges service
+    </h1>
+
+
+    <form action="" method="" novalidate>
+      <div class="govuk-form-group">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            First name
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            Last name
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            Telephone number (optional)
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="event-name" name="eventName" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            Email address
+          </label>
+          <div id="event-name-hint" class="govuk-hint">
+            We’ll use this email address to contact you
+          </div>
+          <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            Confirm Email address
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="event-name" name="eventName" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+            What is your enquiry about?
+          </label>
+          <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+        </div>
+      </div>
+
+      <div class="govuk-!-padding-bottom-9" >
+      <label class="govuk-label" for="more-detail">
+        Attach a document (optional)
+      </label>
+      <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
+
+
+      </div>
+      {{ govukButton({
+      text: "Submit",
+      href:"confirmation"
+      }) }}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
