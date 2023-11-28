@@ -6,11 +6,6 @@
 {% include "includes/phase-banner.html" %}
 {% include "includes/language-switcher-heading.html" %}
 <style>
-  #container {
-    height: 720px;
-    position: relative;
-  }
-
   .ol-zoom-in {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
   }
@@ -81,136 +76,6 @@
     color: #0b0c0c;
     font-family: "GDS Transport", arial, sans-serif;
   }
-
-
-  .nav-controls {
-    position: relative;
-    z-index: 12;
-    top: 560px;
-    left: 575px;
-  }
-
-  .nav-button {
-    display: block;
-    margin: 1px;
-    padding: 0;
-    color: var(--ol-subtle-foreground-color);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: inherit;
-    text-align: center;
-    height: 1.375em;
-    width: 1.375em;
-    line-height: .4em;
-    background-color: var(--ol-background-color);
-    border: none;
-    border-radius: 2px;
-    height: 40px;
-    width: 40px;
-    color: #000000;
-    background-color: #ffffff;
-    outline: none;
-    margin: 0px;
-    background-clip: padding-box;
-
-    border-radius: 2px 2px 0 0;
-    cursor: pointer;
-  }
-
-  .nav-button:hover,
-  .nav-button:focus,
-  .ol-fullscreen:focus {
-    background-color: #b1b4b6;
-    outline: none;
-    background-clip: padding-box;
-  }
-
-  #pan-up {
-    position: absolute;
-    left: 40px;
-  }
-
-  #pan-left {
-    position: absolute;
-    top: 40px;
-    left: 0px;
-  }
-
-  #pan-right {
-    position: absolute;
-    top: 40px;
-    left: 80px;
-  }
-
-  #pan-down {
-    position: absolute;
-    top: 80px;
-    left: 40px;
-  }
-
-  .arrow {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 5px;
-  }
-
-  .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-
-  .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-  }
-
-  .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
-
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
-
-  /* cross hair  */
-  .center {
-    position: absolute;
-    top: 330px;
-    left: calc(37.5% - 28px); /* half of the 75% column width */
-    width: 56px;
-    height: 56px;
-    /* no circle in this version */
-    /* border-radius: 50%;
-    border: 2px solid #000; */
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  .horizontal,
-  .vertical {
-    content: '';
-    position: absolute;
-    width: 70px;
-    height: 1px;
-    background-color: #000;
-    border-radius: 0;
-    top: 28px;
-    z-index: 0;
-  }
-
-  .horizontal {
-    left: -6px;
-  }
-
-  .vertical {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    left: -7px;
-  }
 </style>
 {% endblock %}
 
@@ -221,27 +86,8 @@
   <div class="govuk-grid-column-three-quarters">
     <div style="position: relative; width: 0; height: 0">
       <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen" ></button>
-      <br/>
-      <div class="nav-controls ">
-        <button id="pan-up" class="nav-button" data-module="govuk-button">
-          <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
-        </button>
-        <button id="pan-left" class="nav-button" data-module="govuk-button">
-          <i class="arrow left"></i><span class="govuk-visually-hidden">Pan left</span>
-        </button>
-        <button id="pan-right" class="nav-button" data-module="govuk-button">
-          <i class="arrow right"></i><span class="govuk-visually-hidden">Pan right</span>
-        </button>
-        <button id="pan-down" class="nav-button" data-module="govuk-button">
-          <i class="arrow down"></i><span class="govuk-visually-hidden">Pan down</span>
-        </button>
-      </div>
     </div>
-    <div id="map" class="maintain-llc-map" tabindex="0">
-      <div class="center">
-        <div class="horizontal"></div>
-        <div class="vertical"></div>
-      </div>
+    <div id="map" class="maintain-llc-map" tabindex="1">
 
       <noscript>
         <div id="nojs" class="nojs-content">
@@ -353,10 +199,6 @@
           <br />
           <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Clear all
-          </button>
-          <br />
-          <button id="select-centre" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Select centre
           </button>
         </div>
       </div>
@@ -488,6 +330,13 @@ $( document ).ready(function() {
     style: draw_layer_styles.style[draw_layer_styles.DRAW]
   });
 
+  // ADD hover functionality
+  MAP_CONTROLS.hover_interaction = new ol.interaction.Select({
+    condition: ol.events.condition.pointerMove,
+      style: draw_layer_styles.style[draw_layer_styles.HOVER]
+    });
+  map.addInteraction(MAP_CONTROLS.hover_interaction);
+
   MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
     MAP_UNDO.store_state();
     feature = event.target.item(0).clone();
@@ -582,7 +431,7 @@ $( document ).ready(function() {
 
   function setMode(){
     var radio = $('[name="edit-mode"]:checked').val();
-
+    map.removeInteraction(MAP_CONTROLS.hover_interaction);
 
     if (radio == "draw-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
@@ -602,6 +451,13 @@ $( document ).ready(function() {
         layers: [MASTER_MAP_VECTOR_LAYER.layer],
         style: draw_layer_styles.style[draw_layer_styles.DRAW]
       });
+
+      // ADD hover functionality
+      MAP_CONTROLS.hover_interaction = new ol.interaction.Select({
+        condition: ol.events.condition.pointerMove,
+          style: draw_layer_styles.style[draw_layer_styles.HOVER]
+        });
+      map.addInteraction(MAP_CONTROLS.hover_interaction);
 
       MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
         MAP_UNDO.store_state();
@@ -704,108 +560,6 @@ $( document ).ready(function() {
     showHatching = $(this).is(':checked');
     MAP_CONTROLS.toggle_draw_layer_style(MAP_CONTROLS.current_style);
   });
-
-
-  document.getElementById('select-centre').onclick = function (evt) {
-    // get centre of map
-    getCenterCoords();
-    let center = map.getView().getCenter(map.getSize());
-    //center = [415824.12, 464753.55];
-    // get polygon at those coords
-    //MAP_CONTROLS.vectorControls.copy_enabled = true;
-    MASTER_MAP_VECTOR_LAYER.enable();
-    var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
-    var features = source.getFeatures();
-
-    console.log(MASTER_MAP_VECTOR_LAYER.layer);
-    console.log(source);
-    console.log("=============");
-    console.log(features);
-    console.log("=============");
-    console.log(MAP_CONFIG.draw_source.getFeatures());
-    console.log("=============");
-    console.log(source.getFeaturesAtCoordinate(center));
-    console.log(MASTER_MAP_VECTOR_LAYER.layer.getSource().getFeaturesAtCoordinate(center)[0]);
-    var feature = source.getFeaturesAtCoordinate(center)[0];
-    console.log(feature);
-
-    if (feature) {
-      geometry = feature.getGeometry();
-      MAP_CONTROLS.addGeometryToMap(geometry)
-    }
-    MASTER_MAP_VECTOR_LAYER.disable();
-  };
-
-  function getCenterCoords() {
-    center = map.getView().getCenter(map.getSize());
-    console.log(center);
-  }
-
-</script>
-<script>
-  //////////////////////////////////////////////////////////////////////
-  // button pixel panning 
-  ////////////////////////////////////////////////////////////////////// 
-  const step = 10; // pixels
-  function moveMap([xDirection, yDirection]) {
-    var center = map.getView().getCenter();
-    var resolution = map.getView().getResolution();
-    map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
-  }
-
-  document.getElementById('pan-up').onclick = function () {
-    moveMap([0, step]);
-  };
-  document.getElementById('pan-left').onclick = function () {
-    moveMap([-step, 0]);
-  };
-  document.getElementById('pan-right').onclick = function () {
-    moveMap([step, 0]);
-  };
-  document.getElementById('pan-down').onclick = function () {
-    moveMap([0, -step]);
-  };
-</script>
-
-<script>
-  //////////////////////////////////////////////////////////////////////
-  // key pixel panning 
-  ////////////////////////////////////////////////////////////////////// 
-  const step_by_key = 10; // pixels
-  function moveMap([xDirection, yDirection]) {
-    var center = map.getView().getCenter();
-    var resolution = map.getView().getResolution();
-    map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
-  }
-
-  $( "#map" ).on( "keypress", function(evt) {
-  console.log( "Handler for `keypress` called." );
-  console.log(evt);
-} );
-
-document.getElementById('map').addEventListener("keydown", (e) => {
-
-    if(e.shiftKey){
-          switch (e.key) {
-      case "ArrowUp":
-      moveMap([0, step_by_key]);
-        break;
-      case "ArrowLeft":
-      moveMap([-step_by_key, 0]);
-        break;
-      case "ArrowRight":
-      moveMap([step_by_key, 0]);
-        break;
-      case "ArrowDown":
-      moveMap([0, -step_by_key]);
-        break;
-    
-      default:
-        break;
-    } 
-  }
-
-});
 
 </script>
 {% endblock %}
