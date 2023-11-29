@@ -237,7 +237,7 @@
         </button>
       </div>
     </div>
-    <div id="map" class="maintain-llc-map" tabindex="0">
+    <div id="map" class="maintain-llc-map" tabindex="0" accesskey="m">
       <div class="center">
         <div class="horizontal"></div>
         <div class="vertical"></div>
@@ -355,7 +355,8 @@
             Clear all
           </button>
           <br />
-          <button id="select-centre" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          <button id="select-centre" class="govuk-button govuk-button--secondary" data-module="govuk-button"
+          accesskey="x">
             Select centre
           </button>
         </div>
@@ -707,6 +708,7 @@ $( document ).ready(function() {
 
 
   document.getElementById('select-centre').onclick = function (evt) {
+    console.log('x');
     // get centre of map
     getCenterCoords();
     let center = map.getView().getCenter(map.getSize());
