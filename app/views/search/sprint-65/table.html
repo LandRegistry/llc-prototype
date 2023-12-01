@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Local land charges search results - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+{% set header = ["Local authority","Charge ref.","LLC ref.","Address","Registration","Creation","Action"] %}
+{% set table = [
+["Derbyshire Dales District Council","96","LLC-3XH49","45 Marys Avenue, Edale, S33 7ZD","10 Nov 2023","9 Nov 2023","View charge"],
+["Sheffield City Council","19","LLC-PL71293","7 Morgan Road, Edale, SS32 9QW","12 Aug 2023","9 Aug 2023","View charge"],
+["High Peak Borough Council","123","LLC-LN1872","4 Elmwood Street, Edale, SS3 6SF","11 Apr 2023","3 Apr 2023","View charge"],
+["Sheffield City Council","88","LLC-MN8033","4 Elmwood Street, Edale, SS3 6SF","11 Apr 2023","10 Apr 2023","View charge"],
+["Sheffield City Council","88","LLC-EF12964","5 Victoria Road, Edale, SS32 5LN","11 Apr 2023","10 Apr 2023","View charge"],
+["High Peak Borough Council","83","LLC-KU50372","9 Elmfield Court, Edale, SS19 4BX","11 Apr 2023","10 Apr 2023","View charge"],
+["Oldham Metropolitan Borough Council","111","LLC-GH42816","18 Brenn Gardens, Edale, SS28 8SQ","11 Apr 2023","10 Apr 2023","View charge"],
+["Oldham Metropolitan Borough Council","111","LLC-LX93572","56 Eccles Close, Edale, SS3 3CV","4 Apr 2023","3 Apr 2023","View charge"],
+["Oldham Metropolitan Borough Council","111","LLC-LX93537","56 Eccles Close, Edale, SS3 3CV","4 Apr 2023","3 Apr 2023","View charge"],
+["Sheffield City Council","88","LLC-LX93537","56 Eccles Close, Edale, SS3 3CV","4 Apr 2023","3 Apr 2023","View charge"],
+["Sheffield City Council","88","LLC-LX93537","56 Eccles Close, Edale, SS3 3CV","4 Apr 2023","3 Apr 2023","View charge"],
+["Sheffield City Council","88","LLC-LX93537","56 Eccles Close, Edale, SS3 3CV","4 Apr 2023","3 Apr 2023","View charge"],
+["Sheffield City Council","88","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","1 Apr 2023","29 Mar 2023","View charge"],
+["High Peak Borough Council","123","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","1 Apr 2023","29 Mar 2023","View charge"],
+["Oldham Metropolitan Borough Council","111","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","1 Apr 2023","29 Mar 2023","View charge"],
+["Derbyshire Dales District Council","96","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","26 Feb 2023","23 Feb 2023","View charge"],
+["Derbyshire Dales District Council","96","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","26 Feb 2023","23 Feb 2023","View charge"],
+["High Peak Borough Council","123","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","26 Feb 2023","23 Feb 2023","View charge"],
+["Derbyshire Dales District Council","96","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","26 Feb 2023","23 Feb 2023","View charge"],
+["Derbyshire Dales District Council","96","LLC-LX93537","31 Edale Road, Edale, SS3 3CV","26 Feb 2023","23 Feb 2023","View charge"]
+]
+%}
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+
+   <div class="govuk-grid-column-full">
+
+      <table class="govuk-table ">
+
+        <caption class="govuk-table__caption govuk-table__caption--m">Updates search information</caption>
+        <thead class="govuk-table__head govuk-body-s">
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" style='width:18%'">Local authority</th>
+            <th class="govuk-table__header">Charge ref.</th>
+            <th class="govuk-table__header">LLC ref.</th>
+            <th class="govuk-table__header"style='width:20%'">Address</th>
+            <th class="govuk-table__header" style='width:12%'">Registration</th>
+            <th class="govuk-table__header" style='width:12%'">Creation</th>
+            <th class="govuk-table__header">Action</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body govuk-body-s">
+          {% for la, charge, ref, address, reg, creation in table %}
+          <tr class="govuk-table__row">
+            {% set four_digits = [1,2,3,4,5,6,7,8,9] | random + ""+ [1,2,3,4,5,6,7,8,9] | random +""+ [1,2,3,4,5,6,7,8,9] | random +""+ [1,2,3,4,5,6,7,8,9] | random%}
+            {% set alt_four_digits = [1,2,3,4,5,6,7,8,9] | random + ""+ [1,2,3,4,5,6,7,8,9] | random +""+ [1,2,3,4,5,6,7,8,9] | random +""+ [1,2,3,4,5,6,7,8,9] | random%}
+            {% set llc_ref= ["G","H","M","N","X","Y","Z"] | random + ""+ ["G","H","M","N","X","Y","Z"] | random + four_digits %}
+            {% set charge_ref= alt_four_digits+"/"+["LOCK","HIST"] | random %}
+            <td class="govuk-table__cell">{{la}}</td>
+            <td class="govuk-table__cell">{{charge}}/{{charge_ref}}</td>
+            <td class="govuk-table__cell">LLC-{{llc_ref}}</td>
+            <td class="govuk-table__cell">{{address}}</td>
+            <td class="govuk-table__cell">{{reg}}</td>
+            <td class="govuk-table__cell">{{creation}}</td>
+            <td class="govuk-table__cell">View charge</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
