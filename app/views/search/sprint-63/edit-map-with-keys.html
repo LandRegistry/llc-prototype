@@ -542,6 +542,8 @@ $( document ).ready(function() {
       $("#select").removeAttr("disabled");
       $("#snap_to_map").removeAttr("disabled");
     }
+
+    setMode();
   }
 
 
@@ -577,7 +579,7 @@ $( document ).ready(function() {
   };
 
 
-  $(document).on("change", "input[type=radio]", function () {
+  $(document).on("click", "input[type=radio]", function () {
     setMode();
   });
 
@@ -786,9 +788,8 @@ $( document ).ready(function() {
 } );
 
 document.getElementById('map').addEventListener("keydown", (e) => {
-
-    if(e.shiftKey){
-          switch (e.key) {
+  if(e.altKey){
+    switch (e.key) {
       case "ArrowUp":
       moveMap([0, step_by_key]);
         break;

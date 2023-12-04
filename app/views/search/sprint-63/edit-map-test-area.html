@@ -390,6 +390,8 @@ $( document ).ready(function() {
       $("#select").removeAttr("disabled");
       $("#snap_to_map").removeAttr("disabled");
     }
+
+    setMode();
   }
 
 
@@ -425,7 +427,7 @@ $( document ).ready(function() {
   };
 
 
-  $(document).on("change", "input[type=radio]", function () {
+  $(document).on("click", "input[type=radio]", function () {
     setMode();
   });
 
