@@ -710,6 +710,10 @@ $( document ).ready(function() {
 
 
   document.getElementById('select-centre').onclick = function (evt) {
+    selectCentre(evt)
+  };
+
+  function selectCentre(evt){
     console.log('x');
     // get centre of map
     getCenterCoords();
@@ -720,18 +724,7 @@ $( document ).ready(function() {
     MASTER_MAP_VECTOR_LAYER.enable();
     var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
     var features = source.getFeatures();
-
-    console.log(MASTER_MAP_VECTOR_LAYER.layer);
-    console.log(source);
-    console.log("=============");
-    console.log(features);
-    console.log("=============");
-    console.log(MAP_CONFIG.draw_source.getFeatures());
-    console.log("=============");
-    console.log(source.getFeaturesAtCoordinate(center));
-    console.log(MASTER_MAP_VECTOR_LAYER.layer.getSource().getFeaturesAtCoordinate(center)[0]);
     var feature = source.getFeaturesAtCoordinate(center)[0];
-    console.log(feature);
 
     if (feature) {
       geometry = feature.getGeometry();
@@ -782,10 +775,10 @@ $( document ).ready(function() {
     map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
   }
 
-  $( "#map" ).on( "keypress", function(evt) {
+/*   $( "#map" ).on( "keypress", function(evt) {
   console.log( "Handler for `keypress` called." );
   console.log(evt);
-} );
+} ); */
 
 document.getElementById('map').addEventListener("keydown", (e) => {
   if(e.altKey){
@@ -806,6 +799,12 @@ document.getElementById('map').addEventListener("keydown", (e) => {
       default:
         break;
     } 
+  }
+
+  //console.log(e);
+  //console.log(e.keyCode);
+  if(e.keyCode == 32 || e.keyCode==13){ //space or enter
+    selectCentre(e)
   }
 
 });
