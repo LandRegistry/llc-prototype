@@ -258,6 +258,11 @@
     <div class=" govuk-!-padding-top-3 govuk-!-padding-right-6">
       <div class="">
         <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in a new tab)</a></p>
+        <p>The map also functions with keyboard controls: <br/>
+          Pan using arrow keys, and fine-tune he position with the alt/option key.<br/>
+          Select the area at the centre of the map using the "enter" key or by using "Select centre" button.<br/>
+          The edit mode does not work with keybaord control.<br/>
+          Focus the map using access key M and focus the select ctner using access key X.</p>
       </div>
       <div class="govuk-inset-text">
         Use of address and mapping data (including the link between the address and its location) is subject to
@@ -543,22 +548,12 @@ $( document ).ready(function() {
       $("#snap_to_map").removeAttr("disabled");
     }
 
-    setMode();
+    //setMode();
   }
 
 
   map.on('moveend', checkZoom);
-/* 
-  document.getElementsByClassName('ol-zoom-out').onclick = function () {
-    checkZoom();
-    //view.setZoom(zoom - 1);
-  };
-  
-  document.getElementsByClassName('ol-zoom-in').onclick = function () {
-    checkZoom();
-  //view.setZoom(zoom + 1);
-  };
-   */
+
   document.getElementById('fullscreen').onclick = function () {
     window.open("fullscreen", "_self");
   };
@@ -579,14 +574,14 @@ $( document ).ready(function() {
   };
 
 
-  $(document).on("click", "input[type=radio]", function () {
+  $(document).on("change", "input[type=radio]", function () {
     setMode();
   });
 
   function setMode(){
     var radio = $('[name="edit-mode"]:checked').val();
 
-
+console.log(radio);
     if (radio == "draw-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
@@ -659,9 +654,9 @@ $( document ).ready(function() {
 
     if (radio == "delete-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
-      var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.deleteButtonId));
+      //var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.deleteButtonId));
 
-      if (toggled_on) {
+      //if (toggled_on) {
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.REMOVE);
 
         MAP_CONTROLS.current_interaction = new ol.interaction.Select({
@@ -676,9 +671,9 @@ $( document ).ready(function() {
         });
 
         map.addInteraction(MAP_CONTROLS.current_interaction)
-      } else {
-        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
-      }
+      //} else {
+      //  MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
+      //}
     }
 
   }
@@ -731,6 +726,27 @@ $( document ).ready(function() {
       MAP_CONTROLS.addGeometryToMap(geometry)
     }
     MASTER_MAP_VECTOR_LAYER.disable();
+  };
+
+  function deleteCentre(evt){
+    // the app creates a drawn layer with the selected polygons, with a timestamp id
+    // to remove a polygon, get the feature that contains the centre coords, get it's id and remove it
+    console.log('delete');
+    // get centre of map
+    getCenterCoords();
+    let center = map.getView().getCenter(map.getSize());
+
+    // get polygon of the drawn layer at those coords
+    var source = MAP_CONFIG.draw_layer.getSource();
+    var features = source.getFeatures();
+    var feature = source.getFeaturesAtCoordinate(center)[0];
+
+    if (feature) {
+      console.log('got feature');
+      //console.log(feature.getProperties());
+      var feature_id = feature.getProperties().id;
+      MAP_CONTROLS.remove_selected_feature(feature_id);
+    }
   };
 
   function getCenterCoords() {
@@ -804,7 +820,17 @@ document.getElementById('map').addEventListener("keydown", (e) => {
   //console.log(e);
   //console.log(e.keyCode);
   if(e.keyCode == 32 || e.keyCode==13){ //space or enter
-    selectCentre(e)
+    event.preventDefault();
+    var radio = $('[name="edit-mode"]:checked').val();
+
+      if (radio == "draw-area" || radio == "select-area") {
+          selectCentre(e)
+      }
+      if (radio == "delete-area") {
+        console.log('delete');
+        deleteCentre(e);
+
+      }
   }
 
 });
