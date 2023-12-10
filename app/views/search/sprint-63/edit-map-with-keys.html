@@ -585,6 +585,7 @@ console.log(radio);
     if (radio == "draw-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
+      console.log('toggle', draw_layer_styles.DRAW);
       MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
 
       MAP_CONTROLS.add_draw_interaction("Polygon", $('#' + MAP_CONTROLS.addAreaButtonId));
@@ -595,6 +596,9 @@ console.log(radio);
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
       MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+      //var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.copyButtonId));
+      //console.log('seelct', toggled_on);
 
       MAP_CONTROLS.current_interaction = new ol.interaction.Select({
         layers: [MASTER_MAP_VECTOR_LAYER.layer],
@@ -626,9 +630,9 @@ console.log(radio);
 
     if (radio == "edit-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
-      var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.editButtonId));
+      //var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.editButtonId));
 
-      if (toggled_on) {
+      //if (toggled_on) {
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.EDIT);
 
         MAP_CONTROLS.current_interaction = new ol.interaction.Modify({
@@ -646,9 +650,9 @@ console.log(radio);
           MAP_UNDO.store_state();
         });
 
-      } else {
-        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE);
-      }
+      //} else {
+      //  MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE);
+      //}
     }
 
 
@@ -706,6 +710,16 @@ console.log(radio);
 
   document.getElementById('select-centre').onclick = function (evt) {
     selectCentre(evt)
+    var radio = $('[name="edit-mode"]:checked').val();
+
+    if (radio == "draw-area" || radio == "select-area") {
+        selectCentre(evt)
+    }
+    if (radio == "delete-area") {
+      console.log('delete');
+      deleteCentre(evt);
+
+    }
   };
 
   function selectCentre(evt){
@@ -796,9 +810,9 @@ console.log(radio);
   console.log(evt);
 } ); */
 
-document.getElementById('map').addEventListener("keydown", (e) => {
-  if(e.altKey){
-    switch (e.key) {
+document.getElementById('map').addEventListener("keydown", (evt) => {
+  if(evt.altKey){
+    switch (evt.key) {
       case "ArrowUp":
       moveMap([0, step_by_key]);
         break;
@@ -817,18 +831,18 @@ document.getElementById('map').addEventListener("keydown", (e) => {
     } 
   }
 
-  //console.log(e);
-  //console.log(e.keyCode);
-  if(e.keyCode == 32 || e.keyCode==13){ //space or enter
+  //console.log(evt);
+  //console.log(evt.keyCode);
+  if(evt.keyCode == 32 || evt.keyCode==13){ //space or enter
     event.preventDefault();
     var radio = $('[name="edit-mode"]:checked').val();
 
       if (radio == "draw-area" || radio == "select-area") {
-          selectCentre(e)
+          selectCentre(evt)
       }
       if (radio == "delete-area") {
         console.log('delete');
-        deleteCentre(e);
+        deleteCentre(evt);
 
       }
   }

@@ -253,10 +253,11 @@ MAP_CONTROLS.remove_selected_feature = function(id) {
 MAP_CONTROLS.add_draw_interaction = function(type, button) {
     // Remove the previous interaction
     map.removeInteraction(MAP_CONTROLS.current_interaction);
+    // remove the toggle of the draw control button as this is handled by the new radio buttons
     // Toggle the draw control as needed
-    var toggled_on = MAP_CONTROLS.toggle_button(button);
+    //var toggled_on = MAP_CONTROLS.toggle_button(button);
 
-    if (toggled_on) {
+    //if (toggled_on) {
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
 
         if (type == "Circle") {
@@ -318,7 +319,7 @@ MAP_CONTROLS.add_draw_interaction = function(type, button) {
         if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
             map.addInteraction(snap_to_interaction)
         }
-    }
+    //}
 };
 
 // Toggle Feature Styles on draw layer for current style
