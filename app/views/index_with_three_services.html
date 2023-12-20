@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  <!-- TEST -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Local Land Charges
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>Prototypes for LLC are separated by product:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+
+        <li><a class="govuk-link--no-visited-state" href="maintain/">Maintain</a></li>
+        <li>Migration helper</li> 
+        <!-- <li><a class="govuk-link--no-visited-state" href="#">Migration helper</a></li> -->
+        <li><a class="govuk-link--no-visited-state" href="search/">Search</a></li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
