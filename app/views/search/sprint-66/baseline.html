@@ -1,12 +1,6 @@
 {% extends "layouts/main.html" %}
 
 {% set pageName="Edit the search area with keyboard navigation" %}
-{% set selectHint = "Select one or more areas to copy shapes on the map" %}
-{% set drawHint = "Add points to draw your search area" %}
-{% set editHint = "Move points to edit your search area" %}
-{% set deleteHint = "" %}
-{% set snapHint = "Hover your cursor near the point you want to add and it will snap to that point" %}
-
 
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
@@ -56,52 +50,6 @@
         </div>
       </noscript>
     </div>
-    <div class=" govuk-!-padding-top-3 govuk-!-padding-bottom-6">
-      <div class="">
-        <div class="govuk-heading-s govuk-!-padding-bottom-6">
-          Map key
-
- 
-          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
-            height="19" width="19">
-          <span class="map-key-text govuk-body-s">Location available</span>
-
-          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
-            alt="Location not available key" height="19" width="19">
-          <span class="map-key-text govuk-body-s">Location not available</span>
-
-        </div>
-      </div>
-
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help using the map with a keyboard
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p>The map also functions with keyboard controls: <br/>
-            Pan using arrow keys, and fine-tune the position with the alt/option key.<br/>
-            Select the area at the centre of the map using the "space" bar or by using "Select centre" button.<br/>
-            Note: Draw and edit mode do not work with keyboard controls.<br/>
-            Focus the map using access key M and focus the "Select centre" button using access key X.</p>
-        </div>
-      </details>
-
-      <p class="govuk-body govuk-body-s govuk-!-padding-top-3">
-        Use of address and mapping data (including the link between the address and its location) is subject to
-        <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
-          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
-      </p>
-    </div>
-
-    <div class="">
-      <p>
-        <a class="govuk-link govuk-body-m" href="help" target="_blank">
-          Learn more about how to use this map (opens in a new tab)</a>
-        </p>
-          
-    </div>
   </div>
 
   <div id="navbar" class="govuk-grid-column-one-quarter">
@@ -120,9 +68,6 @@
                 Select area
               </span>
             </label>
-            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ selectHint }}
-            </div>
           </div>
 
           <div class="govuk-radios__item">
@@ -134,9 +79,6 @@
                 Draw area
               </span>
             </label>
-            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ drawHint }}
-            </div>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area"
@@ -147,9 +89,6 @@
                 Edit area
               </span>
             </label>
-            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ editHint }}
-            </div>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
@@ -160,9 +99,6 @@
                 Delete area
               </span>
             </label>
-            <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ deleteHint }}
-            </div>
           </div>
         </div>
       </div>
@@ -178,16 +114,13 @@
             <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
               Snap to map
             </label>
-            <div id="item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
-              {{snapHint}}
-            </div>
           </div>
-<!--           <div class="govuk-checkboxes__item">
+          <div class="govuk-checkboxes__item">
             <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched">
             <label class="govuk-label govuk-checkboxes__label" for="hatching">
               Show shading
             </label>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -224,7 +157,53 @@
 
 <div class="govuk-grid-row">
 
+  <div class="govuk-grid-column-three-quarters">
+    <div class=" govuk-!-padding-top-3 govuk-!-padding-right-6">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help using the map with a keyboard
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>The map also functions with keyboard controls: <br/>
+            Pan using arrow keys, and fine-tune the position with the alt/option key.<br/>
+            Select the area at the centre of the map using the "space" bar or by using "Select centre" button.<br/>
+            Note: Draw and edit mode do not work with keyboard controls.<br/>
+            Focus the map using access key M and focus the "Select centre" button using access key X.</p>
+        </div>
+      </details>
+      <div class="">
+        <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in
+            a new tab)</a></p>
+            
+      </div>
 
+      <p class="govuk-body govuk-body-s govuk-!-padding-top-3">
+        Use of address and mapping data (including the link between the address and its location) is subject to
+        <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
+      </p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    <div class="">
+      <div class="govuk-heading-s ">
+        Map key
+      </div>
+      <div class="">
+        <img class="map-key-image" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
+      </div>
+      <div class="">
+        <img class="map-key-image" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
