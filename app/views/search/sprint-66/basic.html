@@ -616,6 +616,7 @@
   }
 
   document.getElementById('map').addEventListener("keydown", (evt) => {
+    evt.stopPropagation();
     if(evt.altKey || evt.shiftKey){
       switch (evt.key) {
         case "ArrowUp":
