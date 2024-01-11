@@ -1,11 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% set pageName="Edit the search area with keyboard navigation" %}
-{% set selectHint = "Select one or more areas to copy shapes on the map" %}
+{% set selectHint = "Select one or more areas to copy from the map" %}
 {% set drawHint = "Add points to draw your search area" %}
 {% set editHint = "Move points to edit your search area" %}
 {% set deleteHint = "Remove one or more areas for the map" %}
-{% set snapHint = "Hover your cursor near the point you want to add and it will snap to that point" %}
+{% set snapHint = "Hover your cursor near a line on the map and it will jump to it automatically" %}
 
 
 {% block beforeContent %}
@@ -80,11 +80,11 @@
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>The map also functions with keyboard controls: <br/>
-            Pan using arrow keys, and fine-tune the position with the alt/option or shift key.<br/>
-            Select the area at the centre of the map using the "space" bar or by using "Select centre" button.<br/>
-            Note: Draw and edit mode do not work with keyboard controls.<br/>
-            Focus the map using access key M and focus the "Select centre" button using access key X.</p>
+          <p>You can use the map with a keyboard.</p>
+          <p>You can pan using arrow keys, and fine-tune the position by selecting the alt key in Windows, or the option key on a Mac. <br/>
+          Select the area at the centre of the map using the space bar. <br/>
+          Focus the map using access key M (ctrl + option/alt).</p>
+          <p>Note: Draw and edit mode do not work with keyboard controls.</p>
         </div>
       </details>
 
@@ -97,7 +97,7 @@
 
     <div class="">
       <p>
-        <a class="govuk-link govuk-body-m" href="help" target="_blank">
+        <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
           Learn more about how to use this map (opens in a new tab)</a>
         </p>
           
@@ -106,7 +106,7 @@
 
   <div id="navbar" class="govuk-grid-column-one-quarter">
 
-    <h2 class="govuk-heading-m">Map controls</h2>
+    <h2 class="govuk-heading-m">Map options</h2>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
@@ -117,7 +117,7 @@
             <label class="govuk-label govuk-radios__label" for="select">
               <span class="">
                 <span class=""></span>
-                Select area
+                Select area from map
               </span>
             </label>
             <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
@@ -205,10 +205,10 @@
             Clear all
           </button>
           <br />
-          <button id="select-centre" class="govuk-button govuk-button--secondary" data-module="govuk-button"
+<!--           <button id="select-centre" class="govuk-button govuk-button--secondary" data-module="govuk-button"
           accesskey="x">
             Select centre
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
