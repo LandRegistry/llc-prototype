@@ -23,8 +23,10 @@
       <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"><span class="govuk-visually-hidden">Full screen</span></button>
       <br />
       <div class="nav-controls ">
-        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+</button>
-        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-</button>
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
         <button id="pan-up" class="nav-button pan-up" data-module="govuk-button">
           <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
         </button>
@@ -113,54 +115,54 @@
         <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
-              aria-describedby="sign-in-item-hint" checked>
+            aria-describedby="select-area-hint" aria-describedby="sign-in-item-hint" checked>
             <label class="govuk-label govuk-radios__label" for="select">
               <span class="">
                 <span class=""></span>
                 Select area from map
               </span>
             </label>
-            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+            <div id="select-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ selectHint }}
             </div>
           </div>
 
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
-              aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in">
+              aria-describedby="draw-area-hint" data-aria-controls="conditional-sign-in">
             <label class="govuk-label govuk-radios__label" for="draw">
               <span class="">
                 <span class=""></span>
                 Draw area
               </span>
             </label>
-            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+            <div id="draw-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ drawHint }}
             </div>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area"
-              aria-describedby="sign-in-item-hint">
+            aria-describedby="edit-area-hint">
             <label class="govuk-label govuk-radios__label" for="edit">
               <span class="r">
                 <span class="defra-map-key__symbol  defra-map-key__symbol--big"></span>
                 Edit area
               </span>
             </label>
-            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+            <div id="edit-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ editHint }}
             </div>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
-              aria-describedby="sign-in-2-item-hint">
+              aria-describedby="delete-area-hint">
             <label class="govuk-label govuk-radios__label" for="delete">
               <span class="">
                 <span class="defra-map-key__symbol defra-map-key__symbol--big"></span>
                 Delete area
               </span>
             </label>
-            <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+            <div id="delete-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ deleteHint }}
             </div>
           </div>
@@ -174,11 +176,11 @@
       <div class="govuk-grid-column-full">
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-3" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap">
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap" aria-describedby="snap-to-map-hint">
             <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
               Snap to map
             </label>
-            <div id="item-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+            <div id="snap-to-map-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
               {{snapHint}}
             </div>
           </div>
