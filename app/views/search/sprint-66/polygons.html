@@ -298,16 +298,10 @@
 <script type="text/javascript">
   var center = [];
 
-  function checkZoom() {
-    setMode();
-  }
-
-
-  map.on('moveend', checkZoom);
+  map.on('moveend', setMode);
   
   document.getElementById('zoom-out').onclick = function () {
-    console.log('click OUT');
-    checkZoom();
+    setMode();
     const view = map.getView();
     const zoom = view.getZoom();
     view.animate({
@@ -317,8 +311,7 @@
   };
     
   document.getElementById('zoom-in').onclick = function () {
-    console.log('click IN');
-    checkZoom();
+    setMode();
     const view = map.getView();
     const zoom = view.getZoom();
     view.animate({
@@ -333,7 +326,6 @@
 
 
    $(document).on("change", "input[type=radio]", function () {
-    console.log('test');
     setMode();
   }); 
 
@@ -346,31 +338,23 @@
     //MAP_UNDO.store_state();
     var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
     var source = MAP_CONFIG.draw_source;
-    console.log(source);
     var features = source.getFeatures();
-    console.log(features);
-/*     var feature = source.getFeaturesAtCoordinate(center)[0];
-    console.log(feature);
-    var feature = source.getFeatureById(radio);
-    console.log(feature); */
+
 
     // reset all features
-
     for (var i=1; i<6; i++){
       let item = "area"+i;
       console.log(item);
       feature = source.getFeatureById(item);
       feature.setStyle(draw_layer_styles.style[draw_layer_styles.DRAW])
     }
-
+    // highlight the specific polygon using the id
     if(radio){
       var feature = source.getFeatureById(radio);
       if(feature){
         let x = feature.setStyle(draw_layer_styles.style[draw_layer_styles.REMOVE]);
       }
     }
-
-    //map.removeInteraction(MAP_CONTROLS.hover_interaction);
   };
 
 </script>
