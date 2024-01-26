@@ -1,0 +1,454 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Edit the search area with keyboard navigation" %}
+{% set selectHint = "Select one or more areas to copy from the map" %}
+{% set drawHint = "Add points to draw your search area" %}
+{% set editHint = "Move points to edit your search area" %}
+{% set deleteHint = "Remove one or more areas for the map" %}
+{% set snapHint = "Hover your cursor near a line on the map and it will jump to it automatically" %}
+
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">Title Number: BR0123456789</h1>
+<div id="container" class="govuk-grid-row">
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <div style="position: relative; width: 0; height: 0">
+      <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"><span class="govuk-visually-hidden">Full screen</span></button>
+      <br />
+      <div class="nav-controls ">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+        <button id="pan-up" class="nav-button pan-up" data-module="govuk-button">
+          <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
+        </button>
+        <button id="pan-left" class="nav-button pan-left" data-module="govuk-button">
+          <i class="arrow left"></i><span class="govuk-visually-hidden">Pan left</span>
+        </button>
+        <button id="pan-right" class="nav-button pan-right" data-module="govuk-button">
+          <i class="arrow right"></i><span class="govuk-visually-hidden">Pan right</span>
+        </button>
+        <button id="pan-down" class="nav-button pan-down" data-module="govuk-button">
+          <i class="arrow down"></i><span class="govuk-visually-hidden">Pan down</span>
+        </button>
+      </div>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="0" accesskey="m">
+      <div class="center">
+        <div class="horizontal"></div>
+        <div class="vertical"></div>
+      </div>
+      <noscript>
+        <div id="nojs" class="nojs-content">
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
+        </div>
+      </noscript>
+    </div>
+<!--     <div class=" govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+      <div class="">
+        <div class="govuk-heading-s govuk-!-padding-bottom-6">
+          Map key
+ 
+          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+            height="19" width="19">
+          <span class="map-key-text govuk-body-s">Location available</span>
+
+          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+            alt="Location not available key" height="19" width="19">
+          <span class="map-key-text govuk-body-s">Location not available</span>
+
+        </div>
+      </div>
+
+      <div class="">
+        <p>
+          <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
+            Learn more about how to use this map (opens in a new tab)</a>
+          </p>
+            
+      </div>
+
+      <details class="govuk-details govuk-!-padding-top-2">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help using the map with a keyboard
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>You can select an area from the map and delete areas using a keyboard only. The keyboard focus needs to be on the map to do this.</p>
+          <p>You can not draw or edit an area using a keyboard.</p>
+          <p>You can pan using the arrow keys. Fine-tune the position by selecting the alt key in Windows, or the option key on a Mac.</p>
+          <p>Select the area at the centre of the map using the space bar.</p>
+          <p>Focus the map using access key M (ctrl + option/alt).</p>
+        </div>
+      </details>
+
+      <p class="govuk-body ">
+        Use of address and mapping data (including the link between the address and its location) is subject to
+        <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
+      </p>
+    </div> -->
+
+  </div>
+
+  <div id="navbar" class="govuk-grid-column-one-quarter">
+
+    <h2 class="govuk-heading-m">Map options</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="area2" name="edit-mode" type="radio" value="area2"
+              aria-describedby="area2-hint" data-aria-controls="conditional-sign-in">
+            <label class="govuk-label govuk-radios__label" for="area2">
+              <span class="">
+                <span class=""></span>
+                Offices
+              </span>
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="area3" name="edit-mode" type="radio" value="area3"
+            aria-describedby="area3-hint">
+            <label class="govuk-label govuk-radios__label" for="area3">
+              <span class="r">
+                Warehouse
+              </span>
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="area4" name="edit-mode" type="radio" value="area4"
+              aria-describedby="area4-hint">
+            <label class="govuk-label govuk-radios__label" for="area4">
+              <span class="">
+                Annex
+              </span>
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="area5" name="edit-mode" type="radio" value="area5"
+              aria-describedby="area5-hint">
+            <label class="govuk-label govuk-radios__label" for="area5">
+              <span class="">
+                Council yard
+              </span>
+            </label>
+          </div>
+        
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="area1" name="edit-mode" type="radio" value="area1"
+            aria-describedby="area1-hint" aria-describedby="sign-in-item-hint" checked>
+            <label class="govuk-label govuk-radios__label" for="area1">
+              <span class="">
+                <span class=""></span>
+                Car park
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--     <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-top-3 govuk-!-padding-bottom-3">
+
+    <button class="govuk-button " data-module="govuk-button">
+      Confirm area
+    </button> -->
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <link rel=stylesheet media="screen, print" type=text/css href="/public/ol/css/maintain-frontend-custom.css">
+  <link rel="stylesheet" href="/public/ol/css/ol.css" type="text/css">
+
+  <!-- Jquery -->
+  <script src="/public/ol/js/jquery.min.js"></script>
+
+  <!-- Open Layers -->
+  <script src="/public/ol/js/ol.js"></script>
+  <script src="/public/ol/js/proj4.js"></script>
+  <script src="/public/ol/js/union.js"></script>
+
+  <!-- Custom Map Styles -->
+  <script src="/public/ol/js/hatching_style.js"></script>
+  <script src="/public/ol/js/map_styles_polygons.js"></script>
+  
+  <!-- Master Map Vector Layer -->
+  <script src="/public/ol/js/master_map_vector_layer.js"></script>
+  <script src="/public/ol/js/snap_to_vector_layer.js"></script>
+  
+  <!-- Custom Map Controls -->
+  <script src="/public/ol/js/map_undo_v1.js"></script>
+  <script src="/public/ol/js/map_controls.js"></script>
+  <script src="/public/ol/js/map_helpers_v1.js"></script>
+  
+  <!-- Map config -->
+  <script src="/public/ol/js/map_config.js"></script>
+
+  <script>
+    var termsLink = "";
+    var mastermap_api_key = "{{ data.API_KEY }}";
+    var map_base_layer_view_name = "m0100";
+    var wfs_server_url = "{{ data.WFS_URL }}";
+    var wmts_server_url = "{{ data.WMTS_URL }}";
+  
+    MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
+  </script>
+  
+ 
+  <!-- OpenLayers Map -->
+  <script src="/public/ol/js/map.js"></script>
+  <script src="/public/ol/js/save_geometries_polygons.js"></script>
+
+<script>
+  // Add map controls: this is now only the scale line
+  // controls are now GDS components
+  var controls;
+
+  MAP_HELPERS.init_controls(map, controls);
+</script>
+
+
+  <script type="text/javascript">
+    $(function () {
+      load_previous_data({ "features": [{ "id": "area1", "geometry": { "coordinates": [[[361278.55, 171544.852], [361280.612, 171543.486], [361280.9, 171543.65], [361281.15, 171543.95], [361281.4, 171544.15], [361281.9, 171544.75], [361282.15, 171545.35], [361282.35, 171546.05], [361282.4, 171546.45], [361282.4, 171546.95], [361283.15, 171547.7], [361286.35, 171551.05], [361286.7, 171550.75], [361290.35, 171547.15], [361291.95, 171545.55], [361291.9, 171545.25], [361291.9, 171544.95], [361291.95, 171544.6], [361291.95, 171544.35], [361292.35, 171543.55], [361292.65, 171543.25], [361293.0, 171542.95], [361293.55, 171542.55], [361294.35, 171542.05], [361294.8, 171541.85], [361295.3, 171541.65], [361295.9, 171541.55], [361297.6, 171541.35], [361300.8, 171540.95], [361301.55, 171540.85], [361303.55, 171540.6], [361304.6, 171540.45], [361305.75, 171540.25], [361312.75, 171538.95], [361321.75, 171537.25], [361323.8, 171536.75], [361325.9, 171536.35], [361327.9, 171535.95], [361329.65, 171535.55], [361331.5, 171535.05], [361333.2, 171534.6], [361334.6, 171534.25], [361336.0, 171533.85], [361337.35, 171533.45], [361338.2, 171533.15], [361339.1, 171532.95], [361339.95, 171532.6], [361346.15, 171530.45], [361354.55, 171527.65], [361360.4, 171525.1], [361362.65, 171527.75], [361363.0, 171528.15], [361363.55, 171528.4], [361364.0, 171528.65], [361364.9, 171528.65], [361371.4, 171529.75], [361381.1, 171531.25], [361381.45, 171531.35], [361381.75, 171531.35], [361382.15, 171531.25], [361382.35, 171531.05], [361382.55, 171530.95], [361382.65, 171530.75], [361382.75, 171530.65], [361382.95, 171530.35], [361383.0, 171530.05], [361383.15, 171529.8], [361383.15, 171526.05], [361383.0, 171515.05], [361390.95, 171511.35], [361393.95, 171510.0], [361394.6, 171509.7], [361394.3, 171510.95], [361394.9, 171510.95], [361395.15, 171511.05], [361395.55, 171511.25], [361396.15, 171512.3], [361396.75, 171513.3], [361396.8, 171513.5], [361396.95, 171513.75], [361396.95, 171514.0], [361397.0, 171514.25], [361397.1, 171514.45], [361397.55, 171517.65], [361398.75, 171521.17], [361398.06, 171524.09], [361397.48, 171525.63], [361394.94, 171532.34], [361392.78, 171538.31], [361392.47, 171538.6], [361392.09, 171538.97], [361386.9, 171543.9], [361386.14, 171545.1], [361385.43, 171546.23], [361381.58, 171556.59], [361374.81, 171574.55], [361364.66, 171601.53], [361361.44, 171609.21], [361357.09, 171619.35], [361354.98, 171624.43], [361348.51, 171639.53], [361343.2, 171652.17], [361331.85, 171680.15], [361331.51, 171681.35], [361329.65, 171687.94], [361323.88, 171705.03], [361325.13, 171715.92], [361323.86, 171716.7], [361319.14, 171714.25], [361316.78, 171713.0], [361309.38, 171709.38], [361307.54, 171708.59], [361306.84, 171708.29], [361302.95, 171706.37], [361304.0, 171704.18], [361299.88, 171701.04], [361301.45, 171698.4], [361307.79, 171687.75], [361310.7, 171682.87], [361320.5, 171666.42], [361321.12, 171665.38], [361324.35, 171659.95], [361325.55, 171657.85], [361334.1, 171640.8], [361340.75, 171626.35], [361342.0, 171623.6], [361349.65, 171605.35], [361350.111, 171604.25], [361346.776, 171600.671], [361351.457, 171596.308], [361340.624, 171584.265], [361340.483, 171584.109], [361340.1, 171584.45], [361335.64, 171586.09], [361334.97, 171585.34], [361311.72, 171559.85], [361308.77, 171562.11], [361308.46, 171562.56], [361307.48, 171564.0], [361306.85, 171564.92], [361305.96, 171565.66], [361305.24, 171565.8], [361304.1, 171566.02], [361301.95, 171566.43], [361301.95, 171565.75], [361290.3, 171566.15], [361281.369, 171554.583], [361283.284, 171553.202], [361281.198, 171550.311], [361279.189, 171551.76], [361278.95, 171551.45], [361281.772, 171548.93], [361279.947, 171546.737], [361278.55, 171544.852]], [[361318.15, 171563.85], [361327.95, 171574.65], [361329.022, 171573.678], [361330.322, 171575.089], [361331.42, 171574.141], [361330.097, 171572.705], [361339.116, 171564.529], [361339.862, 171565.216], [361340.953, 171564.203], [361340.24, 171563.51], [361348.263, 171556.237], [361349.701, 171557.85], [361350.745, 171556.79], [361349.328, 171555.272], [361355.75, 171549.45], [361345.95, 171538.65], [361318.15, 171563.85]], [[361352.037, 171596.952], [361352.797, 171597.654], [361353.31, 171598.128], [361355.048, 171596.509], [361353.754, 171595.267], [361353.14, 171595.87], [361352.798, 171596.205], [361352.037, 171596.952]]], "type": "Polygon" }, "properties": { "id": "area1" }, "type": "Feature" },
+    
+    { "id": "area2", "geometry": { "coordinates": [[[361294.5, 171585.5], [361261.55, 171549.45], [361245.8, 171563.6], [361241.7, 171559.05], [361228.15, 171571.25], [361222.55, 171565.05], [361206.9, 171579.25], [361216.0, 171589.35], [361215.2, 171590.0], [361248.55, 171626.95], [361294.5, 171585.5]]], "type": "Polygon" }, "properties": { "id": "area2" }, "type": "Feature" },
+    
+    
+    { "id": "area3", "geometry": { "coordinates": [[[361273.6, 171676.95], [361270.15, 171680.15], [361279.65, 171688.75], [361281.95, 171690.75], [361282.55, 171691.25], [361283.3, 171691.8], [361283.95, 171692.35], [361293.55, 171700.0], [361298.45, 171703.45], [361299.88, 171701.04], [361301.45, 171698.4], [361307.79, 171687.75], [361310.7, 171682.87], [361320.5, 171666.42], [361321.12, 171665.38], [361324.35, 171659.95], [361325.55, 171657.85], [361334.1, 171640.8], [361340.75, 171626.35], [361342.0, 171623.6], [361349.65, 171605.35], [361334.95, 171588.95], [361314.5, 171607.45], [361297.95, 171589.55], [361251.95, 171631.05], [361284.5, 171667.15], [361273.6, 171676.95]]], "type": "Polygon" }, "properties": { "id": "area3" }, "type": "Feature" },
+    
+    { "id": "area4", "geometry": { "coordinates": [[[361345.95, 171538.65], [361318.15, 171563.85], [361327.95, 171574.65], [361329.022, 171573.678], [361330.097, 171572.705], [361339.116, 171564.529], [361340.24, 171563.51], [361348.263, 171556.237], [361349.328, 171555.272], [361355.75, 171549.45], [361345.95, 171538.65]]], "type": "Polygon" }, "properties": { "id": "area4" }, "type": "Feature" },
+
+
+    { "id": "area5", "geometry": { "coordinates": [[[361284.5, 171667.15], [361251.95, 171631.05], [361297.95, 171589.55], [361314.5, 171607.45], [361334.95, 171588.95], [361336.0, 171588.1], [361324.75, 171575.35], [361316.35, 171565.85], [361314.3, 171563.45], [361312.861, 171561.815], [361307.9, 171566.09], [361309.21, 171567.54], [361308.445, 171568.237], [361306.107, 171570.369], [361305.193, 171571.202], [361302.87, 171573.32], [361302.12, 171572.48], [361304.457, 171570.398], [361305.385, 171569.571], [361307.72, 171567.49], [361307.06, 171566.81], [361296.5, 171575.9], [361296.55, 171576.25], [361295.75, 171576.45], [361294.9, 171576.5], [361285.95, 171566.85], [361274.65, 171554.4], [361264.6, 171543.2], [361255.4, 171543.05], [361241.5, 171542.95], [361230.757, 171542.95], [361227.25, 171542.95], [361226.7, 171543.05], [361225.55, 171543.3], [361226.35, 171548.35], [361210.0, 171551.1], [361207.5, 171551.55], [361190.2, 171554.35], [361188.475, 171558.98], [361188.3, 171559.45], [361186.65, 171563.85], [361186.515, 171564.223], [361185.35, 171567.45], [361193.75, 171577.85], [361190.55, 171580.75], [361191.2, 171581.75], [361189.5, 171583.35], [361200.0, 171596.75], [361202.7, 171600.0], [361205.95, 171604.2], [361214.95, 171615.95], [361230.75, 171636.25], [361240.55, 171648.75], [361241.2, 171649.75], [361242.4, 171651.55], [361243.949, 171653.403], [361247.658, 171649.964], [361262.943, 171665.93], [361265.382, 171675.995], [361267.056, 171677.546], [361267.152, 171677.635], [361270.15, 171680.15], [361273.6, 171676.95], [361284.5, 171667.15]], [[361237.6, 171556.65], [361228.25, 171561.25], [361228.6, 171562.05], [361227.05, 171562.75], [361224.7, 171557.55], [361235.7, 171552.45], [361237.6, 171556.65]], [[361206.9, 171579.25], [361222.55, 171565.05], [361228.15, 171571.25], [361241.7, 171559.05], [361245.8, 171563.6], [361261.55, 171549.45], [361294.5, 171585.5], [361248.55, 171626.95], [361215.2, 171590.0], [361216.0, 171589.35], [361206.9, 171579.25]]], "type": "Polygon" }, "properties": { "id": "area5" }, "type": "Feature" }
+    
+    
+    
+    
+    ], "type": "FeatureCollection" });
+    });
+  </script>
+  
+  <script>
+  ///////////////////////////////////////////////
+  // init select area
+  ///////////////////////////////////////////////
+  $( document ).ready(function() {
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    MASTER_MAP_VECTOR_LAYER.enable()
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+  
+    MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+      layers: [MASTER_MAP_VECTOR_LAYER.layer],
+      style: draw_layer_styles.style[draw_layer_styles.DRAW]
+    });
+  
+    MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+      MAP_UNDO.store_state();
+      feature = event.target.item(0).clone();
+      if (feature) {
+        geometry = feature.getGeometry();
+        //Convert multi polygons to features
+        if (geometry instanceof ol.geom.MultiPolygon) {
+          geometry.getPolygons().forEach(function (geometry) {
+            MAP_CONTROLS.addGeometryToMap(geometry)
+          })
+        }
+        else {
+          MAP_CONTROLS.addGeometryToMap(geometry)
+        }
+      }
+    });
+  
+    MAP_CONTROLS.vectorControls.copy_enabled = true;
+    map.addInteraction(MAP_CONTROLS.current_interaction)
+  
+  });
+  
+</script>
+
+<script type="text/javascript">
+  var center = [];
+
+  function checkZoom() {
+    setMode();
+  }
+
+
+  map.on('moveend', checkZoom);
+  
+  document.getElementById('zoom-out').onclick = function () {
+    console.log('click OUT');
+    checkZoom();
+    const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom - 1),
+      duration: 300
+    });
+  };
+    
+  document.getElementById('zoom-in').onclick = function () {
+    console.log('click IN');
+    checkZoom();
+    const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom + 1),
+      duration: 300
+    });
+  };
+    
+  document.getElementById('fullscreen').onclick = function () {
+    window.open("fullscreen", "_self");
+  };
+
+
+   $(document).on("change", "input[type=radio]", function () {
+    console.log('test');
+    setMode();
+  }); 
+
+
+  function setMode(){
+    var radio = $('[name="edit-mode"]:checked').val();
+    console.log(radio);
+  
+    MASTER_MAP_VECTOR_LAYER.enable();
+    //MAP_UNDO.store_state();
+    var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
+    var source = MAP_CONFIG.draw_source;
+    console.log(source);
+    var features = source.getFeatures();
+    console.log(features);
+/*     var feature = source.getFeaturesAtCoordinate(center)[0];
+    console.log(feature);
+    var feature = source.getFeatureById(radio);
+    console.log(feature); */
+
+    // reset all features
+
+    for (var i=1; i<6; i++){
+      let item = "area"+i;
+      console.log(item);
+      feature = source.getFeatureById(item);
+      feature.setStyle(draw_layer_styles.style[draw_layer_styles.DRAW])
+    }
+
+    if(radio){
+      var feature = source.getFeatureById(radio);
+      if(feature){
+        let x = feature.setStyle(draw_layer_styles.style[draw_layer_styles.REMOVE]);
+      }
+    }
+
+    //map.removeInteraction(MAP_CONTROLS.hover_interaction);
+  };
+
+</script>
+
+<script>
+  //////////////////////////////////////////////////////////////////////
+  // button pixel panning 
+  ////////////////////////////////////////////////////////////////////// 
+  const step = 10; // pixels
+  function moveMap([xDirection, yDirection]) {
+    var center = map.getView().getCenter();
+    var resolution = map.getView().getResolution();
+    map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
+  }
+
+  document.getElementById('pan-up').onclick = function () {
+    moveMap([0, step]);
+  };
+  document.getElementById('pan-left').onclick = function () {
+    moveMap([-step, 0]);
+  };
+  document.getElementById('pan-right').onclick = function () {
+    moveMap([step, 0]);
+  };
+  document.getElementById('pan-down').onclick = function () {
+    moveMap([0, -step]);
+  };
+</script>
+
+<script>
+  //////////////////////////////////////////////////////////////////////
+  // key pixel panning: Arrows and space bar
+  ////////////////////////////////////////////////////////////////////// 
+  const step_by_key = 10; // pixels
+
+  function moveMap([xDirection, yDirection]) {
+    var center = map.getView().getCenter();
+    var resolution = map.getView().getResolution();
+    map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
+  }
+
+  document.getElementById('map').addEventListener("keydown", (evt) => {
+    evt.stopPropagation();
+    if(evt.altKey || evt.shiftKey){
+      switch (evt.key) {
+        case "ArrowUp":
+        moveMap([0, step_by_key]);
+          break;
+        case "ArrowLeft":
+        moveMap([-step_by_key, 0]);
+          break;
+        case "ArrowRight":
+        moveMap([step_by_key, 0]);
+          break;
+        case "ArrowDown":
+        moveMap([0, -step_by_key]);
+          break;
+      
+        default:
+          break;
+      } 
+    }
+
+    var code = event.charCode || event.keyCode;
+    if((code === 32)|| (code === 13)){ // space (32)or Enter (13)
+      event.preventDefault();
+      var radio = $('[name="edit-mode"]:checked').val();
+
+        if (radio == "draw-area" || radio == "select-area") {
+            selectCentre(evt)
+        }
+        if (radio == "delete-area") {
+          console.log('delete');
+          deleteCentre(evt);
+        }
+    }
+
+  });
+
+</script>
+{% endblock %}
