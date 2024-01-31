@@ -245,6 +245,12 @@ outline: none;
 background-clip: padding-box;
 }
 
+.ol-fullscreen:focus{
+  box-shadow: 0 0 0 2px #fff, inset 0 0 0 0 #0b0c0c, 0 0 0 5px #0b0c0c, 0 0 0 8px #ffdd00;
+  outline: 3px solid #000000;
+  z-index:99;
+}
+
 .ol-zoom-in,
 .ol-zoom-out {
   display: block;
@@ -258,6 +264,13 @@ background-clip: padding-box;
   background-position: 5px 5px;
   overflow: hidden;
   text-indent: -5000px;
+}
+
+.ol-zoom-in:focus,
+.ol-zoom-out:focus {
+  box-shadow: 0 0 0 2px #fff, inset 0 0 0 0 #0b0c0c, 0 0 0 5px #0b0c0c, 0 0 0 8px #ffdd00;
+  outline: 3px solid #000000;
+  z-index:99;
 }
 /* hide the controls as the JS checks for their state */
 #draw-controls {

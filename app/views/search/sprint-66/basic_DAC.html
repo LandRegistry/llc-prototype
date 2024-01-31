@@ -58,19 +58,50 @@
         </div>
       </noscript>
     </div>
-    <div class=" govuk-!-padding-top-3 ">
-      <div class="govuk-heading-s ">
-        Map key
+    <div class=" govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+      <div class="">
+        <div class="govuk-heading-s govuk-!-padding-bottom-6">
+          Map key
+ 
+          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+            height="19" width="19">
+          <span class="map-key-text govuk-body-s">Location available</span>
 
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
-          height="19" width="19">
-        <span class="map-key-text govuk-body-s">Location available</span>
+          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+            alt="Location not available key" height="19" width="19">
+          <span class="map-key-text govuk-body-s">Location not available</span>
 
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
-          alt="Location not available key" height="19" width="19">
-        <span class="map-key-text govuk-body-s">Location not available</span>
-
+        </div>
       </div>
+
+      <div class="">
+        <p>
+          <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
+            Learn more about how to use this map (opens in a new tab)</a>
+          </p>
+            
+      </div>
+
+      <details class="govuk-details govuk-!-padding-top-2">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help using the map with a keyboard
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>You can select an area from the map and delete areas using a keyboard only. The keyboard focus needs to be on the map to do this.</p>
+          <p>You can not draw or edit an area using a keyboard.</p>
+          <p>You can pan using the arrow keys. Fine-tune the position by selecting the alt key in Windows, or the option key on a Mac.</p>
+          <p>Select the area at the centre of the map using the space bar.</p>
+          <p>Focus the map using access key M (ctrl + option/alt).</p>
+        </div>
+      </details>
+
+      <p class="govuk-body ">
+        Use of address and mapping data (including the link between the address and its location) is subject to
+        <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
+      </p>
     </div>
 
   </div>
@@ -192,37 +223,8 @@
 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
-    <div class="">
-      <p>
-        <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
-          Learn more about how to use this map (opens in a new tab)</a>
-        </p>
-          
-    </div>
 
-    <details class="govuk-details govuk-!-padding-top-2">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Help using the map with a keyboard
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <p>You can select an area from the map and delete areas using a keyboard only. The keyboard focus needs to be on the map to do this.</p>
-        <p>You can not draw or edit an area using a keyboard.</p>
-        <p>You can pan using the arrow keys. Fine-tune the position by selecting the alt key in Windows, or the option key on a Mac.</p>
-        <p>Select the area at the centre of the map using the space bar.</p>
-        <p>Focus the map using access key M (ctrl + option/alt).</p>
-      </div>
-    </details>
 
-    <p class="govuk-body ">
-      Use of address and mapping data (including the link between the address and its location) is subject to
-      <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
-        target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
-    </p>
-
-  </div>
 </div>
 
 {% endblock %}
