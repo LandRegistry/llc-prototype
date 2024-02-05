@@ -101,3 +101,9 @@
   height: 720px;
   margin: auto;
 }
+
+#map:focus{
+  box-shadow: 0 0 0 2px #fff, inset 0 0 0 0 #0b0c0c, 0 0 0 5px #0b0c0c, 0 0 0 8px #ffdd00;
+  outline: 3px solid #000000;
+  z-index:99;
+}
