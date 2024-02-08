@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Search by map" %}
+{% set pageName="Draw a search area" %}
 {% set selectHint = "Select one or more areas to copy from the map" %}
 {% set drawHint = "Add points to draw your search area" %}
 {% set editHint = "Move points to edit your search area" %}
@@ -17,23 +17,22 @@
 <div id="" class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Draw a search area</h1>
-    <p>To view a local land charge, you will need to identify a property or area of land. This is known as a search area. </p>
+    <p>To view a local land charge, you will need to draw a search area on the map. </p>
   </div>
 </div>
-
 <div id="container" class="govuk-grid-row">
-  
+
   <div class="govuk-grid-column-three-quarters">
 
     <div style="position: relative; width: 0; height: 0">
-      <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"><span class="govuk-visually-hidden">Full screen</span></button>
-      <br />
+        <!-- <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"><span class="govuk-visually-hidden">Full screen</span></button> -->
+        <br />
       <div class="nav-controls ">
         <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
         <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
           <span class="govuk-visually-hidden">Zoom out</span>
         </button>
-        <button id="pan-up" class="nav-button pan-up" data-module="govuk-button">
+<!--         <button id="pan-up" class="nav-button pan-up" data-module="govuk-button">
           <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
         </button>
         <button id="pan-left" class="nav-button pan-left" data-module="govuk-button">
@@ -44,10 +43,10 @@
         </button>
         <button id="pan-down" class="nav-button pan-down" data-module="govuk-button">
           <i class="arrow down"></i><span class="govuk-visually-hidden">Pan down</span>
-        </button>
+        </button> -->
       </div>
     </div>
-    <div id="map" class="maintain-llc-map" tabindex="0" accesskey="m">
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
       <div class="center">
         <div class="horizontal"></div>
         <div class="vertical"></div>
@@ -64,50 +63,19 @@
         </div>
       </noscript>
     </div>
-    <div class=" govuk-!-padding-top-3 govuk-!-padding-bottom-6">
-      <div class="">
-        <div class="govuk-heading-s govuk-!-padding-bottom-6">
-          Map key
- 
-          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
-            height="19" width="19">
-          <span class="map-key-text govuk-body-s">Location available</span>
+    <div class=" govuk-!-padding-top-3 ">
+      <div class="govuk-heading-s ">
+        Map key
 
-          <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
-            alt="Location not available key" height="19" width="19">
-          <span class="map-key-text govuk-body-s">Location not available</span>
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
 
-        </div>
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+
       </div>
-
-      <div class="">
-        <p>
-          <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
-            Learn more about how to use this map (opens in a new tab)</a>
-          </p>
-            
-      </div>
-
-      <details class="govuk-details govuk-!-padding-top-2">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help using the map with a keyboard
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          <p>You can select an area from the map and delete areas using a keyboard only. The keyboard focus needs to be on the map to do this.</p>
-          <p>You can not draw or edit an area using a keyboard.</p>
-          <p>You can pan using the arrow keys. Fine-tune the position by selecting the alt key in Windows, or the option key on a Mac.</p>
-          <p>Select the area at the centre of the map using the space bar.</p>
-          <p>Focus the map using access key M (ctrl + option/alt).</p>
-        </div>
-      </details>
-
-      <p class="govuk-body ">
-        Use of address and mapping data (including the link between the address and its location) is subject to
-        <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
-          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
-      </p>
     </div>
 
   </div>
@@ -224,13 +192,58 @@
       Confirm area
     </button>
 
-  </div>
+  </div> 
 </div>
 
 
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <div class="">
+      <p>
+      <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
+        Learn more about how to use this map (opens in a new tab)</a>
+      </p>
+      <p class="govuk-body ">
+        <a href="#" class="govuk-link">Get help with this service (opens in new tab)</a>
+      </p>
+    </div>
+
+<!--     <details class="govuk-details govuk-!-padding-top-2">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help using the map with a keyboard
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>You can select an area from the map and delete areas using a keyboard only. The keyboard focus needs to be on the map to do this.</p>
+        <p>You can not draw or edit an area using a keyboard.</p>
+        <p>You can pan using the arrow keys. Fine-tune the position by selecting the alt key in Windows, or the option key on a Mac.</p>
+        <p>Select the area at the centre of the map using the space bar.</p>
+        <p>Focus the map using access key M (ctrl + option/alt).</p>
+      </div>
+    </details> -->
+
+    <p class="govuk-body ">
+      Use of address and mapping data (including the link between the address and its location) is subject to
+      <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+      target="_blank">Ordnance Survey Licence Terms and Conditions (opens in new tab)</a>.
+    </p>
 
 
+  </div>
+<!--   <div class="govuk-grid-column-one-quarter">
+    <h2 class="govuk-heading-s" id="subsection-title">
+      Get help
+    </h2>
+
+      <ul class="govuk-list govuk-link govuk-body-s" style="margin-right:-20px" ;>
+        <li>
+          <a href="#" class="govuk-link">Get help with this service<br/>(opens in new tab)</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div> -->
 </div>
 
 {% endblock %}
@@ -290,7 +303,7 @@
   <script type="text/javascript">
   $(function () {
     load_previous_data({ "features": [{ "geometry": { "coordinates": [[ [415784.95, 324726.37]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
-
+    
     const view = map.getView();
     const zoom = view.getZoom();
     view.setZoom(zoom - 14);
@@ -384,9 +397,9 @@
       });
     };
     
-  document.getElementById('fullscreen').onclick = function () {
+/*   document.getElementById('fullscreen').onclick = function () {
     window.open("fullscreen", "_self");
-  };
+  }; */
 
   document.getElementById('clearAllBtn').onclick = function () {
     map.removeInteraction(MAP_CONTROLS.current_interaction);
@@ -599,7 +612,7 @@
     map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
   }
 
-  document.getElementById('pan-up').onclick = function () {
+/*   document.getElementById('pan-up').onclick = function () {
     moveMap([0, step]);
   };
   document.getElementById('pan-left').onclick = function () {
@@ -610,7 +623,7 @@
   };
   document.getElementById('pan-down').onclick = function () {
     moveMap([0, -step]);
-  };
+  }; */
 </script>
 
 <script>
