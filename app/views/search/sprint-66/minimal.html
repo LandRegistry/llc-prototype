@@ -394,6 +394,9 @@
     var radio = $('[name="edit-mode"]:checked').val();
     map.removeInteraction(MAP_CONTROLS.hover_interaction);
 
+    //hide cross hair
+    $('.center').addClass('govuk-visually-hidden');
+
     if (radio == "draw-area") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
@@ -403,6 +406,7 @@
     }
 
     if (radio == "select-area") {
+      $('.center').removeClass('govuk-visually-hidden');
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
       MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
@@ -464,6 +468,7 @@
 
 
     if (radio == "delete-area") {
+      $('.center').removeClass('govuk-visually-hidden');
       map.removeInteraction(MAP_CONTROLS.current_interaction);
 
         MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.REMOVE);
