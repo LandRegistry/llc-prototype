@@ -16,12 +16,12 @@
 {% block content %}
 <style>
 .nav-controls {
-  position: relative;
+  position: absolute;
   z-index: 12;
-  top: -5px;
+  top: 5px;
   left: 300px;
 }
-.zoom-in {
+ .zoom-in {
   position: absolute;
   top: 0;
   left: 0;
@@ -31,8 +31,11 @@
   top: 44px;
   left: 0;
 }
-.half-width{
-  width:50%;
+
+#map {
+  width: 100%;
+  height: 660px;
+  margin: auto;
 }
 </style>
 <h1 class="govuk-heading-l">Edit the search area</h1>
@@ -271,6 +274,10 @@
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction)
   
+
+    // hack the nav buttons
+    let wd = document.getElementById('map').offsetWidth;
+    $(".nav-controls").css("left", (wd-46)+"px");
   });
   
 </script>
