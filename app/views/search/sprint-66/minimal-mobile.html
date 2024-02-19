@@ -10,42 +10,50 @@
 
 {% block beforeContent %}
 {% include "includes/phase-banner.html" %}
-{% include "includes/language-switcher-heading.html" %}
+{% include "includes/language-switcher-heading-mobile.html" %}
 {% endblock %}
 
 {% block content %}
+<style>
+.nav-controls {
+  position: relative;
+  z-index: 12;
+  top: -5px;
+  left: 300px;
+}
+.zoom-in {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.zoom-out {
+  position: absolute;
+  top: 44px;
+  left: 0;
+}
+.half-width{
+  width:50%;
+}
+</style>
 <h1 class="govuk-heading-l">Edit the search area</h1>
-<div id="container" class="govuk-grid-row">
+<div id="" class="govuk-grid-row">
 
   <div class="govuk-grid-column-three-quarters">
 
     <div style="position: relative; width: 0; height: 0">
-        <!-- <button id="fullscreen" class="ol-fullscreen" type="button" title="Full screen"><span class="govuk-visually-hidden">Full screen</span></button> -->
         <br />
       <div class="nav-controls ">
         <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
         <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
           <span class="govuk-visually-hidden">Zoom out</span>
         </button>
-<!--         <button id="pan-up" class="nav-button pan-up" data-module="govuk-button">
-          <i class="arrow up"></i><span class="govuk-visually-hidden">Pan up</span>
-        </button>
-        <button id="pan-left" class="nav-button pan-left" data-module="govuk-button">
-          <i class="arrow left"></i><span class="govuk-visually-hidden">Pan left</span>
-        </button>
-        <button id="pan-right" class="nav-button pan-right" data-module="govuk-button">
-          <i class="arrow right"></i><span class="govuk-visually-hidden">Pan right</span>
-        </button>
-        <button id="pan-down" class="nav-button pan-down" data-module="govuk-button">
-          <i class="arrow down"></i><span class="govuk-visually-hidden">Pan down</span>
-        </button> -->
       </div>
     </div>
     <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <div class="center">
+<!--       <div class="center">
         <div class="horizontal"></div>
         <div class="vertical"></div>
-      </div>
+      </div> -->
       <noscript>
         <div id="nojs" class="nojs-content">
           <div id="nojs-message" class="notification-summary">
@@ -61,8 +69,8 @@
     <div class=" govuk-!-padding-top-3 ">
       <div class="govuk-heading-s ">
         Map key
-
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+<br/>
+        <img class="map-key-image" src="/public/ol/images/information_available.png" alt="Location available key"
           height="19" width="19">
         <span class="map-key-text govuk-body-s">Location available</span>
 
@@ -75,104 +83,54 @@
 
   </div>
 
-  <div id="navbar" class="govuk-grid-column-one-quarter">
+  <div id="" class="govuk-grid-column-one-quarter">
 
-    <h2 class="govuk-heading-m">Map options</h2>
+<!--     <h2 class="govuk-heading-m">Map options</h2> -->
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
-          <div class="govuk-radios__item">
+        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item ">
             <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
             aria-describedby="select-area-hint" aria-describedby="sign-in-item-hint" checked>
             <label class="govuk-label govuk-radios__label" for="select">
               <span class="">
                 <span class=""></span>
-                Select area from map
+                Select area
               </span>
             </label>
-            <div id="select-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+<!--             <div id="select-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ selectHint }}
-            </div>
+            </div> -->
           </div>
 
-          <div class="govuk-radios__item">
+          <div class="govuk-radios__item ">
             <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
-              aria-describedby="draw-area-hint" data-aria-controls="conditional-sign-in">
+              aria-describedby="draw-area-hint" data-aria-controls="">
             <label class="govuk-label govuk-radios__label" for="draw">
               <span class="">
                 <span class=""></span>
                 Draw area
               </span>
             </label>
-            <div id="draw-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+<!--             <div id="draw-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ drawHint }}
-            </div>
+            </div> -->
           </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area"
-            aria-describedby="edit-area-hint">
-            <label class="govuk-label govuk-radios__label" for="edit">
-              <span class="r">
-                <span class="defra-map-key__symbol  defra-map-key__symbol--big"></span>
-                Edit area
-              </span>
-            </label>
-            <div id="edit-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ editHint }}
-            </div>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
-              aria-describedby="delete-area-hint">
-            <label class="govuk-label govuk-radios__label" for="delete">
-              <span class="">
-                <span class="defra-map-key__symbol defra-map-key__symbol--big"></span>
-                Delete area
-              </span>
-            </label>
-            <div id="delete-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ deleteHint }}
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
 
-    <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-top-3 govuk-!-padding-bottom-3">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-3" data-module="govuk-checkboxes">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap" aria-describedby="snap-to-map-hint">
-            <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
-              Snap to line on map
-            </label>
-            <div id="snap-to-map-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
-              {{snapHint}}
-            </div>
-          </div>
-<!--           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched">
-            <label class="govuk-label govuk-checkboxes__label" for="hatching">
-              Show shading
-            </label>
-          </div> -->
-        </div>
-      </div>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible ">
-
-    <div class="govuk-grid-row govuk-!-padding-bottom-2">
-      <div class="govuk-grid-column-full govuk-!-padding-top-3">
 
         <div class="govuk-button-group">
-          <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button" disabled>
+          <button id="undoBtn" class="govuk-visually-hidden govuk-button govuk-button--secondary" data-module="govuk-button" disabled>
             Undo
           </button>
-          <br />
+          <!-- <br /> -->
           <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Clear all
           </button>
@@ -186,6 +144,13 @@
     <button class="govuk-button " data-module="govuk-button">
       Confirm area
     </button>
+
+    <h3 class="govuk-heading-s">
+      Get Help
+    </h3>
+    <p class="govuk-body ">
+      <a href="#" class="govuk-link">Get help with this service</a>
+    </p>
   </div> 
 </div>
 
@@ -197,9 +162,7 @@
       <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
         Learn more about how to use this map (opens in a new tab)</a>
       </p>
-     <!--  <p class="govuk-body ">
-        <a href="#" class="govuk-link">Get help with this service (opens in new tab)</a>
-      </p> -->
+
     </div>
 
 
@@ -211,14 +174,7 @@
 
 
   </div>
-  <div class="govuk-grid-column-one-quarter">
-    <h2 class="govuk-heading-s" id="subsection-title">
-      Get help
-    </h2>
-    <a href="#" class="govuk-link">Get help with this service</a>
 
-
-  </div>
 </div>
 
 {% endblock %}
@@ -376,11 +332,6 @@
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
     MAP_CONFIG.draw_source.clear();
-    setMode();
-  };
-
-  document.getElementById('undoBtn').onclick = function () {
-    MAP_UNDO.undo();
     setMode();
   };
 
