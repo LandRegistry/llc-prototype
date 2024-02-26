@@ -346,27 +346,27 @@
 
   map.on('moveend', checkZoom);
   
-    document.getElementById('zoom-out').onclick = function () {
-      console.log('click OUT');
-      checkZoom();
-      const view = map.getView();
-      const zoom = view.getZoom();
-      view.animate({
-        zoom: (zoom - 1),
-        duration: 300
-      });
-    };
+  document.getElementById('zoom-out').onclick = function () {
+    console.log('click OUT');
+    checkZoom();
+    const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom - 1),
+      duration: 300
+    });
+  };
     
-    document.getElementById('zoom-in').onclick = function () {
-      console.log('click IN');
-      checkZoom();
-      const view = map.getView();
-      const zoom = view.getZoom();
-      view.animate({
-        zoom: (zoom + 1),
-        duration: 300
-      });
-    };
+  document.getElementById('zoom-in').onclick = function () {
+    console.log('click IN');
+    checkZoom();
+    const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom + 1),
+      duration: 300
+    });
+  };
     
 /*   document.getElementById('fullscreen').onclick = function () {
     window.open("fullscreen", "_self");
