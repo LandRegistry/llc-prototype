@@ -35,7 +35,7 @@
   .nav-button:hover,
   .zoom:hover {
     background-color: #b1b4b6;
-    outline: none;
+    outline: 2px solid #6d757a;
     background-clip: padding-box;
   }
 
@@ -102,6 +102,6 @@
   }
   .zoom-out {
     position: absolute;
-    top: -520px;
+    top: -512px;
     left: 80px;
   }
