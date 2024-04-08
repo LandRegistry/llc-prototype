@@ -615,6 +615,8 @@
 
   document.getElementById('map').addEventListener("keydown", (evt) => {
     evt.stopPropagation();
+    let view = map.getView();
+    let zoom = view.getZoom();
     if(evt.altKey || evt.shiftKey){
       switch (evt.key) {
         case "ArrowUp":
@@ -629,11 +631,41 @@
         case "ArrowDown":
         moveMap([0, -step_by_key]);
           break;
-      
+        case "ArrowDown":
+        moveMap([0, -step_by_key]);
+          break;
+        case "+":
+          view.animate({
+            zoom: (zoom + 1),
+            duration: 300
+          });
+          break;
+        case "_":
+          view.animate({
+            zoom: (zoom - 1),
+            duration: 300
+          });
+          break;
         default:
           break;
       } 
-    }
+    } else {
+
+      switch(evt.key) {
+        case "=":
+          view.animate({
+            zoom: (zoom + 1),
+            duration: 300
+          });
+          break;
+        case "_":
+          view.animate({
+            zoom: (zoom - 1),
+            duration: 300
+          });
+          break;
+          }
+      }
 
     var code = event.charCode || event.keyCode;
     if((code === 32)|| (code === 13)){ // space (32)or Enter (13)
