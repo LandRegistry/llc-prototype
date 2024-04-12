@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="How to use the map - Search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        How to use the map
+      </h1>
+
+      <div class="govuk-body govuk-!-padding-bottom-6">
+        <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="copy_base_map_video">
+          <source src="/public/images/video/select_area.mp4" type="video/mp4">
+        </video>
+      </div>
+
+
+      <div class="govuk-body govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m">How to select an area using copy from map</h2>
+        <p class="govuk-body">
+          You can only select an area from the map when you are zoomed in to a location (seeing a place close-up). This
+          option will be inactive until you are zoomed in enough. Make sure you can see building outlines on the map.
+        </p>
+        <p class="govuk-body">
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Selects the select area from map radio button.</li>
+          <li>Selects different map areas one after the other to create a combined search area.
+          </li>
+        </ul>
+        <p class="govuk-body">
+          Before confirming, ensure your search area includes all of the properties and land you want to search against,
+          including any driveways, alleys or gardens, etc. Using the select area from map feature once may not capture all of your search area.
+        </p>
+      </div>
+
+
+      <h2 class="govuk-heading-m">How to draw your search area</h2>
+      <p class="govuk-body">
+        In the video, to draw a search area with straight edges, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Selects the draw area radio button.</li>
+        <li>Selects a place on the map to start drawing.</li>
+        <li>Keeps selecting around the edges of the search area.</li>
+        <li>Joins the points to stop drawing.</li>
+      </ul>
+      <p class="govuk-body">
+        In the video, to draw an extent with curved edges, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Selects the draw area radio button.</li>
+        <li>Selects a place on the map to start drawing.</li>
+        <li>Hold the SHIFT key and drag the cursor to draw a curved search area.</li>
+        <li>Release the SHIFT key and mouse button to stop drawing.</li>
+      </ul>
+      <p class="govuk-body">
+        Before confirming, ensure the search area captured includes all of the properties and land you want to search
+        against, including (if necessary) driveways, alleys or gardens, etc.
+      </p>
+      <h2 class="govuk-heading-m">How to edit your search area</h2>
+      <p class="govuk-body">
+        In the video, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Selects the edit area radio button.</li>
+        <li>Sees the search area turn green.</li>
+        <li>Selects one of the points.</li>
+        <li>Drags the point to change the search area.</li>
+        <li>Holds ALT key while selecting another point to delete it.</li>
+      </ul>
+
+
+
+      <h2 class="govuk-heading-m">How to draw a shape with snap to</h2>
+      <p class="govuk-body">
+        You can only use snap to line on map when you are zoomed into a location (seeing a place close-up). This option
+        will be inactive until you are zoomed in enough.
+      </p>
+      <p class="govuk-body">
+        In the video, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Selects the draw area radio button.</li>
+        <li>Selects the snap to line on map checkbox.</li>
+        <li>Hovers the cursor near where they want to begin drawing their search area.</li>
+        <li>Sees the point snapping to a line on the map as they hover close to it.</li>
+        <li>Selects to add multiple points to draw their search area.</li>
+        <li>Joins the points to stop drawing.</li>
+      </ul>
+      <p class="govuk-body">
+        This feature can also be used during other map interactions, like editing.
+      </p>
+
+
+
+      <h2 class="govuk-heading-m">How to delete a search area</h2>
+      <p class="govuk-body">
+        In the video, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Selects the delete area radio button.</li>
+        <li>Sees the search area turn red.</li>
+        <li>Selects two parts of the search area to remove them.</li>
+      </ul>
+
+
+
+      <h2 class="govuk-heading-m">How to clear all</h2>
+      <p class="govuk-body">
+        In the video, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Selects the clear all button.</li>
+        <li>Sees everything they have drawn on the map being deleted.</li>
+      </ul>
+
+
+
+      <h2 class="govuk-heading-m">How to undo your last map interaction</h2>
+      <p class="govuk-body">
+        In the video, a user:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Draws an area on the map.</li>
+        <li>Deletes an area.</li>
+        <li>Selects the undo button to undo deleting an area.</li>
+        <li>Selects the undo button again to undo drawing an area.</li>
+      </ul>
+
+
+
+      <h2 class="govuk-heading-m">How to use the map with a keyboard only</h2>
+      <p class="govuk-body">
+        Select an area from the map and delete areas using a keyboard only. The keyboard focus needs to be on the map to
+        do this.
+      <p class="govuk-body">
+        You can not draw or edit an area using a keyboard.
+      </p>
+      <h3 class="govuk-heading-s">Keyboard controls</h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Arrow keys to move the map up, down, left and right.</li>
+        <li>SHIFT key with arrows to fine-tune the position.</li>
+        <li>Plus sign (+) to zoom in and Minus sign (-) to zoom out.</li>
+        <li>SPACE bar or ENTER key to select the area at the centre of the map.</li>
+      </ul>
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
