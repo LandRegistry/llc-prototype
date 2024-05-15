@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Sign in to search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container {{ containerClasses }}">
+
+  <main class="govuk-main-wrapper" id="main-content">
+          
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+        <form class="form" action="enter-password" method="post">
+  
+        
+  
+  
+  <div class="govuk-form-group">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="sign-in-email">
+        Enter your email address to sign in to your GOV.UK One Login
+      </label>
+    </h1>
+  
+  
+    <input class="govuk-input" id="sign-in-email" name="sign-in-email" type="email" spellcheck="false" autocomplete="email">
+  
+  </div>
+  
+  
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+  
+        </form>
+  
+      </div>
+    </div>
+  
+  
+          </main>
+  
+</div>
+{% endblock %}

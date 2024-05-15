@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Sign in to search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container {{ containerClasses }}">
+
+  <main class="govuk-main-wrapper" id="main-content">
+          
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+        <form class="form" method="post">
+  
+        <h1 class="govuk-heading-l">Create your GOV.UK One Login or <br class="auth-heading">sign in</h1>
+  
+        <p class="govuk-body">You can use your GOV.UK One Login to access some government services.</p>
+  
+        <p class="govuk-body">In the future, you’ll be able to use it to access all services on GOV.UK.</p>
+  
+        <p class="govuk-body">You’ll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>an email address</li>
+          <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+        </ul>
+  
+        <div class="govuk-inset-text">
+          You can also <a href="#" class="govuk-link govuk-link--no-visited-state">use GOV.UK One Login in Welsh (Cymraeg)</a>.
+        </div>
+  
+          <button value="create" name="optionSelected" class="govuk-button govuk-!-margin-right-3" data-module="govuk-button" id="create-account-link" formaction="create-email">
+            Create a GOV.UK One Login
+          </button>
+  
+          <div>
+        
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="sign-in-button" formaction="enter-email">
+            Sign in
+          </button>
+  
+          <p class="govuk-body">
+            <a href="https://www.gov.uk/using-your-gov-uk-one-login/services" class="govuk-link govuk-link--no-visited-state" target="_blank">Services you can use with GOV.UK One Login  (opens in a new tab)</a>
+          </p>
+  
+        
+      </div></form>
+    </div>
+  
+          </div></main>
+
+</div>
+{% endblock %}
