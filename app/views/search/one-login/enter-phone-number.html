@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Sign in to search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container {{ containerClasses }}">
+
+  <main class="govuk-main-wrapper" id="main-content">
+          
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+        <form class="form" action="create-check-phone" method="post">
+  
+        <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-3">Enter your mobile phone number</h1>
+  
+        <p class="govuk-body">We will send a 6 digit security code to the number you give us.</p>
+  
+        
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="phoneNumber"> UK mobile phone number </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel">
+          </div>
+          <div class="govuk-form-group">
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="hasInternationalPhoneNumber" name="hasInternationalPhoneNumber" type="checkbox" value="true" aria-controls="conditional-hasInternationalPhoneNumber" aria-expanded="false">
+                <label class="govuk-label govuk-checkboxes__label" for="hasInternationalPhoneNumber"> I do not have a UK mobile number </label>
+              </div>
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-hasInternationalPhoneNumber">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="internationalPhoneNumber">Mobile phone number</label>
+                  <div id="internationalPhoneNumber-hint" class="govuk-hint"> Include the country code, for example +33 for France </div>
+                  <input class="govuk-input govuk-!-width-two-thirds" id="internationalPhoneNumber" name="internationalPhoneNumber" type="tel" aria-describedby="internationalPhoneNumber-hint" autocomplete="tel">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <button type="Submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+            Continue
+        </button>
+        
+        </form>
+      </div>
+    </div>
+  
+  
+          </main>
+  
+</div>
+
+<script src="/public/javascripts/showPassword.js"></script>
+<script>
+  // Initialize the ShowPassword module
+  var showPasswordElements = document.querySelectorAll('[data-module="show-password"]');
+  for (var i = 0; i < showPasswordElements.length; i++) {
+    new window.GOVUK.Modules.ShowPassword(showPasswordElements[i]).init();
+  }
+</script>
+{% endblock %}

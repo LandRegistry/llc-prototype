@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Sign in to search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container {{ containerClasses }}">
+
+  <main class="govuk-main-wrapper" id="main-content">
+          
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+  
+        <form class="form" action="account-created" method="post">
+  
+        <h1 class="govuk-heading-l">Check your phone</h1>
+  
+        <div class="govuk-inset-text">
+          We have sent a code to your phone number ending with <b>137</b>
+        </div>
+  
+        <p class="govuk-body">It might take a few minutes to arrive. The code will expire after 15 minutes.</p>
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="code">
+              Enter the 6 digit security code
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="code" name="code" type="text" spellcheck="false" autocomplete="one-time-code" inputmode="numeric">
+      </div>
+  
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+  
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Problems with the code?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">
+            We can <a href="/page-index/authentication/sign-in/resend-code-sms" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener">send the code again</a> if the code is not working or you did not receive it.
+          </p>
+          <p class="govuk-body">
+            If you cannot access the phone number for your GOV.UK One Login, you can securely 
+            <a href="/page-index/authentication/sign-in/change-security-codes/check-email" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener">change how you get security codes</a>.
+        </p>
+        </div>
+      </details>
+  
+  
+  
+        </form>
+      </div>
+    </div>
+  
+  
+  </main>
+  
+</div>
+{% endblock %}
