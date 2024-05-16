@@ -109,7 +109,17 @@
 }
 
 /* CSS for one login */
-
+@media (min-width: 20em) {
+  .govuk-show-password__input-wrapper {
+    flex-direction: row;
+  }
+}
+.govuk-show-password__input-wrapper {
+  display: table;
+  display: flex;
+  width: 100%;
+  /* flex-direction: column; */
+}
 .govuk-show-password__toggle {
   font-family: "GDS Transport", arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -128,6 +138,12 @@
   border: solid 2px #0b0c0c;
   white-space: nowrap;
   cursor: pointer;
+}
+.govuk-show-password__toggle:focus {
+  z-index: 1;
+  background: #fd0;
+  color: #0b0c0c;
+  outline: 0;
 }
 @media (min-width: 20em) {
   .govuk-show-password__toggle {
