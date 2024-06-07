@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Is there a singular address for this charge? - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Is there a singular address for this charge?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="address" name="address" type="radio" value="email"
+                data-aria-controls="conditional-address">
+              <label class="govuk-label govuk-radios__label" for="address">
+                Yes, there is one postcode
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-address">
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label" for="one-postcode">
+                    Enter a postcode
+                  </label>
+                </h1>
+                
+                <input class="govuk-input govuk-!-width-one-third" id="one-postcode" name="one-postcode" type="email"
+                  spellcheck="false" autocomplete="postcode">
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="address-2" name="address" type="radio" value="phone"
+                data-aria-controls="conditional-address-2">
+              <label class="govuk-label govuk-radios__label" for="address-2">
+                No, there are multiple addresses OR no address
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-address-2">
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--s" for="more-detail">
+                    Describe the location of the charge
+                  </label>
+                </h1>
+                <div id="more-detail-hint" class="govuk-hint">
+                  For example, 'land to the north of the bypass' or '20-26 High Street'
+                </div>
+                <textarea class="govuk-textarea govuk-js-character-count" id="more-detail" name="moreDetail" rows="5"
+                  aria-describedby="more-detail-hint"></textarea>
+                <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+                  You can enter up to 1000 characters
+                </div>
+              </div>
+            </div>
+        </fieldset>
+      </div>
+
+
+      {{ govukButton({
+      text: "Continue",
+      href:"charge-expire"
+      }) }}
+
+
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

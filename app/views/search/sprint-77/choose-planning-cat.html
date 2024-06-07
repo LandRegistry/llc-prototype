@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Choose a planning category - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukRadios({
+        name: "charge-category",
+        fieldset: {
+          legend: {
+            text: "Choose a planning category",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "planning-consent",
+            text: "Conditional planning consent"
+          },
+          {
+            value: "conservation-area",
+            text: "Conservation area"
+          },
+          {
+            value: "enforcement-notice",
+            text: "Enforcement notice"
+          },
+          {
+            value: "modification",
+            text: "Modification / rectification orders"
+          },
+          {
+            value: "no-permitted-development",
+            text: "No permitted development / article 4"
+          },
+          {
+            value: "planning-agreement",
+            text: "Planning agreement"
+          },
+          {
+            value: "planning-notice",
+            text: "Planning notice"
+          },
+          {
+            value: "tpo",
+            text: "Tree preservatio norder (TPO)"
+          },
+          {
+            value: "not-known",
+            text: "I do not know the charge category"
+          }
+        ]
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue",
+        href:"confirm-law"
+      }) }}
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}
