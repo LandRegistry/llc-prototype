@@ -2,91 +2,6 @@
   "address": "9 Newbury Street, London, EC1A 7HU",
   "categories": [
     {
-      "category": "Financial",
-      "hasSearchArea": "false",
-      "showAdjacent": "true",
-      "charges": [
-        {
-          "subcategory": "Financial",
-          "description": "Liability Notice issued on 01.01.2023 by the City of London against Bartholomew Places Ltd in relation to 10 Newbury Street EC1 containing chargeable amount of £10.  Reference XXX-0014-LN.  For further information please contact the City of London.",
-          "creationDate": "5 August 2015",
-          "location": "10 Newbury Street,<br/>London,<br/>EC1A 7HU",
-          "originatingAuthority": "City of London Corporation",
-          "authorityReference": "XXX-0014-LN",
-          "registrationDate": "7 August 2015",
-          "law": "Community Infrastructure Levy regulations 2010 regulation 66(1)",
-          "legalDocument": "Notice",
-          "hmlrReference": "LLC-3XH49",
-          "isSearchArea": "false"
-        }
-      ]
-    },
-    {
-      "category": "Housing / buildings",
-      "hasSearchArea": "true",
-      "charges": [
-        {
-          "subcategory": "Works, repairs or authority action",
-          "description": "Basement - Closing Order under s.18 Housing Act, 1957",
-          "creationDate": "Not provided",
-          "location": "Basement And Ground Floor<br/>9 Newbury Street,<br/>London,<br/>EC1A 7HU",
-          "originatingAuthority": "City of London Corporation",
-          "authorityReference": "PF308561",
-          "registrationDate": "9 September 1957",
-          "law": "Not provided",
-          "legalDocument": "Order",
-          "hmlrReference": "LLC-3XHBB",
-          "isSearchArea": "true"
-        },
-        {
-          "subcategory": "Works, repairs or authority action",
-          "description": "Basement - Closing Order under S.12 Housing Act 1936",
-          "creationDate": "Not provided",
-          "location": "Basement<br/>9 Newbury Street,<br/>London,<br/>EC1A 7HU",
-          "originatingAuthority": "City of London Corporation",
-          "authorityReference": " PF118253 ",
-          "registrationDate": "14 November 1949",
-          "law": "Not provided",
-          "legalDocument": "Order",
-          "hmlrReference": "LLC-3XHK9",
-          "isSearchArea": "true"
-        }
-      ]
-    },
-    {
-      "category": "Listed building",
-      "hasSearchArea": "false",
-      "showAdjacent": "true",
-      "charges": [
-        {
-          "subcategory": "Listed building",
-          "description": "NOS. 12 AND 13 NEWBURY STREET AND ATTACHED AREA RAILINGS",
-          "creationDate": "14 December 1983",
-          "location": "NOS. 12 AND 13 NEWBURY STREET, LONDON,<br/>EC1A 7HU",
-          "originatingAuthority": "City of London Corporation",
-          "authorityReference": "1983/0849/II",
-          "registrationDate": "14 December 1983",
-          "law": "Planning (Listed Buildings and Conservation Areas) Act 1990 section 2(2) ",
-          "legalDocument": "List",
-          "hmlrReference": "LLC-2VH49",
-          "isSearchArea": "false"
-        },
-        {
-          "subcategory": "Listed building",
-          "description": "NO. 14 NEWBURY STREET AND ATTACHED RAILINGS",
-          "creationDate": "1 April 1982",
-          "location": "14 Newbury Street, London, EC1A 7HU",
-          "originatingAuthority": "City of London Corporation",
-          "authorityReference": "1983/0848/II",
-          "registrationDate": "1 April 1982",
-          "law": "Planning (Listed Buildings and Conservation Areas) Act 1990 section 2(2) ",
-          "legalDocument": "List",
-          "hmlrReference": "LLC-2VZX9",
-          "isSearchArea": "false"
-        }
-      ]
-    },
-    {
       "category": "Planning",
       "hasSearchArea": "true",
       "showAdjacent": "true",
@@ -285,6 +200,91 @@
           "legalDocument": "Planning permission",
           "hmlrReference": "LLC-3XH49",
           "isSearchArea": "false"
+        }
+      ]
+    },
+    {
+      "category": "Financial",
+      "hasSearchArea": "false",
+      "showAdjacent": "true",
+      "charges": [
+        {
+          "subcategory": "Financial",
+          "description": "Liability Notice issued on 01.01.2023 by the City of London against Bartholomew Places Ltd in relation to 10 Newbury Street EC1 containing chargeable amount of £10.  Reference XXX-0014-LN.  For further information please contact the City of London.",
+          "creationDate": "5 August 2015",
+          "location": "10 Newbury Street,<br/>London,<br/>EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "XXX-0014-LN",
+          "registrationDate": "7 August 2015",
+          "law": "Community Infrastructure Levy regulations 2010 regulation 66(1)",
+          "legalDocument": "Notice",
+          "hmlrReference": "LLC-3XH49",
+          "isSearchArea": "false"
+        }
+      ]
+    },
+    {
+      "category": "Listed building",
+      "hasSearchArea": "false",
+      "showAdjacent": "true",
+      "charges": [
+        {
+          "subcategory": "Listed building",
+          "description": "NOS. 12 AND 13 NEWBURY STREET AND ATTACHED AREA RAILINGS",
+          "creationDate": "14 December 1983",
+          "location": "NOS. 12 AND 13 NEWBURY STREET, LONDON,<br/>EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1983/0849/II",
+          "registrationDate": "14 December 1983",
+          "law": "Planning (Listed Buildings and Conservation Areas) Act 1990 section 2(2) ",
+          "legalDocument": "List",
+          "hmlrReference": "LLC-2VH49",
+          "isSearchArea": "false"
+        },
+        {
+          "subcategory": "Listed building",
+          "description": "NO. 14 NEWBURY STREET AND ATTACHED RAILINGS",
+          "creationDate": "1 April 1982",
+          "location": "14 Newbury Street, London, EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "1983/0848/II",
+          "registrationDate": "1 April 1982",
+          "law": "Planning (Listed Buildings and Conservation Areas) Act 1990 section 2(2) ",
+          "legalDocument": "List",
+          "hmlrReference": "LLC-2VZX9",
+          "isSearchArea": "false"
+        }
+      ]
+    },
+    {
+      "category": "Housing / buildings",
+      "hasSearchArea": "true",
+      "charges": [
+        {
+          "subcategory": "Works, repairs or authority action",
+          "description": "Basement - Closing Order under s.18 Housing Act, 1957",
+          "creationDate": "Not provided",
+          "location": "Basement And Ground Floor<br/>9 Newbury Street,<br/>London,<br/>EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": "PF308561",
+          "registrationDate": "9 September 1957",
+          "law": "Not provided",
+          "legalDocument": "Order",
+          "hmlrReference": "LLC-3XHBB",
+          "isSearchArea": "true"
+        },
+        {
+          "subcategory": "Works, repairs or authority action",
+          "description": "Basement - Closing Order under S.12 Housing Act 1936",
+          "creationDate": "Not provided",
+          "location": "Basement<br/>9 Newbury Street,<br/>London,<br/>EC1A 7HU",
+          "originatingAuthority": "City of London Corporation",
+          "authorityReference": " PF118253 ",
+          "registrationDate": "14 November 1949",
+          "law": "Not provided",
+          "legalDocument": "Order",
+          "hmlrReference": "LLC-3XHK9",
+          "isSearchArea": "true"
         }
       ]
     },

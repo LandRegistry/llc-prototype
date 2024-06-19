@@ -20,34 +20,22 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Local land charges for your search area
+      Local land charges for <br />
+      9 Newbury Street, London, EC1A 7HU
     </h1>
 
     <div class="govuk-!-padding-bottom-4">
       <img src="/public/images/number9.png" alt="Image of map showing search area for 9 Newbury Street, London EC1A 7HU"
         style="height:300px">
-      <figcaption class="govuk-body-s">The shaded area shows your search</figcaption>
+      <figcaption class="govuk-body-s">The dotted line shows the area you have searched</figcaption>
     </div>
 
     <p>There are 21 local land charges for your search area.</p>
-    <p>Your free search reference is 2324418</p>
-    {% include "includes/migration-guidance-2.html" %}
-    <p>You can view your free search history in your account.</p>
+    <!-- <p>Check the local land charges within the adjoining areas to ensure these do not affect your search area.</p> -->
+    {% include "includes/migration-guidance.html" %}
     <p>Not the right area? <a href="edit-map">Edit the search area</a> or <a href="search">start a new search</a>.</p>
 
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          What are the search results based on?
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <p class="govuk-body">This service works spatially.</p>
-        <p class="govuk-body">You may begin a search with a postcode or street name, or another way to search.</p>
-        <p class="govuk-body">However, search results are based solely upon areas you have confirmed on the map, and the local land charge data we hold.</p>        
-      </div>
-    </details>
-
+    <!-- {% include "includes/migration-guidance.html" %} -->
     {% set categories = data.charges.categories %}
 
     {% for item in categories %}
@@ -99,7 +87,15 @@
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
-              Creation date
+              Registration Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.registrationDate }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Creation Date
             </dt>
             <dd class="govuk-summary-list__value">
               {{ charge.creationDate }}
@@ -113,20 +109,17 @@
               {{ charge.location | safe }}
             </dd>
           </div>
-
-
-
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Originating authority
+              HM Land Registry reference
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ charge.originatingAuthority }}
+              {{ charge.hmlrReference }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Authority reference
+              Authority Reference
             </dt>
             <dd class="govuk-summary-list__value">
               {{ charge.authorityReference }}
@@ -134,20 +127,28 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Registration date
+              Originating Authority
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ charge.registrationDate }}
+              {{ charge.originatingAuthority }}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Law
+              Category
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ charge.law }}
+              {{ item.category }}
             </dd>
           </div>
+<!--           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Subcategory
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ charge.subcategory }}
+            </dd>
+          </div> -->
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Legal document
@@ -158,13 +159,12 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              HM Land Registry reference
+              Law
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ charge.hmlrReference }}
+              {{ charge.law }}
             </dd>
           </div>
-          
         </dl>
       </div>
     </div>
