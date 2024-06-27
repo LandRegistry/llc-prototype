@@ -1,0 +1,147 @@
+{% set serviceName="Maintain LLC" %}
+{% extends "layouts/main.html" %}
+
+{% set pageName="LLC-123456 quality check results" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/back.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">LLC-123456</span>
+      Update quality check results
+    </h1>
+ 
+
+      <p class="govuk-body">
+        This was last updated on [date] by [name of user].
+      </p>
+
+
+
+
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Which quality check results can be disregarded for this local land charge?
+          </h2>
+        </legend>
+        <p class="govuk-body">
+          Select a quality check result if the local authority has confirmed it can be disregarded for this local land charge.
+        </p>
+        <div id="waste-hint" class="govuk-hint">
+          Select all that apply.
+        </div>
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+            <label class="govuk-label govuk-checkboxes__label" for="waste">
+              Date and time issues
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Invalid characters
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Invalid geometry
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+              Invalid postcode or textual outside postcode tolerance
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Lines and point features
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Short address length
+            </label>
+          </div>
+          <!-- <div class="govuk-checkboxes__divider">&nbsp;</div> -->
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Spatial extent
+            </label>
+          </div>
+          <div class="govuk-checkboxes__divider"></div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              Spatial position
+            </label>
+          </div>
+          <div class="govuk-checkboxes__divider">or</div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+              None<!-- , this charge did not fail any quality checks -->
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="1500">
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="with-hint">
+            What is the reason for this update?
+          </label>
+        </h2>
+        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+      </div>
+      <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+        You can enter up to 1500 characters
+      </div>
+    </div>
+    
+
+    <a href="check-answers" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Continue
+    </a>
+
+  
+
+
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+</div>
+<!-- 
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+<a href="form"  class="" >Form</a>
+<br/>
+<a href="form-none" class="">From with None checkbox</a>
+<br/>
+<a href="form-headers" class="">Form with checkbox titles
+</a>
+
+ -->
+{% endblock %}

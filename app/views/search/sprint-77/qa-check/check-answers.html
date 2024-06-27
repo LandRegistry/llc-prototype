@@ -1,0 +1,105 @@
+{% set serviceName="Maintain LLC" %}
+{% extends "layouts/main.html" %}
+
+{% set pageName="LLC-123456 quality check results" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/back.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">LLC-123456</span>
+      Check your quality check results updates before submitting
+    </h1>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        Disregard quality check results
+      </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Quality check result</th>
+          <th scope="col" class="govuk-table__header govuk-table__header">Previous</th>
+          <th scope="col" class="govuk-table__header govuk-table__header">Update</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date and time issues</th>
+          <td class="govuk-table__cell govuk-table__cell">
+            {% if data.isFirst == "true" %}-{% else %}Yes{% endif %}
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">No</td>
+        </tr>
+        {% if data.isFirst != "true" %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Invalid characters</th>
+          <td class="govuk-table__cell govuk-table__cell">No</td>
+          <td class="govuk-table__cell govuk-table__cell">Yes</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Short address length</th>
+          <td class="govuk-table__cell govuk-table__cell">No</td>
+          <td class="govuk-table__cell govuk-table__cell">Yes</td>
+        </tr>
+        {% endif %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Spatial position</th>
+          <td class="govuk-table__cell govuk-table__cell">{% if data.isFirst == "true" %}No{% else %}Yes{% endif %}</td>
+          <td class="govuk-table__cell govuk-table__cell">Yes</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+    <div class="govuk-body govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m">
+        Reason for update
+      </h2>
+      <p class="govuk-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </p>
+      <p class="govuk-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </p>
+      <p class="govuk-body">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </p>
+    </div>
+
+
+    <a href="confirmation" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Submit
+    </a>
+
+
+
+
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+{% endblock %}

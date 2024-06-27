@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Choose a planning category - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <h1 class="govuk-heading-l">Are you sure you want to cancel this charge?</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HM Land Registry reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            LLC-BL
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            9 Newbury Street<br>London<br>EC1A 7HU
+          </dd>
+          <dd class="govuk-summary-list__actions">
+           
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Map
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <img src="/public/images/cancel-map.png" alt="Spatial Information" style="width:100%">
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registered on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">9 December 2021</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
+
+
+      {{ govukButton({
+      text: "Yes, I want to cancel it",
+      href:"cancellation-confirmation"
+      }) }}
+      <p class='govuk-body'>
+        <a class="govuk-link" href="expired-charges">No, I don't want to cancel it</span></a>
+        </p>
+
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

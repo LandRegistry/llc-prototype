@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Choose a planning category - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% set rows = [
+  {"location": "NOS. 12 AND 13 NEWBURY STREET, LONDON,<br/>EC1A 7HU", "hmlrReference":"LLC-DX",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "14 Newbury Street, London, EC1A 7HU", "hmlrReference":"LLC-F7",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "10 Newbury Street,<br/>London,<br/>EC1A 7HU","hmlrReference":"LLC-D6",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "9 Newbury Street, London, EC1A 7HU","hmlrReference":"LLC-121",  "law": "Anti-Social Behaviour Act 2003 section 77(3)"},
+  {"location": "9 Newbury Street, London, EC1A 7HU","hmlrReference":"LLC-BG",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "9 Newbury Street EC1","hmlrReference":"LLC-BJ",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "Smithfield","hmlrReference":"LLC-BL",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "None","hmlrReference":"LLC-BN",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"},
+  {"location": "The Whole of the City of London","hmlrReference":"LLC-BQ",  "law": "Town and Country Planning (General Permitted Development) (England) Order 2015 Direction made under Article 4(1) to which Article 3 applies"},
+ {"location": "None","hmlrReference":"LLC-BX",  "law": "Ancient Monuments and Archaeological Areas Act 1979 section 2(3)"]
+ ]
+ %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+           <table class="govuk-table">
+              <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Location</th>
+                  <th scope="col" class="govuk-table__header">Originating Authority reference</th>
+                  <th scope="col" class="govuk-table__header">HM Land Registry reference</th>
+                  <th scope="col" class="govuk-table__header">Law</th>
+                  <th scope="col" class="govuk-table__header">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                {% for row in rows %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">{{row.location | safe}}</td>
+                  <td class="govuk-table__cell">None</td>
+                  <td class="govuk-table__cell">{{row.hmlrReference}}</td>
+                  <td class="govuk-table__cell">{{row.law}}</td>
+                  <td class="govuk-table__cell">
+                    <a class="govuk-link" href="view-charge">View<span class="govuk-visually-hidden"> charges</span></a>
+                    <br/>
+                    <a class="govuk-link" href="cancel-charge">Cancel<span class="govuk-visually-hidden"> charges</span></a>
+
+                   <!--  <ul class="govuk-summary-list__actions-list">
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> contact details</span></a>
+                      </li>
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                      </li>
+                    </ul> -->
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}
