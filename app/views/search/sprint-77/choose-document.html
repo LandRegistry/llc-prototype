@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Confirm the law and legal document - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Confirm legal document (optional)
+            </h1>
+          </legend>
+          <div id="confirm-instruments-options" class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="agreement" name="confirm-instrument" type="radio" value="Agreement">
+                <label id="agreement-label" class="govuk-label govuk-radios__label" for="agreement">
+                  Agreement
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="certificate" name="confirm-instrument" type="radio" value="Certificate">
+                <label id="certificate-label" class="govuk-label govuk-radios__label" for="certificate">
+                  Certificate
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="deed" name="confirm-instrument" type="radio" value="Deed">
+                <label id="deed-label" class="govuk-label govuk-radios__label" for="deed">
+                  Deed
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="direction" name="confirm-instrument" type="radio" value="Direction">
+                <label id="direction-label" class="govuk-label govuk-radios__label" for="direction">
+                  Direction
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="licence" name="confirm-instrument" type="radio" value="Licence">
+                <label id="licence-label" class="govuk-label govuk-radios__label" for="licence">
+                  Licence
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="list" name="confirm-instrument" type="radio" value="List">
+                <label id="list-label" class="govuk-label govuk-radios__label" for="list">
+                  List
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="notice" name="confirm-instrument" type="radio" value="Notice">
+                <label id="notice-label" class="govuk-label govuk-radios__label" for="notice">
+                  Notice
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="order" name="confirm-instrument" type="radio" value="Order">
+                <label id="order-label" class="govuk-label govuk-radios__label" for="order">
+                  Order
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="planning-permission" name="confirm-instrument" type="radio" value="Planning permission">
+                <label id="planning-permission-label" class="govuk-label govuk-radios__label" for="planning-permission">
+                  Planning permission
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="resolution" name="confirm-instrument" type="radio" value="Resolution">
+                <label id="resolution-label" class="govuk-label govuk-radios__label" for="resolution">
+                  Resolution
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="schedule" name="confirm-instrument" type="radio" value="Schedule">
+                <label id="schedule-label" class="govuk-label govuk-radios__label" for="schedule">
+                  Schedule
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scheme" name="confirm-instrument" type="radio" value="Scheme">
+                <label id="scheme-label" class="govuk-label govuk-radios__label" for="scheme">
+                  Scheme
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="transfer" name="confirm-instrument" type="radio" value="Transfer">
+                <label id="transfer-label" class="govuk-label govuk-radios__label" for="transfer">
+                  Transfer
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="undertaking" name="confirm-instrument" type="radio" value="Undertaking">
+                <label id="undertaking-label" class="govuk-label govuk-radios__label" for="undertaking">
+                  Undertaking
+                </label>
+              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="none" name="confirm-instrument" type="radio" value="">
+              <label id="none-label" class="govuk-label govuk-radios__label" for="none">Not provided</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      {{ govukButton({
+      text: "Continue",
+      href:"confirm-law"
+      }) }}
+
+
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}
