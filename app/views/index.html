@@ -6,13 +6,13 @@
 {% include "includes/phase-banner.html" %}
 
 {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "LLC prototypes",
-        href: "/"
-      }
-    ]
-  }) }}
+items: [
+{
+text: "LLC prototypes",
+href: "/"
+}
+]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -26,19 +26,25 @@
     <p class="govuk-body-l">Search is a public facing service that allows users to search an area for local land
       charges.</p>
 
-    <p>Anyone can use the service but an account is currently mandatory. Free and paid searches are both available; free searches list charges found but do not show the area the charge extent covers, while paid searches generate a PDF (JSON, CSV or XML are also available) with all charge and extent information which is then saved for 6 months and can be repeated in that time for free.</p>
+    <p>Anyone can use the service but an account is currently mandatory. Free and paid searches are both available; free
+      searches list charges found but do not show the area the charge extent covers, while paid searches generate a PDF
+      (JSON, CSV or XML are also available) with all charge and extent information which is then saved for 6 months and
+      can be repeated in that time for free.</p>
 
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
     <h2 class="govuk-heading-m">
       Sprint 77: June 2024
     </h2>
     <ul class="govuk-list govuk-list--bullet">
-      <li><a href="search/sprint-77/create-account">Create account</a> | <a href="search/sprint-77/sign-in">Sign in</a></li> 
-      <li><a href="search/sprint-77/dashboard">Maintain start page</a></li> 
-      <li><a href="search/sprint-77/add-a-charge/map">Maintain map</a></li> 
+      <li><a href="search/sprint-77/dashboard">Maintain start page</a></li>
+      <li><a href="search/sprint-77/add-a-charge/map">Maintain map</a></li>
+    </ul>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="search/sprint-77/create-account">Create account</a> | <a href="search/sprint-77/sign-in">Sign in</a>
+      </li>
     </ul>
 
-    
+
     <h2 class="govuk-heading-m">
       Sprint 76: May 2024
     </h2>
@@ -73,7 +79,7 @@
       <li><a href="search/sprint-66/minimal-mobile">Mobile version</a></li>
       <li><a href="search/sprint-66/basic_controls_tab_order">Alternative tab order</a></li>
       <li><a href="search/sprint-66/reversed">Map options layout reversed</a></li>
-      <br/>
+      <br />
       <li><a href="search/sprint-66/basic">Basic map</a></li>
       <li><a href="search/sprint-66/search-by-map">Search by map</a></li>
       <li><a href="search/sprint-66/draw-area">Draw area</a></li>
@@ -94,7 +100,8 @@
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="search/sprint-63/start">Start page</a></li>
       <li><a href="search/sprint-63/results">Results page:</a> Image, summary card and contact link</li>
-      <li><a href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map">LIVE: How to use this map</a></li>
+      <li><a href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map">LIVE: How to use this map</a>
+      </li>
     </ul>
 
     <ul class="govuk-list govuk-list--bullet">
@@ -126,19 +133,21 @@
       <li><a href="search/sprint-58/accordion-with-image">1.1 Accordion with no grouping</a></li>
       <li><a href="search/sprint-58/accordion-ordered">1.2 Accordion with grouping and tags</a></li>
       <li><a href="search/sprint-58/accordion-title">1.3 Generic title, tags and guidance</a></li>
-      <br/>
+      <br />
       <li><a href="search/sprint-58/summary-card-images-no-split">2.1 Summary card with no grouping or tags</a></li>
-      <li><a href="search/sprint-58/summary-card-images-subcat">2.2 No grouping, with tags, with areas split out in text </a></li>
-<!--       <li><a href="search/sprint-58/summary-card-images">2.3 With address as card title</a> -->
+      <li><a href="search/sprint-58/summary-card-images-subcat">2.2 No grouping, with tags, with areas split out in text
+        </a></li>
+      <!--       <li><a href="search/sprint-58/summary-card-images">2.3 With address as card title</a> -->
       <li><a href="search/sprint-58/summary-card-images-pagination">2.3 With address as card title and pagination</a>
       </li>
-      <br/>
-      <li><a href="search/sprint-58/summary-card-ordered-subcat">3.1 Summary cards split into search and adjoining</a></li>
+      <br />
+      <li><a href="search/sprint-58/summary-card-ordered-subcat">3.1 Summary cards split into search and adjoining</a>
+      </li>
       <li><a href="search/sprint-58/summary-card-ordered">3.2 With address as card title</a></li>
       <li><a href="search/sprint-58/summary-card-compare">3.3 Comparison of two cards with duplicate label</a></li>
 
     </ul>
-    
+
     <p>For reference:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="search/sprint-58/summary-card-openlayers">Results page with openlayers</a></li>
@@ -193,14 +202,15 @@
       <li><a href="search/sprint-54/results-page/accordion">Results page: accordion</a></li>
       <li><a href="search/sprint-54/results-page/accordion-with-image">Results page: accordion with images</a></li>
       <li><a href="search/sprint-54/results-page/summary-card">Results page: summary card</a></li>
-      <li><a href="search/sprint-54/results-page/summary-card-with-image">Results page: summary card with images</a></li>
+      <li><a href="search/sprint-54/results-page/summary-card-with-image">Results page: summary card with images</a>
+      </li>
       <li><a href="search/sprint-54/results-page/accordion-with-address">Results page: accordian with addresses</a></li>
     </ul>
 
     <ul class="govuk-list govuk-list--bullet">
       <li><a href="search/sprint-54/results-page/charges-with-survey">Example survey messages</a></li>
     </ul>
-    
+
 
     <h3 class="govuk-heading-s">
       Map-less option
