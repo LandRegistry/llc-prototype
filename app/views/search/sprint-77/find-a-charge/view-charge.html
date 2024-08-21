@@ -1,0 +1,246 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="View local land charge - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+   .govuk-summary-list__actions {
+    width:15%;
+    vertical-align:top;
+   }
+   .govuk-summary-list__key{
+    vertical-align:top;
+   }
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters-from-desktop">
+
+      <h1 class="govuk-heading-l">View local land charge</h1>
+
+      <ul class="govuk-list govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+        <li>
+          <a class="govuk-link" href="update-charge">Update charge</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="cancel-reason">Cancel charge</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Update quality check results</a>
+        </li>
+      </ul>
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HM Land Registry reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            LLC-88X
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Planning
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Conditional planning consent
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Law
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Town and Country Planning Act 1990 section 70
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal document
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Planning permission
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Historic England list entry number:1386457
+              Conversion of upper floors to 2 self-contained apartments and function room/store room ancillary to ground floor uses (Class E) and associated internal and external alterations, inc. insertion of dormer window in roof and roof terrace</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="charge-description">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Originating authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bannau Brycheiniog (Brecon Beacons) National Park
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registered on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            9 December 2021
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last updated
+          </dt>
+          <dd class="govuk-summary-list__value">
+            16 December 2021
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">View history</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">25 Union Street<br/>
+              Exeter<br/>
+              EX2 9BB</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Extent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <img src="/public/images/check_extent.png" alt="Map of charge extent" style="width:350px; height:100%;">
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="#">Add a new charge using this extent</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Add a new charge using this extent on behalf of another organisation</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Download shapefiles for this extent</a>
+              </li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="map">Change<span class="govuk-visually-hidden"> </span></a>
+            <!-- <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="#">Change</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Use extent</a>
+              </li>
+            </ul> -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Creation date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">1 December 2021</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="date-of-charge">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+       
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expiry date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Does not expire</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="charge-expire">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Source information
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Legal Department<br/>
+              Council Buildings<br/>
+              Works Road<br/>
+              Exeter<br/>
+              EX2 8BB</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="source-information">Change<span class="govuk-visually-hidden"> </span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Authority reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">OOA_LLC_noQs_21022020charge_ref_F5.263/REC_ID#50173</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="source-information">Change<span class="govuk-visually-hidden"> </span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+
+  
+
+
+      <p class="govuk-body"><a href="../dashboard">Return to main menu</a></p>
+    </div>
+    </div>
+
+
+  
+
+  </div>
+
+</main>
+{% endblock %}

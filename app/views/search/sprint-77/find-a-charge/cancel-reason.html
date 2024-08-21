@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="What is the reason for cancelling the charge? - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+
+.govuk-js-character-count{
+  margin-bottom: 5px;
+}
+
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="more-detail">
+            What is the reason for cancelling the charge? (optional)
+          </label>
+        </h1>
+        <p class="govuk-body">This will help someone researching why this charge was cancelled.</p>
+        <p class="govuk-body">Do not include personal or financial information, like a telephone number or email address.</p>
+        
+        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+  <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+    You can enter up to 1500 characters
+  </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        href:"confirm-cancel"
+      }) }}
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Are you sure you want to cancel this charge? - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+  .govuk-summary-list__actions {
+   width:15%;
+   vertical-align:top;
+  }
+  .govuk-summary-list__key{
+   vertical-align:top;
+  }
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Are you sure you want to cancel this charge?
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HM Land Registry reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            LLC-88X
+          </dd>
+  
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            25 Union Street<br/>
+              Exeter<br/>
+              EX2 9BB
+          </dd>
+
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Extent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <img src="/public/images/check_extent.png" alt="Map of charge extent" style="width:420px; height:100%;">
+          </dd>
+  
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registration date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            9 December 2021
+          </dd>
+
+        </div>
+      </dl>
+   
+
+      {{ govukButton({
+        classes:" govuk-!-margin-top-6",
+        text: "Cancel charge",
+        href:"cancel-confirmation"
+      }) }}
+
+      <p class="govuk-body"><a href="../dashboard">Return to main menu</a></p>
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}
