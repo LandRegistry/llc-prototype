@@ -4,6 +4,12 @@
     top: 560px;
     left: 580px;
   }
+  .nav-controls-fullwidth {
+    position: relative;
+    z-index: 12;
+    top: 560px;
+    left: 720px;
+  }
 
   .nav-button {
     display: block;

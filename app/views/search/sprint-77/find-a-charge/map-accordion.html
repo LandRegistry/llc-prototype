@@ -29,24 +29,84 @@
 <div id="container" class="govuk-grid-row">
 
   <div class="govuk-grid-column-one-quarter">
-    <h2 class="govuk-heading-m">
+    <div class="govuk-heading-m">
       Search results
-    </h2>
-    {% set categories = data.charges.categories %}
+    </div>
 
-    {% for item in categories %}
-    <h3 class="govuk-heading-s">{{item.category}} </h3>
-
-    <ul class="govuk-list">
-    {% for charge in item.charges %}
-      <li>
-        <a class="govuk-link" href="#">{{ charge.authorityReference }}</a>
-        <p class="govuk-body">{{ charge.location | safe }}
-      </p>
-      </li>
-    {% endfor %}
-    </ul>
-    {% endfor %}
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Planning
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for Writing well for specialists.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Financial
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for Writing well for specialists.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+              Listed building
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-3" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for Know your audience.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Land compensation
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Housing / buildings
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Light obstruction notices
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="govuk-grid-column-one-half">
@@ -61,10 +121,10 @@
       </div>
     </div>
     <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <!-- <div class="center">
+      <div class="center">
         <div class="horizontal"></div>
         <div class="vertical"></div>
-      </div> -->
+      </div>
       <noscript>
         <div id="nojs" class="nojs-content">
           <div id="nojs-message" class="notification-summary">
@@ -141,7 +201,7 @@
               {{ editHint }}
             </div>
           </div>
-          <!-- <div class="govuk-radios__item">
+          <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="cutout" name="edit-mode" type="radio" value="cutout-area"
             aria-describedby="cutout-area-hint">
             <label class="govuk-label govuk-radios__label" for="cutout">
@@ -153,7 +213,7 @@
             <div id="cutout-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ cutoutHint }}
             </div>
-          </div> -->
+          </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
               aria-describedby="delete-area-hint">
@@ -168,7 +228,7 @@
             </div>
           </div>
           <!-- <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-bottom-3"> -->
-          <!-- <div class="govuk-radios__divider">or</div>
+          <div class="govuk-radios__divider">or</div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="add-circle" name="edit-mode" type="radio" value="add-circle"
               aria-describedby="add-circle-hint">
@@ -207,7 +267,7 @@
             <div id="add-line-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
               {{ addLineHint }}
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -388,11 +448,7 @@
     });
   
     MAP_CONTROLS.vectorControls.copy_enabled = true;
-    map.addInteraction(MAP_CONTROLS.current_interaction);
-
-    // hack the nav buttons
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
+    map.addInteraction(MAP_CONTROLS.current_interaction)
   
   });
   
@@ -787,8 +843,14 @@ console.log(radio);
   });
 
   $( window ).on( "resize", function() {
+    let offset = $('#map').offset();
+    let position = $('#map').position();
+    
     let map_width = Math.floor($('#map').width());
+    console.log(offset.left + ", : " + position.left);
+    console.log($( window ).width(), map_width);
     $(".nav-controls-fullwidth").css("left", map_width - 140);
+
   } );
 
 </script>
