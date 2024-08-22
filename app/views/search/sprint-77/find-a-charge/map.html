@@ -23,76 +23,28 @@
     max-width:99%;
     width:99%;
   }
+
+  .charge{
+    padding: 4px;
+    border: 4px solid #fff;
+
+  }
+  .charge:hover{
+    background-color: #ffdd00;
+    border: 4px solid #0b0c0c;
+
+  }
+  .scroll{
+    height: 720px;
+    overflow-x: none;
+    overflow-y: scroll;
+    margin: 0;
+  }
+  .gem-c-option-select{position:relative;padding:0 0 10px;margin-bottom:10px;border-bottom:1px solid #b1b4b6}@media(min-width: 48.0625em){.gem-c-option-select ::-webkit-scrollbar{-webkit-appearance:none;width:7px}.gem-c-option-select ::-webkit-scrollbar-thumb{border-radius:4px;background-color:rgba(0,0,0,.5);-webkit-box-shadow:0 0 1px rgba(255,255,255,.87)}}.gem-c-option-select .gem-c-checkboxes{margin:0}.gem-c-option-select__title{margin:0;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1875rem;line-height:1.3157894737}@media print{.gem-c-option-select__title{font-family:sans-serif}}@media print{.gem-c-option-select__title{font-size:14pt;line-height:1.15}}.gem-c-option-select__button{z-index:1;background:none;border:0;text-align:left;padding:0;cursor:pointer;color:#1d70b8}.gem-c-option-select__button:hover{text-decoration:underline;text-underline-offset:.1em;text-decoration-thickness:max(3px, .1875rem, .12em);-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;text-decoration-skip:none}.gem-c-option-select__button::-moz-focus-inner{border:0}.gem-c-option-select__button:focus{outline:none;text-decoration:none;outline:3px solid rgba(0,0,0,0);color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;text-decoration:none;-webkit-box-decoration-break:clone;box-decoration-break:clone}.gem-c-option-select__button[disabled]{background-image:none;color:inherit}.gem-c-option-select__button::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:2}.gem-c-option-select__icon{display:none;position:absolute;top:0;left:9px;width:30px;height:40px;fill:#0b0c0c}.gem-c-option-select__container{position:relative;max-height:200px;overflow-y:auto;overflow-x:hidden;background-color:#fff}.gem-c-option-select__container:focus{outline:0}.gem-c-option-select__container--large{max-height:600px}.gem-c-option-select__container-inner{padding:5px 13px}.gem-c-option-select__filter{position:relative;background:#fff;padding:13px 13px 10px 13px}.gem-c-option-select__filter-input{background:url(/assets/option-select/input-icon-f598506731e31889e6586357d63cf72be1c35e6bc255135fb4e48d4e9ed5e758.svg) #fff no-repeat -5px -3px;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1875rem;line-height:1.3157894737}@media print{.gem-c-option-select__filter-input{font-family:sans-serif}}@media print{.gem-c-option-select__filter-input{font-size:14pt;line-height:1.15}}@media(min-width: 40.0625em){.gem-c-option-select__filter-input{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1rem;line-height:1.25}}@media print and (min-width: 40.0625em){.gem-c-option-select__filter-input{font-family:sans-serif}}@media print and (min-width: 40.0625em){.gem-c-option-select__filter-input{font-size:14pt;line-height:1.2}}.gem-c-option-select__filter-input.govuk-input{padding-left:33px}.govuk-frontend-supported .gem-c-option-select__heading{position:relative;padding:10px 8px 5px 43px;margin:0}.govuk-frontend-supported [aria-expanded=true]~.gem-c-option-select__icon--up{display:block}.govuk-frontend-supported [aria-expanded=false]~.gem-c-option-select__icon--down{display:block}.govuk-frontend-supported .gem-c-option-select__container{height:200px}.govuk-frontend-supported .gem-c-option-select__container--large{height:600px}.govuk-frontend-supported [data-closed-on-load=true] .gem-c-option-select__container{display:none}.gem-c-option-select__selected-counter{color:#0b0c0c;margin-top:3px;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1rem;line-height:1.25}@media print{.gem-c-option-select__selected-counter{font-family:sans-serif}}@media print{.gem-c-option-select__selected-counter{font-size:14pt;line-height:1.2}}.gem-c-option-select.js-closed .gem-c-option-select__filter,.gem-c-option-select.js-closed .gem-c-option-select__container{display:none}.gem-c-option-select.js-opened .gem-c-option-select__filter,.gem-c-option-select.js-opened .gem-c-option-select__container{display:block}
 </style>
 <h1 class="govuk-heading-l">Find a charge</h1>
 
 <div id="container" class="govuk-grid-row">
-
-  <div class="govuk-grid-column-one-quarter">
-    <h2 class="govuk-heading-m">
-      Search results
-    </h2>
-    {% set categories = data.charges.categories %}
-
-    {% for item in categories %}
-    <h3 class="govuk-heading-s">{{item.category}} </h3>
-
-    <ul class="govuk-list">
-    {% for charge in item.charges %}
-      <li>
-        <a class="govuk-link" href="#">{{ charge.authorityReference }}</a>
-        <p class="govuk-body">{{ charge.location | safe }}
-      </p>
-      </li>
-    {% endfor %}
-    </ul>
-    {% endfor %}
-  </div>
-
-  <div class="govuk-grid-column-one-half">
-
-    <div style="position: relative; width: 0; height: 0">
-        <br />
-      <div class="nav-controls-fullwidth">
-        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
-        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
-          <span class="govuk-visually-hidden">Zoom out</span>
-        </button>
-      </div>
-    </div>
-    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <!-- <div class="center">
-        <div class="horizontal"></div>
-        <div class="vertical"></div>
-      </div> -->
-      <noscript>
-        <div id="nojs" class="nojs-content">
-          <div id="nojs-message" class="notification-summary">
-            <p>
-              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
-              <a id="“assistance-link”"
-                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
-            </p>
-          </div>
-        </div>
-      </noscript>
-    </div>
-    <div class=" govuk-!-padding-top-3 ">
-      <div class="govuk-heading-s ">
-        Map key
-
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
-          height="19" width="19">
-        <span class="map-key-text govuk-body-s">Location available</span>
-
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
-          alt="Location not available key" height="19" width="19">
-        <span class="map-key-text govuk-body-s">Location not available</span>
-
-      </div>
-    </div>
-
-  </div>
 
   <div id="navbar" class="govuk-grid-column-one-quarter">
 
@@ -263,35 +215,157 @@
 
 
   </div> 
+
+
+  <div class="govuk-grid-column-one-half">
+
+    <div style="position: relative; width: 0; height: 0">
+        <br />
+      <div class="nav-controls-fullwidth">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+      </div>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
+      <!-- <div class="center">
+        <div class="horizontal"></div>
+        <div class="vertical"></div>
+      </div> -->
+      <noscript>
+        <div id="nojs" class="nojs-content">
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
+        </div>
+      </noscript>
+    </div>
+    <div class=" govuk-!-padding-top-3 ">
+      <div class="govuk-heading-s ">
+        Map key
+
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
+
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+
+      </div>
+    </div>
+
+  </div>
+  <div id="" class="govuk-grid-column-one-quarter ">
+    <h2 class="govuk-heading-m">
+      Search results
+    </h2>
+    
+    <div data-module="option-select" class="gem-c-option-select js-collapsible" data-option-select-module-started="true">
+      <h3 class="gem-c-option-select__heading js-container-heading">
+        <button class="js-container-button gem-c-option-select__title gem-c-option-select__button" type="button" aria-expanded="true" id="option-select-title-category" aria-controls="list_of_categories">Category</button>
+        <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="gem-c-option-select__icon gem-c-option-select__icon--up" aria-hidden="true" focusable="false"><path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path></svg>
+        <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="gem-c-option-select__icon gem-c-option-select__icon--down" aria-hidden="true" focusable="false"><path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path></svg>
+      </h3>
+    
+      {% set categories = data.charges.categories %}
+
+      
+      <div class="gem-c-option-select__container js-options-container" id="list_of_categories" tabindex="-1" style="height: 251.667px;">
+        <div class="gem-c-option-select__container-inner js-auto-height-inner">
+          
+    <div id="checkboxes-dd7c3a36" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-module-started="true">
+          <fieldset class="govuk-fieldset">
+            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m gem-c-checkboxes__legend--hidden">Category</legend> -->
+    
+    
+    
+        {% for item in categories %}
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+          <input type="checkbox" name="market_sector[]" id="{{item.category}}" value="{{item.category}}" class="govuk-checkboxes__input">
+          <label for="{{item.category}}" class="govuk-label govuk-checkboxes__label">{{item.category}}</label>
+          </div>
+        </div>
+        {% endfor%}
+    
+ 
+    
+    </fieldset>
+    </div>
+    </div>
+    </div>
+  </div>    
+  <div data-module="option-select-oa" class="gem-c-option-select js-collapsible" data-option-select-module-started="true">
+      <h3 class="gem-c-option-select__heading js-container-heading">
+        <button class="js-container-button gem-c-option-select__title gem-c-option-select__button" type="button" aria-expanded="true" id="option-select-title-oa" aria-controls="list_of_oas">Originating authorities</button>
+        <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="gem-c-option-select__icon gem-c-option-select__icon--up" aria-hidden="true" focusable="false"><path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path></svg>
+        <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="gem-c-option-select__icon gem-c-option-select__icon--down" aria-hidden="true" focusable="false"><path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path></svg>
+      </h3>
+    
+     
+      <div class="gem-c-option-select__container js-options-container" id="list_of_oas" tabindex="-1" style="height: 251.667px;">
+        <div class="gem-c-option-select__container-inner js-auto-height-inner">
+          
+    <div id="checkboxes-dd7c3a36" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-module-started="true">
+          <fieldset class="govuk-fieldset">
+            <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m gem-c-checkboxes__legend--hidden">Category</legend> -->
+  
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+          <input type="checkbox" name="market_sector[]" id="City of London Corporation" value="City of London Corporation" class="govuk-checkboxes__input">
+          <label for="City of London Corporation" class="govuk-label govuk-checkboxes__label">City of London Corporation</label>
+          </div>
+        </div>  
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+          <input type="checkbox" name="market_sector[]" id="City of London Corporation" value="City of London Corporation" class="govuk-checkboxes__input">
+          <label for="City of London Corporation" class="govuk-label govuk-checkboxes__label">Richmond District Council</label>
+          </div>
+        </div>
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+          <input type="checkbox" name="market_sector[]" id="City of London Corporation" value="City of London Corporation" class="govuk-checkboxes__input">
+          <label for="City of London Corporation" class="govuk-label govuk-checkboxes__label">City of Westminster</label>
+          </div>
+        </div>
+   
+    </fieldset>
+    </div>
+    </div>
+    </div>
+  </div>
+
+    <div class="govuk-grid-column-full scroll">
+    {% set categories = data.charges.categories %}
+
+    {% for item in categories %}
+    <h3 class="govuk-heading-s">{{item.category}} </h3>
+
+    <ul class="govuk-list">
+    {% for charge in item.charges %}
+      <li class="charge govuk-body-s">
+        <a class="govuk-link " href="view-charge">{{ charge.authorityReference }}</a>
+        <br/>
+        {{ charge.location | safe }}
+      
+      </li>
+    {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
+  </div>
+
 </div>
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
-    <div class="">
-      <p>
-      <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
-        Learn more about how to use this map (opens in a new tab)</a>
-      </p>
-     <!--  <p class="govuk-body ">
-        <a href="#" class="govuk-link">Get help with this service (opens in new tab)</a>
-      </p> -->
-    </div>
-
-
-    <p class="govuk-body ">
-      Use of address and mapping data is subject to <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
-      target="_blank">Ordnance Survey Licence Terms and Conditions (opens in new tab)</a>. This includes the link between the address and its location.
-    </p>
-
-
-  </div>
-  <div class="govuk-grid-column-one-quarter">
-    <h2 class="govuk-heading-s" id="subsection-title">
-      Get help
-    </h2>
-    <a href="#" class="govuk-link">Get help with this service</a>
-
 
   </div>
 </div>
@@ -304,6 +378,7 @@
 
   <!-- Jquery -->
   <script src="/public/ol/js/jquery.min.js"></script>
+
 
   <!-- Open Layers -->
   <script src="/public/ol/js/ol.js"></script>
@@ -326,7 +401,41 @@
   <!-- Map config -->
   <script src="/public/ol/js/map_config.js"></script>
 
-  <script>
+
+  <script id="option-select">
+
+     $("#option-select-title-category").click(function(e){
+      console.log('click');
+      let content = $('#list_of_categories');
+      if (this.getAttribute('aria-expanded') === 'false') {;
+        this.setAttribute('aria-expanded', true);
+        this.classList.add('app-c-expander__content--visible');
+        content.css('display', 'block');
+
+      } else {
+        this.setAttribute('aria-expanded', false);
+        this.classList.remove('app-c-expander__content--visible');
+        content.css('display', 'none');
+      }
+    })
+
+     $("#option-select-title-oa").click(function(e){
+      console.log('click');
+      let content = $('#list_of_oas');
+      if (this.getAttribute('aria-expanded') === 'false') {;
+        this.setAttribute('aria-expanded', true);
+        this.classList.add('app-c-expander__content--visible');
+        content.css('display', 'block');
+
+      } else {
+        this.setAttribute('aria-expanded', false);
+        this.classList.remove('app-c-expander__content--visible');
+        content.css('display', 'none');
+      }
+    })
+  </script>
+
+  <script>   
     var termsLink = "";
     var mastermap_api_key = "{{ data.API_KEY }}";
     var map_base_layer_view_name = "m0100";
@@ -352,7 +461,7 @@
 
   <script type="text/javascript">
     $(function () {
-      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[415764.95, 464716.37], [415766.14, 464708.44], [415787.609, 464710.113], [415788.09, 464710.15], [415796.29, 464707.14], [415797.53, 464706.67], [415798.18, 464706.44], [415799.26, 464706.13], [415802.29, 464705.76], [415804.96, 464705.64], [415807.64, 464705.84], [415810.11, 464706.17], [415812.74, 464706.85], [415813.91, 464707.26], [415816.55, 464708.47], [415818.2, 464709.41], [415820.75, 464711.36], [415823.25, 464713.36], [415826.66, 464715.76], [415841.6, 464726.83], [415849.35, 464732.54], [415845.14, 464737.59], [415843.01, 464736.07], [415841.38, 464736.63], [415840.54, 464738.53], [415842.39, 464740.72], [415832.84, 464752.2], [415829.4, 464756.22], [415827.62, 464755.15], [415826.32, 464754.35], [415825.32, 464753.85], [415824.72, 464753.65], [415824.12, 464753.55], [415822.22, 464752.95], [415821.01, 464752.74], [415819.71, 464752.54], [415816.61, 464751.94], [415814.5, 464751.63], [415808.21, 464758.75], [415792.1, 464754.24], [415794.51, 464732.32], [415781.49, 464729.41], [415765.54, 464725.8], [415765.69, 464721.43], [415766.59, 464721.32], [415766.44, 464716.46], [415764.95, 464716.37]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
+      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
     });
   </script>
   
@@ -361,6 +470,12 @@
   // init select area
   ///////////////////////////////////////////////
   $( document ).ready(function() {
+
+    // hack the nav buttons
+    let map_height = Math.floor($(window).height());
+    $("#map").css("height", map_height);
+
+
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
@@ -393,7 +508,14 @@
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
-  
+
+    //zoom out to hack bounds box
+    const view = map.getView();
+    const zoom = view.getZoom();
+     view.animate({
+      zoom: (zoom - 1),
+      duration: 0
+    });
   });
   
 </script>
@@ -789,6 +911,10 @@ console.log(radio);
   $( window ).on( "resize", function() {
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
+    //let ht = $( window ).height()
+    //$(".scroll").css("height", ht - 140);
+    //console.log('ht', ht);
+
   } );
 
 </script>
