@@ -51,6 +51,10 @@
   .govuk-grid-column-three-quarters{
     width:80%;
   }
+
+  #map{
+    height:1000px;
+  }
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -271,7 +275,10 @@
     let map_height = Math.floor($(window).height());
     $("#map").css("height", map_height);    
     $('.scroll').css('height', map_height);
-
+    // hack the nav buttons
+    let map_width = Math.floor($('#map').width());
+    $(".nav-controls-fullwidth").css("left", map_width - 140);
+    
     //hide the postcode list
     $('#address-list').hide();
     $('#selected-address').hide();
@@ -305,9 +312,7 @@
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
 
-    // hack the nav buttons
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
+
 
     //zoom out to hack bounds box
     const view = map.getView();
