@@ -23,138 +23,18 @@
     max-width:99%;
     width:99%;
   }
+  .scroll{
+    height: 720px;
+    overflow-x: none;
+    overflow-y: scroll;
+    margin: 0;
+  }
 </style>
 <h1 class="govuk-heading-l">Find a charge</h1>
 
 <div id="container" class="govuk-grid-row">
 
-  <div class="govuk-grid-column-one-quarter">
-    <div class="govuk-heading-m">
-      Search results
-    </div>
-
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-              Planning
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
-          <p class="govuk-body">This is the content for Writing well for specialists.</p>
-        </div>
-      </div>
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-              Financial
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
-          <p class="govuk-body">This is the content for Writing well for specialists.</p>
-        </div>
-      </div>
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
-              Listed building
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-3" class="govuk-accordion__section-content">
-          <p class="govuk-body">This is the content for Know your audience.</p>
-        </div>
-      </div>
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-              Land compensation
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
-          <p class="govuk-body">This is the content for How people read.</p>
-        </div>
-      </div>
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-              Housing / buildings
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
-          <p class="govuk-body">This is the content for How people read.</p>
-        </div>
-      </div>
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-              Light obstruction notices
-            </span>
-          </h2>
-        </div>
-        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
-          <p class="govuk-body">This is the content for How people read.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="govuk-grid-column-one-half">
-
-    <div style="position: relative; width: 0; height: 0">
-        <br />
-      <div class="nav-controls-fullwidth">
-        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
-        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
-          <span class="govuk-visually-hidden">Zoom out</span>
-        </button>
-      </div>
-    </div>
-    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <div class="center">
-        <div class="horizontal"></div>
-        <div class="vertical"></div>
-      </div>
-      <noscript>
-        <div id="nojs" class="nojs-content">
-          <div id="nojs-message" class="notification-summary">
-            <p>
-              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
-              <a id="“assistance-link”"
-                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
-            </p>
-          </div>
-        </div>
-      </noscript>
-    </div>
-    <div class=" govuk-!-padding-top-3 ">
-      <div class="govuk-heading-s ">
-        Map key
-
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
-          height="19" width="19">
-        <span class="map-key-text govuk-body-s">Location available</span>
-
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
-          alt="Location not available key" height="19" width="19">
-        <span class="map-key-text govuk-body-s">Location not available</span>
-
-      </div>
-    </div>
-
-  </div>
-
-  <div id="navbar" class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-column-one-quarter scroll">
 
     <h2 class="govuk-heading-m">Map options</h2>
 
@@ -322,7 +202,131 @@
     }) }}
 
 
-  </div> 
+    <div class="govuk-heading-m">
+      Search results
+    </div>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Planning
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for Writing well for specialists.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Financial
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for Writing well for specialists.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+              Listed building
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-3" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for Know your audience.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Land compensation
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Housing / buildings
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Light obstruction notices
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+          <p class="govuk-body">This is the content for How people read.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <div style="position: relative; width: 0; height: 0">
+        <br />
+      <div class="nav-controls-fullwidth">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+      </div>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
+      <div class="center">
+        <div class="horizontal"></div>
+        <div class="vertical"></div>
+      </div>
+      <noscript>
+        <div id="nojs" class="nojs-content">
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
+        </div>
+      </noscript>
+    </div>
+    <div class=" govuk-!-padding-top-3 ">
+      <div class="govuk-heading-s ">
+        Map key
+
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
+
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 
@@ -421,6 +425,11 @@
   // init select area
   ///////////////////////////////////////////////
   $( document ).ready(function() {
+
+    let map_width = Math.floor($('#map').width());
+    $(".nav-controls-fullwidth").css("left", map_width - 140);
+
+
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
