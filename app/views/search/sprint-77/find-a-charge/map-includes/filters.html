@@ -25,9 +25,16 @@
             </label>
             <select class="govuk-select" id="sort" name="sort">
               <option value="published" selected>All subcategories</option>
-              {% for item in categories %}
-              <option value="updated" >{{item.category}}</option>
-              {% endfor%}
+              
+              <option value="updated">Conditional planning consent</option>
+              <option value="updated">Conservation area</option>
+              <option value="updated">Enforcement notice</option>
+              <option value="updated">Modification / rectification orders</option>
+              <option value="updated">No permitted development / article 4 </option>
+              <option value="updated">Planning agreement</option>
+              <option value="updated">Planning notice</option>
+              <option value="updated">Tree preservation order (TPO)</option>
+              
             </select>
           </div>
           
