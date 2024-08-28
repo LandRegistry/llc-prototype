@@ -2,7 +2,7 @@
 
 {% set serviceName= "Maintain LLC" %}
 
-{% set pageName="Draw the charge extent" %}
+{% set pageName="Add a charge" %}
 {% set selectHint = "" %}
 {% set drawHint = "" %}
 {% set editHint = "" %}
@@ -62,11 +62,17 @@
 
   <div id="navbar" class="govuk-grid-column-15-pc scroll">
 
-    <h2 class="govuk-heading-m">Search by postcode</h2>
+    <h2 class="govuk-heading-m">Search by postcode, street name or town</h2>
 
-    {% include "./map-includes/search-simple.html" %}
+    <div class="govuk-inset-text">
+      You have added 1 extent (polygon, point or line) out if 1000 possible extents.
+    </div>
 
-    {% include "./map-includes/map-controls.html" %}
+    {% include "./map-includes/search-add-charge.html" %}
+
+    {% include "./map-includes/map-controls-add-charge.html" %}
+
+    
 
 
     </div> 

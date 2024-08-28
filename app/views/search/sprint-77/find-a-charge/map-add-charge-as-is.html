@@ -2,7 +2,7 @@
 
 {% set serviceName= "Maintain LLC" %}
 
-{% set pageName="Draw the charge extent" %}
+{% set pageName="Add a charge" %}
 {% set selectHint = "" %}
 {% set drawHint = "" %}
 {% set editHint = "" %}
@@ -64,9 +64,11 @@
 
     <h2 class="govuk-heading-m">Search by postcode</h2>
 
-    {% include "./map-includes/search-simple.html" %}
+    {% include "./map-includes/search-add-charge-as-is.html" %}
 
-    {% include "./map-includes/map-controls.html" %}
+    {% include "./map-includes/map-controls-add-charge-as-is.html" %}
+
+    
 
 
     </div> 
