@@ -31,8 +31,12 @@ draw_layer_styles = {
   HIDDEN: 4,
   // Hover
   HOVER: 5,
-  // Hover
+  // highlight charges
   HIGHLIGHT: 6,
+  // Find charges
+  SHOW_CHARGE: 7,
+  // Fade back other charges when highlighting 
+  FADE: 8,
   // Associated Feature Styles for mode
   style: {
 
@@ -145,7 +149,7 @@ draw_layer_styles = {
     6:  new ol.style.Style({
       fill: new ol.style.Fill({
         //color: 'rgba(0,48,120,0.3)'
-        color: [255, 221, 0, 1]
+        color: [255, 221, 0, 0.6]
       }),
       stroke: new ol.style.Stroke({
         //color: 'rgba(0,48,120,1)',
@@ -154,6 +158,31 @@ draw_layer_styles = {
       }),
       radius: 5
     }),
+    // SHOW_CHARGE
+    7:  new ol.style.Style({
+      fill: new ol.style.Fill({
+        color: [255, 255, 255, 0.25]
+      }),
+      stroke: new ol.style.Stroke({
+        color: '#0658e5',
+        width: 2
+      }),
+      radius: 5
+    }),
+    // FADE
+    8:  new ol.style.Style({
+      fill: new ol.style.Fill({
+        color: [255, 255, 255, 0]
+      }),
+      stroke: new ol.style.Stroke({
+       // color: '#b1b4b6',
+        color: [255, 255, 255, 0],
+        width: 1
+      }),
+      radius: 5
+    }),
+
+
     // New styles with HATCHING
     
     // DRAW | add (with HATCHING)
