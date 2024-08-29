@@ -6,7 +6,7 @@
 
     <ul class="govuk-list">
     {% for charge in item.charges %}
-      <li class="charge govuk-body-s">
+      <li id="charge_{{loop.index}}" class="charge govuk-body-s">
         <a class="govuk-link govuk-link--no-visited-state" href="view-charge">{{ charge.authorityReference }}</a>
         <br/>
         {{ charge.location | safe }}

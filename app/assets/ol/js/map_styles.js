@@ -31,6 +31,8 @@ draw_layer_styles = {
   HIDDEN: 4,
   // Hover
   HOVER: 5,
+  // Hover
+  HIGHLIGHT: 6,
   // Associated Feature Styles for mode
   style: {
 
@@ -139,6 +141,19 @@ draw_layer_styles = {
             }),
             radius: 5
           }),
+    // HIGHLIGHT
+    6:  new ol.style.Style({
+      fill: new ol.style.Fill({
+        //color: 'rgba(0,48,120,0.3)'
+        color: [255, 221, 0, 1]
+      }),
+      stroke: new ol.style.Stroke({
+        //color: 'rgba(0,48,120,1)',
+        color: '#0b0c0c',
+        width: 3
+      }),
+      radius: 5
+    }),
     // New styles with HATCHING
     
     // DRAW | add (with HATCHING)
