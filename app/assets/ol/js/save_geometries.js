@@ -46,7 +46,7 @@ function load_previous_data(information) {
                 const view = map.getView();
                 const zoom = view.getZoom();
                 // then zoom out slightly to show the context / surrounding area
-                view.setZoom(zoom - 1.5)
+                view.setZoom(zoom - 1)
             }
         } catch (e) {
         }
