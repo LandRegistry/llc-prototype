@@ -387,6 +387,15 @@
     loadSampleData();
   });
 
+  $('#reference').keypress(function(e) {
+  if(e.which == 13) {
+    console.log('click');
+    // enter pressed
+    window.location.href = "reference-number-results";
+  }
+});
+
+
   $('#findBtn').click(function(event) {
     console.log('click');
     const view = map.getView();
