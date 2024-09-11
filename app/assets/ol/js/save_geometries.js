@@ -63,6 +63,8 @@ function load_fake_data(information) {
             var features = new ol.format.GeoJSON().readFeatures(information, options);
 
             MAP_CONFIG.draw_source.addFeatures(features);
+            MAP_CONFIG.charge_source.addFeatures(features);
+            
             // default style without hatching
             //MAP_CONFIG.draw_layer.setStyle(draw_layer_styles.style[draw_layer_styles.DRAW])
 

@@ -36,6 +36,17 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
         style: draw_layer_styles.style[draw_layer_styles.DRAW],
         zIndex: MAP_CONFIG.draw_layer_zindex
     });
+    // add charge highlight layer
+    MAP_CONFIG.charge_features = new ol.Collection();
+    MAP_CONFIG.charge_source = new ol.source.Vector({
+        features: MAP_CONFIG.charge_features
+    });
+    MAP_CONFIG.charge_layer = new ol.layer.Vector({
+        source: MAP_CONFIG.charge_source,
+        style: draw_layer_styles.style[draw_layer_styles.EDIT],
+        zIndex: MAP_CONFIG.highlighted_charge_layer_zindex
+    });
+
     MAP_CONFIG.projection = ol.proj.get('EPSG:27700');
     // Fixed resolutions to display the map at (pixels per ground unit (meters when
     // the projection is British National Grid))
