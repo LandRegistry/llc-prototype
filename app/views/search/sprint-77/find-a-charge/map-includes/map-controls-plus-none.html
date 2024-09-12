@@ -1,19 +1,8 @@
 <div class="govuk-grid-row govuk-!-padding-top-2">
       <div class="govuk-grid-column-full">
-        <h2 class="govuk-heading-m">Map edit mode</h2>
+        <h2 class="govuk-heading-s">Map edit mode</h2>
         <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="none" name="edit-mode" type="radio" value="none"
-            aria-describedby="none-hint" checked>
-            <label class="govuk-label govuk-radios__label" for="none">
-              <span class="">
-                None
-              </span>
-            </label>
-            <div id="none-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ selectHint }}
-            </div>
-          </div>
+
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
             aria-describedby="select-area-hint" checked>
@@ -63,6 +52,18 @@
               {{ deleteHint }}
             </div>
           </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="none" name="edit-mode" type="radio" value="none"
+            aria-describedby="none-hint" checked>
+            <label class="govuk-label govuk-radios__label" for="none">
+              <span class="">
+                Show charges
+              </span>
+            </label>
+            <div id="none-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ selectHint }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,7 +88,7 @@
 
 
 
-    <div class="govuk-grid-row govuk-!-padding-bottom-2">
+    <div class="govuk-grid-row ">
       <div class="govuk-grid-column-full govuk-!-padding-top-3">
 
         <div class="govuk-button-group">
@@ -105,10 +106,10 @@
     </div>
 
 
-    {{ govukButton({
+<!--     {{ govukButton({
       id:"search-btn",
       text: "Search this area",
       href:"#"
-    }) }}
+    }) }} -->
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible ">
