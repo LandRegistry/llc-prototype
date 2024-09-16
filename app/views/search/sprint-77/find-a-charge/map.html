@@ -108,6 +108,18 @@
 #import_search, #upload{
   margin-bottom: 0px;
 }
+.align-right {
+  position: absolute;
+  right: 0px;
+}
+.govuk-footer-x{
+  border-top: 1px solid #b1b4b6;
+  color: #0b0c0c;
+  background: #f3f2f1;
+}
+.govuk-list{
+  font-size: 16px;
+}
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -124,10 +136,51 @@
     <h2 class="govuk-heading-m">
       24 results
     </h2>   
-      {% set categories = data.charges.categories %}
-      {% include "./map-includes/filters.html" %}
-      {% include "./map-includes/results.html" %}
-    </div> 
+    {% set categories = data.charges.categories %}
+    {% include "./map-includes/filters.html" %}
+    {% include "./map-includes/results.html" %}
+
+
+
+    
+    <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+      <div class="govuk-width-container">
+
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Accessibility statement</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Cookies</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Conditions of use</a>
+          </li>
+          <li>
+            <span class="govuk-footer__licence-description">
+              All content is available under the
+              <a
+                class="govuk-footer__link"
+                href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+                rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+            </span
+          </li>
+          <li>
+            <a
+              class="govuk-footer__link govuk-footer__copyright-logo-x"
+              href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+              © Crown copyright
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </footer>
+
+  </div> 
     
 
 
@@ -159,7 +212,7 @@
         </div>
       </noscript>
     </div>
-    <div class=" govuk-!-padding-top-3 ">
+    <div class=" govuk-!-padding-top-2">
       <div class="govuk-heading-s ">
         Map key
 
@@ -171,6 +224,9 @@
           alt="Location not available key" height="19" width="19">
         <span class="map-key-text govuk-body-s">Location not available</span>
 
+        <span class="govuk-body-s align-right">
+          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and conditions</a>
+        </span>
       </div>
     </div>
 
