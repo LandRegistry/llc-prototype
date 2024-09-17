@@ -12,20 +12,16 @@
 {% set containerClasses = "full-width" %}
 
 
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
 {% block content %}
 <style>
-    .govuk-main-wrapper {
-    padding-top: 10px;
-    padding-bottom: 0;
-  }
-
   .govuk-width-container{
-    max-width:98%;
-    width:98%;
-  }
-
-  .govuk-footer {
-    display:none;
+    max-width:99%;
+    width:99%;
   }
 
   .charge{
@@ -59,22 +55,6 @@
   #map{
     height:1000px;
   }
-  .govuk-button-group{
-    margin-bottom:0;
-  }
-
-  .align-right {
-  position: absolute;
-  right: 0px;
-}
-.govuk-footer-x{
-  border-top: 1px solid #b1b4b6;
-  color: #0b0c0c;
-  background: #f3f2f1;
-}
-.govuk-list{
-  font-size: 16px;
-}
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -90,44 +70,9 @@
 
     {% include "./map-includes/search-add-charge.html" %}
 
-    {% include "./map-includes/map-controls-add-charge.html" %}
+    {% include "./map-includes/map-controls-add-charge-v1.html" %}
 
-    <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
-      <div class="govuk-width-container">
-
-        <ul class="govuk-list">
-          <li>
-            <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
-          </li>
-          <li>
-            <a class="govuk-footer__link" href="#">Accessibility statement</a>
-          </li>
-          <li>
-            <a class="govuk-footer__link" href="#">Cookies</a>
-          </li>
-          <li>
-            <a class="govuk-footer__link" href="#">Conditions of use</a>
-          </li>
-          <li>
-            <span class="govuk-footer__licence-description">
-              All content is available under the
-              <a
-                class="govuk-footer__link"
-                href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-                rel="license">Open Government Licence v3.0</a>, except where otherwise stated
-            </span
-          </li>
-          <li>
-            <a
-              class="govuk-footer__link govuk-footer__copyright-logo-x"
-              href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
-              © Crown copyright
-            </a>
-          </li>
-        </ul>
-
-      </div>
-    </footer>
+    
 
 
     </div> 
@@ -333,10 +278,9 @@
   $( document ).ready(function() {
 
     // hack the map height
-    let page_height = Math.floor($(window).height());
-    $("#map").css("height", page_height - 130);    
-    $("#container").css("height", page_height - 120);    
-    $('.scroll').css('height', page_height - 100);
+    let map_height = Math.floor($(window).height());
+    $("#map").css("height", map_height);    
+    $('.scroll').css('height', map_height);
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
@@ -344,9 +288,6 @@
     //hide the postcode list
     $('#address-list').hide();
     $('#selected-address').hide();
-
-    // trigger map resize
-    window.dispatchEvent(new Event('resize'));
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
