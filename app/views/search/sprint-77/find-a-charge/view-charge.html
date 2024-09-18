@@ -8,6 +8,8 @@
 {% include "includes/language-switcher-heading.html" %}
 {% endblock %}
 
+{% set categories = data.charges.categories %}
+
 {% block content %}
 <style>
    .govuk-summary-list__actions {
@@ -36,7 +38,10 @@
           <a class="govuk-link" href="#">Update quality check results</a>
         </li>
       </ul>
-
+{% set category = 0 %}
+{% if index|length == 0%}
+{% set index = 0 %}
+{% endif %}
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -44,7 +49,7 @@
             HM Land Registry reference
           </dt>
           <dd class="govuk-summary-list__value">
-            LLC-88X
+            {{ categories[category].charges[index].hmlrReference  }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -54,7 +59,7 @@
             Category
           </dt>
           <dd class="govuk-summary-list__value">
-            Planning
+            {{ categories[category].category  }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -64,7 +69,7 @@
             Planning category
           </dt>
           <dd class="govuk-summary-list__value">
-            Conditional planning consent
+            {{ categories[category].charges[index].subcategory  }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -74,7 +79,7 @@
             Law
           </dt>
           <dd class="govuk-summary-list__value">
-            Town and Country Planning Act 1990 section 70
+            {{ categories[category].charges[index].law  }}
           </dd>
           <dd class="govuk-summary-list__actions">
             
@@ -85,7 +90,7 @@
             Legal document
           </dt>
           <dd class="govuk-summary-list__value">
-            Planning permission
+            {{ categories[category].charges[index].legalDocument  }}
           </dd>
           <dd class="govuk-summary-list__actions">
             
@@ -96,8 +101,7 @@
             Description
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">Historic England list entry number:1386457
-              Conversion of upper floors to 2 self-contained apartments and function room/store room ancillary to ground floor uses (Class E) and associated internal and external alterations, inc. insertion of dormer window in roof and roof terrace</p>
+            <p class="govuk-body">{{ categories[category].charges[index].description  }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="charge-description">Change<span class="govuk-visually-hidden"> description</span></a>
@@ -108,7 +112,7 @@
             Originating authority
           </dt>
           <dd class="govuk-summary-list__value">
-            Bannau Brycheiniog (Brecon Beacons) National Park
+            {{ categories[category].charges[index].authorityReference  }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -118,7 +122,7 @@
             Registered on
           </dt>
           <dd class="govuk-summary-list__value">
-            9 December 2021
+            {{ categories[category].charges[index].registrationDate  }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -128,7 +132,7 @@
             Last updated
           </dt>
           <dd class="govuk-summary-list__value">
-            16 December 2021
+            20 May 1987
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">View history</a>
@@ -139,9 +143,7 @@
             Location
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">25 Union Street<br/>
-              Exeter<br/>
-              EX2 9BB</p>
+            <p class="govuk-body">{{ categories[category].charges[index].location  }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -182,7 +184,7 @@
             Creation date
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">1 December 2021</p>
+            <p class="govuk-body">{{ categories[category].charges[index].creationDate  }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="date-of-charge">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -194,7 +196,7 @@
             Expiry date
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">Does not expire</p>
+            <p class="govuk-body">{{ categories[category].charges[index].expiryDate  }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="charge-expire">Change<span class="govuk-visually-hidden"> contact details</span></a>
@@ -220,7 +222,7 @@
             Authority reference
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">OOA_LLC_noQs_21022020charge_ref_F5.263/REC_ID#50173</p>
+            <p class="govuk-body">{{ categories[category].charges[index].authorityReference  }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="source-information">Change<span class="govuk-visually-hidden"> </span></a>
