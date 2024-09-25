@@ -314,6 +314,18 @@
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
 
+    // add map event listeners to hide area on mouse out
+    map.getViewport().addEventListener('mouseover', function(event){
+          console.info('out');
+          //MAP_CONFIG.draw_source.clear();
+          MASTER_MAP_VECTOR_LAYER.enable()
+      }, false);
+      map.getViewport().addEventListener('mouseout', function(event){
+          console.info('out');
+          //MAP_CONFIG.draw_source.clear();
+          MASTER_MAP_VECTOR_LAYER.disable()
+      }, false);
+
 
 
     //zoom out to hack bounds box
