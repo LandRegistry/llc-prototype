@@ -1,0 +1,170 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Search results for 9 Newbury Street London EC1A 7HU - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<script src="/public/ol/js/jquery.min.js"></script>
+<script>
+  // Reads value of input and filters content
+  function updateRows () {
+    var value = searchInput.val();
+    var hiddenRows = 0
+    var length = tableRows.length
+console.log("  ");
+
+    for (var i = 0; i < length; i++) {
+      
+      if (tableRowsContent[i].includes(value.toUpperCase())) {
+        console.log(tableRows[i]);
+        $(tableRows[i]).removeClass(hiddenClass)
+      } else {
+        $(tableRows[i]).addClass(hiddenClass)
+        hiddenRows++
+      }
+    }
+    $(filterCount).text((length - hiddenRows) + ' ' + filterCountText);
+
+
+    if (length === hiddenRows) {
+      message.removeClass(hiddenClass)
+      filterCount.addClass(hiddenClass)
+    } else {
+      message.addClass(hiddenClass)
+      filterCount.removeClass(hiddenClass)
+    }
+    if(hiddenRows===0){
+      filterCount.addClass(hiddenClass)
+    }
+
+  }
+
+  function initFilter(){
+
+    searchInput = $('input[name="filter"]');
+    tableRows = $('.js-govuk-table__row')
+    filter = $('.js-gem-c-table__filter')
+    filterCount = $('.js-filter-count')
+    message = $('.js-gem-c-table__message')
+    hiddenClass = 'govuk-visually-hidden'
+    filterCountText = filterCount.attr('data-count-text')
+    tableRowsContent = []
+    
+    for (var i = 0; i < tableRows.length; i++) {
+      tableRowsContent.push(tableRows[i].textContent.toUpperCase())
+    }
+    
+
+    searchInput.bind('input', function() { 
+      updateRows()
+    });
+
+  }
+  
+</script>
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-!-margin-bottom-3">
+      <h1 class="govuk-heading-l">
+        Search area results
+      </h1>
+
+      <p class="govuk-body">There are 42 local land charges matching this address.</p>
+
+      <!-- <p class="govuk-body">Charges registered outside your area</p> -->
+    </div>
+
+    
+      <label for="input-b69e8c06" class="gem-c-label govuk-label">Filter charges </label>
+
+    
+      <input aria-describedby="filter-count-id-7d681418" aria-controls="table-id-e121fc96" class="gem-c-input govuk-input govuk-!-width-two-thirds" id="input-b69e8c06" name="filter" spellcheck="false" type="text">
+  
+  
+        <p id="filter-count-id-7d681418" aria-live="polite" class="js-filter-count govuk-visually-hidden" data-count-text="results for the term entered"></p>
+  
+        {% set categories = data.charges.categories %}
+
+        <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+        <table class="govuk-table ">
+            <!-- <caption class="govuk-table__caption govuk-table__caption--m">Search results for EC1A 7HU</caption> -->
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">HMLR reference</th>
+                <th scope="col" class="govuk-table__header">Authority reference</th>
+                <th scope="col" class="govuk-table__header">Location</th>
+                <th scope="col" class="govuk-table__header">Description</th>
+                <th scope="col" class="govuk-table__header">Charge type</th>
+                <th scope="col" class="govuk-table__header">Registration date</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            {%set count = 0 %}
+            {% for item in categories %}
+            {% for charge in item.charges %}
+            {% set count = count+1 %}
+
+              <tr class="govuk-table__row js-govuk-table__row">
+                <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+                  {{ charge.hmlrReference }}</a></td>
+                <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+                <td class="govuk-table__cell">{{ charge.location | safe }}</td>
+                <td class="govuk-table__cell">{{ charge.description }}</td>
+                <td class="govuk-table__cell">{{ item.category }}</td>
+                <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
+              </tr>
+
+            {% endfor %}
+            {% endfor %}
+
+            {% for item in categories %}
+            {% for charge in item.charges %}
+            {% set count = count+1 %}
+
+              <tr class="govuk-table__row js-govuk-table__row">
+                <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+                  {{ charge.hmlrReference }}</a></td>
+                <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+                <td class="govuk-table__cell">{{ charge.location | safe }}</td>
+                <td class="govuk-table__cell">{{ charge.description }}</td>
+                <td class="govuk-table__cell">{{ item.category }}</td>
+                <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
+              </tr>
+
+            {% endfor %}
+            {% endfor %}
+            </tbody>
+          </table>
+          <p class="govuk-body govuk-visually-hidden js-gem-c-table__message">There are no matching results</p>
+    </div>
+
+
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Start a new search</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+</div>
+{% include "./map-includes/search-links.html" %}
+
+<script>
+  initFilter();
+</script>
+{% endblock %}

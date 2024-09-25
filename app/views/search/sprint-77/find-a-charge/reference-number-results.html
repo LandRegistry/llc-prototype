@@ -66,7 +66,11 @@
 
 
       <div>
-        <a class="govuk-link govuk-link--no-visited-state" href="map">Start a new search</a>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Start a new search</a>
+          </li>
+        </ul>
       </div>
   </div>
 
@@ -76,4 +80,5 @@
 
 
 </div>
+{% include "./map-includes/search-links.html" %}
 {% endblock %}

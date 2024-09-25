@@ -37,6 +37,7 @@
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">HMLR reference</th>
             <th scope="col" class="govuk-table__header">Authority reference</th>
+            <th scope="col" class="govuk-table__header">Location</th>
             <th scope="col" class="govuk-table__header">Description</th>
             <th scope="col" class="govuk-table__header">Charge type</th>
             <th scope="col" class="govuk-table__header">Registration date</th>
@@ -52,6 +53,7 @@
             <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
               {{ charge.hmlrReference }}</a></td>
             <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+            <td class="govuk-table__cell">{{ charge.location | safe }}</td>
             <td class="govuk-table__cell">{{ charge.description }}</td>
             <td class="govuk-table__cell">{{ item.category }}</td>
             <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
