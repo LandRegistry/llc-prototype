@@ -64,17 +64,17 @@
   }
 
   .align-right {
-  position: absolute;
-  right: 0px;
-}
-.govuk-footer-x{
-  border-top: 1px solid #b1b4b6;
-  color: #0b0c0c;
-  background: #f3f2f1;
-}
-.govuk-list{
-  font-size: 16px;
-}
+    position: absolute;
+    right: 0px;
+  }
+  .govuk-footer-x{
+    border-top: 1px solid #b1b4b6;
+    color: #0b0c0c;
+    background: #f3f2f1;
+  }
+  .govuk-list{
+    font-size: 16px;
+  }
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -162,7 +162,7 @@
         </div>
       </noscript>
     </div>
-    <div class=" govuk-!-padding-top-3 ">
+    <div class=" govuk-!-padding-top-2">
       <div class="govuk-heading-s ">
         Map key
 
@@ -174,6 +174,9 @@
           alt="Location not available key" height="19" width="19">
         <span class="map-key-text govuk-body-s">Location not available</span>
 
+        <span class="govuk-body-s align-right">
+          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and conditions</a>
+        </span>
       </div>
     </div>
 
@@ -347,6 +350,7 @@
 
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
+
     // add map event listeners to hide area on mouse out
     map.getViewport().addEventListener('mouseover', function(event){
          //MAP_CONFIG.draw_source.clear();
