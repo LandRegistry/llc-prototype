@@ -37,12 +37,12 @@
 
   .charge{
     padding: 4px;
-    border: 4px solid #fff;
+    border-left: 8px solid #fff;
   }
 
   .charge:hover{
-    background-color: #ffdd00;
-    border: 4px solid #0b0c0c;
+    border-left: 8px solid #ffdd00;
+    /* border: 4px solid #0b0c0c; */
 
   }
   .scroll{
@@ -73,7 +73,9 @@
     padding: 2px;
     margin: 0;
   }
-
+  .govuk-button-group{
+    margin-bottom:0;
+  }
   .search-field {
     height: 38px;
   }
@@ -111,9 +113,6 @@
   right: 0px;
 }
 .govuk-footer-x{
-  position: absolute;
-  bottom: 0;
-  width: 18%;
   border-top: 1px solid #b1b4b6;
   color: #0b0c0c;
   background: #f3f2f1;
@@ -130,16 +129,16 @@
 
     <h2 class="govuk-heading-m">Find a charge</h2>
 
-    {#% include "./map-includes/search-with-address.html" %#}
+    {% include "./map-includes/search-with-address.html" %}
 
-    {% include "./map-includes/map-controls-plus-button.html" %}
+    {% include "./map-includes/map-controls-plus-none.html" %}
 
-    <!-- <h2 class="govuk-heading-m">
+    <h2 class="govuk-heading-m">
       24 results
-    </h2>    -->
+    </h2>   
     {% set categories = data.charges.categories %}
-    {#% include "./map-includes/filters.html" %}
-    {% include "./map-includes/results.html" %#}
+    {% include "./map-includes/filters.html" %}
+    {% include "./map-includes/results-v2.html" %}
 
 
 
@@ -333,17 +332,15 @@
 
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
-
-    // add map event listeners to hide area on mouse out
-     map.getViewport().addEventListener('mouseover', function(event){
+        // add map event listeners to hide area on mouse out
+        map.getViewport().addEventListener('mouseover', function(event){
          //MAP_CONFIG.draw_source.clear();
           MASTER_MAP_VECTOR_LAYER.enable()
       }, false);
       map.getViewport().addEventListener('mouseout', function(event){
          //MAP_CONFIG.draw_source.clear();
           MASTER_MAP_VECTOR_LAYER.disable()
-      }, false); 
-
+      }, false);
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
@@ -373,7 +370,6 @@
   
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
-
 
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
@@ -422,18 +418,16 @@
   )
   });
 
-  
-
   let isShowingCharges = false;
 
-/*   map.on('click', function(event) {
+  map.on('click', function(event) {
     console.log('click');
     if(!isShowingCharges){
       isShowingCharges = true;
       loadSampleData();
       //loadSampleData();
     }
-  }); */
+  });
 
   $('#reference').keypress(function(e) {
   if(e.which == 13) {
