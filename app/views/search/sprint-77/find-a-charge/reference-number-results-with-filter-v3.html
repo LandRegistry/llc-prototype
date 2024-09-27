@@ -1,0 +1,263 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Search results for 9 Newbury Street London EC1A 7HU - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% set categories = ["Planning", "Financial", "Listed building", "Land compensation", "Housing / buildings", "Light obstruction notice", "Other", "For information only"]%}
+{% set authorities = ["None", "City of London Corporation", "Richmond District Council", "City of Westminster", "Tower Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
+
+{% block content %}
+<style>
+  .das-pane {
+  padding: 15px;
+  background: #f3f2f1;
+}
+
+.govuk-checkboxes__label{
+  font-size: 16px;
+}
+</style>
+<script src="/public/ol/js/jquery.min.js"></script>
+<script>
+  // Reads value of input and filters content
+  function updateRows () {
+    var value = searchInput.val();
+    var hiddenRows = 0
+    var length = tableRows.length
+console.log("  ");
+
+    for (var i = 0; i < length; i++) {
+      
+      if (tableRowsContent[i].includes(value.toUpperCase())) {
+        console.log(tableRows[i]);
+        $(tableRows[i]).removeClass(hiddenClass)
+      } else {
+        $(tableRows[i]).addClass(hiddenClass)
+        hiddenRows++
+      }
+    }
+    $(filterCount).text((length - hiddenRows) + ' ' + filterCountText);
+
+
+    if (length === hiddenRows) {
+      message.removeClass(hiddenClass)
+      filterCount.addClass(hiddenClass)
+    } else {
+      message.addClass(hiddenClass)
+      filterCount.removeClass(hiddenClass)
+    }
+    if(hiddenRows===0){
+      filterCount.addClass(hiddenClass)
+    }
+
+  }
+
+  function initFilter(){
+
+    searchInput = $('input[name="filter"]');
+    tableRows = $('.js-govuk-table__row')
+    filter = $('.js-gem-c-table__filter')
+    filterCount = $('.js-filter-count')
+    message = $('.js-gem-c-table__message')
+    hiddenClass = 'govuk-visually-hidden'
+    filterCountText = filterCount.attr('data-count-text')
+    tableRowsContent = []
+    
+    for (var i = 0; i < tableRows.length; i++) {
+      tableRowsContent.push(tableRows[i].textContent.toUpperCase())
+    }
+    
+
+    searchInput.bind('input', function() { 
+      updateRows()
+    });
+
+  }
+  
+</script>
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-!-margin-bottom-3">
+      <h1 class="govuk-heading-l">
+        Search area results
+      </h1>
+
+      <p class="govuk-body">There are 42 local land charges matching this address.</p>
+
+      <!-- <p class="govuk-body">Charges registered outside your area</p> -->
+    </div>
+
+    <div>
+      <form method="get" action="">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="das-pane govuk-!-margin-bottom-3">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="selectedEmployer">Category</label>
+                    <select class="govuk-select govuk-!-width-full" id="selectedEmployer" name="selectedEmployer">
+                      <option label="All" aria-label="All employers" value="">All</option>
+                      
+                      {% for item in categories %}
+                      <option value="updated" >{{item}}</option>
+                      {% endfor%}
+                    </select>
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="selectedCourse">Subcategory</label>
+                    <select class="govuk-select govuk-!-width-full" id="selectedCourse" name="selectedCourse">
+                      <option value="published" selected>All subcategories</option>
+              
+                      <option value="updated">Conditional planning consent</option>
+                      <option value="updated">Conservation area</option>
+                      <option value="updated">Enforcement notice</option>
+                      <option value="updated">Modification / rectification orders</option>
+                      <option value="updated">No permitted development / article 4 </option>
+                      <option value="updated">Planning agreement</option>
+                      <option value="updated">Planning notice</option>
+                      <option value="updated">Tree preservation order (TPO)</option>
+                      
+                                          
+                    </select>
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  <div class="govuk-form-group">
+
+                    <div data-module="option-select-oa" class="option-select js-collapsible" data-option-select-module-started="true">
+                      <h3 class="option-select__heading js-container-heading">
+                        <button class="js-container-button option-select__title option-select__button" type="button" aria-expanded="true" id="option-select-title-oa" aria-controls="list_of_oas">Originating authorities</button>
+                        <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="option-select__icon option-select__icon--up" aria-hidden="true" focusable="false"><path d="m798.16 609.84l-256-256c-16.683-16.683-43.691-16.683-60.331 0l-256 256c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.84-225.84 225.84 225.84c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331z"></path></svg>
+                        <svg version="1.1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="0" height="0" class="option-select__icon option-select__icon--down" aria-hidden="true" focusable="false"><path d="m225.84 414.16l256 256c16.683 16.683 43.691 16.683 60.331 0l256-256c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.84 225.84-225.84-225.84c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path></svg>
+                      </h3>
+                    
+                     
+                      <div class="option-select__container js-options-container" id="list_of_oas" tabindex="-1" style="height: 165px;">
+                        <div class="option-select__container-inner js-auto-height-inner">
+                          
+                    <div id="checkboxes-dd7c3a36" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-module-started="true">
+                          <fieldset class="govuk-fieldset">
+                            {% for item in authorities %}
+                      <option value="updated" ></option>
+                      <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                        <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input">
+                        <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+                        </div>
+                      </div>  
+                      {% endfor%}
+
+
+
+                   
+                    </fieldset>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <button class="govuk-button govuk-!-margin-0" type="submit">Apply filters</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+<!-- <div>
+  <label for="input-b69e8c06" class="gem-c-label govuk-label">Filter charges </label>
+  
+  <input aria-describedby="filter-count-id-7d681418" aria-controls="table-id-e121fc96" class="gem-c-input govuk-input govuk-!-width-two-thirds" id="input-b69e8c06" name="filter" spellcheck="false" type="text">
+  
+  <p id="filter-count-id-7d681418" aria-live="polite" class="js-filter-count govuk-visually-hidden" data-count-text="results for the term entered"></p>
+</div> -->
+  
+        {% set categories = data.charges.categories %}
+
+        <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+        <table class="govuk-table ">
+            <!-- <caption class="govuk-table__caption govuk-table__caption--m">Search results for EC1A 7HU</caption> -->
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">HMLR reference</th>
+                <th scope="col" class="govuk-table__header">Authority reference</th>
+                <th scope="col" class="govuk-table__header">Location</th>
+                <th scope="col" class="govuk-table__header">Description</th>
+                <th scope="col" class="govuk-table__header">Charge type</th>
+                <th scope="col" class="govuk-table__header">Registration date</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            {%set count = 0 %}
+            {% for item in categories %}
+            {% for charge in item.charges %}
+            {% set count = count+1 %}
+
+              <tr class="govuk-table__row js-govuk-table__row">
+                <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+                  {{ charge.hmlrReference }}</a></td>
+                <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+                <td class="govuk-table__cell">{{ charge.location | safe }}</td>
+                <td class="govuk-table__cell">{{ charge.description }}</td>
+                <td class="govuk-table__cell">{{ item.category }}</td>
+                <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
+              </tr>
+
+            {% endfor %}
+            {% endfor %}
+
+            {% for item in categories %}
+            {% for charge in item.charges %}
+            {% set count = count+1 %}
+
+              <tr class="govuk-table__row js-govuk-table__row">
+                <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+                  {{ charge.hmlrReference }}</a></td>
+                <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+                <td class="govuk-table__cell">{{ charge.location | safe }}</td>
+                <td class="govuk-table__cell">{{ charge.description }}</td>
+                <td class="govuk-table__cell">{{ item.category }}</td>
+                <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
+              </tr>
+
+            {% endfor %}
+            {% endfor %}
+            </tbody>
+          </table>
+          <p class="govuk-body govuk-visually-hidden js-gem-c-table__message">There are no matching results</p>
+    </div>
+
+
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Start a new search</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+</div>
+{% include "./map-includes/search-links.html" %}
+
+<script>
+  initFilter();
+</script>
+{% endblock %}
