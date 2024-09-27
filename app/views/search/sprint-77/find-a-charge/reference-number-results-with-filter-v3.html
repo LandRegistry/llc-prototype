@@ -144,7 +144,7 @@
             <div class="das-pane govuk-!-margin-bottom-3">
               <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
-                  <h2 class="govuk-heading-m"> Filters</h2>
+                  <h2 class="govuk-heading-m">Filters</h2>
                 </div>
 
               </div>
@@ -263,7 +263,7 @@
                   {{ charge.hmlrReference }}</a></td>
                 <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
                 <td class="govuk-table__cell">{{ charge.location | safe }}</td>
-                <td class="govuk-table__cell">{{ charge.description | truncate(150)}}</td>
+                <td class="govuk-table__cell">{{ charge.description | truncate(150) }}</td>
                 <td class="govuk-table__cell">{{ item.category }}</td>
                 <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
               </tr>
@@ -280,7 +280,7 @@
                   {{ charge.hmlrReference }}</a></td>
                 <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
                 <td class="govuk-table__cell">{{ charge.location | safe }}</td>
-                <td class="govuk-table__cell">{{ charge.description }}</td>
+                <td class="govuk-table__cell">{{ charge.description | truncate(150) }}</td>
                 <td class="govuk-table__cell">{{ item.category }}</td>
                 <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
               </tr>
