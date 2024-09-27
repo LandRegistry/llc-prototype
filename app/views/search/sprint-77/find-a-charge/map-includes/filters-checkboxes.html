@@ -17,6 +17,26 @@
   margin-left:20px;
 }
 </style>
+
+<script src="/public/ol/js/jquery.min.js"></script>
+<script>
+  function initFilter(){
+    console.log('init filter');
+
+    $('.govuk-checkboxes__input').change(function(evt) {
+      console.log(this);
+      console.log($(this).val());
+      let groupClass = '.'+ $(this).val();
+      let isChecked = $(this).prop('checked');
+      console.log(groupClass,isChecked);
+      console.log($(groupClass));
+      
+      $(groupClass).prop('checked', isChecked);
+    });
+  }
+</script>
+
+
 <div id="categories" data-module="option-select" class="option-select js-collapsible" data-option-select-module-started="true">
   <h3 class="option-select__heading js-container-heading">
     <button class="js-container-button option-select__title option-select__button" type="button" aria-expanded="true" id="option-select-title-category" aria-controls="list_of_categories">Categories</button>
@@ -38,17 +58,17 @@
 
           <div class="govuk-form-group govuk-checkboxes--small">
             <fieldset class="govuk-fieldset">
-            {% for item in categories %}
+            {% for cat in categories %}
             <div class="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-              <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input" checked>
-              <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+              <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("/", "-") }}" class="govuk-checkboxes__input" checked>
+              <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
               </div>
             </div>  
             {% for item in subcategories[loop.index0] %}
             <div class="govuk-checkboxes subcategory">
               <div class="govuk-checkboxes__item">
-              <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input" checked>
+              <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input {{cat | replace(" ", "") | replace("/", "-")}}" checked>
               <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
               </div>
             </div>  

@@ -65,60 +65,20 @@
 </style>
 <script src="/public/ol/js/jquery.min.js"></script>
 <script>
-  // Reads value of input and filters content
-  function updateRows () {
-    var value = searchInput.val();
-    var hiddenRows = 0
-    var length = tableRows.length
-
-    for (var i = 0; i < length; i++) {
-      
-      if (tableRowsContent[i].includes(value.toUpperCase())) {
-        console.log(tableRows[i]);
-        $(tableRows[i]).removeClass(hiddenClass)
-      } else {
-        $(tableRows[i]).addClass(hiddenClass)
-        hiddenRows++
-      }
-    }
-    $(filterCount).text((length - hiddenRows) + ' ' + filterCountText);
-
-
-    if (length === hiddenRows) {
-      message.removeClass(hiddenClass)
-      filterCount.addClass(hiddenClass)
-    } else {
-      message.addClass(hiddenClass)
-      filterCount.removeClass(hiddenClass)
-    }
-    if(hiddenRows===0){
-      filterCount.addClass(hiddenClass)
-    }
-
-  }
-
   function initFilter(){
+    console.log('init filter');
 
-    searchInput = $('input[name="filter"]');
-    tableRows = $('.js-govuk-table__row')
-    filter = $('.js-gem-c-table__filter')
-    filterCount = $('.js-filter-count')
-    message = $('.js-gem-c-table__message')
-    hiddenClass = 'govuk-visually-hidden'
-    filterCountText = filterCount.attr('data-count-text')
-    tableRowsContent = []
-    
-    for (var i = 0; i < tableRows.length; i++) {
-      tableRowsContent.push(tableRows[i].textContent.toUpperCase())
-    }
-    
-
-    searchInput.bind('input', function() { 
-      updateRows()
+    $('.govuk-checkboxes__input').change(function(evt) {
+      console.log(this);
+      console.log($(this).val());
+      let groupClass = '.'+ $(this).val();
+      let isChecked = $(this).prop('checked');
+      console.log(groupClass,isChecked);
+      console.log($(groupClass));
+      
+      $(groupClass).prop('checked', isChecked);
     });
-
   }
-  
 </script>
 
 
@@ -155,24 +115,34 @@
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="selectedEmployer">Category</label>
                     <div class="container">
+
+                      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap" aria-describedby="snap-to-map-hint" checked>
+                          <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+                            Select all categories
+                          </label>
+                        </div>
+                      </div>
+
                       <div class="govuk-form-group govuk-checkboxes--small">
                         <fieldset class="govuk-fieldset">
-                        {% for item in categories %}
-                        <div class="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                          <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input">
-                          <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
-                          </div>
-                        </div>  
-                        {% for item in subcategories[loop.index0] %}
-                        <div class="govuk-checkboxes subcategory">
-                          <div class="govuk-checkboxes__item">
-                          <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input">
-                          <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
-                          </div>
-                        </div>  
-                        {% endfor%}
-                        {% endfor%}
+                          {% for cat in categories %}
+                          <div class="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                            <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("/", "-") }}" class="govuk-checkboxes__input" checked>
+                            <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
+                            </div>
+                          </div>  
+                          {% for item in subcategories[loop.index0] %}
+                          <div class="govuk-checkboxes subcategory">
+                            <div class="govuk-checkboxes__item">
+                            <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input {{cat | replace(" ", "") | replace("/", "-")}}" checked>
+                            <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+                            </div>
+                          </div>  
+                          {% endfor%}
+                          {% endfor%}
   
                         </fieldset>
                       </div>
