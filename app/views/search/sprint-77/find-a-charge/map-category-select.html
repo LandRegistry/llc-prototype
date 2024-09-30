@@ -36,15 +36,15 @@
   }
 
   .charge{
-/*     padding: 4px;
-    border: 4px solid #fff; */
+    padding: 4px;
+    border: 4px solid #fff;
   }
 
-/*   .charge:hover{
+  .charge:hover{
     background-color: #ffdd00;
     border: 4px solid #0b0c0c;
 
-  } */
+  }
   .scroll{
     height: 720px;
     overflow-x: none;
@@ -121,7 +121,6 @@
   font-size: 16px;
 }
 </style>
-<!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
 <div id="container" class="govuk-grid-row">
 
@@ -137,7 +136,7 @@
       24 results
     </h2>   
     {% set categories = data.charges.categories %}
-    {% include "./map-includes/filters-checkboxes.html" %}
+    {% include "./map-includes/filters.html" %}
     {% include "./map-includes/results.html" %}
 
 
@@ -1047,5 +1046,9 @@ function loadSampleData(){
     
 }
 
+</script>
+<script>
+  initFilter();
+</script>
 </script>
 {% endblock %}
