@@ -1,0 +1,126 @@
+{% set categories = ["Planning", "Financial", "Listed building", "Land compensation", "Housing / buildings", "Light
+obstruction notice", "Other", "For information only"]%}
+{# create array of sub cats to match cats #}
+{% set subcategories = [
+["Conditional planning consent", "Conservation area", "Enforcement notice", "Modification / rectification order", "No
+permitted development / article 4", "Planning agreement", "Planning notice", "Tree preservation order (TPO)"],
+[],
+["Enforcement notice", "Listed building"],
+[],
+["Grant", "Occupancy including house in multiple occupation (HMO)", "Right to buy / right to acquire / stuff", "Works,
+repairs or authority action"],
+[],
+["Ancient monuments", "Assets of community value", "Compulsory purchase or acquisition", "Conservation covenant",
+"Highways and paths", "Local acts", "New towns", "Other covenant", "Pipeline", "Protected areas / sites", "Smoke control
+order", "Uncommon charges", "Water / drainage / environmental"],
+["This does not consititute a charge"]
+]%}
+
+{% set authorities = ["None", "City of London Corporation", "Richmond District Council", "City of Westminster", "Tower
+Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
+<style>
+  .subcategory {
+    margin-left: 20px;
+  }
+</style>
+
+<script src="/public/ol/js/jquery.min.js"></script>
+<script>
+  function initFilter() {
+    console.log('init filter');
+
+    $('.govuk-checkboxes__input').change(function (evt) {
+      console.log(this);
+      console.log($(this).val());
+      let groupClass = '.' + $(this).val();
+      let isChecked = $(this).prop('checked');
+      console.log(groupClass, isChecked);
+      console.log($(groupClass));
+
+      $(groupClass).prop('checked', isChecked);
+    });
+  }
+</script>
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default-2">
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-2-heading-1">
+          Categories
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-2-content-1" class="govuk-accordion__section-content">
+      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
+            aria-describedby="snap-to-map-hint" checked>
+          <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+            Select all categories
+          </label>
+        </div>
+      </div>
+
+      <div class="govuk-form-group govuk-checkboxes--small">
+        <fieldset class="govuk-fieldset">
+          {% for cat in categories %}
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("
+                /", "-" ) }}" class="govuk-checkboxes__input" checked>
+              <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
+            </div>
+          </div>
+          {% for item in subcategories[loop.index0] %}
+          <div class="govuk-checkboxes subcategory">
+            <div class="govuk-checkboxes__item">
+              <input type="checkbox" name="market_sector[]" id="{{item}}" value=""
+                class="govuk-checkboxes__input {{cat | replace(" ", "") | replace(" /", "-" )}}" checked>
+              <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+            </div>
+          </div>
+          {% endfor%}
+          {% endfor%}
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
+            aria-describedby="snap-to-map-hint">
+          <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+            Show cancelled charges
+          </label>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-2-heading-2">
+          Originating authorities
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-2-content-2" class="govuk-accordion__section-content">
+      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
+        <fieldset class="govuk-fieldset">
+          {% for item in authorities %}
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input type="checkbox" name="market_sector[]" id="{{item}}" value="{{item}}"
+                class="govuk-checkboxes__input" checked>
+              <label for="{{item}}" class="govuk-label govuk-checkboxes__label">{{item}}</label>
+            </div>
+          </div>
+          {% endfor %}
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

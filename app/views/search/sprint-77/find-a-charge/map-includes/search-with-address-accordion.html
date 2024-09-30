@@ -7,11 +7,12 @@
     padding-bottom: 0x;
     border-bottom: 0;
   }
+
   @media (min-width: 40.0625em) {
-  .govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
-    padding-bottom: 0;
+    .govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
+      padding-bottom: 0;
+    }
   }
-}
 </style>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
@@ -26,10 +27,11 @@
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content">
           <div class="search-bar govuk-!-padding-top-0">
-            <input class="govuk-input search-field map__search_term" id="search-field" name="search" type="text" value="">
+            <input class="govuk-input search-field map__search_term" id="search-field" name="search" type="text"
+              value="">
             <div class="search-bar-input">
               <button class="search-button map__search_button" type="button" name="search" id="find-btn"
-              data-bind="click: flexSearchAddresses">
+                data-bind="click: flexSearchAddresses">
             </div>
           </div>
         </div>
@@ -43,14 +45,14 @@
           </div>
           <div id="accordion-default-content-2" class="govuk-accordion__section-content">
             <div class="search-bar govuk-!-padding-top-0">
-            <input class="govuk-input search-field map__search_term" id="reference" name="reference" type="text"
-              value="">
-            <div class="search-bar-input">
-              <button class="search-button map__search_button" type="button" name="search" id="find-btn"
-                data-bind="click: flexSearchAddresses">
-                <span class="govuk-visually-hidden">Search</span>
-              </button>
-            </div>
+              <input class="govuk-input search-field map__search_term" id="reference" name="reference" type="text"
+                value="">
+              <div class="search-bar-input">
+                <button class="search-button map__search_button" type="button" name="search" id="find-btn"
+                  data-bind="click: flexSearchAddresses">
+                  <span class="govuk-visually-hidden">Search</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
