@@ -55,17 +55,24 @@
   #container{
     height: 100%
   }
-  .option-select{position:relative;padding:0 0 10px;margin-bottom:10px;border-bottom:1px solid #b1b4b6}@media(min-width: 48.0625em){.option-select ::-webkit-scrollbar{-webkit-appearance:none;width:7px}.option-select ::-webkit-scrollbar-thumb{border-radius:4px;background-color:rgba(0,0,0,.5);-webkit-box-shadow:0 0 1px rgba(255,255,255,.87)}}.option-select .gem-c-checkboxes{margin:0}.option-select__title{margin:0;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1875rem;line-height:1.3157894737}@media print{.option-select__title{font-family:sans-serif}}@media print{.option-select__title{font-size:14pt;line-height:1.15}}.option-select__button{z-index:1;background:none;border:0;text-align:left;padding:0;cursor:pointer;color:#1d70b8}.option-select__button:hover{text-decoration:underline;text-underline-offset:.1em;text-decoration-thickness:max(3px, .1875rem, .12em);-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;text-decoration-skip:none}.option-select__button::-moz-focus-inner{border:0}.option-select__button:focus{outline:none;text-decoration:none;outline:3px solid rgba(0,0,0,0);color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;text-decoration:none;-webkit-box-decoration-break:clone;box-decoration-break:clone}.option-select__button[disabled]{background-image:none;color:inherit}.option-select__button::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:2}.option-select__icon{display:none;position:absolute;top:0;left:9px;width:30px;height:40px;fill:#0b0c0c}.option-select__container{position:relative;max-height:200px;overflow-y:auto;overflow-x:hidden;background-color:#fff}.option-select__container:focus{outline:0}.option-select__container--large{max-height:600px}.option-select__container-inner{padding:5px 13px}.option-select__filter{position:relative;background:#fff;padding:13px 13px 10px 13px}.option-select__filter-input{background:url(/assets/option-select/input-icon-f598506731e31889e6586357d63cf72be1c35e6bc255135fb4e48d4e9ed5e758.svg) #fff no-repeat -5px -3px;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1875rem;line-height:1.3157894737}@media print{.option-select__filter-input{font-family:sans-serif}}@media print{.option-select__filter-input{font-size:14pt;line-height:1.15}}@media(min-width: 40.0625em){.option-select__filter-input{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1rem;line-height:1.25}}@media print and (min-width: 40.0625em){.option-select__filter-input{font-family:sans-serif}}@media print and (min-width: 40.0625em){.option-select__filter-input{font-size:14pt;line-height:1.2}}.option-select__filter-input.govuk-input{padding-left:33px}.govuk-frontend-supported .option-select__heading{position:relative;padding:10px 8px 5px 43px;margin:0}.govuk-frontend-supported [aria-expanded=true]~.option-select__icon--up{display:block}.govuk-frontend-supported [aria-expanded=false]~.option-select__icon--down{display:block}.govuk-frontend-supported .option-select__container{height:200px}.govuk-frontend-supported .option-select__container--large{height:600px}.govuk-frontend-supported [data-closed-on-load=true] .option-select__container{display:none}.option-select__selected-counter{color:#0b0c0c;margin-top:3px;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1rem;line-height:1.25}@media print{.option-select__selected-counter{font-family:sans-serif}}@media print{.option-select__selected-counter{font-size:14pt;line-height:1.2}}.option-select.js-closed .option-select__filter,.option-select.js-closed .option-select__container{display:none}.option-select.js-opened .option-select__filter,.option-select.js-opened .option-select__container{display:block}
 
   #list_of_categories{
     height: 280px;
     max-height: 280px;
+  }  
+  .category-container{
+    height: 180px;
+    max-height: 180px;
+    overflow-x: none;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
   }
 
   .govuk-grid-column-15-pc{
     width: 20%;
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 0 0 0 15px;
     float: left;
   }
   .govuk-grid-column-three-quarters{
@@ -86,8 +93,11 @@
     margin: 0;
     padding: 1px;
     border: 2px solid #0b0c0c;
-  border-radius: 0;
+    border-radius: 0;
     width: 85%;
+  }
+  .search-bar-input{
+    padding-right:15px;
   }
   .search-button {
   height: 38px;
@@ -119,6 +129,14 @@
 }
 .govuk-list{
   font-size: 16px;
+}
+@media (min-width: 40.0625em) {
+  .govuk-frontend-supported .govuk-accordion__section-content {
+    padding-bottom: 20px;
+  }
+}
+.govuk-accordion__controls{
+  display: none;
 }
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->

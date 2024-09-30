@@ -52,51 +52,53 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
       </h2>
     </div>
     <div id="accordion-default-2-content-1" class="govuk-accordion__section-content">
-      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
-            aria-describedby="snap-to-map-hint" checked>
-          <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
-            Select all categories
-          </label>
-        </div>
-      </div>
-
-      <div class="govuk-form-group govuk-checkboxes--small">
-        <fieldset class="govuk-fieldset">
-          {% for cat in categories %}
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("
-                /", "-" ) }}" class="govuk-checkboxes__input" checked>
-              <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
-            </div>
+      <div class="category-container">
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
+              aria-describedby="snap-to-map-hint" checked>
+            <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+              Select all categories
+            </label>
           </div>
-          {% for item in subcategories[loop.index0] %}
-          <div class="govuk-checkboxes subcategory">
-            <div class="govuk-checkboxes__item">
-              <input type="checkbox" name="market_sector[]" id="{{item}}" value=""
-                class="govuk-checkboxes__input {{cat | replace(" ", "") | replace(" /", "-" )}}" checked>
-              <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
-            </div>
-          </div>
-          {% endfor%}
-          {% endfor%}
-
-        </fieldset>
-      </div>
-
-      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
-            aria-describedby="snap-to-map-hint">
-          <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
-            Show cancelled charges
-          </label>
         </div>
+
+        <div class="govuk-form-group govuk-checkboxes--small">
+          <fieldset class="govuk-fieldset">
+            {% for cat in categories %}
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("
+                  /", "-" ) }}" class="govuk-checkboxes__input" checked>
+                <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
+              </div>
+            </div>
+            {% for item in subcategories[loop.index0] %}
+            <div class="govuk-checkboxes subcategory">
+              <div class="govuk-checkboxes__item">
+                <input type="checkbox" name="market_sector[]" id="{{item}}" value=""
+                  class="govuk-checkboxes__input {{cat | replace(" ", "") | replace(" /", "-" )}}" checked>
+                <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+              </div>
+            </div>
+            {% endfor%}
+            {% endfor%}
+
+          </fieldset>
+        </div>
+
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
+              aria-describedby="snap-to-map-hint">
+            <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+              Show cancelled charges
+            </label>
+          </div>
+        </div>
+
+
       </div>
-
-
     </div>
   </div>
   <div class="govuk-accordion__section">
@@ -108,18 +110,20 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
       </h2>
     </div>
     <div id="accordion-default-2-content-2" class="govuk-accordion__section-content">
-      <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
-        <fieldset class="govuk-fieldset">
-          {% for item in authorities %}
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input type="checkbox" name="market_sector[]" id="{{item}}" value="{{item}}"
-                class="govuk-checkboxes__input" checked>
-              <label for="{{item}}" class="govuk-label govuk-checkboxes__label">{{item}}</label>
+      <div class="category-container">
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
+          <fieldset class="govuk-fieldset">
+            {% for item in authorities %}
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input type="checkbox" name="market_sector[]" id="{{item}}" value="{{item}}"
+                  class="govuk-checkboxes__input" checked>
+                <label for="{{item}}" class="govuk-label govuk-checkboxes__label">{{item}}</label>
+              </div>
             </div>
-          </div>
-          {% endfor %}
-        </fieldset>
+            {% endfor %}
+          </fieldset>
+        </div>
       </div>
     </div>
   </div>
