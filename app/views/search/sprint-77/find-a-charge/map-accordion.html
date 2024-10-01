@@ -449,16 +449,18 @@
   });
 
   $('#reference').keypress(function(e) {
-  if(e.which == 13) {
-    console.log('click');
-    // enter pressed
+    if(e.which == 13) {
+      console.log('click');
+      // enter pressed
+      window.location.href = "reference-number-results";
+    }
+  });
+
+  $('#reference-btn').click(function(event) {
     window.location.href = "reference-number-results";
-  }
-});
+  });
 
-
-  $('#findBtn').click(function(event) {
-    console.log('click');
+  $('#find-btn').click(function(event) {
     const view = map.getView();
     const zoom = view.getZoom();
 
@@ -898,7 +900,8 @@ console.log(feature_id);
   console.log(this.text);
     $('#address-list').hide();
     $("#postcodes").css("height", 150); 
-    $('#selected-address').html("This is the map for:<br/>" + this.text);
+   // $('#selected-address').html("This is the map for:<br/>" + this.text);
+    $('#selected-address').html(this.text);
     $('#selected-address').show();
   });
 
