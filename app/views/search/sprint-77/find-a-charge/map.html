@@ -139,6 +139,22 @@
 .govuk-accordion__controls{
   display: none;
 }
+
+.loader{
+  position: absolute;
+  top:400px;
+  width: 200px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top:18px;
+  border: 4px solid #000;
+}
+.loader-container{
+  display: flex;
+  justify-content: center;
+}
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -216,11 +232,8 @@
         </button>
       </div>
     </div>
+
     <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <!-- <div class="center">
-        <div class="horizontal"></div>
-        <div class="vertical"></div>
-      </div> -->
       <noscript>
         <div id="nojs" class="nojs-content">
           <div id="nojs-message" class="notification-summary">
@@ -232,6 +245,11 @@
           </div>
         </div>
       </noscript>
+    </div>
+    <div class="loader-container">
+      <div class="loader">
+        <p class="govuk-caption-m">Loading...</p>
+      </div>
     </div>
     <div class=" govuk-!-padding-top-2">
       <div class="govuk-heading-s ">
@@ -353,6 +371,8 @@
     //hide the results charge list
     $('.results-title').hide();
     $('.results').hide();
+    //hide loading...
+    $('.loader').hide();
 
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
@@ -448,7 +468,10 @@
     console.log('click');
     if(!isShowingCharges){
       isShowingCharges = true;
-      loadSampleData();
+      
+
+      // show loading msg
+      $('.loader').show();
       setTimeout(showResults, 1000);
     }
   });
@@ -912,9 +935,13 @@ console.log(feature_id);
 
 
 function showResults(){
+  $('.loader').hide();
+
   $('.results-title').show();
   $('.results').show();
   $('.results-title')[0].scrollIntoView();
+
+  loadSampleData();
 };
 
 function loadSampleData(){   
@@ -1077,6 +1104,9 @@ function loadSampleData(){
 
     
 }
+</script>
 
+<script>
+  initFilter();
 </script>
 {% endblock %}

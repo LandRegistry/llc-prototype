@@ -30,12 +30,8 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
     console.log('init filter');
 
     $('.govuk-checkboxes__input').change(function (evt) {
-      console.log(this);
-      console.log($(this).val());
       let groupClass = '.' + $(this).val();
       let isChecked = $(this).prop('checked');
-      console.log(groupClass, isChecked);
-      console.log($(groupClass));
 
       $(groupClass).prop('checked', isChecked);
     });
@@ -55,7 +51,7 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
       <div class="category-container">
         <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap"
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="all"
               aria-describedby="snap-to-map-hint" checked>
             <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
               Select all categories
@@ -69,7 +65,7 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
             <div class="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("
-                  /", "-" ) }}" class="govuk-checkboxes__input" checked>
+                  /", "-" ) }}" class="govuk-checkboxes__input all" checked>
                 <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
               </div>
             </div>
@@ -77,7 +73,7 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
             <div class="govuk-checkboxes subcategory">
               <div class="govuk-checkboxes__item">
                 <input type="checkbox" name="market_sector[]" id="{{item}}" value=""
-                  class="govuk-checkboxes__input {{cat | replace(" ", "") | replace(" /", "-" )}}" checked>
+                  class="govuk-checkboxes__input all {{cat | replace(" ", "") | replace(" /", "-" )}}" checked>
                 <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
               </div>
             </div>
