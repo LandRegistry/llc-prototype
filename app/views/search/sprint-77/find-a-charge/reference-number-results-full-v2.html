@@ -54,7 +54,11 @@
               {{ charge.hmlrReference }}</a></td>
             <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
             <td class="govuk-table__cell">{{ charge.location | safe }}</td>
-            <td class="govuk-table__cell">{{ charge.description | truncate(200)}}</td>
+            <td class="govuk-table__cell">{{ charge.description | truncate(200)}}
+              {% if charge.description|length > 199 %}
+              <span class="truncated_annotation_text-read_more"> » </span>
+              {% endif %}
+            </td>
             <td class="govuk-table__cell">{{ item.category }}</td>
             <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
           </tr>

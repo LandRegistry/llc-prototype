@@ -333,9 +333,9 @@ MAP_CONTROLS.toggle_draw_layer_style = function(style) {
     //console.log("HATCH CHECK " + showHatching);
     let pattern = draw_layer_styles.style[style];
     if (showHatching) {
-      pattern = draw_layer_styles.style[style+10]
+      pattern = draw_layer_styles.style[style+10];
     } 
-    //console.log(style, pattern);
+   // console.log(style, pattern);
 
     MAP_CONFIG.draw_layer.setStyle(pattern);
 

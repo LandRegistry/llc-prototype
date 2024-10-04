@@ -23,7 +23,8 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
     MAP_CONFIG.non_migrated_layer_zindex = 2;
     MAP_CONFIG.llc_layer_zindex = 3;
     MAP_CONFIG.draw_layer_zindex = 4;
-    MAP_CONFIG.highlighted_charge_layer_zindex = 5;
+    MAP_CONFIG.charge_layer_zindex = 5;
+    MAP_CONFIG.highlighted_charge_layer_zindex = 6;
 
     // Draw Source
     MAP_CONFIG.draw_features = new ol.Collection();
@@ -36,7 +37,8 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
         style: draw_layer_styles.style[draw_layer_styles.DRAW],
         zIndex: MAP_CONFIG.draw_layer_zindex
     });
-    // add charge highlight layer
+    
+    // add charge layer
     MAP_CONFIG.charge_features = new ol.Collection();
     MAP_CONFIG.charge_source = new ol.source.Vector({
         features: MAP_CONFIG.charge_features
@@ -46,6 +48,21 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
         style: draw_layer_styles.style[draw_layer_styles.EDIT],
         zIndex: MAP_CONFIG.highlighted_charge_layer_zindex
     });
+
+    // add charge highlight layer
+    MAP_CONFIG.charge_highlight_features = new ol.Collection();
+    MAP_CONFIG.charge_highlight_source = new ol.source.Vector({
+        features: MAP_CONFIG.charge_highlight_features
+    });
+    MAP_CONFIG.charge_highlight_layer = new ol.layer.Vector({
+        source: MAP_CONFIG.charge_highlight_source,
+        style: draw_layer_styles.style[draw_layer_styles.DELETE],
+        zIndex: MAP_CONFIG.highlighted_charge_layer_zindex
+    });
+
+    MAP_CONFIG.charge_layer.setStyle(draw_layer_styles.DELETE);
+    MAP_CONFIG.charge_highlight_layer.setStyle(draw_layer_styles.DELETE);
+
 
     MAP_CONFIG.projection = ol.proj.get('EPSG:27700');
     // Fixed resolutions to display the map at (pixels per ground unit (meters when

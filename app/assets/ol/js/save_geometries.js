@@ -64,6 +64,14 @@ function load_fake_data(information) {
 
             MAP_CONFIG.draw_source.addFeatures(features);
             MAP_CONFIG.charge_source.addFeatures(features);
+            MAP_CONFIG.charge_highlight_source.addFeatures(features);
+
+            // style the charges
+            var new_features = MAP_CONFIG.charge_source.getFeatures();
+        
+            new_features.forEach(function(feature){
+              feature.setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);// SHOW_CHARGE
+            });
             
             // default style without hatching
             //MAP_CONFIG.draw_layer.setStyle(draw_layer_styles.style[draw_layer_styles.DRAW])
