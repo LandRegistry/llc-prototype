@@ -382,6 +382,8 @@ margin-left:40px;
     //hide the postcode list
     $('#address-list').hide();
     $('#selected-address').hide();
+    $('#results-heading').hide();
+    $('#results-guide').hide();
     //hide the results charge list
     $('.results-title').hide();
     $('.results').hide();
@@ -951,6 +953,7 @@ console.log(feature_id);
   $("#find-btn").click(function(e){
     $('#address-list').show();
     $('#selected-address').hide();
+    $('#results-heading').show();
     $("#postcodes").css("height", 400);   
   });  
   
@@ -958,9 +961,11 @@ console.log(feature_id);
   console.log(this.text);
     $('#address-list').hide();
     $("#postcodes").css("height", 150); 
-   // $('#selected-address').html("This is the map for:<br/>" + this.text);
-    $('#selected-address').html(this.text);
+    $('#selected-address').html("This is the map for:<br/>" + this.text);
+    //$('#selected-address').html(this.text);
     $('#selected-address').show();
+    $('#results-heading').hide();
+    $('#results-guide').show();
   });
 
 
