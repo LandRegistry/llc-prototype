@@ -23,7 +23,9 @@ MASTER_MAP_VECTOR_LAYER.layer = new ol.layer.Vector({
         fill: new ol.style.Fill({
             color: 'rgba(255, 0, 0, 0)'
         })
-    })
+    }),
+    //add zindex so draw/select area appears above allover layers
+    zIndex:99
 })
 
 MASTER_MAP_VECTOR_LAYER.vectorsOnMap = false

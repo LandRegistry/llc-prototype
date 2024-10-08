@@ -3,8 +3,13 @@
 var map = new ol.Map({
     layers: [
       MAP_CONFIG.base_layer,
-/*       GEOSERVER_CONFIG.boundaries_layer,
-      GEOSERVER_CONFIG.maintenance_layer, */
+      /*    
+      GEOSERVER_CONFIG.boundaries_layer,
+      GEOSERVER_CONFIG.maintenance_layer,
+      */
+      // add layers for highlights
+      MAP_CONFIG.charge_layer,
+      MAP_CONFIG.charge_highlight_layer,
       MAP_CONFIG.draw_layer
     ],
     logo: false,

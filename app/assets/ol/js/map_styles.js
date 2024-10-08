@@ -1,8 +1,8 @@
-var add_colour = '#1d70b8';//'#5a41c6';
+var add_colour = '#003078';// GDS "dark-blue" //'#1d70b8';//'#5a41c6';
 var edit_colour = '#00703c';//'#007A7C';
 var delete_colour = '#d4351c';//'#c41919';
 
-var add_fill = [29, 112, 184, 0.2];//[90,65,198,0.1];
+var add_fill = [0, 48, 120, 0.2 ];// GDS "dark-blue" // [29, 112, 184, 0.2];//[90,65,198,0.1];
 var edit_fill = [0, 112, 60, 0.2];//[0,122,124,0.1];
 var delete_fill = [212, 53, 28, 0.2];//[196,25,25,0.1];
 
@@ -48,9 +48,9 @@ draw_layer_styles = {
       }),
       stroke: new ol.style.Stroke({
         color: add_colour,
-        /* color: '#85994b', */
-        width: 2,
-        /* lineDash: [5, 5] */
+        //color: '#85994b',
+        width: 3,
+        lineDash: [5, 5]
       }),
       image: new ol.style.Circle({
         radius: 5,
@@ -104,8 +104,7 @@ draw_layer_styles = {
         fill: new ol.style.Fill({
           color: delete_colour
         })
-      }),
-      zIndex: 1
+      })
     }),
     // NONE
     3: new ol.style.Style({
@@ -153,8 +152,8 @@ draw_layer_styles = {
       }),
       stroke: new ol.style.Stroke({
         //color: 'rgba(0,48,120,1)',
-        color: '#0b0c0c',
-        width: 3
+        color: '#b1b4b6',
+        width: 2
       }),
       radius: 5
     }),

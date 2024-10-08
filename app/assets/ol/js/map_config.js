@@ -18,13 +18,13 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
     MAP_CONFIG.max_zoom_level = 17;
     MAP_CONFIG.draw_control_id = 'draw-controls';
 
-    MAP_CONFIG.base_layer_zindex = 0;
+/*     MAP_CONFIG.base_layer_zindex = 0;
     MAP_CONFIG.boundary_layer_zindex = 1;
     MAP_CONFIG.non_migrated_layer_zindex = 2;
-    MAP_CONFIG.llc_layer_zindex = 3;
-    MAP_CONFIG.draw_layer_zindex = 4;
-    MAP_CONFIG.charge_layer_zindex = 5;
-    MAP_CONFIG.highlighted_charge_layer_zindex = 6;
+    MAP_CONFIG.llc_layer_zindex = 3; */
+    MAP_CONFIG.draw_layer_zindex = 2;
+    MAP_CONFIG.charge_layer_zindex = 0;
+    MAP_CONFIG.highlighted_charge_layer_zindex = 1;
 
     // Draw Source
     MAP_CONFIG.draw_features = new ol.Collection();
@@ -32,10 +32,11 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
         features: MAP_CONFIG.draw_features
     });
     MAP_CONFIG.draw_layer = new ol.layer.Vector({
-        source: MAP_CONFIG.draw_source,
-       // style: draw_layer_styles.style[draw_layer_styles.NONE],
-        style: draw_layer_styles.style[draw_layer_styles.DRAW],
-        zIndex: MAP_CONFIG.draw_layer_zindex
+      name:"draw_layer",
+      source: MAP_CONFIG.draw_source,
+      // style: draw_layer_styles.style[draw_layer_styles.NONE],
+      style: draw_layer_styles.style[draw_layer_styles.DRAW],
+      zIndex: MAP_CONFIG.draw_layer_zindex
     });
     
     // add charge layer
@@ -44,9 +45,10 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
         features: MAP_CONFIG.charge_features
     });
     MAP_CONFIG.charge_layer = new ol.layer.Vector({
-        source: MAP_CONFIG.charge_source,
-        style: draw_layer_styles.style[draw_layer_styles.EDIT],
-        zIndex: MAP_CONFIG.highlighted_charge_layer_zindex
+      name:"charge_layer",
+      source: MAP_CONFIG.charge_source,
+      style: draw_layer_styles.style[draw_layer_styles.EDIT],
+      zIndex: MAP_CONFIG.charge_layer_zindex
     });
 
     // add charge highlight layer
@@ -55,9 +57,10 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
         features: MAP_CONFIG.charge_highlight_features
     });
     MAP_CONFIG.charge_highlight_layer = new ol.layer.Vector({
-        source: MAP_CONFIG.charge_highlight_source,
-        style: draw_layer_styles.style[draw_layer_styles.DELETE],
-        zIndex: MAP_CONFIG.highlighted_charge_layer_zindex
+      name:"highlight_layer",
+      source: MAP_CONFIG.charge_highlight_source,
+      style: draw_layer_styles.style[draw_layer_styles.DELETE],
+      zIndex: MAP_CONFIG.highlighted_charge_layer_zindex
     });
 
     MAP_CONFIG.charge_layer.setStyle(draw_layer_styles.DELETE);

@@ -39,6 +39,9 @@
     padding-top: 5px;
     /* border: 4px solid #fff; */
   }
+  li.charge{
+    /* margin-bottom: 0;  */
+  }
 
 /*   .charge:hover{
     background-color: #ffdd00;
@@ -131,9 +134,7 @@
 .govuk-list{
   font-size: 16px;
 }
-.govuk-list > li {
-  margin-bottom: 0;
-}
+
 @media (min-width: 40.0625em) {
   .govuk-frontend-supported .govuk-accordion__section-content {
     padding-bottom: 20px;
@@ -460,38 +461,43 @@ margin-left:40px;
         //get feature by id
         //var features = MAP_CONFIG.charge_highlight_source.getFeatures();
         features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.HIGHLIGHT]);
-        
-    },
-    //mouse out  -reset
-    function(){
-      // get feature by id
-      var features = MAP_CONFIG.charge_highlight_source.getFeatures();
-      //var feature = $.grep(features, function(feature) { return feature.getProperties().id == id });
-      features.forEach(function(feature){
-          feature.setStyle(draw_layer_styles.style[draw_layer_styles.HIDDEN]);
+      },
+      //mouse out  -reset
+      function(){
+        // get feature by id
+        var features = MAP_CONFIG.charge_highlight_source.getFeatures();
+        //var feature = $.grep(features, function(feature) { return feature.getProperties().id == id });
+        features.forEach(function(feature){
+            feature.setStyle(draw_layer_styles.style[draw_layer_styles.HIDDEN]);
+          });
+        //set highlight
+        //features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);
+        var features = MAP_CONFIG.charge_source.getFeatures();
+        features.forEach(function(feature){
+          feature.setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);// 
         });
-      //set highlight
-      //features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);
-      var features = MAP_CONFIG.charge_source.getFeatures();
-      features.forEach(function(feature){
-        feature.setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);// 
-      });
-    }
-  )
+      }
+    )
   });
 
   let isShowingCharges = false;
 
   map.on('click', function(event) {
     console.log('click');
-    if(!isShowingCharges){
-      isShowingCharges = true;
-      
-
-      // show loading msg
-      $('.loader').show();
-      setTimeout(showResults, 1000);
+    // use shift key for UR testing to allow user to try the map controls
+    // use isShiftDOwn as there is a key event listener for navigation
+    if (isShiftDown) {
+      console.log("The SHIFT key was pressed!");
+      // only load the charges once
+      if(!isShowingCharges){
+        isShowingCharges = true;
+        $('.loader').show();
+        setTimeout(showResults, 1000);
+      } 
+    } else {
+      console.log("The SHIFT key was NOT pressed!");
     }
+
   });
 
   $('#reference').keypress(function(e) {
@@ -839,12 +845,17 @@ console.log(feature_id);
           });
   }
 
+  let isShiftDown = false;
+  document.getElementById('map').addEventListener("keyup", (evt) => {
+    isShiftDown = false;
+  });
   document.getElementById('map').addEventListener("keydown", (evt) => {
     console.log(evt.key);
     evt.stopPropagation();
     let view = map.getView();
     let zoom = view.getZoom();
     if(evt.altKey || evt.shiftKey){
+      isShiftDown = true;
       switch (evt.key) {
         case "w":
         case "ArrowUp":

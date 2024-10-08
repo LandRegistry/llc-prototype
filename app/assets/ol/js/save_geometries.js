@@ -61,18 +61,27 @@ function load_fake_data(information) {
             }
 
             var features = new ol.format.GeoJSON().readFeatures(information, options);
+            //console.log(features);
 
-            MAP_CONFIG.draw_source.addFeatures(features);
+            //MAP_CONFIG.draw_source.addFeatures(features);
             MAP_CONFIG.charge_source.addFeatures(features);
             MAP_CONFIG.charge_highlight_source.addFeatures(features);
-
+/* 
+            //var test_draw = MAP_CONFIG.draw_source.getFeatures();
+            var test_charge = MAP_CONFIG.charge_source.getFeatures();
+            var test_high = MAP_CONFIG.charge_highlight_source.getFeatures();
+            console.log(MAP_CONFIG.charge_source.getFeatures());
+            //test_draw[0].setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);
+            test_charge[1].setStyle(draw_layer_styles.style[draw_layer_styles.EDIT]);
+            test_high[2].setStyle(draw_layer_styles.style[draw_layer_styles.DELETE]);
+ */
+             /* 
             // style the charges
             var new_features = MAP_CONFIG.charge_source.getFeatures();
-        
             new_features.forEach(function(feature){
               feature.setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);// SHOW_CHARGE
             });
-            
+              */
             // default style without hatching
             //MAP_CONFIG.draw_layer.setStyle(draw_layer_styles.style[draw_layer_styles.DRAW])
 
