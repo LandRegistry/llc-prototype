@@ -36,15 +36,18 @@
   }
 
   .charge{
-    padding: 4px;
-    border: 4px solid #fff;
+    padding-top: 5px;
+    /* border: 4px solid #fff; */
+  }
+  li.charge{
+    /* margin-bottom: 0;  */
   }
 
-  .charge:hover{
+/*   .charge:hover{
     background-color: #ffdd00;
     border: 4px solid #0b0c0c;
 
-  }
+  } */
   .scroll{
     height: 720px;
     overflow-x: none;
@@ -55,25 +58,35 @@
   #container{
     height: 100%
   }
-  .option-select{position:relative;padding:0 0 10px;margin-bottom:10px;border-bottom:1px solid #b1b4b6}@media(min-width: 48.0625em){.option-select ::-webkit-scrollbar{-webkit-appearance:none;width:7px}.option-select ::-webkit-scrollbar-thumb{border-radius:4px;background-color:rgba(0,0,0,.5);-webkit-box-shadow:0 0 1px rgba(255,255,255,.87)}}.option-select .gem-c-checkboxes{margin:0}.option-select__title{margin:0;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1875rem;line-height:1.3157894737}@media print{.option-select__title{font-family:sans-serif}}@media print{.option-select__title{font-size:14pt;line-height:1.15}}.option-select__button{z-index:1;background:none;border:0;text-align:left;padding:0;cursor:pointer;color:#1d70b8}.option-select__button:hover{text-decoration:underline;text-underline-offset:.1em;text-decoration-thickness:max(3px, .1875rem, .12em);-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;text-decoration-skip:none}.option-select__button::-moz-focus-inner{border:0}.option-select__button:focus{outline:none;text-decoration:none;outline:3px solid rgba(0,0,0,0);color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;text-decoration:none;-webkit-box-decoration-break:clone;box-decoration-break:clone}.option-select__button[disabled]{background-image:none;color:inherit}.option-select__button::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:2}.option-select__icon{display:none;position:absolute;top:0;left:9px;width:30px;height:40px;fill:#0b0c0c}.option-select__container{position:relative;max-height:200px;overflow-y:auto;overflow-x:hidden;background-color:#fff}.option-select__container:focus{outline:0}.option-select__container--large{max-height:600px}.option-select__container-inner{padding:5px 13px}.option-select__filter{position:relative;background:#fff;padding:13px 13px 10px 13px}.option-select__filter-input{background:url(/assets/option-select/input-icon-f598506731e31889e6586357d63cf72be1c35e6bc255135fb4e48d4e9ed5e758.svg) #fff no-repeat -5px -3px;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1.1875rem;line-height:1.3157894737}@media print{.option-select__filter-input{font-family:sans-serif}}@media print{.option-select__filter-input{font-size:14pt;line-height:1.15}}@media(min-width: 40.0625em){.option-select__filter-input{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1rem;line-height:1.25}}@media print and (min-width: 40.0625em){.option-select__filter-input{font-family:sans-serif}}@media print and (min-width: 40.0625em){.option-select__filter-input{font-size:14pt;line-height:1.2}}.option-select__filter-input.govuk-input{padding-left:33px}.govuk-frontend-supported .option-select__heading{position:relative;padding:10px 8px 5px 43px;margin:0}.govuk-frontend-supported [aria-expanded=true]~.option-select__icon--up{display:block}.govuk-frontend-supported [aria-expanded=false]~.option-select__icon--down{display:block}.govuk-frontend-supported .option-select__container{height:200px}.govuk-frontend-supported .option-select__container--large{height:600px}.govuk-frontend-supported [data-closed-on-load=true] .option-select__container{display:none}.option-select__selected-counter{color:#0b0c0c;margin-top:3px;font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:1rem;line-height:1.25}@media print{.option-select__selected-counter{font-family:sans-serif}}@media print{.option-select__selected-counter{font-size:14pt;line-height:1.2}}.option-select.js-closed .option-select__filter,.option-select.js-closed .option-select__container{display:none}.option-select.js-opened .option-select__filter,.option-select.js-opened .option-select__container{display:block}
 
   #list_of_categories{
     height: 280px;
     max-height: 280px;
+  }  
+  .category-container{
+    height: 180px;
+    max-height: 180px;
+    overflow-x: none;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
   }
 
   .govuk-grid-column-15-pc{
     width: 20%;
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 0 0 0 15px;
     float: left;
+    overflow-x: hidden;
   }
   .govuk-grid-column-three-quarters{
     width:80%;
     padding: 2px;
     margin: 0;
   }
-
+  .govuk-button-group{
+    margin-bottom:0;
+  }
   .search-field {
     height: 38px;
   }
@@ -84,8 +97,11 @@
     margin: 0;
     padding: 1px;
     border: 2px solid #0b0c0c;
-  border-radius: 0;
+    border-radius: 0;
     width: 85%;
+  }
+  .search-bar-input{
+    padding-right:15px;
   }
   .search-button {
   height: 38px;
@@ -111,15 +127,44 @@
   right: 0px;
 }
 .govuk-footer-x{
-  position: absolute;
-  bottom: 0;
-  width: 18%;
   border-top: 1px solid #b1b4b6;
   color: #0b0c0c;
   background: #f3f2f1;
 }
 .govuk-list{
   font-size: 16px;
+}
+
+@media (min-width: 40.0625em) {
+  .govuk-frontend-supported .govuk-accordion__section-content {
+    padding-bottom: 20px;
+  }
+}
+.govuk-accordion__controls{
+  display: none;
+}
+
+.loader{
+  position: absolute;
+  top:400px;
+  width: 200px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top:18px;
+  border: 4px solid #000;
+}
+.loader-container{
+  display: flex;
+  justify-content: center;
+}
+.govuk-footer__copyright-logo {
+margin-left:40px;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
 }
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
@@ -130,22 +175,25 @@
 
     <h2 class="govuk-heading-m">Find a charge</h2>
 
-    {#% include "./map-includes/search-with-address.html" %#}
+    {% include "./map-includes/search-with-address-accordion-plus-map.html" %}
 
-    {% include "./map-includes/map-controls-plus-button.html" %}
+    {% include "./map-includes/map-controls-with-hints.html" %}
 
-    <!-- <h2 class="govuk-heading-m">
+    <h2 class="govuk-heading-m results-title">
       24 charges in this area
-    </h2>    -->
-    {% set categories = data.charges.categories %}
-    {#% include "./map-includes/filters.html" %}
-    {% include "./map-includes/results.html" %#}
+    </h2>  
+    <p class="govuk-body results-title">Showing 22 of 24 charges</p>
+    <div class="results">
+      {% set categories = data.charges.categories %}
+      {% include "./map-includes/filters-accordion.html" %}
+      {% include "./map-includes/results.html" %}
+    </div>
 
 
 
     
     <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
-      <div class="govuk-width-container">
+      <div class="govuk-width-container footer">
 
         <ul class="govuk-list">
           <li>
@@ -169,9 +217,12 @@
                 rel="license">Open Government Licence v3.0</a>, except where otherwise stated
             </span
           </li>
+        </ul>
+        
+        <ul class="govuk-list">
           <li>
             <a
-              class="govuk-footer__link govuk-footer__copyright-logo-x"
+              class="govuk-footer__link govuk-footer__copyright-logo " 
               href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
               © Crown copyright
             </a>
@@ -180,7 +231,7 @@
 
       </div>
     </footer>
-
+    {% include "./map-includes/map-links.html" %}
   </div> 
     
 
@@ -196,11 +247,8 @@
         </button>
       </div>
     </div>
+
     <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <!-- <div class="center">
-        <div class="horizontal"></div>
-        <div class="vertical"></div>
-      </div> -->
       <noscript>
         <div id="nojs" class="nojs-content">
           <div id="nojs-message" class="notification-summary">
@@ -212,6 +260,11 @@
           </div>
         </div>
       </noscript>
+    </div>
+    <div class="loader-container">
+      <div class="loader" style="display:none;">
+        <p class="govuk-caption-m">Loading...</p>
+      </div>
     </div>
     <div class=" govuk-!-padding-top-2">
       <div class="govuk-heading-s ">
@@ -330,20 +383,25 @@
     //hide the postcode list
     $('#address-list').hide();
     $('#selected-address').hide();
+    $('#results-heading').hide();
+    $('#results-guide').hide();
+    //hide the results charge list
+    $('.results-title').hide();
+    $('.results').hide();
+    //hide loading...
+    $('.loader').hide();
 
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
-
-    // add map event listeners to hide area on mouse out
-     map.getViewport().addEventListener('mouseover', function(event){
+        // add map event listeners to hide area on mouse out
+        map.getViewport().addEventListener('mouseover', function(event){
          //MAP_CONFIG.draw_source.clear();
           MASTER_MAP_VECTOR_LAYER.enable()
       }, false);
       map.getViewport().addEventListener('mouseout', function(event){
          //MAP_CONFIG.draw_source.clear();
           MASTER_MAP_VECTOR_LAYER.disable()
-      }, false); 
-
+      }, false);
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
@@ -374,7 +432,6 @@
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
 
-
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
@@ -394,60 +451,71 @@
     $('.charge').hover(
       // mouse over
       function(){
-        //fade back all charges
-        var features = MAP_CONFIG.charge_source.getFeatures();
+        // reset all highlights
+        var features = MAP_CONFIG.charge_highlight_source.getFeatures();
         
         features.forEach(function(feature){
-          feature.setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);// SHOW_CHARGE
+          feature.setStyle(draw_layer_styles.style[draw_layer_styles.HIDDEN]);// SHOW_CHARGE
         });
 
-        //set highlight
+        // set highlight
         current_hover = $(this)[0].id.split("_")[1];
         current_hover = parseInt(current_hover);
         //get feature by id
-        var features = MAP_CONFIG.charge_source.getFeatures();
+        //var features = MAP_CONFIG.charge_highlight_source.getFeatures();
         features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.HIGHLIGHT]);
-    },
-    //mouse out  -reset
-    function(){
-      //get feature by id
-      var features = MAP_CONFIG.charge_source.getFeatures();
-      //var feature = $.grep(features, function(feature) { return feature.getProperties().id == id });
-      features.forEach(function(feature){
-          feature.setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);
+      },
+      //mouse out  -reset
+      function(){
+        // get feature by id
+        var features = MAP_CONFIG.charge_highlight_source.getFeatures();
+        //var feature = $.grep(features, function(feature) { return feature.getProperties().id == id });
+        features.forEach(function(feature){
+            feature.setStyle(draw_layer_styles.style[draw_layer_styles.HIDDEN]);
+          });
+        //set highlight
+        //features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);
+        var features = MAP_CONFIG.charge_source.getFeatures();
+        features.forEach(function(feature){
+          feature.setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);// 
         });
-      //set highlight
-      features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);
-    }
-
-  )
-  setMode();
+      }
+    )
   });
-
-  
 
   let isShowingCharges = false;
 
-/*   map.on('click', function(event) {
+  map.on('click', function(event) {
     console.log('click');
-    if(!isShowingCharges){
-      isShowingCharges = true;
-      loadSampleData();
-      //loadSampleData();
+    // use shift key for UR testing to allow user to try the map controls
+    // use isShiftDOwn as there is a key event listener for navigation
+    if (isShiftDown) {
+      console.log("The SHIFT key was pressed!");
+      // only load the charges once
+      if(!isShowingCharges){
+        isShowingCharges = true;
+        $('.loader').show();
+        setTimeout(showResults, 1000);
+      } 
+    } else {
+      console.log("The SHIFT key was NOT pressed!");
     }
-  }); */
+
+  });
 
   $('#reference').keypress(function(e) {
-  if(e.which == 13) {
-    console.log('click');
-    // enter pressed
+    if(e.which == 13) {
+      console.log('click');
+      // enter pressed
+      window.location.href = "reference-number-results";
+    }
+  });
+
+  $('#reference-btn').click(function(event) {
     window.location.href = "reference-number-results";
-  }
-});
+  });
 
-
-  $('#findBtn').click(function(event) {
-    console.log('click');
+  $('#find-btn').click(function(event) {
     const view = map.getView();
     const zoom = view.getZoom();
 
@@ -576,6 +644,7 @@
       // ADD hover functionality
       MAP_CONTROLS.hover_interaction = new ol.interaction.Select({
       condition: ol.events.condition.pointerMove,
+      layers: [MASTER_MAP_VECTOR_LAYER.layer],
         style: draw_layer_styles.style[draw_layer_styles.HOVER]
       });
       map.addInteraction(MAP_CONTROLS.hover_interaction);
@@ -779,12 +848,17 @@ console.log(feature_id);
           });
   }
 
+  let isShiftDown = false;
+  document.getElementById('map').addEventListener("keyup", (evt) => {
+    isShiftDown = false;
+  });
   document.getElementById('map').addEventListener("keydown", (evt) => {
     console.log(evt.key);
     evt.stopPropagation();
     let view = map.getView();
     let zoom = view.getZoom();
     if(evt.altKey || evt.shiftKey){
+      isShiftDown = true;
       switch (evt.key) {
         case "w":
         case "ArrowUp":
@@ -880,6 +954,7 @@ console.log(feature_id);
   $("#find-btn").click(function(e){
     $('#address-list').show();
     $('#selected-address').hide();
+    $('#results-heading').show();
     $("#postcodes").css("height", 400);   
   });  
   
@@ -888,13 +963,24 @@ console.log(feature_id);
     $('#address-list').hide();
     $("#postcodes").css("height", 150); 
     $('#selected-address').html("This is the map for:<br/>" + this.text);
+    //$('#selected-address').html(this.text);
     $('#selected-address').show();
+    $('#results-heading').hide();
+    $('#results-guide').show();
   });
 
 
-function loadSampleData(){
-  
-    
+function showResults(){
+  $('.loader').hide();
+
+  $('.results-title').show();
+  $('.results').show();
+  $('.results-title')[0].scrollIntoView();
+
+  loadSampleData();
+};
+
+function loadSampleData(){   
   let info = { 
         "features":
         [
@@ -1047,13 +1133,16 @@ function loadSampleData(){
       }
     
       // add layer of charge
-      load_previous_data(info);
+      //load_previous_data(info);
       // add fake layer to use as highlight 
       load_fake_data(info);
 
 
     
 }
+</script>
 
+<script>
+  initFilter();
 </script>
 {% endblock %}

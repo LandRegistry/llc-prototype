@@ -66,7 +66,7 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
               <div class="govuk-checkboxes__item">
                 <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("
                   /", "-" ) }}" class="govuk-checkboxes__input all" checked>
-                <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
+                <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}} ({{subcategories[loop.index0] | length}})</label>
               </div>
             </div>
             {% for item in subcategories[loop.index0] %}
@@ -74,7 +74,7 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
               <div class="govuk-checkboxes__item">
                 <input type="checkbox" name="market_sector[]" id="{{item}}" value=""
                   class="govuk-checkboxes__input all {{cat | replace(" ", "") | replace(" /", "-" )}}" checked>
-                <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+                <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}} (1)</label>
               </div>
             </div>
             {% endfor%}
@@ -115,7 +115,7 @@ Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
               <div class="govuk-checkboxes__item">
                 <input type="checkbox" name="market_sector[]" id="{{item}}" value="{{item}}"
                   class="govuk-checkboxes__input" checked>
-                <label for="{{item}}" class="govuk-label govuk-checkboxes__label">{{item}}</label>
+                <label for="{{item}}" class="govuk-label govuk-checkboxes__label">{{item}} ({{ [1,2,3,4] | random  }})</label>
               </div>
             </div>
             {% endfor %}
