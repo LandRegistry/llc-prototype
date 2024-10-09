@@ -40,7 +40,7 @@
     /* border: 4px solid #fff; */
   }
   li.charge{
-    /* margin-bottom: 0;  */
+    margin-bottom: 0; 
   }
 
 /*   .charge:hover{
@@ -461,9 +461,25 @@ margin-left:40px;
         // set highlight
         current_hover = $(this)[0].id.split("_")[1];
         current_hover = parseInt(current_hover);
-        //get feature by id
-        //var features = MAP_CONFIG.charge_highlight_source.getFeatures();
-        features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.HIGHLIGHT]);
+
+
+        var color = '#ffffff';
+        var color_stroke = '#1d70b8';
+        var colorArray = ol.color.asArray(color).slice();
+        colorArray[3] = 0.5;
+
+        const HIGHLIGHT = new ol.style.Style({
+          fill: new ol.style.Fill({
+            color: colorArray,
+            opacity:0.3
+          }),
+          stroke: new ol.style.Stroke({
+            color: color_stroke,
+            width: 2
+          })
+        })
+
+        features[current_hover].setStyle(HIGHLIGHT);
       },
       //mouse out  -reset
       function(){
