@@ -308,6 +308,8 @@
     //hide the postcode list
     $('#address-list').hide();
     $('#selected-address').hide();
+    $('#results-heading').hide();
+    $('#results-guide').hide();
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
@@ -767,6 +769,7 @@ console.log(radio);
   $("#find-btn").click(function(e){
     $('#address-list').show();
     $('#selected-address').hide();
+    $('#results-heading').show();
     $("#postcodes").css("height", 400);   
   });  
   
@@ -776,6 +779,8 @@ console.log(radio);
     $("#postcodes").css("height", 240); 
     $('#selected-address').html("This is the map for:<br/>" + this.text);
     $('#selected-address').show();
+    $('#results-heading').hide();
+    $('#results-guide').show();
   });
 
 </script>

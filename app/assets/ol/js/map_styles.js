@@ -152,8 +152,9 @@ draw_layer_styles = {
       }),
       stroke: new ol.style.Stroke({
         //color: 'rgba(0,48,120,1)',
-        color: '#b1b4b6',
-        width: 2
+       // color: '#b1b4b6',
+        color: '#003078',
+        width: 3
       }),
       radius: 5
     }),
