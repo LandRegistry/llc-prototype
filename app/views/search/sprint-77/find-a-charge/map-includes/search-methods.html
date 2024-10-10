@@ -4,9 +4,19 @@
   </h2>
 
   <ul class="govuk-list govuk-list--spaced govuk-!-margin-bottom-4">
-    <li><a href="#">Search by reference number</a></li>
+    {% if method != "postcode" %}
+    <li><a href="search">Search by postcode, street name or town</a></li>
+    {% endif %}
+    {% if method != "reference" %}
+    <li><a href="search-reference">Search by reference number</a></li>
+    {% endif %}
+    {% if method != "map" %}
     <li><a href="map-without-search">Search by map</a></li>
-    <li><a href="#">Search by uploading an area</a></li>
+    {% endif %}
+    {% if method != "upload" %}
+    <li><a href="search-upload">Search by uploading an area</a></li>
+    {% endif %}
+    <li></li>
   </ul>
 </div>
 

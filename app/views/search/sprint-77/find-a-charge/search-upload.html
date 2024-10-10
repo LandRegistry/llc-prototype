@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search by uploading an area - GOV.UK" %}
+{% set serviceName= "Maintain LLC" %}
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Search by uploading an area
+    </h1>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="file-upload-1">
+        Upload a shapefile or json file
+      </label>
+      <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+    </div>
+
+    {{ govukButton({
+      text: "Import search area",
+      classes: "govuk-button--secondary  govuk-!-margin-top-3",
+      href:"map-without-search"
+    }) }}
+
+
+    {% set method = "reference" %}
+    {% include "./map-includes/search-methods.html" %}
+
+<!--     <div class="govuk-inset-text">
+      You have added 0 extents (polygons, points, or lines) out of 1000 possible extents.
+    </div> -->
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+{% endblock %}
