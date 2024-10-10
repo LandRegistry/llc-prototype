@@ -89,10 +89,10 @@
   <div class="govuk-grid-column-full">
     <div class="govuk-!-margin-bottom-3">
       <h1 class="govuk-heading-l">
-        Search area results
+        List of charges for your search area
       </h1>
 
-      <p class="govuk-body">There are 42 local land charges matching this address.</p>
+      <p class="govuk-body">There are 42 local land charges for this search area.</p>
 
       <!-- <p class="govuk-body">Charges registered outside your area</p> -->
     </div>
@@ -104,7 +104,7 @@
             <div class="das-pane govuk-!-margin-bottom-3">
               <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
-                  <h2 class="govuk-heading-m">Filters</h2>
+                  <h2 class="govuk-heading-m">Filter charges</h2>
                 </div>
 
               </div>
@@ -131,14 +131,14 @@
                           <div class="govuk-checkboxes">
                             <div class="govuk-checkboxes__item">
                             <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("/", "-") }}" class="govuk-checkboxes__input" checked>
-                            <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}}</label>
+                            <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}} ({{subcategories[loop.index0] | length}})</label>
                             </div>
                           </div>  
                           {% for item in subcategories[loop.index0] %}
                           <div class="govuk-checkboxes subcategory">
                             <div class="govuk-checkboxes__item">
                             <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input {{cat | replace(" ", "") | replace("/", "-")}}" checked>
-                            <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+                            <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}} (1)</label>
                             </div>
                           </div>  
                           {% endfor%}
@@ -162,7 +162,7 @@
                       <div class="govuk-checkboxes">
                         <div class="govuk-checkboxes__item">
                         <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input">
-                        <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}}</label>
+                        <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}} ({{ [1,2,3,4] | random  }})</label>
                         </div>
                       </div>  
                       {% endfor%}

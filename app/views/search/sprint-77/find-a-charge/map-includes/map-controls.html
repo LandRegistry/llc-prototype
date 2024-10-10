@@ -1,6 +1,6 @@
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
-        <h2 class="govuk-heading-s">Search by map</h2>
+        <h2 class="govuk-heading-s">Map options</h2>
         <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
@@ -42,19 +42,6 @@
               {{ editHint }}
             </div>
           </div>
-          <!-- <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="cutout" name="edit-mode" type="radio" value="cutout-area"
-            aria-describedby="cutout-area-hint">
-            <label class="govuk-label govuk-radios__label" for="cutout">
-              <span class="r">
-                <span class=""></span>
-                Cut out area
-              </span>
-            </label>
-            <div id="cutout-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ cutoutHint }}
-            </div>
-          </div> -->
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
               aria-describedby="delete-area-hint">
@@ -68,47 +55,6 @@
               {{ deleteHint }}
             </div>
           </div>
-          <!-- <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-bottom-3"> -->
-          <!-- <div class="govuk-radios__divider">or</div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="add-circle" name="edit-mode" type="radio" value="add-circle"
-              aria-describedby="add-circle-hint">
-            <label class="govuk-label govuk-radios__label" for="add-circle">
-              <span class="">
-                <span class=""></span>
-                Add circle
-              </span>
-            </label>
-            <div id="add-circle-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ addCircleHint }}
-            </div>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="add-point" name="edit-mode" type="radio" value="add-point"
-              aria-describedby="add-point-hint">
-            <label class="govuk-label govuk-radios__label" for="add-point">
-              <span class="">
-                <span class=""></span>
-                Add point
-              </span>
-            </label>
-            <div id="add-point-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ addPointHint }}
-            </div>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="add-line" name="edit-mode" type="radio" value="add-line"
-              aria-describedby="add-line-hint">
-            <label class="govuk-label govuk-radios__label" for="add-line">
-              <span class="">
-                <span class=""></span>
-                Add line
-              </span>
-            </label>
-            <div id="add-line-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
-              {{ addLineHint }}
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -127,12 +73,6 @@
               {{snapHint}}
             </div>
           </div>
-<!--           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched">
-            <label class="govuk-label govuk-checkboxes__label" for="hatching">
-              Show shading
-            </label>
-          </div> -->
         </div>
       </div>
     </div>
@@ -159,8 +99,11 @@
 
     {{ govukButton({
       id:"search-btn",
-      text: "Search this area",
+      text: "Confirm area",
       href:"#"
     }) }}
 
-
+    <p class="govuk-body">
+      <a href="search/sprint-58/accordion-title">How to use the map</a> (opens in new tab)
+    </p>
+     
