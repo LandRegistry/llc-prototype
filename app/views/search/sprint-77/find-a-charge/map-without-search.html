@@ -469,7 +469,7 @@
     const view = map.getView();
     const zoom = view.getZoom();
 
-    if (zoom < 12) {
+    if (zoom < 12 && zoom > 0) { //stops the check disabling select-area at start
       $("#select").prop('disabled', 'true');
       // if select was checked, uncheck it and set as draw
       if ($("#select").prop('checked') == true) {
@@ -780,7 +780,7 @@ console.log(feature_id);
   }
 
   document.getElementById('map').addEventListener("keydown", (evt) => {
-    console.log(evt.key);
+    //console.log(evt.key);
     evt.stopPropagation();
     let view = map.getView();
     let zoom = view.getZoom();
