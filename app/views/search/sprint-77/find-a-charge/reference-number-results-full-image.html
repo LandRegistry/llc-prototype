@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="List of charges for your search area - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-bottom-9">
+      <h1 class="govuk-heading-l">
+        List of charges for your search area 
+      </h1>
+
+
+<!--       <div class="govuk-inset-text">
+        There are 2 local land charges matching this reference number.
+      </div> -->
+      <p class="govuk-body">There are 24 local land charges for this address.</p>
+
+   <!--    <p class="govuk-body">Charges registered outside your area</p> -->
+    </div>
+</div>
+    <div class="govuk-grid-column-full">
+
+    <div class="govuk-!-margin-bottom-9">
+
+    {% set categories = data.charges.categories %}
+
+
+    <table class="govuk-table ">
+      <caption class="govuk-table__caption govuk-table__caption--m">List of charges</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">HMLR reference</th>
+            <th scope="col" class="govuk-table__header">Authority reference</th>
+            <th scope="col" class="govuk-table__header">Location</th>
+            <th scope="col" class="govuk-table__header">Description</th>
+            <th scope="col" class="govuk-table__header">Registration date</th>
+            <th scope="col" class="govuk-table__header">Extent</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            {%set count = 0 %}
+        {% for item in categories %}
+        {% for charge in item.charges %}
+        {% set count = count+1 %}
+        {% if count <20 %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+              {{ charge.hmlrReference }}</a></td>
+            <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+            <td class="govuk-table__cell">{{ charge.location | safe }}</td>
+            <td class="govuk-table__cell">{{ charge.description | truncate(200)}}
+              {% if charge.description|length > 199 %}
+              <span class="truncated_annotation_text-read_more"> » </span>
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
+            <td class="govuk-table__cell">
+
+
+              {% if loop.index == "4" %}
+                <img src="/public/images/number9/charge_13.png"  style="width:100%">
+              {% elseif loop.index=="5" %}
+                <img src="/public/images/number9/charge_12.png" style="width:100%">
+              {% elseif loop.index=="8" %} 
+                <img src="/public/images/number9/charge_13.png" style="width:100%">
+              {% elseif charge.subcategory=="Smoke control order" %} 
+                <img src="/public/images/number9/charge_13.png" style="width:100%">
+              {% else %} 
+              {% set items=[1,2,3,4,3,3,4,3,3] %} 
+              {% set count=loop.index - 9 %} 
+              {% if count < 0 %}
+                {% set count = count+ 10 %}
+              {% endif %}
+              {% set image=items[count]%}
+              <img src="/public/images/number9/address{{image}}.png" style="width:100%">
+              {% endif %}
+
+            </td>
+          </tr>
+          {% endif %}
+        {% endfor %}
+        {% endfor %}
+        </tbody>
+      </table>
+
+      <nav class="govuk-pagination" aria-label="Pagination">
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+              2
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+            <span class="govuk-pagination__link-title">
+              Next<span class="govuk-visually-hidden"> page</span>
+            </span>
+            <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+    </div>
+
+
+      <div>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Start a new search</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+
+
+
+
+
+</div>
+{% include "./map-includes/search-links.html" %}
+{% endblock %}

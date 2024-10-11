@@ -505,17 +505,17 @@ margin-left:40px;
     console.log('click');
     // use shift key for UR testing to allow user to try the map controls
     // use isShiftDOwn as there is a key event listener for navigation
-    if (isShiftDown) {
-      console.log("The SHIFT key was pressed!");
+    //if (isShiftDown) {
+      //console.log("The SHIFT key was pressed!");
       // only load the charges once
       if(!isShowingCharges){
         isShowingCharges = true;
         $('.loader').show();
         setTimeout(showResults, 1000);
       } 
-    } else {
-      console.log("The SHIFT key was NOT pressed!");
-    }
+    //} else {
+    //  console.log("The SHIFT key was NOT pressed!");
+    //}
 
   });
 
