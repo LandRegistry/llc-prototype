@@ -13,15 +13,17 @@
 
 
 {% block beforeContent %}
-{% include "includes/phase-banner.html" %}
-{% include "includes/language-switcher-heading.html" %}
 {% endblock %}
 
 {% block content %}
 <style>
+  .govuk-main-wrapper {
+    padding-top: 10px;
+  }
+
   .govuk-width-container{
-    max-width:99%;
-    width:99%;
+    max-width:98%;
+    width:98%;
   }
 
   .charge{
@@ -34,21 +36,18 @@
     border: 4px solid #0b0c0c;
 
   }
-  .scroll{
-    height: 720px;
-    overflow-x: none;
-    overflow-y: scroll;
-    margin: 0;
-  }
 .govuk-grid-column-15-pc{
-    width: 20%;
-    box-sizing: border-box;
-    padding: 0 15px;
-    float: left;
-  }
-.govuk-grid-column-three-quarters{
-    width:80%;
-  }
+  width: 20%;
+  box-sizing: border-box;
+  padding: 0 0 0 15px;
+  float: left;
+  overflow-x: hidden;
+}
+.govuk-grid-column-three-quarters {
+  width: 80%;
+  padding: 2px;
+  margin: 0;
+}
 .search-field {
   height: 38px;
 }
@@ -79,8 +78,40 @@
   height: 38px;
 }
 #map{
-    height:1000px;
-  }
+  height:1000px;
+}
+.scroll{
+  height: 720px;
+  overflow-x: none;
+  overflow-y: scroll;
+  margin: 0;
+}
+#container{
+  height: 100%
+}
+.govuk-footer {
+  display:none;
+}
+.govuk-footer-x{
+  border-top: 1px solid #b1b4b6;
+  color: #0b0c0c;
+  background: #f3f2f1;
+  margin-top:100px;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+.govuk-footer__copyright-logo {
+margin-left:40px;
+}
+.align-right {
+  position: absolute;
+  right: 0px;
+}
+.govuk-list {
+  font-size: 16px;
+}
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -94,8 +125,46 @@
 
     {% include "./map-includes/map-controls.html" %}
 
+    <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+      <div class="govuk-width-container footer">
 
-    </div> 
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Accessibility statement</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Cookies</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Conditions of use</a>
+          </li>
+          <li>
+            <span class="govuk-footer__licence-description">
+              All content is available under the
+              <a
+                class="govuk-footer__link"
+                href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+                rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+            </span
+          </li>
+        </ul>
+        
+        <ul class="govuk-list">
+          <li>
+            <a
+              class="govuk-footer__link govuk-footer__copyright-logo " 
+              href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+              © Crown copyright
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </footer>
+  </div> 
     
 
 
@@ -138,6 +207,9 @@
         <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
           alt="Location not available key" height="19" width="19">
         <span class="map-key-text govuk-body-s">Location not available</span>
+        <span class="govuk-body-s align-right">
+          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and conditions</a>
+        </span>
 
       </div>
     </div>
@@ -298,9 +370,10 @@
   $( document ).ready(function() {
 
     // hack the map height
-    let map_height = Math.floor($(window).height());
-    $("#map").css("height", map_height);    
-    $('.scroll').css('height', map_height);
+    let page_height = Math.floor($(window).height());
+    $("#map").css("height", page_height - 130);    
+    $("#container").css("height", page_height - 120);    
+    $('.scroll').css('height', page_height - 100);
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
@@ -310,6 +383,9 @@
     $('#selected-address').hide();
     $('#results-heading').hide();
     $('#results-guide').hide();
+
+    // trigger map resize
+    window.dispatchEvent(new Event('resize'));
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
@@ -371,7 +447,7 @@
     const zoom = view.getZoom();
 console.log('check zoom');
 
-    if (zoom < 12) {
+if (zoom < 12 && zoom > 0) { //stops the check disabling select-area at start
       $("#select").prop('disabled', 'true');
       // if select was checked, uncheck it and set as draw
       if ($("#select").prop('checked') == true) {
