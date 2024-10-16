@@ -420,7 +420,7 @@ line-height: 1.4rem;
 
   let isShowingCharges = false;
 
-  map.on('click', function(event) {
+  map.on('pointerup', function(event) {
     console.log('click');
     if(!isShowingCharges){
       isShowingCharges = true;
