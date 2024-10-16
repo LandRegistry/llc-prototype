@@ -17,7 +17,7 @@
     <p>Find the location and then draw the charge extent.</p>
     <div class="govuk-form-group">
       <div id="event-name-hint" class="govuk-hint">
-        For example, SE5 9QY or High Street
+        For example, SE5 9QY or High Street, Durham
       </div>
       <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
     </div>
@@ -29,7 +29,7 @@
 
 
     {% set method = "postcode" %}
-    {% include "includes/search-methods-v3.html" %}
+    {% include "./map-includes/search-methods.html" %}
 
 <!--     <div class="govuk-inset-text">
       You have added 0 extents (polygons, points, or lines) out of 1000 possible extents.

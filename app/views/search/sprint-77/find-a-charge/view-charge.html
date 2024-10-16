@@ -154,7 +154,25 @@
             Extent
           </dt>
           <dd class="govuk-summary-list__value">
-            <img src="/public/images/check_extent.png" alt="Map of charge extent" style="width:350px; height:100%;">
+
+          {% if index == "3" or index == "7" %}
+            <img src="/public/images/number9/charge_13.png"  style="width:100%">
+          {% elseif index=="4" %}
+            <img src="/public/images/number9/charge_12.png" style="width:100%">
+          {% elseif index=="8" %} 
+            <img src="/public/images/number9/address1.png" style="width:100%">
+          {% elseif index=="9" %} 
+            <img src="/public/images/number9/address2.png" style="width:100%">
+          {% elseif index=="10" or index == "12" or index == "13" %} 
+            <img src="/public/images/number9/address3.png" style="width:100%">
+          {% elseif index=="11" or index == "14" %} 
+            <img src="/public/images/number9/address4.png" style="width:100%">
+
+          {% else %} 
+
+          <img src="/public/images/number9/number9_red.png" style="width:100%">
+          {% endif %}
+
             <ul class="govuk-list">
               <li>
                 <a class="govuk-link" href="#">Add a new charge using this extent</a>
