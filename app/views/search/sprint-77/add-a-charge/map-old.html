@@ -2,190 +2,29 @@
 
 {% set serviceName= "Maintain LLC" %}
 
-{% set pageName="Add a charge" %}
+{% set pageName="Draw the charge extent" %}
 {% set selectHint = "" %}
 {% set drawHint = "" %}
 {% set editHint = "" %}
 {% set deleteHint = "" %}
 {% set snapHint = "" %}
-{% set bodyClasses = "full-width" %}
-{% set containerClasses = "full-width" %}
 
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
 
 {% block content %}
-<style>
-    .govuk-main-wrapper {
-    padding-top: 10px;
-    padding-bottom: 0;
-  }
-
-  .govuk-width-container{
-    max-width:98%;
-    width:98%;
-  }
-
-  .govuk-footer {
-    display:none;
-  }
-
-  .charge{
-    padding: 4px;
-    border: 4px solid #fff;
-
-  }
-  .charge:hover{
-    background-color: #ffdd00;
-    border: 4px solid #0b0c0c;
-
-  }
-  .scroll{
-    height: 720px;
-    overflow-x: none;
-    overflow-y: scroll;
-    margin: 0;
-  }
-  
-  .search-field {
-    height: 38px;
-  }
-  .map__search_term {
-    position: relative;
-    z-index: 10;
-    height: 38px;
-    margin: 0;
-    padding: 1px;
-    border: 2px solid #0b0c0c;
-    border-radius: 0;
-    width: 85%;
-  }
-  .search-bar-input{
-    padding-right:15px;
-  }
-  .search-button {
-  height: 38px;
-  width: 38px;
-  cursor: pointer;
-  background: #0B0C0C url("/public/images/search-button.png") no-repeat 2px 50%;
-  border: 0;
-  border-radius: 0;
-}
-.search-bar {
-  display: flex;
-  flex-direction: row;
-  height: 38px;
-}
-
-  .govuk-grid-column-15-pc{
-    width: 20%;
-    box-sizing: border-box;
-    padding: 0 15px;
-    float: left;
-  }
-  .govuk-grid-column-three-quarters{
-    width:80%;
-  }
-
-  #map{
-    height:1000px;
-  }
-  .govuk-button-group{
-    margin-bottom:0;
-  }
-
-  .align-right {
-    position: absolute;
-    right: 0px;
-  }
-  .govuk-footer-x{
-    border-top: 1px solid #b1b4b6;
-    color: #0b0c0c;
-    background: #f3f2f1;
-  }
-  .footer {
-    display: flex;
-    flex-direction: row;
-  }
-  .govuk-footer__copyright-logo {
-    margin-left:40px;
-  }
-/*   .govuk-list{
-    font-size: 16px;
-  } */
-
-  @media (min-width: 40.0625em) {
-  .govuk-frontend-supported .govuk-accordion__section-content {
-    padding-bottom: 20px;
-  }
-}
-.govuk-accordion__controls{
-  display: none;
-}
-</style>
-<!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
+<h1 class="govuk-heading-l">Draw the charge extent</h1>
 
 <div id="container" class="govuk-grid-row">
-
-  <div id="navbar" class="govuk-grid-column-15-pc scroll">
-
-    <h2 class="govuk-heading-m">Add an extent</h2>
-
-    <div class="govuk-inset-text">
-      You have added 1 extent (polygon, point or line) out if 1000 possible extents.
-    </div>
-
-    {% include "./map-includes/map-controls-add-charge.html" %}
-    
-    {% include "./map-includes/search-add-charge-simple-v2.html" %}
-
-    <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
-      <div class="govuk-width-container footer">
-
-        <ul class="govuk-list">
-          <li>
-            <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
-          </li>
-          <li>
-            <a class="govuk-footer__link" href="#">Accessibility statement</a>
-          </li>
-          <li>
-            <a class="govuk-footer__link" href="#">Cookies</a>
-          </li>
-          <li>
-            <a class="govuk-footer__link" href="#">Conditions of use</a>
-          </li>
-          <li>
-            <span class="govuk-footer__licence-description">
-              All content is available under the
-              <a
-                class="govuk-footer__link"
-                href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-                rel="license">Open Government Licence v3.0</a>, except where otherwise stated
-            </span>
-          </li>
-        </ul>
-
-        <ul class="govuk-list">
-          <li>
-            <a
-              class="govuk-footer__link govuk-footer__copyright-logo " 
-              href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
-              © Crown copyright
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-
-
-    </div> 
-    
-
 
   <div class="govuk-grid-column-three-quarters">
 
     <div style="position: relative; width: 0; height: 0">
         <br />
-      <div class="nav-controls-fullwidth">
+      <div class="nav-controls ">
         <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
         <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
           <span class="govuk-visually-hidden">Zoom out</span>
@@ -193,10 +32,10 @@
       </div>
     </div>
     <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
-      <!-- <div class="center">
+      <div class="center">
         <div class="horizontal"></div>
         <div class="vertical"></div>
-      </div> -->
+      </div>
       <noscript>
         <div id="nojs" class="nojs-content">
           <div id="nojs-message" class="notification-summary">
@@ -209,7 +48,7 @@
         </div>
       </noscript>
     </div>
-    <div class=" govuk-!-padding-top-2">
+    <div class=" govuk-!-padding-top-3 ">
       <div class="govuk-heading-s ">
         Map key
 
@@ -221,20 +60,209 @@
           alt="Location not available key" height="19" width="19">
         <span class="map-key-text govuk-body-s">Location not available</span>
 
-        <span class="govuk-body-s align-right">
-          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and conditions</a>
-        </span>
       </div>
     </div>
 
   </div>
 
+  <div id="navbar" class="govuk-grid-column-one-quarter">
 
+    <h2 class="govuk-heading-m">Map options</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
+            aria-describedby="select-area-hint" checked>
+            <label class="govuk-label govuk-radios__label" for="select">
+              <span class="">
+                <span class=""></span>
+                Select area from map
+              </span>
+            </label>
+            <div id="select-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ selectHint }}
+            </div>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
+              aria-describedby="draw-area-hint" >
+            <label class="govuk-label govuk-radios__label" for="draw">
+              <span class="">
+                <span class=""></span>
+                Draw area
+              </span>
+            </label>
+            <div id="draw-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ drawHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area"
+            aria-describedby="edit-area-hint">
+            <label class="govuk-label govuk-radios__label" for="edit">
+              <span class="r">
+                <span class=""></span>
+                Edit area
+              </span>
+            </label>
+            <div id="edit-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ editHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="cutout" name="edit-mode" type="radio" value="cutout-area"
+            aria-describedby="cutout-area-hint">
+            <label class="govuk-label govuk-radios__label" for="cutout">
+              <span class="r">
+                <span class=""></span>
+                Cut out area
+              </span>
+            </label>
+            <div id="cutout-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ cutoutHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
+              aria-describedby="delete-area-hint">
+            <label class="govuk-label govuk-radios__label" for="delete">
+              <span class="">
+                <span class=""></span>
+                Delete area
+              </span>
+            </label>
+            <div id="delete-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ deleteHint }}
+            </div>
+          </div>
+          <!-- <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-bottom-3"> -->
+          <div class="govuk-radios__divider">or</div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-circle" name="edit-mode" type="radio" value="add-circle"
+              aria-describedby="add-circle-hint">
+            <label class="govuk-label govuk-radios__label" for="add-circle">
+              <span class="">
+                <span class=""></span>
+                Add circle
+              </span>
+            </label>
+            <div id="add-circle-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ addCircleHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-point" name="edit-mode" type="radio" value="add-point"
+              aria-describedby="add-point-hint">
+            <label class="govuk-label govuk-radios__label" for="add-point">
+              <span class="">
+                <span class=""></span>
+                Add point
+              </span>
+            </label>
+            <div id="add-point-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ addPointHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="add-line" name="edit-mode" type="radio" value="add-line"
+              aria-describedby="add-line-hint">
+            <label class="govuk-label govuk-radios__label" for="add-line">
+              <span class="">
+                <span class=""></span>
+                Add line
+              </span>
+            </label>
+            <div id="add-line-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ addLineHint }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-top-3 govuk-!-padding-bottom-3">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-3" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap" aria-describedby="snap-to-map-hint">
+            <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+              Snap to line on map
+            </label>
+            <div id="snap-to-map-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+              {{snapHint}}
+            </div>
+          </div>
+<!--           <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched">
+            <label class="govuk-label govuk-checkboxes__label" for="hatching">
+              Show shading
+            </label>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible ">
+
+    <div class="govuk-grid-row govuk-!-padding-bottom-2">
+      <div class="govuk-grid-column-full govuk-!-padding-top-3">
+
+        <div class="govuk-button-group">
+          <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button" disabled>
+            Undo
+          </button>
+          <br />
+          <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Clear all
+          </button>
+          <br />
+        </div>
+
+      </div>
+    </div>
+
+
+    {{ govukButton({
+      text: "Continue",
+      href:"singular-address"
+    }) }}
+
+
+  </div> 
 </div>
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
+    <div class="">
+      <p>
+      <a class="govuk-link govuk-body-m" href="https://search-local-land-charges.service.gov.uk/how-to-use-the-map" target="_blank">
+        Learn more about how to use this map (opens in a new tab)</a>
+      </p>
+     <!--  <p class="govuk-body ">
+        <a href="#" class="govuk-link">Get help with this service (opens in new tab)</a>
+      </p> -->
+    </div>
+
+
+    <p class="govuk-body ">
+      Use of address and mapping data is subject to <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+      target="_blank">Ordnance Survey Licence Terms and Conditions (opens in new tab)</a>. This includes the link between the address and its location.
+    </p>
+
+
+  </div>
+  <div class="govuk-grid-column-one-quarter">
+    <h2 class="govuk-heading-s" id="subsection-title">
+      Get help
+    </h2>
+    <a href="#" class="govuk-link">Get help with this service</a>
+
 
   </div>
 </div>
@@ -247,7 +275,6 @@
 
   <!-- Jquery -->
   <script src="/public/ol/js/jquery.min.js"></script>
-
 
   <!-- Open Layers -->
   <script src="/public/ol/js/ol.js"></script>
@@ -270,8 +297,7 @@
   <!-- Map config -->
   <script src="/public/ol/js/map_config.js"></script>
 
-
-  <script>   
+  <script>
     var termsLink = "";
     var mastermap_api_key = "{{ data.API_KEY }}";
     var map_base_layer_view_name = "m0100";
@@ -297,7 +323,7 @@
 
   <script type="text/javascript">
     $(function () {
-      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
+      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[415764.95, 464716.37], [415766.14, 464708.44], [415787.609, 464710.113], [415788.09, 464710.15], [415796.29, 464707.14], [415797.53, 464706.67], [415798.18, 464706.44], [415799.26, 464706.13], [415802.29, 464705.76], [415804.96, 464705.64], [415807.64, 464705.84], [415810.11, 464706.17], [415812.74, 464706.85], [415813.91, 464707.26], [415816.55, 464708.47], [415818.2, 464709.41], [415820.75, 464711.36], [415823.25, 464713.36], [415826.66, 464715.76], [415841.6, 464726.83], [415849.35, 464732.54], [415845.14, 464737.59], [415843.01, 464736.07], [415841.38, 464736.63], [415840.54, 464738.53], [415842.39, 464740.72], [415832.84, 464752.2], [415829.4, 464756.22], [415827.62, 464755.15], [415826.32, 464754.35], [415825.32, 464753.85], [415824.72, 464753.65], [415824.12, 464753.55], [415822.22, 464752.95], [415821.01, 464752.74], [415819.71, 464752.54], [415816.61, 464751.94], [415814.5, 464751.63], [415808.21, 464758.75], [415792.1, 464754.24], [415794.51, 464732.32], [415781.49, 464729.41], [415765.54, 464725.8], [415765.69, 464721.43], [415766.59, 464721.32], [415766.44, 464716.46], [415764.95, 464716.37]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
     });
   </script>
   
@@ -306,40 +332,6 @@
   // init select area
   ///////////////////////////////////////////////
   $( document ).ready(function() {
-
-    // hack the map height
-    let page_height = Math.floor($(window).height());
-    $("#map").css("height", page_height - 130);    
-    $("#container").css("height", page_height - 120);    
-    $('.scroll').css('height', page_height - 100);
-    // hack the nav buttons
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
-    
-    //hide the postcode list
-    $('#address-list').hide();
-    $('#selected-address').hide();
-    $('#results-heading').hide();
-    $('#results-guide').hide();
-    //hide the results charge list
-    $('.results-title').hide();
-    $('.results').hide();
-
-
-    // trigger map resize
-    window.dispatchEvent(new Event('resize'));
-
-    // add map event listeners to hide area on mouse out
-    map.getViewport().addEventListener('mouseover', function(event){
-         //MAP_CONFIG.draw_source.clear();
-          MASTER_MAP_VECTOR_LAYER.enable()
-      }, false);
-      map.getViewport().addEventListener('mouseout', function(event){
-         //MAP_CONFIG.draw_source.clear();
-          MASTER_MAP_VECTOR_LAYER.disable()
-      }, false);
-
-
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
@@ -367,15 +359,8 @@
     });
   
     MAP_CONTROLS.vectorControls.copy_enabled = true;
-    map.addInteraction(MAP_CONTROLS.current_interaction);
-
-    //zoom out to hack bounds box
-    const view = map.getView();
-    const zoom = view.getZoom();
-     view.animate({
-      zoom: (zoom - 1),
-      duration: 0
-    });
+    map.addInteraction(MAP_CONTROLS.current_interaction)
+  
   });
   
 </script>
@@ -766,35 +751,6 @@ console.log(radio);
         }
     }
 
-  });
-
-  $( window ).on( "resize", function() {
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
-    //let ht = $( window ).height()
-    //$(".scroll").css("height", ht - 140);
-    //console.log('ht', ht);
-
-  } );
-
-  ///////////////////////////////////////////////
-  // postcode / address check
-  ///////////////////////////////////////////////
-  $("#find-btn").click(function(e){
-    $('#address-list').show();
-    $('#selected-address').hide();
-    $('#results-heading').show();
-    $("#postcodes").css("height", 400);   
-  });  
-  
-  $("li a").click(function(e){
-  console.log(this.text);
-    $('#address-list').hide();
-    $("#postcodes").css("height", 240); 
-    $('#selected-address').html("This is the map for:<br/>" + this.text);
-    $('#selected-address').show();
-    $('#results-heading').hide();
-    $('#results-guide').show();
   });
 
 </script>
