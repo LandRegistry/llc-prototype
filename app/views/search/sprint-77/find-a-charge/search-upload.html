@@ -14,6 +14,22 @@
     <h1 class="govuk-heading-l">
       Search by uploading an area
     </h1>
+    <p class="govuk-body">Your file must be in this format:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>under 1MB</li>
+      <li>British National Grid (BNG) coordinates</li>
+      <li>1000 extents (or fewer)</li>
+      <li>zip file (.zip) that includes 3 files (.shp, .shx, .dbf)</li>
+      or
+      <li>json file (.json)</li>
+    </ul>
+      
+    <p class="govuk-body">If your file does not use British National Grid (BNG) coordinates:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Your extent might not look the same way on our map as it does on your file</li>
+      <li>Check the extent you have uploaded to make sure it is the right place, size and shape</li>
+    </ul>
+      
     <div class="govuk-form-group">
       <label class="govuk-label" for="file-upload-1">
         Upload a shapefile or json file
@@ -23,7 +39,7 @@
 
     {{ govukButton({
       text: "Import search area",
-      classes: "govuk-button--secondary  govuk-!-margin-top-3",
+      classes: "govuk-!-margin-top-3",
       href:"map-without-search"
     }) }}
 
