@@ -1,0 +1,92 @@
+[
+  {
+    "version": 14747,
+    "date": "18 October 2023",
+    "time": "13:15:58",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Bulk Update"
+  },
+  {
+    "version": 134872,
+    "date": "17 October 2023",
+    "time": "11:56:08",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Bulk Update of charges"
+  },
+  {
+    "version": 135543,
+    "date": "17 October 2023",
+    "time": "11:55:36",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Authority reference update"
+  },
+  {
+    "version": 115558,
+    "date": "17 October 2023",
+    "time": "10:44:50",
+    "user": "Firstname Lastname",
+    "email": "support@hmlr.gov.uk",
+    "organisation": "HM Land Registry",
+    "reason": "csv upload to correct references"
+  },
+  {
+    "version": 114679,
+    "date": "17 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Update description"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Update location"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "support@hmlr.gov.uk",
+    "organisation": "HM Land Registry",
+    "reason": "Update reference"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Add description"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "support@hmlr.gov.uk",
+    "organisation": "HM Land Registry",
+    "reason": "Update creation date"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Add creation date"
+  }
+]
