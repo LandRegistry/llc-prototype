@@ -35,6 +35,12 @@ router.get('/search/sprint-77/find-a-charge/view-charge', function(req, res) {
   });
 });
 
+router.get('/search/sprint-77/find-a-charge/view-history', function(req, res) {
+  res.render('/search/sprint-77/find-a-charge/view-history', {
+    index: res.locals.data.index 
+  });
+});
+
 // Import routes from feature prototypes
 router.use(/\/(.)*\/(.)*\/v([0-9]+)/, (req, res, next) => {
   return require(`./views/${req.originalUrl.split('/')[1]}/${req.originalUrl.split('/')[2]}/v${req.params[2]}/_routes`)(req, res, next);

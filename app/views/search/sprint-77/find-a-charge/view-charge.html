@@ -39,7 +39,7 @@
         </li>
       </ul>
 {% set category = 0 %}
-{% if index|length == 0%}
+{% if index|length == 0 %}
 {% set index = 0 %}
 {% endif %}
 
@@ -52,6 +52,7 @@
             {{ categories[category].charges[index].hmlrReference  }}
           </dd>
           <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="view-history?index={{index}}">View history</a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -135,7 +136,7 @@
             20 May 1987
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">View history</a>
+            <a class="govuk-link" href="view-history?index={{index}}">View history</a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
