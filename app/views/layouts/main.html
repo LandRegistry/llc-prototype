@@ -4,3 +4,62 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+  
+  {% block footer %}
+    {% if serviceName == "Maintain LLC" %}
+      {{ govukFooter({
+        meta: {
+          items: [
+          {
+            href: "#",
+            text: "Contact HM Land Registry"
+          }, {
+            href: "#",
+            text: "Accessibility"
+          }, {
+            href: "#",
+            text: "Cookies"
+          }, {
+            href: "#",
+            text: "Terms and conditions"
+          }, {
+            href: "/manage-prototype/clear-data",
+            text: "Clear data"
+          }
+        ],
+          visuallyHiddenTitle: "Footer links"
+        }
+      }) }}
+
+    {% else %}
+
+      {% if (GOVUKPrototypeKit.isDevelopment) %}
+        {% set footerItems = [
+          {
+            href: "/manage-prototype",
+            text: "Manage your prototype"
+          }, {
+            href: "/manage-prototype/clear-data",
+            text: "Clear data"
+          }
+        ] %}
+      {% else %}
+        {% set footerItems = [
+          {
+            href: "/manage-prototype/clear-data",
+            text: "Clear data"
+          }
+        ] %}
+      {% endif %}
+
+      {{ govukFooter({
+        meta: {
+          items: footerItems,
+          visuallyHiddenTitle: "Footer links"
+        }
+      }) }}
+
+    {% endif %}
+
+  {% endblock %}
+  
