@@ -10,6 +10,9 @@
     {% if method != "title" %}
     <li><a href="search-by-title">Add an extent by title number</a></li>
     {% endif %}
+    {% if method != "llc-ref" %}
+    <li><a href="search-by-llc-ref">Add an extent by LLC reference</a></li>
+    {% endif %}
     {% if method != "map" %}
     <li><a href="#">Add an extent by map</a></li>
     {% endif %}
