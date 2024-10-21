@@ -160,7 +160,9 @@
   justify-content: center;
 }
 .govuk-footer__copyright-logo {
-margin-left:40px;
+  margin-left:40px;
+  background-size: 90px 75px;
+  padding-top: 82px;
 }
 .footer {
   display: flex;
@@ -203,13 +205,13 @@ margin-left:40px;
             <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
           </li>
           <li>
-            <a class="govuk-footer__link" href="#">Accessibility statement</a>
+            <a class="govuk-footer__link" href="#">Accessibility</a>
           </li>
           <li>
             <a class="govuk-footer__link" href="#">Cookies</a>
           </li>
           <li>
-            <a class="govuk-footer__link" href="#">Conditions of use</a>
+            <a class="govuk-footer__link" href="#">Terms and conditions</a>
           </li>
           <li>
             <span class="govuk-footer__licence-description">
@@ -381,7 +383,7 @@ margin-left:40px;
     let page_height = Math.floor($(window).height());
     $("#map").css("height", page_height - 130);    
     $("#container").css("height", page_height - 120);    
-    $('.scroll').css('height', page_height - 100);
+    $('.scroll').css('height', page_height - 70);
     
     //hide the postcode list
     $('#address-list').hide();

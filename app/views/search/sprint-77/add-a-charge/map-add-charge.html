@@ -101,8 +101,17 @@
     color: #0b0c0c;
     background: #f3f2f1;
   }
-  .govuk-list{
+ footer .govuk-list{
     font-size: 16px;
+  }
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+    background-size: 90px 75px;
+    padding-top: 82px;
+  }
+  .footer {
+    display: flex;
+    flex-direction: row;
   }
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
@@ -123,20 +132,20 @@
     {% include "./map-includes/map-controls-add-charge.html" %}
 
     <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
-      <div class="govuk-width-container">
+      <div class="govuk-width-container footer">
 
         <ul class="govuk-list">
           <li>
             <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
           </li>
           <li>
-            <a class="govuk-footer__link" href="#">Accessibility statement</a>
+            <a class="govuk-footer__link" href="#">Accessibility</a>
           </li>
           <li>
             <a class="govuk-footer__link" href="#">Cookies</a>
           </li>
           <li>
-            <a class="govuk-footer__link" href="#">Conditions of use</a>
+            <a class="govuk-footer__link" href="#">Terms and conditions</a>
           </li>
           <li>
             <span class="govuk-footer__licence-description">
@@ -147,9 +156,12 @@
                 rel="license">Open Government Licence v3.0</a>, except where otherwise stated
             </span
           </li>
+        </ul>
+        
+        <ul class="govuk-list">
           <li>
             <a
-              class="govuk-footer__link govuk-footer__copyright-logo-x"
+              class="govuk-footer__link govuk-footer__copyright-logo"
               href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
               © Crown copyright
             </a>
@@ -369,7 +381,7 @@
     let page_height = Math.floor($(window).height());
     $("#map").css("height", page_height - 130);    
     $("#container").css("height", page_height - 120);    
-    $('.scroll').css('height', page_height - 100);
+    $('.scroll').css('height', page_height - 70);
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
