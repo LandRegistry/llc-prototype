@@ -145,7 +145,7 @@
     
     {% include "./map-includes/search-add-charge-simple-v2.html" %}
 
-    <footer class="govuk-footer-x govuk-!-margin-top-9 govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+    <footer class="govuk-footer-x govuk-!-margin-top-9 govuk-!-padding-top-3 govuk-!-padding-bottom-s">
       <div class="govuk-width-container footer">
 
         <ul class="govuk-list">
@@ -319,7 +319,7 @@
     let page_height = Math.floor($(window).height());
     $("#map").css("height", page_height - 130);    
     $("#container").css("height", page_height - 120);    
-    $('.scroll').css('height', page_height - 100);
+    $('.scroll').css('height', page_height - 70);
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
