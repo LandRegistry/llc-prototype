@@ -446,7 +446,7 @@
     const view = map.getView();
     const zoom = view.getZoom();
      view.animate({
-      zoom: (zoom + 2.5),
+      zoom: zoom, //(zoom + 2.5),
       duration: 0
     }); 
 
@@ -512,18 +512,6 @@
 
   $('#reference-btn').click(function(event) {
     window.location.href = "reference-number-results";
-  });
-
-  $('#find-btn').click(function(event) {
-    const view = map.getView();
-    const zoom = view.getZoom();
-
-    let coords =[532050, 181750];
-     view.animate({
-      center: coords,
-      zoom: 14.5,
-      duration: 0
-    }); 
   });
 
   
@@ -966,6 +954,16 @@ console.log(feature_id);
     $('#selected-address').show();
     $('#results-heading').hide();
     $('#results-guide').show();
+
+    const view = map.getView();
+    const zoom = view.getZoom();
+
+    let coords =[532050, 181750];
+     view.animate({
+      center: coords,
+      zoom: 14.5,
+      duration: 0
+    }); 
   });
 
 
