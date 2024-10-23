@@ -123,7 +123,7 @@
     <h2 class="govuk-heading-m">Add the charge extent</h2>
 
     <div class="govuk-inset-text">
-      You have added 1 extent (polygon, point or line) out if 1000 possible extents.
+      You have added 0 extents (polygon, point or line) out if 1000 possible extents.
     </div>
 
     {# include "./map-includes/search-add-charge.html" #}
@@ -266,81 +266,6 @@
   <script src="/public/ol/js/map_config.js"></script>
 
 
-  <script id="option-select">
-
-     $("#option-select-title-category").click(function(e){
-      console.log('click');
-      let content = $('#list_of_categories');
-      if (this.getAttribute('aria-expanded') === 'false') {;
-        this.setAttribute('aria-expanded', true);
-        this.classList.add('app-c-expander__content--visible');
-        content.css('display', 'block');
-
-      } else {
-        this.setAttribute('aria-expanded', false);
-        this.classList.remove('app-c-expander__content--visible');
-        content.css('display', 'none');
-      }
-    })
-
-     $("#option-select-title-oa").click(function(e){
-      console.log('click');
-      let content = $('#list_of_oas');
-      if (this.getAttribute('aria-expanded') === 'false') {;
-        this.setAttribute('aria-expanded', true);
-        this.classList.add('app-c-expander__content--visible');
-        content.css('display', 'block');
-
-      } else {
-        this.setAttribute('aria-expanded', false);
-        this.classList.remove('app-c-expander__content--visible');
-        content.css('display', 'none');
-      }
-    })
-     $("#option-select-postcode").click(function(e){
-      console.log('click');
-      let content = $('#postcodes');
-      if (this.getAttribute('aria-expanded') === 'false') {;
-        this.setAttribute('aria-expanded', true);
-        this.classList.add('app-c-expander__content--visible');
-        content.css('display', 'block');
-
-      } else {
-        this.setAttribute('aria-expanded', false);
-        this.classList.remove('app-c-expander__content--visible');
-        content.css('display', 'none');
-      }
-    })
-     $("#option-select-reference").click(function(e){
-      console.log('click');
-      let content = $('#reference_number');
-      if (this.getAttribute('aria-expanded') === 'false') {;
-        this.setAttribute('aria-expanded', true);
-        this.classList.add('app-c-expander__content--visible');
-        content.css('display', 'block');
-
-      } else {
-        this.setAttribute('aria-expanded', false);
-        this.classList.remove('app-c-expander__content--visible');
-        content.css('display', 'none');
-      }
-    })
-     $("#option-select-upload").click(function(e){
-      console.log('click');
-      let content = $('#uploads');
-      if (this.getAttribute('aria-expanded') === 'false') {;
-        this.setAttribute('aria-expanded', true);
-        this.classList.add('app-c-expander__content--visible');
-        content.css('display', 'block');
-
-      } else {
-        this.setAttribute('aria-expanded', false);
-        this.classList.remove('app-c-expander__content--visible');
-        content.css('display', 'none');
-      }
-    })
-  </script>
-
   <script>   
     var termsLink = "";
     var mastermap_api_key = "{{ data.API_KEY }}";
@@ -366,9 +291,15 @@
 
 
   <script type="text/javascript">
-    $(function () {
+/*     $(function () {
       load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
-    });
+    }); 
+    
+    }); */
+    
+
+
+    
   </script>
   
   <script>
@@ -380,11 +311,8 @@
     // hack the map height
     let page_height = Math.floor($(window).height());
     $("#map").css("height", page_height - 130);    
-    $("#container").css("height", page_height - 120);    
+    $("#container").css("height", page_height - 120);
     $('.scroll').css('height', page_height - 70);
-    // hack the nav buttons
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
     
     //hide the postcode list
     $('#address-list').hide();
@@ -438,15 +366,22 @@
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
 
+    // hack the nav buttons
+    let map_width = Math.floor($('#map').width());
+    $(".nav-controls-fullwidth").css("left", map_width - 140);
 
 
-    //zoom out to hack bounds box
-    const view = map.getView();
+//zoom in to hack bounds box
+const view = map.getView();
     const zoom = view.getZoom();
+
+    let coords =[532050, 181750];
      view.animate({
-      zoom: (zoom - 1),
+      center: coords,
+      zoom: 15,//(zoom -4 ),
       duration: 0
-    });
+    }); 
+
   });
   
 </script>
@@ -458,7 +393,7 @@
     const view = map.getView();
     const zoom = view.getZoom();
 
-    if (zoom < 12) {
+    if (zoom < 12 && zoom > 0) {
       $("#select").prop('disabled', 'true');
       // if select was checked, uncheck it and set as draw
       if ($("#select").prop('checked') == true) {
