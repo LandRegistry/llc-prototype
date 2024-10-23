@@ -1,0 +1,138 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+
+
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
+  
+{% block beforeContent %}
+	{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+	{{ govukPhaseBanner({
+		tag: {
+			text: "Prototype"
+		},
+		html: "Help us improve this service with your feedback."
+	}) }}
+	{{ super() }}  <!-- This will include any content from the parent layout's beforeContent block -->
+
+
+  <style>
+  /* Quick and dirty hack to use portal styling */
+  /* General Styles */
+
+  .govuk-header__logo {
+      display: none;
+  }
+
+  /* Custom border for the header container */
+  .govuk-header__container {
+      border-bottom: 10px solid #789904;
+  }
+
+  /* task list (DRS)*/
+  .task-list-side-bar {
+      border-top: 4px solid rgb(86, 148, 202);
+      padding-top: 15px;
+  }
+
+  /* utilities */
+  .indent-20 {
+      padding-left: 20px;
+  }
+
+  .highlight {
+  }
+
+  /* Override the max-width and white-space properties for the .govuk-tag class */
+  .govuk-tag {
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  /* Warning text - small */
+
+  .govuk-warning-text--small-icon .govuk-warning-text__icon {
+    min-width: 25px;
+    min-height: 25px;
+    margin-top: -4px;
+    border-width: 2px;
+    font-size: 21px;
+    line-height: 21px;
+  }
+  .govuk-warning-text--small-icon .govuk-warning-text__text {
+    padding-left: 35px;
+  }
+
+  @media (min-width: 40.0625em) {
+    .govuk-warning-text--small-icon .govuk-warning-text__icon {
+      margin-top: -1px;
+    }
+  }
+
+  @media (min-width: 48.0625em) {
+      .govuk-header__content {
+          padding-left: 0;
+      }
+  }
+  </style>
+{% endblock %}
+
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+
+  {% block footer %}
+
+  <footer class="govuk-footer govuk-footer--hmlr" role="contentinfo">
+    <div class="govuk-width-container">
+      
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          
+            <h2 class="govuk-visually-hidden">Footer links</h2>
+              <ul class="govuk-footer__inline-list">
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/privacy">
+                      Privacy policy
+                    </a>
+                  </li>
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/manage-prototype">
+                      Manage your prototype
+                    </a>
+                  </li>
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="/manage-prototype/clear-data">
+                      Clear data
+                    </a>
+                  </li>
+              </ul>
+          
+              <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
+                <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"></path>
+              </svg>
+              <span class="govuk-footer__licence-description">
+                  All content is available under the
+                  <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+              </span>
+        </div> <!-- ./govuk-footer__meta-item govuk-footer__meta-item--grow" -->
+        
+        <div class="govuk-footer__meta-item">
+          <img width="172" height="53" src="/public/images/logo-greyscale.png" alt="HM Land Registry Footer Logo">
+        </div> <!-- ./govuk-footer__meta-item -->
+  
+      </div> <!-- ./govuk-footer__meta -->
+    </div> <!-- ./govuk-width-container -->
+  </footer> <!-- ./govuk-footer govuk-footer--hmlr -->
+
+  {% endblock %}
+  
