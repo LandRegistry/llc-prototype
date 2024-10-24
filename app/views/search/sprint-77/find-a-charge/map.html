@@ -432,6 +432,8 @@
         else {
           MAP_CONTROLS.addGeometryToMap(geometry)
         }
+
+
       }
     });
   
@@ -495,11 +497,11 @@
   map.on('pointerup', function(event) {
     console.log('click up');
     // only load the charges once
-    if(!isShowingCharges){
+/*     if(!isShowingCharges){
       isShowingCharges = true;
       $('.loader').show();
       setTimeout(showResults, 1000);
-    } 
+    }  */
   });
 
   $('#reference').keypress(function(e) {
@@ -650,6 +652,14 @@
           else {
             MAP_CONTROLS.addGeometryToMap(geometry)
           }
+          // load data
+          console.log('load from set mode');
+          
+          if(!isShowingCharges){
+            isShowingCharges = true;
+            $('.loader').show();
+            setTimeout(showResults, 1000);
+          } 
         }
       });
 
