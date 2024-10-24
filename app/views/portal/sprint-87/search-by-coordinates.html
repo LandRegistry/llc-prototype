@@ -1,0 +1,54 @@
+{% extends "layouts/portal.html" %}
+
+{% set pageName="Identify a search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Search by coordinates
+    </h1>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="event-name">
+        Enter X coordinates (Eastings)
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Coordinates must be numerical
+      </div>
+      <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+    </div>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="event-name">
+        Enter Y coordinates (Northings)
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Coordinates must be numerical
+      </div>
+      <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+    </div>
+
+    <a href="map" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Search
+    </a>
+
+    {% include "includes/not-yet-available.html" %}
+
+    {% include "includes/search-inset-terms-with-map.html" %}
+    {% set method = "coords" %}
+    {% include "includes/search-methods-v2.html" %}
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    
+  </div>
+
+</div>
+{% endblock %}
