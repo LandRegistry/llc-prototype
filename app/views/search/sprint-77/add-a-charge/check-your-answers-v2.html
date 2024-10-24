@@ -1,0 +1,170 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Check your answers - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+.govuk-summary-list__actions, .govuk-summary-list__key {
+  vertical-align: top;
+}
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before adding the charge</h1>
+      <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Planning
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Conditional planning consent
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Law
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Town and Country Planning Act 1990 section 70
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal document
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Planning permission
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Creation date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">15 October 2024</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Extent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <img src="/public/images/number9/number9_red.png" alt="Map of charge extent" style="width:100%; height:170px">
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">9 Newbury Street, London EC1A 7HU</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expiry date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Does not expire</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Source information
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Planning Department</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Authority reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">XYZ123</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Single storey extension</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+      </dl>
+
+
+      <h2 class="govuk-heading-m">Now add your local land charge</h2>
+      <p class="govuk-body">By adding this charge, you are confirming that this information is correct.</p>
+      <form action="/form-handler" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Add charge",
+          href:"add-charge-confirmation-v2"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="../dashboard-v2">Cancel and return to main menu</a></p>
+    </div>
+    </div>
+
+
+  
+
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Charge description - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="more-detail">
+            What is the charge description? (optional)
+          </label>
+        </h1>
+        <div id="more-detail-hint" class="govuk-body">
+          This will help someone researching this charge.
+          <br/>
+          Do not include personal or financial information, like a telephone number or email address.
+        </div>
+        <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You have 1500 characters remaining
+        </div>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        href:"check-your-answers-v2"
+      }) }}
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Charge added - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Charge added
+        </h1>
+        <div class="govuk-panel__body">
+          HM Land Registry reference <br><strong>LLC-123F</strong>
+        </div>
+      </div>
+      <p class="govuk-body">Keep this reference number to help you find this charge again.</p>
+
+      <p class="govuk-body">
+        <a href="choose-a-charge-v2" class="govuk-link">Add another local land charge</a>
+      </p>
+      <p class="govuk-body">
+        <a href="../dashboard-v2" class="govuk-link">Return to main menu</a>
+      </p>
+    </div>
+  </div>
+
+
+</main>
+{% endblock %}
