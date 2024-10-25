@@ -8,6 +8,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
   
 {% block beforeContent %}
+  <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
 	{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 	{{ govukPhaseBanner({
 		tag: {
