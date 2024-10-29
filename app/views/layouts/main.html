@@ -5,6 +5,15 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
   
+  {% block bodyStart %}
+  <!-- Override prototype kit crown logo -->
+  <style>
+  .govuk-footer__copyright-logo {
+    background-image: url("../../../public/images/govuk-crest.svg");
+  }
+  </style>
+  {% endblock %}
+
   {% block footer %}
     {% if serviceName == "Maintain LLC" %}
       {{ govukFooter({
