@@ -1,0 +1,47 @@
+{% extends "layouts/portal.html" %}
+
+{% set pageName="Search by title number - GOV.UK" %}
+
+{% block beforeContent %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Repeat a previous search
+    </h1>
+    <p>
+      You can find the reference number on your original HM Land Registry download.
+    </p>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="event-name">
+        
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Reference number should be nine digits, eg 000219841 with no spaces
+      </div>
+      <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+    </div>
+
+    <a href="confirm" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Search
+    </a>
+
+    {% include "includes/not-yet-available.html" %}
+
+    {% include "includes/search-inset-terms.html" %}
+    {% set method = "title" %}
+    {% include "includes/search-methods-v2.html" %}
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    
+  </div>
+
+</div>
+{% endblock %}
