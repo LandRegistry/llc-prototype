@@ -1,0 +1,34 @@
+{% extends "layouts/portal.html" %}
+
+{% set pageName="How do you want to search? - GOV.UK" %}
+
+{% block beforeContent %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            What is the customer reference?
+          </label>
+        </h1>
+        <input class="govuk-input" id="event-name" name="eventName" type="text">
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "add-description"
+      }) }}
+
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

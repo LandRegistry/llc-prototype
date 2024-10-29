@@ -11,7 +11,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      <form action="" method="POST">
       {{ govukRadios({
         name: "charge-category",
         classes: "govuk-!-margin-bottom-6",
@@ -24,7 +24,7 @@
         },
         items: [
           {
-            value: "title~search-by-title",
+            value: "title~search-by-title-number",
             text: "Title number"
           },
           {
@@ -32,7 +32,7 @@
             text: "Address"
           },
           {
-            value: "map~edit-map",
+            value: "map~search-by-map",
             text: "Map"
           },
           {
@@ -45,6 +45,7 @@
       {{ govukButton({
         text: "Continue"
       }) }}
+    </form>
     </div>
 
   </div>
