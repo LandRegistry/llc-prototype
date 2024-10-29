@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "HM Land Registry Portal" %}
+{% set pageName="Sign in to HM Land Registry Portal - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{# include "includes/language-switcher-heading.html" #}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container {{ containerClasses }}">
+  <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main" {% if mainLang %}
+    lang="{{ mainLang }}" {% endif %}>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">
+          Sign in to HM Land Registry Portal
+        </h2>
+      </div>
+
+
+      <div class="govuk-grid-column-two-thirds">
+
+        <h3 class="govuk-heading-s">Welcome to the HM Land Registry portal.</h3>
+        <p class="govuk-body">HM Land Registry has developed a range of electronic services (Business e-services) for businesses and other corporate bodies. These are delivered through the Land Registry Portal. </p>
+
+          
+        <p class="govuk-body">Sign in or <a class="govuk-link"
+            href="create">create an account</a>.</p>
+
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email">
+            Email address
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="email" spellcheck="false"
+            aria-describedby="email-hint" autocomplete="email">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email">
+            Password
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="email" spellcheck="false"
+            aria-describedby="email-hint" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="govuk-grid-column-full">
+        {{ govukButton({
+        text: "Sign in",
+        href:"homepage"
+        }) }}
+      </div>
+
+      <div class="govuk-grid-column-full">
+        <p> <a class="govuk-link" href="/search/end-to-end/sign-in-first-v5/forgotten">Reset password, PIN or OTP Token</a> </p>
+      </div>
+
+
+
+    </div>
+
+</div>
+</main>
+</div>
+{% endblock %}
+
+{% block footer %}
+
+<footer class="govuk-footer govuk-footer--hmlr" role="contentinfo">
+  <div class="govuk-width-container">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Footer links</h2>
+            <ul class="govuk-footer__inline-list">
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/privacy">
+                    Contact HM Land Registry
+                  </a>
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/privacy">
+                    Privacy
+                  </a>
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/privacy">
+                    Accessibility
+                  </a>
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/privacy">
+                    Cookies
+                  </a>
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/privacy">
+                    Terms and conditions
+                  </a>
+                </li>
+            </ul>
+        
+            <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
+              <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"></path>
+            </svg>
+            <span class="govuk-footer__licence-description">
+                All content is available under the
+                <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+            </span>
+      </div> <!-- ./govuk-footer__meta-item govuk-footer__meta-item--grow" -->
+      
+      <div class="govuk-footer__meta-item">
+        <img width="172" height="53" src="/public/images/logo-greyscale.png" alt="HM Land Registry Footer Logo">
+      </div> <!-- ./govuk-footer__meta-item -->
+
+    </div> <!-- ./govuk-footer__meta -->
+  </div> <!-- ./govuk-width-container -->
+</footer> <!-- ./govuk-footer govuk-footer--hmlr -->
+
+{% endblock %}
