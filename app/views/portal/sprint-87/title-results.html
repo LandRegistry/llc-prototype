@@ -1,0 +1,54 @@
+{% extends "layouts/portal.html" %}
+
+{% set pageName="Search results for 'Stanley Street' for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-!-margin-bottom-9">
+      <h1 class="govuk-heading-l">
+        Title results for 9 Newbury Street, London EC1A 7HU
+      </h1>
+
+      <p>This property has a number of titles. Select a title to continue.</p>
+
+      <ul class="govuk-list govuk-list--spaced">
+
+        <li>
+          <a class="govuk-link--no-visited-state" href="confirm?index=0" id="address-1">
+            FREEHOLD: LN191484
+          </a>
+        </li>
+
+        <li>
+          <a class="govuk-link--no-visited-state" href="confirm?index=1" id="address-2">
+            LEASEHOLD: NGL869475
+          </a>
+        </li>
+
+        <li>
+          <a class="govuk-link--no-visited-state" href="confirm?index=2" id="address-3">
+            LEASEHOLD: NGL875974
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    {% include "includes/search-methods-v2.html" %}
+  </div>
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+{% endblock %}
