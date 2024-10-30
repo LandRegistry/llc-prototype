@@ -30,10 +30,11 @@
       Search
     </a>
 
+    {% include "includes/not-yet-available.html" %}
 
-
-    {% set method = "inspire" %}
-    {% include "includes/search-methods-v2.html" %}
+    {% include "includes/search-inset-terms.html" %}
+    {% set method = "repeat" %}
+    {% include "includes/portal-search-methods.html" %}
 
 
   </div>

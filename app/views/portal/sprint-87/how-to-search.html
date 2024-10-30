@@ -17,7 +17,7 @@
         classes: "govuk-!-margin-bottom-6",
         fieldset: {
           legend: {
-            text: "How do you want to search?",
+            text: "What do you want to search by?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-9"
           }
@@ -37,7 +37,10 @@
           },
           {
             value: "repeat~search-by-reference-number",
-            text: "Repeat a previous search"
+            text: "Repeat a previous search",
+            hint: {
+              text: "Find out if new charges have been added to a previous search result"
+            }
           }
         ]
       }) }}

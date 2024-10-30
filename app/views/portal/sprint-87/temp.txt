@@ -1,0 +1,57 @@
+
+
+Your enquiry has found 25 properties that exactly match ec1a 7hu
+
+    BASEMENT UNIT, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	NGL869475 	Select (2)1
+    LEASEHOLD 	NGL875974 	Select (3)1
+
+    GROUND FLOOR AND BASEMENT PREMISES, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	NGL869475 	Select (2)1
+    LEASEHOLD 	NGL875974 	Select (3)1
+
+    FLAT 1, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	AGL282998 	Select
+
+    FLAT 2, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    LEASEHOLD 	AGL282961 	Select
+    FREEHOLD 	LN191484 	Select (1)1
+
+    FLAT 3, 1-6, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	NGL873633 	Select
+
+    FLAT 4, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	AGL293933 	Select
+
+    FLAT 5, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	NGL879074 	Select
+    LEASEHOLD 	AGL282995 	Select
+
+    FLAT 6, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	AGL282982 	Select
+
+    FLAT 7, 1-3, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+    LEASEHOLD 	AGL350915 	Select
+
+    4-6, NEWBURY STREET, LONDON, EC1A 7HU
+    Tenure: 	Title Number 	Order Official LLC Search
+    FREEHOLD 	LN191484 	Select (1)1
+
+    1 This row refers to a title that is duplicated elsewhere in the results table, as the title belongs to more than one property. The number in brackets will show you which other properties share this title. You should only purchase documents for one of these properties as we cannot offer a refund for any documents you have purchased once you have downloaded them. 
