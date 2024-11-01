@@ -1,37 +1,36 @@
 {% extends "layouts/portal.html" %}
 
-{% set pageName="Confirm search area for 9 Newbury Street, London EC1A 7HU - GOV.UK" %}
+{% set pageName="Confirm search area - GOV.UK" %}
 
 {% block beforeContent %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-
-    <h1 class="govuk-heading-l">Confirm search area for 9 Newbury Street, London EC1A 7HU</h1>
-    <p class="govuk-body-m">The shaded area with the dotted line shows your search.</p>
-    <p class="govuk-body-m"> You can also <a href="edit-map">edit the search area</a>.</p>
-<!--     <div class="govuk-inset-text">
-      This search area is near a local authority’s boundary, not available on the register yet.<br> <br> Your results
-      will not include any charges for this authority.
-    </div>
- -->
-      {{ govukButton({
-        text: "Confirm area",
-        href:"add-title"
-      }) }}
-
-  </div>
 
   <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Confirm search area</h1>
     <img src="/public/images/number9_confirm.png" alt="Extent 9 Newbury Street, London EC1A 7HU" style="width:100%">
+    <p class="govuk-body-m">The shaded area shows your search.</p>
+    <p class="govuk-body-m"> You can also <a href="edit-map">edit the search area</a>.</p>
 
+    {{ govukButton({
+    text: "Confirm area",
+    href:"add-title"
+    }) }}
 
+    <p class="govuk-body-m">Use of address and mapping data is subject to <a href="#">Ordnance Survey Licence Terms and
+        Conditions (opens in new tab)</a>. This includes the link between the address and its location. </p>
+  </div>
 
-
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">Get help</h2>
+    <p class="govuk-body-m">
+      <a class="govuk-link" href="/get-help-with-search-for-local-land-charges" target="_blank">Get help with this
+        service (opens in new tab)</a>
+    </p>
   </div>
 
 

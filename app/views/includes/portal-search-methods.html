@@ -8,20 +8,20 @@
     <li><a href="search-by-title-number">Search by title number</a></li>
     {% endif %}
     {% if method != "postcode" %}
-    <li><a href="search">Search by address</a></li>
+    <li><a href="search">Search by postcode or street name</a></li>
     {% endif %}
     {% if method != "map" %}
     <li><a href="search-by-map">Search by map</a></li>
     {% endif %}
-    {% if method != "repeat" %}
-    <li><a href="search-by-reference-number">Repeat a previous search</a></li>
-    {% endif %}
-
+    
     {% if method != "coords" %}
     <li><a href="search-by-coordinates">Search by coordinates</a></li>
     {% endif %}
     {% if method != "inspire" %}
     <li><a href="search-by-inspire-id">Search by INSPIRE ID</a></li>
+    {% endif %}
+    {% if method != "repeat" %}
+    <li><a href="search-by-reference-number">Repeat a previous search</a></li>
     {% endif %}
     <li></li>
   </ul>
