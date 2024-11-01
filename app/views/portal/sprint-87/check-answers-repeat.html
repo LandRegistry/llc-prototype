@@ -1,0 +1,73 @@
+{% extends "layouts/portal.html" %}
+
+{% set pageName="Check search details - Search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<style>
+.govuk-summary-list__actions, .govuk-summary-list__key {
+  vertical-align: top;
+}
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check search details</h1>
+      <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Search reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">000222888</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> </span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">9 Newbury Street, London EC1A 7HU</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a> -->
+          </dd>
+        </div>
+      </dl>
+
+
+
+
+
+  
+
+      <form action="/form-handler" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Confirm",
+          href:"confirmation"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="start">Cancel and start a new search</a></p>
+    </div>
+    </div>
+
+
+  
+
+  </div>
+
+</main>
+{% endblock %}
