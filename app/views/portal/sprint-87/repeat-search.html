@@ -1,0 +1,90 @@
+{% extends "layouts/portal.html" %}
+
+{% set pageName="Active searches - My account - GOV.UK" %}
+
+{% block beforeContent %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+  <div class="govuk-grid-column-one-quarter">
+
+    <ul class="govuk-list">
+      <li class="subnav-item ">
+        <a href="/account/my-account" class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state">Manage
+          account</a>
+      </li>
+    </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-s">My searches</h2>
+
+    <div>
+      <ul class="govuk-list">
+        <li class="subnav-item">
+          <a class="govuk-link govuk-link--no-underline govuk-link--no-visited-state"
+            href="active-search">Active searches</a>
+        </li>
+        <li class="subnav-item ">
+          <a class="govuk-link govuk-link--no-underline  govuk-link--no-visited-state" href="expired-search">Expired
+            searches</a>
+        </li>
+        <li class="subnav-item   subnav-item-current">
+          <a class="govuk-link govuk-link--no-underline subnav-item-current-link  govuk-link--no-visited-state" href="updates-search">Searches we recommend you repeat</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-four-fifths">
+
+    <h1 class="govuk-heading-xl">Searches we recommend you repeat</h1>
+
+    <div class="govuk-form-group">
+      <p class="govuk-body">You have 2 searches with updated local land charge information.</p>
+      <p class="govuk-body">Searches you repeat will show in your active searches.</p>
+    </div>
+
+
+    <h2 class="govuk-heading-m">Searches with updated local land charge information</h2>
+
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Search reference</th>
+          <th scope="col" class="govuk-table__header">Date of original search</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+          <th scope="col" class="govuk-table__header">Remove from list</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">2316204</td>
+          <td class="govuk-table__cell">22 April 2024</td>
+          <td class="govuk-table__cell"><a href="#"">Repeat Search</a></td>
+          <td class="govuk-table__cell"><a href="#"">Remove Search</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">1896446</td>
+          <td class="govuk-table__cell">5 August 2023</td>
+          <td class="govuk-table__cell"><a href="#"">Repeat Search</a></td>
+          <td class="govuk-table__cell"><a href="#"">Remove Search</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br>
+    <a href="how-to-search" class="govuk-body">Start a new search</a>
+  </div>
+
+
+</div>
+
+</div>
+
+{% endblock %}
