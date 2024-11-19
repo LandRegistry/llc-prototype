@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Source information - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+  @media (min-width: 40.0625em) {
+  .govuk-textarea {
+    margin-bottom: 10px;
+  }
+}
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Source information
+      </h1>
+   
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--s" for="more-detail">
+            Where can you find more information about the charge?
+          </label>
+        </h1>
+        <div id="more-detail-hint" class="govuk-hint">
+          This can be a department name and address and/or a link to a place where charge documents are kept online, for example a planning portal.
+        </div>
+        <div class="govuk-inset-text">
+          <p class="govuk-body">You can:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>choose a source, or</li>
+              <li>add a new source</li>
+            </ul>
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+            
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="views">Choose a source</option>
+            <option value="published">Legal department</option>
+            <option value="updated" selected>Planning department</option>
+            <option value="comments">Other</option>
+          </select>
+          <p class="govuk-body">You can edit this source before you continue.</p>
+          <textarea class="govuk-textarea govuk-js-character-count" id="more-detail" name="moreDetail" rows="5"
+          aria-describedby="more-detail-hint"></textarea>
+          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+            You have 500 characters remaining
+          </div>
+
+
+          <div class="govuk-form-group govuk-!-margin-top-7">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--s" for="account-number">
+                Authority reference (optional)
+              </label>
+            </h1>
+            <div id="account-number-hint" class="govuk-hint">
+              This is the reference used by this department when they want to find the charge record
+            </div>
+            <input class="govuk-input govuk-input--width-20" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+          </div>
+
+        </div>
+      </div>
+
+
+      {{ govukButton({
+        text: "Continue",
+        href:"charge-description"
+      }) }}
+
+      
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

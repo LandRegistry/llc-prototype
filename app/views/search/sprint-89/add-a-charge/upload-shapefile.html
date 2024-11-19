@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search by postcode or street name for local land charges - GOV.UK" %}
+{% set serviceName= "Maintain LLC" %}
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Add an extent by uploading a shapefile
+    </h1>
+    <p class="govuk-body">Your file must be in this format:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>zip file (.zip) that includes 3 files (.shp, .shx, .dbf)</li>
+      <li>under 1MB</li>
+      <li>British National Grid (BNG) coordinates</li>
+      <li>1000 extents (or fewer)</li>
+    </ul>
+      
+    <p class="govuk-body">If your file does not use British National Grid (BNG) coordinates:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Your extent might not look the same way on our map as it does on your file</li>
+      <li>Check the extent you have uploaded to make sure it is the right place, size and shape</li>
+    </ul>
+      
+
+    <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+      <label class="govuk-label" for="file-upload-1">
+        Upload a file
+      </label>
+      <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+    </div>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue",
+        href:"map"
+      }) }}
+      <a class="govuk-link" href="map">Cancel</a>
+    </div>
+
+
+    {% set method = "shapefile" %}
+    {% include "./map-includes/search-methods.html" %}
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Search by postcode or street name for local land charges - GOV.UK" %}
+{% set serviceName= "Maintain LLC" %}
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What is the postcode, street name or town for your charge extent?
+    </h1>
+   <!--  <p>Find the location and then draw the charge extent.</p> -->
+    <div class="govuk-form-group">
+      <div id="event-name-hint" class="govuk-hint">
+        For example, SE5 9QY or High Street, Durham
+      </div>
+      <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+    </div>
+
+    {{ govukButton({
+      text: "Continue",
+      href:"street-results"
+    }) }}
+
+
+    {% set method = "postcode" %}
+    {% include "./map-includes/search-methods.html" %}
+
+<!--     <div class="govuk-inset-text">
+      You have added 0 extents (polygons, points, or lines) out of 1000 possible extents.
+    </div> -->
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+</div>
+{% endblock %}
