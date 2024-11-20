@@ -1,0 +1,321 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="List of charges for your search area - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% set categories = ["Planning", "Financial", "Listed building", "Land compensation", "Housing / buildings", "Light obstruction notice", "Other", "For information only"]%}
+{# create array of sub cats to match cats #}
+{% set subcategories = [
+  ["Conditional planning consent", "Conservation area", "Enforcement notice", "Modification / rectification order", "No permitted development / article 4", "Planning agreement", "Planning notice", "Tree preservation order (TPO)"], 
+  [], 
+  ["Enforcement notice", "Listed building"], 
+  [], 
+  ["Grant", "Occupancy including house in multiple occupation (HMO)", "Right to buy / right to acquire / stuff", "Works, repairs or authority action"], 
+  [], 
+  ["Ancient monuments", "Assets of community value", "Compulsory purchase or acquisition", "Conservation covenant", "Highways and paths", "Local acts", "New towns", "Other covenant", "Pipeline", "Protected areas / sites", "Smoke control order", "Uncommon charges", "Water / drainage / environmental"],
+  ["This does not consititute a charge"]
+  ]%}
+
+{% set authorities = ["None", "City of London Corporation", "Richmond District Council", "City of Westminster", "Tower Hamlets LPA", "Camden", "Hackney", "Lambeth LPA", "Southwark"]%}
+
+{% block content %}
+<style>
+  .das-pane {
+  padding: 15px;
+  background: #f3f2f1;
+  border: #f3f2f1 2px solid;
+  display: inline-block;
+}
+
+.govuk-checkboxes__label{
+  font-size: 16px;
+}
+.container{
+  background: #fff;
+  padding-bottom:0;
+  padding-left:10px;
+  height:200px;
+  overflow-y: scroll;
+  overflow-x:hidden;
+  margin:0;
+  margin-bottom:10px;
+  position: relative;
+  
+}
+.sm-container{
+  background: #fff;
+  padding-bottom:0;
+  padding-left:10px;
+  margin:0;
+  margin-bottom:10px;
+  position: relative;
+  
+}
+.align-right {
+  float: right;
+  right: 0px;
+}
+.subcategory{
+  margin-left:20px;
+}
+.govuk-accordion__controls{
+  display: none;
+}
+.govuk-frontend-supported .govuk-accordion__section-content {
+  display: none;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+.govuk-frontend-supported .govuk-accordion__section-toggle {
+  position: relative;
+  top: -40px;
+  margin-right:10px;
+  float:right;
+  height:10px;
+}
+.govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
+    height:60px;
+    padding-bottom: 0;
+  }
+
+  .image{
+    margin-top:20px;
+    width: 240px; 
+
+    scale: 200%;
+    clip-path: polygon(25% 20%, 75% 20%, 75% 80%, 25% 80%);
+/*     object-position: center;
+    object-fit: none; */
+  }
+</style>
+<script src="/public/ol/js/jquery.min.js"></script>
+<script>
+  function initFilter(){
+    console.log('init filter');
+
+    $('.govuk-checkboxes__input').change(function(evt) {
+      console.log(this);
+      console.log($(this).val());
+      let groupClass = '.'+ $(this).val();
+      let isChecked = $(this).prop('checked');
+      console.log(groupClass,isChecked);
+      console.log($(groupClass));
+      
+      $(groupClass).prop('checked', isChecked);
+    });
+  }
+</script>
+
+
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-!-margin-bottom-3">
+      <h1 class="govuk-heading-l">
+        List of charges for your search area
+      </h1>
+      <p class="govuk-body">There are 42 local land charges for this search area.</p>
+    </div>
+
+    <div>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                Filter charges
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+            <form method="get" action="">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                  <div class="das-pane govuk-!-margin-bottom-3">
+     
+                    <div class="govuk-grid-row">
+                      
+                      <div class="govuk-grid-column-two-thirds">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="selectedEmployer">Category</label>
+                          <div class="container">
+      
+                            <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-bottom-2" data-module="govuk-checkboxes">
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="all"
+                                  aria-describedby="snap-to-map-hint" checked>
+                                <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+                                  Select all categories
+                                </label>
+                              </div>
+                            </div>
+      
+                            <div class="govuk-form-group govuk-checkboxes--small">
+                              <fieldset class="govuk-fieldset">
+                                {% for cat in categories %}
+                                <div class="govuk-checkboxes">
+                                  <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="market_sector[]" id="{{cat}}" value="{{cat | replace(" ", "") | replace("/", "-") }}" class="govuk-checkboxes__input all" checked>
+                                  <label for="{{cat}}" class="govuk-label  govuk-checkboxes__label">{{cat}} ({{subcategories[loop.index0] | length}})</label>
+                                  </div>
+                                </div>  
+                                {% for item in subcategories[loop.index0] %}
+                                <div class="govuk-checkboxes subcategory">
+                                  <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input all {{cat | replace(" ", "") | replace("/", "-")}}" checked>
+                                  <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}} (1)</label>
+                                  </div>
+                                </div>  
+                                {% endfor%}
+                                {% endfor%}
+        
+                              </fieldset>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+      
+      
+                      <div class="govuk-grid-column-one-third govuk-!-padding-bottom-0">
+                        <div class="govuk-form-group-x govuk-!-padding-bottom-0">
+                          <label class="govuk-label" for="selectedCourse">Authority</label>
+                          
+                          <div class="container">
+                          <div class="govuk-form-group govuk-checkboxes--small">
+                            <fieldset class="govuk-fieldset">
+                            {% for item in authorities %}
+                            <div class="govuk-checkboxes">
+                              <div class="govuk-checkboxes__item">
+                              <input type="checkbox" name="market_sector[]" id="{{item}}" value="" class="govuk-checkboxes__input">
+                              <label for="{{item}}" class="govuk-label  govuk-checkboxes__label">{{item}} ({{ [1,2,3,4] | random  }})</label>
+                              </div>
+                            </div>  
+                            {% endfor%}
+      
+                            </fieldset>
+                          </div>
+                          </div>
+      
+                        </div>
+                      </div>
+                      <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-0">
+                        <div class="sm-container">
+                        <div class="govuk-form-group-x govuk-checkboxes--small">
+                          <fieldset class="govuk-fieldset">
+                           <div class="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                            <input type="checkbox" name="market_sector[]" id="cancelled" value="" class="govuk-checkboxes__input">
+                            <label for="cancelled" class="govuk-label  govuk-checkboxes__label">Show cancelled charges</label>
+                            </div>
+                          </div>  
+                          </fieldset>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="govuk-grid-column-one-third govuk-!-padding-bottom-0">
+                        <button class="govuk-button govuk-!-margin-0 align-right" type="submit">Apply filters</button>
+      
+                      </div>
+      
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  
+        {% set categories = data.charges.categories %}
+
+        <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+          <table class="govuk-table ">
+            <caption class="govuk-table__caption govuk-table__caption--m">List of charges</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Reference</th>
+                  <th scope="col" class="govuk-table__header">Location</th>
+                  <th scope="col" class="govuk-table__header">Description</th>
+                  <th scope="col" class="govuk-table__header">Registration date</th>
+                  <th scope="col" class="govuk-table__header" style="width:20%">Extent</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                  {%set count = 0 %}
+              {% for item in categories %}
+              {% for charge in item.charges %}
+              {% set count = count+1 %}
+              {% if count <20 %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+                    {{ charge.hmlrReference }}</a>
+                  <br/>
+                    {{ charge.authorityReference }}</td>
+                  <td class="govuk-table__cell">{{ charge.location | safe }}</td>
+                  <td class="govuk-table__cell">{{ charge.description}}</td>
+                  <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
+                  <td class="govuk-table__cell">
+      
+      
+                    {% if loop.index == "1" or loop.index == "2" or loop.index == "3" or loop.index == "6" or loop.index == "7" %}
+                      <img src="/public/images/number9/number9_red.png" class="image">
+                    {% elseif loop.index == "4" %}
+                      <img src="/public/images/number9/charge_13.png" class="image">
+                    {% elseif loop.index=="5" %}
+                      <img src="/public/images/number9/charge_12.png" class="image">
+                    {% elseif loop.index=="8" %} 
+                      <img src="/public/images/number9/charge_13.png" class="image">
+                    {% elseif charge.subcategory=="Smoke control order" %} 
+                      <img src="/public/images/number9/charge_13.png" class="image">
+                    {% else %} 
+                    {% set items=[1,2,3,4,3,3,4,3,3] %} 
+                    {% set count=loop.index - 9 %} 
+                    {% if count < 0 %}
+                      {% set count = count+ 10 %}
+                    {% endif %}
+                    {% set image=items[count]%}
+                    <img src="/public/images/number9/address{{image}}.png" class="image">
+                    {% endif %}
+      
+                  </td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+              {% endfor %}
+              </tbody>
+            </table>
+          <p class="govuk-body govuk-visually-hidden js-gem-c-table__message">There are no matching results</p>
+    </div>
+
+
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="search">Start a new search</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+</div>
+{% include "./map-includes/search-links.html" %}
+
+<script>
+  initFilter();
+</script>
+{% endblock %}

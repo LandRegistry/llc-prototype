@@ -1,0 +1,221 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="List of charges for your search area - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% set history = [
+  {
+    "version": 14747,
+    "date": "18 October 2023",
+    "time": "13:15:58",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Bulk Update"
+  },
+  {
+    "version": 134872,
+    "date": "17 October 2023",
+    "time": "11:56:08",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Bulk Update of charges"
+  },
+  {
+    "version": 135543,
+    "date": "17 October 2023",
+    "time": "11:55:36",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Authority reference update"
+  },
+  {
+    "version": 115558,
+    "date": "17 October 2023",
+    "time": "10:44:50",
+    "user": "Firstname Lastname",
+    "email": "support@hmlr.gov.uk",
+    "organisation": "HM Land Registry",
+    "reason": "csv upload to correct references"
+  },
+  {
+    "version": 114679,
+    "date": "17 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Update description"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Update location"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "support@hmlr.gov.uk",
+    "organisation": "HM Land Registry",
+    "reason": "Update reference"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Add description"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "support@hmlr.gov.uk",
+    "organisation": "HM Land Registry",
+    "reason": "Update creation date"
+  },
+  {
+    "version": 114679,
+    "date": "10 October 2023",
+    "time": "10:43:37",
+    "user": "Firstname Lastname",
+    "email": "planning_admin@districtcouncil.gov.uk",
+    "organisation": "District Council",
+    "reason": "Add creation date"
+  }
+] %}
+{% set categories = data.charges.categories %}
+{% set category = 0 %}
+{% if index|length == 0 %}
+{% set index = 0 %}
+{% endif %}
+
+{% block content %}
+<style>
+  .govuk-summary-list__key {
+    vertical-align: top;
+  }
+</style>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Charge history for {{ categories[category].charges[index].hmlrReference }}
+    </h1>
+
+
+    <p class="govuk-body">
+      You can see the most recent updates first
+    </p>
+
+
+
+    {% for item in history %}
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">{{ item.date }}
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="view-charge">View details<span class="govuk-visually-hidden"> on {{ item.date }}</span></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Version number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ item.version }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ item.date }}<br/>
+              {{ item.time }}
+             </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              User
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ item.user }}<br/>
+              {{ item.email }}<br/>
+              {{ item.organisation }}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ item.reason }}
+            </dd>
+          </div>
+          
+        </dl>
+      </div>
+    </div>
+    {% endfor %}
+    <nav class="govuk-pagination" aria-label="Pagination">
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item govuk-pagination__item--current">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+            2
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+          <span class="govuk-pagination__link-title">
+            Next<span class="govuk-visually-hidden"> page</span>
+          </span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+  </div>
+
+</div>
+
+
+{% endblock %}
