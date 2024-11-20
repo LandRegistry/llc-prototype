@@ -5,19 +5,19 @@
 
   <ul class="govuk-list govuk-list--spaced govuk-!-margin-bottom-4">
     {% if method != "postcode" %}
-    <li><a href="search">Add an extent by postcode, street name or town</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="search">Add an extent by postcode, street name or town</a></li>
     {% endif %}
     {% if method != "title" %}
-    <li><a href="search-by-title">Add an extent by title number</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="search-by-title">Add an extent by title number</a></li>
     {% endif %}
     {% if method != "llc-ref" %}
-    <li><a href="search-by-llc-ref">Add an extent by HMLR reference number</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="search-by-llc-ref">Add an extent by HMLR reference number</a></li>
     {% endif %}
     {% if method != "map" %}
-    <li><a href="#">Add an extent by map</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="map">Add an extent by map</a></li>
     {% endif %}
     {% if method != "shapefile" %}
-    <li><a href="upload-shapefile">Add an extent by uploading a shapefile</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="upload-shapefile">Add an extent by uploading a shapefile</a></li>
     {% endif %}
   </ul>
 </div>
