@@ -29,7 +29,7 @@
 
       <ul class="govuk-list govuk-!-padding-top-3 govuk-!-padding-bottom-6">
         <li>
-          <a class="govuk-link" href="update-charge">Update charge</a>
+          <a class="govuk-link" href="update-charge?index={{index}}">Update charge</a>
         </li>
         <li>
           <a class="govuk-link" href="cancel-reason">Cancel charge</a>
@@ -67,7 +67,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Planning category
+            Planning subcategory
           </dt>
           <dd class="govuk-summary-list__value">
             {{ categories[category].charges[index].subcategory  }}
@@ -130,7 +130,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Last updated
+            Updated on
           </dt>
           <dd class="govuk-summary-list__value">
             20 May 1987
@@ -213,7 +213,7 @@
             Expiry date
           </dt>
           <dd class="govuk-summary-list__value">
-            <p class="govuk-body">{{ categories[category].charges[index].expiryDate  }}</p>
+            <p class="govuk-body">{{ categories[category].charges[index].expiryDate or 'Does not expire' }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="charge-expire">Change<span class="govuk-visually-hidden"> contact details</span></a>
