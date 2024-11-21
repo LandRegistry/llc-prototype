@@ -14,7 +14,7 @@
 
 {% block content %}
 <style>
-    .govuk-main-wrapper {
+  .govuk-main-wrapper {
     padding-top: 10px;
     padding-bottom: 0;
   }
@@ -33,11 +33,13 @@
     border: 4px solid #fff;
 
   }
+
   .charge:hover{
     background-color: #ffdd00;
     border: 4px solid #0b0c0c;
 
   }
+
   .scroll{
     height: 720px;
     overflow-x: none;
@@ -48,6 +50,7 @@
   .search-field {
     height: 38px;
   }
+
   .map__search_term {
     position: relative;
     z-index: 10;
@@ -58,22 +61,25 @@
     border-radius: 0;
     width: 85%;
   }
+
   .search-bar-input{
     padding-right:15px;
   }
+
   .search-button {
-  height: 38px;
-  width: 38px;
-  cursor: pointer;
-  background: #0B0C0C url("/public/images/search-button.png") no-repeat 2px 50%;
-  border: 0;
-  border-radius: 0;
-}
-.search-bar {
-  display: flex;
-  flex-direction: row;
-  height: 38px;
-}
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    background: #0B0C0C url("/public/images/search-button.png") no-repeat 2px 50%;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    height: 38px;
+  }
 
   .govuk-grid-column-15-pc{
     width: 20%;
@@ -81,6 +87,7 @@
     padding: 0 15px;
     float: left;
   }
+
   .govuk-grid-column-three-quarters{
     width:80%;
   }
@@ -88,6 +95,7 @@
   #map{
     height:1000px;
   }
+
   .govuk-button-group{
     margin-bottom:0;
   }
@@ -96,50 +104,49 @@
     position: absolute;
     right: 0px;
   }
+
   .govuk-footer-x{
     border-top: 1px solid #b1b4b6;
     color: #0b0c0c;
     background: #f3f2f1;
   }
- footer .govuk-list{
+
+  footer .govuk-list{
     font-size: 16px;
   }
+
   .govuk-footer__copyright-logo {
     margin-left:40px;
     background-size: 90px 75px;
     padding-top: 82px;
   }
+
   .footer {
     display: flex;
     flex-direction: row;
   }
+
   .govuk-footer__copyright-logo {
     margin-left:40px;
   }
-/*   .govuk-list{
-    font-size: 16px;
-  } */
 
   @media (min-width: 40.0625em) {
-  .govuk-frontend-supported .govuk-accordion__section-content {
-    padding-bottom: 20px;
+    .govuk-frontend-supported .govuk-accordion__section-content {
+      padding-bottom: 20px;
+    }
   }
-}
-.govuk-accordion__controls{
-  display: none;
-}
+
+  .govuk-accordion__controls{
+    display: none;
+  }
 </style>
-<!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
 <div id="container" class="govuk-grid-row">
-
+ 
   <div id="navbar" class="govuk-grid-column-15-pc scroll">
-
+    <a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
     <h2 class="govuk-heading-m">Add an extent</h2>
 
-<!--     <div class="govuk-inset-text">
-      You have added 1 extent (polygon, point or line) out if 1000 possible extents.
-    </div> -->
 
     {% include "./map-includes/map-controls-add-charge.html" %}
     
@@ -304,7 +311,7 @@
 
   <script type="text/javascript">
     $(function () {
-      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
+      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
     });
   </script>
   
@@ -332,7 +339,11 @@
     $('.results-title').hide();
     $('.results').hide();
 
-
+    MAP_CONTROLS.vectorControls.snap_to_enabled = $('#snap_to_map').is(':checked');
+    SNAP_TO_VECTOR_LAYER.enable();
+    map.addInteraction(snap_to_interaction);
+    console.log('snap:' + MAP_CONTROLS.vectorControls.snap_to_enabled);
+    
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
 
@@ -400,7 +411,6 @@
       if ($("#select").prop('checked') == true) {
         $("#draw").prop('checked', 'true');
       }
-
       $("#snap_to_map").prop('disabled', 'true');
     } else {
       $("#select").removeAttr("disabled");
@@ -461,7 +471,7 @@
   function setMode(){
     var radio = $('[name="edit-mode"]:checked').val();
     map.removeInteraction(MAP_CONTROLS.hover_interaction);
-console.log(radio);
+    console.log(radio);
     //hide cross hair
     $('.center').addClass('govuk-visually-hidden');
 
@@ -565,17 +575,17 @@ console.log(radio);
 
     if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
       // Enable the snap to interaction and vector layer
-      SNAP_TO_VECTOR_LAYER.enable()
-      map.addInteraction(snap_to_interaction)
-      MAP_CONTROLS.vectorControls.snap_to_enabled = true
+      SNAP_TO_VECTOR_LAYER.enable();
+      map.addInteraction(snap_to_interaction);
+      MAP_CONTROLS.vectorControls.snap_to_enabled = true;
     } else {
       // Disable the snap to interaction and vector layer, but not the snap to button
       // Don't disable vector layer if copy active
       if (!MAP_CONTROLS.vectorControls.copy_enabled) {
-        SNAP_TO_VECTOR_LAYER.disable()
+        SNAP_TO_VECTOR_LAYER.disable();
       }
-      map.removeInteraction(snap_to_interaction)
-      MAP_CONTROLS.vectorControls.snap_to_enabled = false
+      map.removeInteraction(snap_to_interaction);
+      MAP_CONTROLS.vectorControls.snap_to_enabled = false;
     }
   });
 
