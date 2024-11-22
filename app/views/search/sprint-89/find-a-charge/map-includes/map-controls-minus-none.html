@@ -1,0 +1,103 @@
+<div class="govuk-grid-row govuk-!-padding-top-2">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-s">Map options</h2>
+        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
+            aria-describedby="select-area-hint" checked>
+            <label class="govuk-label govuk-radios__label" for="select">
+              <span class="">
+                Select area from map
+              </span>
+            </label>
+            <div id="select-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ selectHint }}
+            </div>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
+              aria-describedby="draw-area-hint" >
+            <label class="govuk-label govuk-radios__label" for="draw">
+              <span class="">
+                Draw area
+              </span>
+            </label>
+            <div id="draw-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ drawHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area"
+            aria-describedby="edit-area-hint">
+            <label class="govuk-label govuk-radios__label" for="edit">
+              <span class="">
+                Edit area
+              </span>
+            </label>
+            <div id="edit-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ editHint }}
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
+              aria-describedby="delete-area-hint">
+            <label class="govuk-label govuk-radios__label" for="delete">
+              <span class="">
+                Delete area
+              </span>
+            </label>
+            <div id="delete-area-hint" class="govuk-hint govuk-radios__hint govuk-!-font-size-16">
+              {{ deleteHint }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-2" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap" aria-describedby="snap-to-map-hint">
+            <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+              Snap to line on map
+            </label>
+            <div id="snap-to-map-hint" class="govuk-hint govuk-checkboxes__hint govuk-!-font-size-16">
+              {{snapHint}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="govuk-grid-row ">
+      <div class="govuk-grid-column-full govuk-!-padding-top-3">
+
+        <div class="govuk-button-group">
+          <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button" disabled>
+            Undo
+          </button>
+          <br />
+          <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Clear all
+          </button>
+          <br />
+        </div>
+
+      </div>
+    </div>
+
+
+<!--     {{ govukButton({
+      id:"search-btn",
+      text: "Search this area",
+      href:"#"
+    }) }} -->
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible ">

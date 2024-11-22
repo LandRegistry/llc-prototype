@@ -25,71 +25,75 @@
 {% block content %}
 <style>
   .das-pane {
-  padding: 15px;
-  background: #f3f2f1;
-  border: #f3f2f1 2px solid;
-  display: inline-block;
-}
+    padding: 15px;
+    background: #f3f2f1;
+    border: #f3f2f1 2px solid;
+    display: inline-block;
+  }
 
-.govuk-checkboxes__label{
-  font-size: 16px;
-}
-.container{
-  background: #fff;
-  padding-bottom:0;
-  padding-left:10px;
-  height:200px;
-  overflow-y: scroll;
-  overflow-x:hidden;
-  margin:0;
-  margin-bottom:10px;
-  position: relative;
-  
-}
-.sm-container{
-  background: #fff;
-  padding-bottom:0;
-  padding-left:10px;
-  margin:0;
-  margin-bottom:10px;
-  position: relative;
-  
-}
-.align-right {
-  float: right;
-  right: 0px;
-}
-.subcategory{
-  margin-left:20px;
-}
-.govuk-accordion__controls{
-  display: none;
-}
-.govuk-frontend-supported .govuk-accordion__section-content {
-  display: none;
-  padding-top: 0;
-  padding-bottom: 20px;
-}
-.govuk-frontend-supported .govuk-accordion__section-toggle {
-  position: relative;
-  top: -40px;
-  margin-right:10px;
-  float:right;
-  height:10px;
-}
-.govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
+  .govuk-checkboxes__label{
+    font-size: 16px;
+  }
+
+  .container{
+    background: #fff;
+    padding-bottom:0;
+    padding-left:10px;
+    height:200px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    margin:0;
+    margin-bottom:10px;
+    position: relative;
+  }
+
+  .sm-container{
+    background: #fff;
+    padding-bottom:0;
+    padding-left:10px;
+    margin:0;
+    margin-bottom:10px;
+    position: relative;
+    
+  }
+  .align-right {
+    float: right;
+    right: 0px;
+  }
+
+  .subcategory{
+    margin-left:20px;
+  }
+
+  .govuk-accordion__controls{
+    display: none;
+  }
+
+  .govuk-frontend-supported .govuk-accordion__section-content {
+    display: none;
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+
+  .govuk-frontend-supported .govuk-accordion__section-toggle {
+    position: relative;
+    top: -40px;
+    margin-right:10px;
+    float:right;
+    height:10px;
+  }
+
+  .govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
     height:60px;
     padding-bottom: 0;
   }
 
   .image{
     margin-top:20px;
+    margin-bottom:15px;
     width: 240px; 
-
     scale: 200%;
     clip-path: polygon(25% 20%, 75% 20%, 75% 80%, 25% 80%);
-/*     object-position: center;
-    object-fit: none; */
   }
 </style>
 <script src="/public/ol/js/jquery.min.js"></script>
@@ -244,8 +248,7 @@
             <caption class="govuk-table__caption govuk-table__caption--m">List of charges</caption>
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header">HMLR reference</th>
-                  <th scope="col" class="govuk-table__header">Authority reference</th>
+                  <th scope="col" class="govuk-table__header">Reference</th>
                   <th scope="col" class="govuk-table__header">Location</th>
                   <th scope="col" class="govuk-table__header">Description</th>
                   <th scope="col" class="govuk-table__header">Registration date</th>
@@ -260,8 +263,9 @@
               {% if count <20 %}
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
-                    {{ charge.hmlrReference }}</a></td>
-                  <td class="govuk-table__cell" style="word-break: keep-all;">{{ charge.authorityReference }}</td>
+                    {{ charge.hmlrReference }}</a>
+                  <br/>
+                    {{ charge.authorityReference }}</td>
                   <td class="govuk-table__cell">{{ charge.location | safe }}</td>
                   <td class="govuk-table__cell">{{ charge.description}}</td>
                   <td class="govuk-table__cell">{{ charge.registrationDate }}</td>

@@ -1,0 +1,219 @@
+<style>
+  .govuk-accordion__section-button {
+    font-size: 19px;
+  }
+
+  .govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
+    padding-bottom: 0x;
+    border-bottom: 0;
+  }
+
+  @media (min-width: 40.0625em) {
+    .govuk-frontend-supported .govuk-accordion__section--expanded .govuk-accordion__section-button {
+      padding-bottom: 0;
+    }
+  }
+</style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Search by postcode, street name or town
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+          <div class="search-bar govuk-!-padding-top-0 govuk-!-margin-bottom-2">
+            <input class="govuk-input search-field map__search_term" id="search-field" name="search" type="text"
+              value="">
+            <div class="search-bar-input">
+              <button class="search-button map__search_button" type="button" name="search" id="find-btn"
+                data-bind="click: flexSearchAddresses">
+            </div>
+          </div>
+<!--   /////////////////////////////////////////////   -->
+          <div class="">
+            <p id="results-heading" class="govuk-body">Search results</p>
+            <p id="selected-address" class="govuk-body"> </p>
+            
+            <ul id="address-list" class="govuk-list govuk-list--spaced category-container">
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-1">From Newbury Street To Braidwood Passage, Cloth Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-2">Bin Stores, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-3">Flat 1, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-4">Flat 2, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-5">Flat 3, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-6">Flat 4, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-7">Flat 5, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-8">Flat 6, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-9">Flat 7, 1-3 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-10">5-6 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-11">7-8 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-12">9 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-13">Urban Mesh Design Ltd, 9 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-14">City Apartments, Newbury House, 10-13 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-15">Flat 1, Newbury House, 10-13 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-16">Flat 2, Newbury House, 10-13 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-17">Flat 3, Newbury House, 10-13 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-18">Flat 4, Newbury House, 10-13 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-19">14-15 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-20">Auxero Ltd, 14-15 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-21">Industry Partners Ltd, 14-15 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-22">24-26 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-23">27-28 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+              <li class="govuk-body-s">
+                <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-24">31 Newbury Street, London EC1A 7HU
+                </a>
+              </li>
+
+            </ul>
+          </div>
+
+<!--   /////////////////////////////////////////////   -->
+
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                Search by reference number
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+            <p class="govuk-body">Enter an originating authority or HM Land Registry reference number</p>
+            <div class="search-bar govuk-!-padding-top-0">
+              <input class="govuk-input search-field map__search_term" id="reference" name="reference" type="text"
+                value="">
+              <div class="search-bar-input">
+                <button class="search-button map__search_button" type="button" name="search" id="reference-btn"
+                  data-bind="click: flexSearchAddresses">
+                  <span class="govuk-visually-hidden">Search</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                Search by uploading an area
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-3" class="govuk-accordion__section-content">
+            <div class="govuk-form-group" id="upload">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="file-upload-1">
+                  Upload a shapefile or json file
+                </label>
+                <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+                <button id="import_search" class="govuk-button govuk-button--secondary govuk-!-margin-top-3"
+                  data-module="govuk-button">
+                  Import search area
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div class="govuk-grid-column-full-x  govuk-!-padding-top-6">
+  {% set categories = data.charges.categories %}
+
+  {% for item in categories %}
+  <h3 class="govuk-heading-s">{{item.category}} </h3>
+
+  <ul class="govuk-list">
+    {% for charge in item.charges %}
+    <li id="charge_{{loop.index}}" class="charge govuk-body-s">
+      <a class="govuk-link govuk-link--no-visited-state" href="view-charge-v2?index={{ loop.index0 }}">{{ charge.authorityReference }}</a>
+      <br />
+      {{ charge.location | safe }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+
+
+</div>
