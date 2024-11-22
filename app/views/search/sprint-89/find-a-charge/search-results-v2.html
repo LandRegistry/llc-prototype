@@ -88,13 +88,6 @@
     padding-bottom: 0;
   }
 
-  .image{
-    margin-top:20px;
-    margin-bottom:15px;
-    width: 240px; 
-    scale: 200%;
-    clip-path: polygon(25% 20%, 75% 20%, 75% 80%, 25% 80%);
-  }
 </style>
 <script src="/public/ol/js/jquery.min.js"></script>
 <script>
@@ -253,7 +246,6 @@
                   <th scope="col" class="govuk-table__header">Location</th>
                   <th scope="col" class="govuk-table__header">Description</th>
                   <th scope="col" class="govuk-table__header">Registration date</th>
-                  <th scope="col" class="govuk-table__header" style="width:20%">Extent</th>
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
@@ -269,30 +261,6 @@
                   <td class="govuk-table__cell">{{ charge.location | safe }}</td>
                   <td class="govuk-table__cell">{{ charge.description}}</td>
                   <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
-                  <td class="govuk-table__cell">
-      
-      
-                    {% if loop.index == "1" or loop.index == "2" or loop.index == "3" or loop.index == "6" or loop.index == "7" %}
-                      <img src="/public/images/number9/number9_red.png" class="image">
-                    {% elseif loop.index == "4" %}
-                      <img src="/public/images/number9/charge_13.png" class="image">
-                    {% elseif loop.index=="5" %}
-                      <img src="/public/images/number9/charge_12.png" class="image">
-                    {% elseif loop.index=="8" %} 
-                      <img src="/public/images/number9/charge_13.png" class="image">
-                    {% elseif charge.subcategory=="Smoke control order" %} 
-                      <img src="/public/images/number9/charge_13.png" class="image">
-                    {% else %} 
-                    {% set items=[1,2,3,4,3,3,4,3,3] %} 
-                    {% set count=loop.index - 9 %} 
-                    {% if count < 0 %}
-                      {% set count = count+ 10 %}
-                    {% endif %}
-                    {% set image=items[count]%}
-                    <img src="/public/images/number9/address{{image}}.png" class="image">
-                    {% endif %}
-      
-                  </td>
                 </tr>
                 {% endif %}
               {% endfor %}
