@@ -2,7 +2,7 @@
 
 {% set serviceName= "Maintain LLC" %}
 
-{% set pageName="Find a charge" %}
+{% set pageName="Add a charge" %}
 {% set selectHint = "" %}
 {% set drawHint = "" %}
 {% set editHint = "" %}
@@ -12,18 +12,11 @@
 {% set containerClasses = "full-width" %}
 
 
-{# block beforeContent %}
-{% include "includes/phase-banner.html" %}
-{% include "includes/language-switcher-heading.html" %}
-{% endblock #}
-
 {% block content %}
 <style>
-/*   html{
-    height:90%;
-  } */
-  .govuk-main-wrapper {
+    .govuk-main-wrapper {
     padding-top: 10px;
+    padding-bottom: 0;
   }
 
   .govuk-width-container{
@@ -38,8 +31,8 @@
   .charge{
     padding: 4px;
     border: 4px solid #fff;
-  }
 
+  }
   .charge:hover{
     background-color: #ffdd00;
     border: 4px solid #0b0c0c;
@@ -49,28 +42,6 @@
     height: 720px;
     overflow-x: none;
     overflow-y: scroll;
-    margin: 0;
-  }
-
-  #container{
-    height: 100%
-  }
-  
-  #list_of_categories{
-    height: 280px;
-    max-height: 280px;
-  }
-
-  .govuk-grid-column-15-pc{
-    width: 20%;
-    box-sizing: border-box;
-    padding: 0 15px;
-    float: left;
-    overflow-x: hidden;
-  }
-  .govuk-grid-column-three-quarters{
-    width:80%;
-    padding: 2px;
     margin: 0;
   }
 
@@ -84,8 +55,11 @@
     margin: 0;
     padding: 1px;
     border: 2px solid #0b0c0c;
-  border-radius: 0;
+    border-radius: 0;
     width: 85%;
+  }
+  .search-bar-input{
+    padding-right:15px;
   }
   .search-button {
   height: 38px;
@@ -100,33 +74,45 @@
   flex-direction: row;
   height: 38px;
 }
-.option-select__container-inner{
-  margin-bottom:0;
-}
-#import_search, #upload{
-  margin-bottom: 0px;
-}
-.align-right {
-  position: absolute;
-  right: 0px;
-}
-.govuk-footer-x{
-  border-top: 1px solid #b1b4b6;
-  color: #0b0c0c;
-  background: #f3f2f1;
-}
-.govuk-list{
-  font-size: 16px;
-}
-.govuk-footer__copyright-logo {
-  margin-left:40px;
-  background-size: 90px 75px;
-  padding-top: 82px;
-}
-.footer {
-  display: flex;
-  flex-direction: row;
-}
+
+  .govuk-grid-column-15-pc{
+    width: 20%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    float: left;
+  }
+  .govuk-grid-column-three-quarters{
+    width:80%;
+  }
+
+  #map{
+    height:1000px;
+  }
+  .govuk-button-group{
+    margin-bottom:0;
+  }
+
+  .align-right {
+    position: absolute;
+    right: 0px;
+  }
+  .govuk-footer-x{
+    border-top: 1px solid #b1b4b6;
+    color: #0b0c0c;
+    background: #f3f2f1;
+  }
+ footer .govuk-list{
+    font-size: 16px;
+  }
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+    background-size: 90px 75px;
+    padding-top: 82px;
+  }
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
 </style>
 <!-- <h1 class="govuk-heading-l">Find a charge</h1> -->
 
@@ -136,25 +122,11 @@
 
     <h2 class="govuk-heading-m">Find a charge</h2>
 
-    {#% include "./map-includes/search-with-address.html" %#}
-
     {% include "./map-includes/map-controls-plus-button.html" %}
 
     {% include "./map-includes/map-help.html" %}
 
-    <!-- <h2 class="govuk-heading-m">
-      24 charges in this area
-    </h2>    -->
-    {% set categories = data.charges.categories %}
-    {#% include "./map-includes/filters.html" %}
-    {% include "./map-includes/results.html" %#}
-
-
-    <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
-&nbsp;
-    </div>
-    
-    <footer class="govuk-footer-x govuk-!-margin-top-9 govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+    <footer class="govuk-footer-x govuk-!-padding-top-3 govuk-!-padding-bottom-6">
       <div class="govuk-width-container footer">
 
         <ul class="govuk-list">
@@ -194,7 +166,7 @@
       </div>
     </footer>
 
-  </div> 
+    </div> 
     
 
 
@@ -250,6 +222,12 @@
 </div>
 
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+  </div>
+</div>
+
 {% endblock %}
 
 {% block pageScripts %}
@@ -282,8 +260,6 @@
   <script src="/public/ol/js/map_config.js"></script>
 
 
-
-
   <script>   
     var termsLink = "";
     var mastermap_api_key = "{{ data.API_KEY }}";
@@ -309,23 +285,15 @@
 
 
   <script type="text/javascript">
-    $(function () {
-
-
-    //zoom in to hack bounds box
-    const view = map.getView();
-    const zoom = view.getZoom();
-
-    let coords =[532050, 181750];
-     view.animate({
-      center: coords,
-      zoom: (zoom + 12.25),
-      duration: 0
+/*     $(function () {
+      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
     }); 
+    
+    }); */
+    
 
 
-    }); 
-
+    
   </script>
   
   <script>
@@ -337,25 +305,31 @@
     // hack the map height
     let page_height = Math.floor($(window).height());
     $("#map").css("height", page_height - 130);    
-    $("#container").css("height", page_height - 120);    
+    $("#container").css("height", page_height - 120);
     $('.scroll').css('height', page_height - 70);
     
     //hide the postcode list
     $('#address-list').hide();
     $('#selected-address').hide();
+    $('#results-heading').hide();
+    $('#results-guide').hide();
+    //hide the results charge list
+    $('.results-title').hide();
+    $('.results').hide();
 
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
 
     // add map event listeners to hide area on mouse out
-     map.getViewport().addEventListener('mouseover', function(event){
+    map.getViewport().addEventListener('mouseover', function(event){
          //MAP_CONFIG.draw_source.clear();
           MASTER_MAP_VECTOR_LAYER.enable()
       }, false);
       map.getViewport().addEventListener('mouseout', function(event){
          //MAP_CONFIG.draw_source.clear();
           MASTER_MAP_VECTOR_LAYER.disable()
-      }, false); 
+      }, false);
+
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
@@ -386,48 +360,23 @@
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
 
-    MAP_CONTROLS.vectorControls.snap_to_enabled = true;
-    // Enable the snap to interaction and vector layer
-    SNAP_TO_VECTOR_LAYER.enable();
-    map.addInteraction(snap_to_interaction);
-
     // hack the nav buttons
     let map_width = Math.floor($('#map').width());
     $(".nav-controls-fullwidth").css("left", map_width - 140);
 
-    //zoom in to hack bounds box
-    const view = map.getView();
-    const zoom = view.getZoom();
-     view.animate({
-      zoom: (zoom + 2.5),
-      duration: 0
-    }); 
 
-    setMode();
-  });
-
-  $('#reference').keypress(function(e) {
-  if(e.which == 13) {
-    console.log('click');
-    // enter pressed
-    window.location.href = "reference-number-results";
-  }
-});
-
-
-  $('#findBtn').click(function(event) {
-    console.log('click');
-    const view = map.getView();
+//zoom in to hack bounds box
+const view = map.getView();
     const zoom = view.getZoom();
 
     let coords =[532050, 181750];
      view.animate({
       center: coords,
-      zoom: 14.5,
+      zoom: 15,//(zoom -4 ),
       duration: 0
     }); 
-  });
 
+  });
   
 </script>
 
@@ -438,7 +387,7 @@
     const view = map.getView();
     const zoom = view.getZoom();
 
-    if (zoom < 12 && zoom > 0) { //stops the check disabling select-area at start
+    if (zoom < 12 && zoom > 0) {
       $("#select").prop('disabled', 'true');
       // if select was checked, uncheck it and set as draw
       if ($("#select").prop('checked') == true) {
@@ -505,31 +454,14 @@
   function setMode(){
     var radio = $('[name="edit-mode"]:checked').val();
     map.removeInteraction(MAP_CONTROLS.hover_interaction);
-    console.log(radio);
+console.log(radio);
     //hide cross hair
     $('.center').addClass('govuk-visually-hidden');
-
-    if (radio == "none") {
-      $('.center').removeClass('govuk-visually-hidden');
-      map.removeInteraction(MAP_CONTROLS.current_interaction);
-      MASTER_MAP_VECTOR_LAYER.enable()
-      MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.SHOW_CHARGE);
-
-      MAP_CONTROLS.current_interaction = new ol.interaction.Select({
-        // NB set the selection to the draw layer to read the id
-        layers: [MAP_CONFIG.draw_layer],
-        style: draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]
-      });
-    
-    }
 
     if (radio == "draw-area" || radio == "cutout-area" || radio == "add-line") {
       map.removeInteraction(MAP_CONTROLS.current_interaction);
       MASTER_MAP_VECTOR_LAYER.enable()
       MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
-      if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
-        map.addInteraction(snap_to_interaction)
-      }
 
       MAP_CONTROLS.add_draw_interaction("Polygon", $('#' + MAP_CONTROLS.addAreaButtonId));
     }
@@ -608,7 +540,6 @@
 
         MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
           var feature_id = event.element.getProperties().id;
-console.log(feature_id);
 
           MAP_CONTROLS.remove_selected_feature(feature_id);
           MAP_CONTROLS.current_interaction.getFeatures().clear();
@@ -752,7 +683,7 @@ console.log(feature_id);
   }
 
   document.getElementById('map').addEventListener("keydown", (evt) => {
-    //console.log(evt.key);
+    console.log(evt.key);
     evt.stopPropagation();
     let view = map.getView();
     let zoom = view.getZoom();
@@ -846,186 +777,26 @@ console.log(feature_id);
 
   } );
 
-    ///////////////////////////////////////////////
+  ///////////////////////////////////////////////
   // postcode / address check
   ///////////////////////////////////////////////
   $("#find-btn").click(function(e){
     $('#address-list').show();
     $('#selected-address').hide();
+    $('#results-heading').show();
     $("#postcodes").css("height", 400);   
   });  
   
   $("li a").click(function(e){
   console.log(this.text);
-    $('#address-list').hide();
+  $('#address-list').hide();
     $("#postcodes").css("height", 150); 
     $('#selected-address').html("This is the map for:<br/>" + this.text);
+    //$('#selected-address').html(this.text);
     $('#selected-address').show();
+    $('#results-heading').hide();
+    $('#results-guide').show();
   });
-
-
-function loadSampleData(){
-  
-    
-  let info = { 
-        "features":
-        [
-          {
-            "geometry": 
-            { "coordinates": [
-                [
-                  [532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]
-                ]
-              ], 
-              "type": "Polygon"
-            },
-            "properties": { "id": 1000 }, 
-            "type": "Feature"
-          },
-          {
-            "geometry": 
-            { "coordinates": [
-                [
-                  [532032.2, 181739.4], [532036.2, 181734.35], [532042.7, 181739.1], [532046.3, 181741.7], [532048.35, 181743.2], [532053.1, 181736.4], [532060.45, 181740.65], [532051.95, 181752.55], [532048.3, 181750.1], [532047.5, 181751.45], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532040.7, 181747.9], [532032.7, 181742.95], [532034.1, 181740.7], [532032.2, 181739.4]
-                ]
-              ], 
-              "type": "Polygon"
-            },
-            "properties": { "id": 1001 }, 
-            "type": "Feature"
-          },
-          {
-            "geometry": 
-            { "coordinates": [
-                [
-                  [532032.7, 181742.95], [532034.1, 181740.7], [532038.9, 181743.9], [532042, 181745.9], [532042.5, 181746.25], [532043.55, 181746.95], [532045.05, 181747.95], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754], [532050.8, 181755], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532040.7, 181747.9], [532032.7, 181742.95]
-                ] 
-              ], 
-              "type": "Polygon"
-            },
-            "properties": { "id": 1002 }, 
-            "type": "Feature"
-          },
-          {
-            "geometry": 
-            { "coordinates": [
-                [
-                [532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532028.75, 181737.2], [532031.05, 181738.65], [532032.2, 181739.4], [532034.1, 181740.7], [532038.9, 181743.9], [532042, 181745.9], [532042.5, 181746.25], [532043.55, 181746.95], [532045.05, 181747.95], [532048.3, 181750.1], [532047.5, 181751.45], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
-                ] 
-              ], 
-              "type": "Polygon"
-            },
-            "properties": { "id": 1003 }, 
-            "type": "Feature"
-          },
-          {
-            "geometry": 
-            { "coordinates": [
-                [
-                [532036.3, 181754.65], [532040.7, 181747.9], [532042, 181745.9], [532042.5, 181746.25], [532043.55, 181746.95], [532045.05, 181747.95], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532059.45, 181757.65], [532062.15, 181759.5], [532064.1, 181760.85], [532069.7, 181764.5], [532072.6, 181766.15], [532067.8, 181776.05], [532058.3, 181769.8], [532046.45, 181761.45], [532042.65, 181758.8], [532036.3, 181754.65]
-                ] 
-              ], 
-              "type": "Polygon"
-            },
-            "properties": { "id": 1004 }, 
-            "type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-                [532017.5, 181749.95], [532015.6, 181752.7], [532014.1, 181755], [532022.75, 181760.5], [532026.1, 181755.25], [532021.5, 181752.45], [532017.5, 181749.95]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1005 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532033.5, 181760.65], [532033, 181759.95], [532026.1, 181755.25], [532022.75, 181760.5], [532030.35, 181765.35], [532033.5, 181760.65]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1006 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532046.2283201754, 181768.87499999997], [532033.4443552631, 181760.64999999997], [532030.3797061403, 181765.19999999998], [532029.4165307017, 181767.12499999997], [532042.200495614, 181774.99999999997], [532046.2283201754, 181768.87499999997]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1007 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532058.3, 181769.8], [532062.65, 181763.15], [532064.1, 181760.85], [532069.7, 181764.5], [532072.6, 181766.15], [532067.8, 181776.05], [532058.3, 181769.8]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1008 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532062.65, 181763.15], [532064.1, 181760.85], [532062.15, 181759.5], [532059.45, 181757.65], [532052.25, 181752.75], [532051.5, 181754], [532050.8, 181755], [532046.45, 181761.45], [532058.3, 181769.8], [532062.65, 181763.15]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1009 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1010 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532042.5, 181746.25], [532042, 181745.9], [532040.7, 181747.9], [532036.3, 181754.65], [532042.65, 181758.8], [532046.85, 181752.4], [532047.5, 181751.45], [532048.3, 181750.1], [532045.05, 181747.95], [532043.55, 181746.95], [532042.5, 181746.25]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1011 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532040.7, 181747.9], [532032.7, 181742.95], [532034.1, 181740.7], [532032.2, 181739.4], [532031.05, 181738.65], [532029.25, 181741.45], [532026.95, 181740], [532028.75, 181737.2], [532023.9, 181734.05], [532023.3, 181733.7], [532017.1, 181740.25], [532017.45, 181742.55], [532029.7, 181750.4], [532036.3, 181754.65], [532040.7, 181747.9]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1012 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532036.3, 181754.65], [532040.7, 181747.9], [532032.7, 181742.95], [532034.1, 181740.7], [532031.05, 181738.65], [532029.25, 181741.45], [532026.95, 181740], [532023.1119005712, 181746.17823832517], [532036.3, 181754.65]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1013 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532096.659508772, 181839.07500000004], [531978.2764912281, 181784.47500000006], [531943.9524210526, 181764.17500000005], [531860.5939649123, 181713.77500000005], [531894.2175438596, 181676.67500000005], [531915.9327719299, 181654.97500000006], [531945.3534035088, 181629.77500000005], [532033.6152982457, 181535.97500000006], [532068.6398596491, 181568.17500000005], [532116.2732631579, 181582.17500000005], [532137.2880000001, 181614.37500000006], [532096.659508772, 181839.07500000004]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1014 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532030.55, 181725.8], [532035.3, 181729.15], [532038.55, 181731.4], [532036.2, 181734.35], [532042.7, 181739.1], [532046.3, 181741.7], [532048.35, 181743.2], [532053.1, 181736.4], [532060.45, 181740.65], [532061.9, 181737.85], [532063.75, 181739.25], [532064.6, 181737.6], [532065.5, 181738], [532069.1, 181739.8], [532073.95, 181742.25], [532076.5, 181736.6], [532076.9, 181736.85], [532077.35, 181737.1], [532077.5, 181736.8], [532079.3, 181737.45], [532078.65, 181742], [532082.2, 181742.5], [532080.5, 181753.8], [532073.85, 181752.8], [532073.15, 181756.8], [532073.05, 181758.75], [532072.85, 181759.45], [532069.7, 181764.5], [532072.6, 181766.15], [532067.8, 181776.05], [532058.3, 181769.8], [532046.45, 181761.45], [532042.65, 181758.8], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1015 },"type": "Feature"
-          },
-          {
-            "geometry":{ "coordinates": [
-              [
-              [532051.95, 181792.9], [532059.05, 181791.5], [532065.3, 181781.4], [532054.6, 181774.3], [532046.3, 181768.85], [532042, 181775.2], [532040.85, 181775.5], [532036.35, 181782.95], [532044.8, 181788.4], [532051.95, 181792.9]
-              ] 
-            ], "type": "Polygon"},"properties": { "id": 1016 },"type": "Feature"
-          },
-        ],
-        "type": "FeatureCollection"
-      }
-    
-      // add layer of charge
-      load_previous_data(info);
-      // add fake layer to use as highlight 
-      load_fake_data(info);
-
-
-    
-}
 
 </script>
 {% endblock %}
