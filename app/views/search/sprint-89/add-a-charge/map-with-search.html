@@ -160,9 +160,10 @@
     </p>
 
     {% include "./map-includes/map-controls-add-charge.html" %}
-    
 
-    <footer class="govuk-footer-x govuk-!-margin-top-9 govuk-!-padding-top-3 govuk-!-padding-bottom-s">
+    {% include "./map-includes/map-help.html" %}
+
+    <footer class="govuk-footer-x govuk-!-margin-top-9 govuk-!-padding-top-3 govuk-!-padding-bottom-6">
       <div class="govuk-width-container footer">
 
         <ul class="govuk-list">
@@ -391,6 +392,13 @@
   
     MAP_CONTROLS.vectorControls.copy_enabled = true;
     map.addInteraction(MAP_CONTROLS.current_interaction);
+
+    MAP_CONTROLS.vectorControls.snap_to_enabled = true;
+    // Enable the snap to interaction and vector layer
+    SNAP_TO_VECTOR_LAYER.enable();
+    map.addInteraction(snap_to_interaction);
+
+
 
     //zoom out to hack bounds box
     const view = map.getView();
