@@ -159,12 +159,7 @@
       </ul>
     </p>
 
-
-    <div class="govuk-inset-text">
-      You have added 1 out of 1000 possible extents.
-    </div>
-
-    {% include "./map-includes/map-controls-add-charge.html" %}
+    {% include "./map-includes/map-controls-add-charge-no-or.html" %}
 
     {% include "./map-includes/map-help.html" %}
 
@@ -357,8 +352,6 @@
     $('.results-title').hide();
     $('.results').hide();
 
-    $('.govuk-inset-text').hide();
-
     // trigger map resize
     window.dispatchEvent(new Event('resize'));
 
@@ -383,8 +376,6 @@
     });
   
     MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
-      console.log('add 1');
-      
       MAP_UNDO.store_state();
       feature = event.target.item(0).clone();
       if (feature) {
@@ -505,10 +496,6 @@
       MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
 
       MAP_CONTROLS.add_draw_interaction("Polygon", $('#' + MAP_CONTROLS.addAreaButtonId));
-      MAP_CONTROLS.current_interaction.on('drawend', function (event) {
-        console.log('draw end');
-        $('.govuk-inset-text').show();
-      });
     }
 
     if (radio == "select-area" || radio == "add-circle" || radio == "add-point") {
@@ -530,7 +517,6 @@
       map.addInteraction(MAP_CONTROLS.hover_interaction);
 
       MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
-        console.log('add 2');
         MAP_UNDO.store_state();
         feature = event.target.item(0).clone();
         if (feature) {
@@ -585,7 +571,6 @@
         });
 
         MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
-          console.log('add 3 delete');
           var feature_id = event.element.getProperties().id;
 
           MAP_CONTROLS.remove_selected_feature(feature_id);
@@ -618,6 +603,23 @@
       MAP_CONTROLS.vectorControls.snap_to_enabled = false;
     }
   });
+
+  $('#hatching').change(function () {
+    showHatching = $(this).is(':checked');
+    MAP_CONTROLS.toggle_draw_layer_style(MAP_CONTROLS.current_style);
+  });
+
+/*   document.getElementById('select-centre').onclick = function (evt) {
+    var radio = $('[name="edit-mode"]:checked').val();
+
+    if (radio == "draw-area" || radio == "select-area") {
+        selectCentre(evt)
+    }
+    if (radio == "delete-area") {
+      console.log('delete');
+      deleteCentre(evt);
+    }
+  }; */
 
 
   function selectCentre(evt){
@@ -783,7 +785,7 @@
       }
 
     var code = event.charCode || event.keyCode;
-    if((code === 32)|| (code === 13)){ // space (32) or Enter (13)
+    if((code === 32)|| (code === 13)){ // space (32)or Enter (13)
       event.preventDefault();
       var radio = $('[name="edit-mode"]:checked').val();
 
