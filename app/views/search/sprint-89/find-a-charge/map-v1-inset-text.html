@@ -181,7 +181,6 @@
   .govuk-checkboxes__item{
     margin-left: 10px;
   }
-
 </style>
 
 <div id="container" class="govuk-grid-row">
@@ -202,8 +201,10 @@
     <div class="results">
       {% set categories = data.charges.categories %}
       {% include "./map-includes/filters-accordion.html" %}
-      <p class="govuk-body govuk-!-margin-top-6">
-        <strong><a class="govuk-link govuk-link--no-visited-state" href="search-results">NEW: View full list of search results</a></strong>
+      <p class="govuk-body results-title govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+        <div class="govuk-inset-text">
+        <a class="govuk-link govuk-link--no-visited-state" href="search-results">View full list of search results</a>
+      </div>
       </p>
       {% include "./map-includes/results.html" %}
     </div>

@@ -182,6 +182,17 @@
     margin-left: 10px;
   }
 
+  .govuk-warning-text__icon {
+    position: absolute;
+    font-size: 48px;
+    height: 32px;
+    width: 32px;
+    line-height: 40px;
+
+    border: 3px solid #1d70b8;
+    background: #1d70b8;
+    text-align: center;
+  }
 </style>
 
 <div id="container" class="govuk-grid-row">
@@ -189,7 +200,6 @@
   <div id="navbar" class="govuk-grid-column-15-pc scroll">
 
     <h2 class="govuk-heading-m">Find a charge</h2>
-
     {% include "./map-includes/search-with-address-accordion.html" %}
 
     {% include "./map-includes/map-controls-minus-none.html" %}
@@ -202,8 +212,14 @@
     <div class="results">
       {% set categories = data.charges.categories %}
       {% include "./map-includes/filters-accordion.html" %}
-      <p class="govuk-body govuk-!-margin-top-6">
-        <strong><a class="govuk-link govuk-link--no-visited-state" href="search-results">NEW: View full list of search results</a></strong>
+      <p class="govuk-body  govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">*</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">New</span>
+            <a class="govuk-link govuk-link--no-visited-state" href="search-results">View full list of search results</a>
+          </strong>
+        </div>
       </p>
       {% include "./map-includes/results.html" %}
     </div>
