@@ -272,8 +272,10 @@
                   <td class="govuk-table__cell">
       
       
-                    {% if loop.index == "1" or loop.index == "2" or loop.index == "3" or loop.index == "6" or loop.index == "7" %}
+                    {% if loop.index == "6" or loop.index == "7" %}
                       <img src="/public/images/number9/number9_red.png" class="image">
+                    {% elseif loop.index == "1" or loop.index == "2" or loop.index == "3" %}
+                    <img src="/public/images/number9/address2.png" class="image">
                     {% elseif loop.index == "4" %}
                       <img src="/public/images/number9/charge_13.png" class="image">
                     {% elseif loop.index=="5" %}
