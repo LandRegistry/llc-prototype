@@ -131,7 +131,6 @@
   }
 
   .govuk-footer-x{
-    margin-top: 260px !important;
     border-top: 1px solid #b1b4b6;
     color: #0b0c0c;
     background: #f3f2f1;
@@ -183,6 +182,17 @@
     margin-left: 10px;
   }
 
+  .govuk-warning-text__icon {
+    position: absolute;
+    font-size: 48px;
+    height: 32px;
+    width: 32px;
+    line-height: 40px;
+
+    border: 3px solid #1d70b8;
+    background: #1d70b8;
+    text-align: center;
+  }
 </style>
 
 <div id="container" class="govuk-grid-row">
@@ -190,6 +200,9 @@
   <div id="navbar" class="govuk-grid-column-15-pc scroll">
 
     <h2 class="govuk-heading-m">Find a charge</h2>
+
+
+    {% include "./map-includes/search-with-address-accordion.html" %}
 
     {% include "./map-includes/map-controls-minus-none.html" %}
 
@@ -201,19 +214,28 @@
     <div class="results">
       {% set categories = data.charges.categories %}
       {% include "./map-includes/filters-accordion.html" %}
-      <p class="govuk-body govuk-!-margin-top-6">
-        <strong><a class="govuk-link govuk-link--no-visited-state" href="search-results">NEW: View full list of search results</a></strong>
-      </p>
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            New
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            <a class="govuk-notification-banner__link govuk-heading-s" href="#">View full list of search results</a>
+          </p>
+        </div>
+      </div>
       {% include "./map-includes/results.html" %}
     </div>
 
     <p class="govuk-body results-title govuk-!-margin-top-6 govuk-!-margin-bottom-6">
-        <strong><a class="govuk-link govuk-link--no-visited-state" href="search-results">NEW: View full list of search results</a></strong>
+      <a class="govuk-link govuk-link--no-visited-state" href="search-results">View full list of search results</a>
     <br/>
       <a class="govuk-link govuk-link--no-visited-state" href="results-search-service">Create a search area report</a>
     </p>
     
-    <footer class="govuk-footer-x govuk-!-padding-top-6 govuk-!-margin-top-9 ">
+    <footer class="govuk-footer-x govuk-!-padding-top-6 govuk-!-margin-top-9 govuk-!-margin-bottom-9">
       <div class="govuk-width-container footer">
 
         <ul class="govuk-list">
@@ -243,7 +265,7 @@
         <ul class="govuk-list">
           <li>
             <a
-              class="govuk-footer__link govuk-footer__copyright-logo" 
+              class="govuk-footer__link govuk-footer__copyright-logo " 
               href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
               © Crown copyright
             </a>
@@ -252,7 +274,7 @@
 
       </div>
     </footer>
-    {#% include "./map-includes/map-links.html" %#}
+    {% include "./map-includes/map-links.html" %}
   </div> 
     
 
@@ -368,25 +390,21 @@
 
 
   <script type="text/javascript">
-
-
-
-/*     $(function () {
-      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
-    }); */
-
-
     $(function () {
-      //zoom in to hack bounds box
-      const view = map.getView();
-      const zoom = view.getZoom();
 
-      let coords =[532050, 181750];
-      view.animate({
-        center: coords,
-        zoom: (zoom + 16),
-        duration: 0
-      }); 
+
+    //zoom in to hack bounds box
+    const view = map.getView();
+    const zoom = view.getZoom();
+
+    let coords =[532050, 181750];
+     view.animate({
+      center: coords,
+      zoom: (zoom + 12.25),
+      duration: 0
+    }); 
+
+
     }); 
 
   </script>
@@ -465,10 +483,8 @@
     //zoom in to hack bounds box
     const view = map.getView();
     const zoom = view.getZoom();
-    let coords =[532050, 181750];
-    view.animate({
-      center: coords,
-      zoom: zoom - 1.2, //(zoom + 2.5),
+     view.animate({
+      zoom: zoom, //(zoom + 2.5),
       duration: 0
     }); 
 
