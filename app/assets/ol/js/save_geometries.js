@@ -100,6 +100,12 @@ function load_fake_data(information) {
 
                 map.getView().fit(extent);
 
+                // set the charge styles here
+                var charge_features = MAP_CONFIG.charge_highlight_source.getFeatures();
+                charge_features.forEach(function(feature){
+                  feature.setStyle(draw_layer_styles.style[draw_layer_styles.SHOW_CHARGE]);
+                });
+
                 // get the map zoom with the new extents
                 const view = map.getView();
                 const zoom = view.getZoom();
