@@ -198,13 +198,14 @@
       24 charges in this area
     </h2> 
     <p class="govuk-body results-title">Showing 22 of 24 charges</p>
+    <p class="govuk-body  results-title govuk-!-margin-top-6">
+      <strong><a class="govuk-link govuk-link--no-visited-state" href="search-results">NEW: View full list of search results</a></strong>
+    </p>
 
     <div class="results">
       {% set categories = data.charges.categories %}
       {% include "./map-includes/filters-accordion.html" %}
-      <p class="govuk-body govuk-!-margin-top-6">
-        <strong><a class="govuk-link govuk-link--no-visited-state" href="search-results">NEW: View full list of search results</a></strong>
-      </p>
+      
       {% include "./map-includes/results.html" %}
     </div>
 
@@ -329,7 +330,7 @@
 
   <!-- Custom Map Styles -->
   <script src="/public/ol/js/hatching_style.js"></script>
-  <script src="/public/ol/js/map_styles.js"></script>
+  <script src="/public/ol/js/map_styles_alpha.js"></script>
   
   <!-- Master Map Vector Layer -->
   <script src="/public/ol/js/master_map_vector_layer.js"></script>
@@ -491,12 +492,11 @@
       //mouse out  -reset
       function(){
         // get feature by id
-        var features = MAP_CONFIG.charge_highlight_source.getFeatures();
-        //var feature = $.grep(features, function(feature) { return feature.getProperties().id == id });
+        /* var features = MAP_CONFIG.charge_highlight_source.getFeatures();
         features.forEach(function(feature){
             feature.setStyle(draw_layer_styles.style[draw_layer_styles.HIDDEN]);
-          });
-        //set highlight
+          }); */
+
         //features[current_hover].setStyle(draw_layer_styles.style[draw_layer_styles.FADE]);
         var features = MAP_CONFIG.charge_source.getFeatures();
         features.forEach(function(feature){
@@ -671,6 +671,8 @@
           console.log('load from set mode');
           
           if(!isShowingCharges){
+            console.log('showResults');
+            
             isShowingCharges = true;
             $('.loader').show();
             setTimeout(showResults, 1000);
@@ -1003,6 +1005,8 @@ function showResults(){
 };
 
 function loadSampleData(){   
+  console.log('load-----------------');
+  
   let info = { 
         "features":
         [
