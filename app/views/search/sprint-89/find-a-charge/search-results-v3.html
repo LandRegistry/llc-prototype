@@ -251,7 +251,7 @@
                   <th scope="col" class="govuk-table__header">Reference</th>
                   <th scope="col" class="govuk-table__header">Location</th>
                   <th scope="col" class="govuk-table__header">Description</th>
-                  <th scope="col" class="govuk-table__header">Creation date</th>
+                  <th scope="col" class="govuk-table__header">Registration date</th>
                   <th scope="col" class="govuk-table__header" style="width:20%">Extent</th>
                 </tr>
               </thead>
@@ -268,13 +268,7 @@
                     {{ charge.authorityReference }}</td>
                   <td class="govuk-table__cell">{{ charge.location | safe }}</td>
                   <td class="govuk-table__cell">{{ charge.description}}</td>
-                  <td class="govuk-table__cell">
-                    {% if loop.index == "2" or loop.index == "6" or loop.index == "7" or loop.index == "12"%}
-                      Not provided  
-                    {% else %}
-                    {{ charge.creationDate }}
-                    {% endif %}
-                  </td>
+                  <td class="govuk-table__cell">{{ charge.registrationDate }}</td>
                   <td class="govuk-table__cell">
       
       
