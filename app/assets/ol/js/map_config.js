@@ -49,6 +49,17 @@ var hideMaintenanceText, maintenanceAltText, maintenanceText, infoNotAvailableKe
       source: MAP_CONFIG.charge_source,
       style: draw_layer_styles.style[draw_layer_styles.EDIT],
       zIndex: MAP_CONFIG.charge_layer_zindex
+    });    
+    // add GUIDE layer
+    MAP_CONFIG.guide_features = new ol.Collection();
+    MAP_CONFIG.guide_source = new ol.source.Vector({
+        features: MAP_CONFIG.guide_features
+    });
+    MAP_CONFIG.guide_layer = new ol.layer.Vector({
+      name:"guide_layer",
+      source: MAP_CONFIG.guide_source,
+      style: draw_layer_styles.style[draw_layer_styles.GUIDE],
+      zIndex: MAP_CONFIG.guide_layer_zindex
     });
 
     // add charge highlight layer

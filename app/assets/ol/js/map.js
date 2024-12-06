@@ -8,6 +8,7 @@ var map = new ol.Map({
       GEOSERVER_CONFIG.maintenance_layer,
       */
       // add layers for highlights
+      MAP_CONFIG.guide_layer,
       MAP_CONFIG.charge_layer,
       MAP_CONFIG.charge_highlight_layer,
       MAP_CONFIG.draw_layer

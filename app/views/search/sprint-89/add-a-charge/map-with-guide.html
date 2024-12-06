@@ -1,0 +1,869 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+
+{% set pageName="Add a charge" %}
+{% set selectHint = "" %}
+{% set drawHint = "" %}
+{% set editHint = "" %}
+{% set deleteHint = "" %}
+{% set snapHint = "" %}
+{% set bodyClasses = "full-width" %}
+{% set containerClasses = "full-width" %}
+
+
+{% block content %}
+<style>
+  .govuk-main-wrapper {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  .govuk-width-container{
+    max-width:98%;
+    width:98%;
+  }
+
+  .govuk-footer {
+    display:none;
+  }
+
+  .charge{
+    padding: 4px;
+    border: 4px solid #fff;
+
+  }
+
+  .charge:hover{
+    background-color: #ffdd00;
+    border: 4px solid #0b0c0c;
+
+  }
+
+  .scroll{
+    height: 720px;
+    overflow-x: none;
+    overflow-y: scroll;
+    margin: 0;
+  }
+  
+  .search-field {
+    height: 38px;
+  }
+
+  .map__search_term {
+    position: relative;
+    z-index: 10;
+    height: 38px;
+    margin: 0;
+    padding: 1px;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    width: 85%;
+  }
+
+  .search-bar-input{
+    padding-right:15px;
+  }
+
+  .search-button {
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    background: #0B0C0C url("/public/images/search-button.png") no-repeat 2px 50%;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    height: 38px;
+  }
+
+  .govuk-grid-column-15-pc{
+    width: 20%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    float: left;
+  }
+
+  .govuk-grid-column-three-quarters{
+    width:80%;
+  }
+
+  #map{
+    height:1000px;
+  }
+
+  .govuk-button-group{
+    margin-bottom:0;
+  }
+
+  .align-right {
+    position: absolute;
+    right: 0px;
+  }
+
+  .govuk-footer-x{
+    border-top: 1px solid #b1b4b6;
+    color: #0b0c0c;
+    background: #f3f2f1;
+  }
+
+  footer .govuk-list{
+    font-size: 16px;
+  }
+
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+    background-size: 90px 75px;
+    padding-top: 82px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+  }
+
+  @media (min-width: 40.0625em) {
+    .govuk-frontend-supported .govuk-accordion__section-content {
+      padding-bottom: 20px;
+    }
+  }
+
+  .govuk-accordion__controls{
+    display: none;
+  }
+
+  #navbar{
+    padding-right:0;
+  }
+</style>
+
+<div id="container" class="govuk-grid-row">
+ 
+  <div id="navbar" class="govuk-grid-column-15-pc scroll">
+    <a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+    <h2 class="govuk-heading-m">Add an extent</h2>
+
+    {% include "./map-includes/postcode-search.html" %}
+    <p class="govuk-body">
+      <ul class="govuk-list">
+        <li><a href="search-by-upload" class="govuk-link govuk-link--no-visited-state">Add an extent by uploading a shapefile</a></li>
+        <li><a href="search-by-title" class="govuk-link govuk-link--no-visited-state">Add an extent by title number</a></li>
+      </ul>
+    </p>
+
+    {% include "./map-includes/map-controls-add-charge-line.html" %}
+
+    {% include "./map-includes/map-help.html" %}
+
+    <footer class="govuk-footer-x govuk-!-margin-top-9 govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+      <div class="govuk-width-container footer">
+
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-footer__link" href="#">Contact HM Land Registry</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Accessibility</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Cookies</a>
+          </li>
+          <li>
+            <a class="govuk-footer__link" href="#">Terms and conditions</a>
+          </li>
+          <li>
+            <span class="govuk-footer__licence-description">
+              All content is available under the
+              <a
+                class="govuk-footer__link"
+                href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+                rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+            </span>
+          </li>
+        </ul>
+
+        <ul class="govuk-list">
+          <li>
+            <a
+              class="govuk-footer__link govuk-footer__copyright-logo " 
+              href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+              © Crown copyright
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    {% include "./map-includes/map-links.html" %}
+
+    </div> 
+    
+
+
+  <div class="govuk-grid-column-three-quarters">
+
+    <div style="position: relative; width: 0; height: 0">
+        <br />
+      <div class="nav-controls-fullwidth">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+      </div>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
+      <!-- <div class="center">
+        <div class="horizontal"></div>
+        <div class="vertical"></div>
+      </div> -->
+      <noscript>
+        <div id="nojs" class="nojs-content">
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
+        </div>
+      </noscript>
+    </div>
+    <div class=" govuk-!-padding-top-2">
+      <div class="govuk-heading-s ">
+        Map key
+
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
+
+        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+
+        <span class="govuk-body-s align-right">
+          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and conditions</a>
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <link rel=stylesheet media="screen, print" type=text/css href="/public/ol/css/maintain-frontend-custom.css">
+  <link rel="stylesheet" href="/public/ol/css/ol.css" type="text/css">
+
+  <!-- Jquery -->
+  <script src="/public/ol/js/jquery.min.js"></script>
+
+
+  <!-- Open Layers -->
+  <script src="/public/ol/js/ol.js"></script>
+  <script src="/public/ol/js/proj4.js"></script>
+  <script src="/public/ol/js/union.js"></script>
+
+  <!-- Custom Map Styles -->
+  <script src="/public/ol/js/hatching_style.js"></script>
+  <script src="/public/ol/js/map_styles_guide.js"></script>
+  
+  <!-- Master Map Vector Layer -->
+  <script src="/public/ol/js/master_map_vector_layer.js"></script>
+  <script src="/public/ol/js/snap_to_vector_layer.js"></script>
+  
+  <!-- Custom Map Controls -->
+  <script src="/public/ol/js/map_undo_v1.js"></script>
+  <script src="/public/ol/js/map_controls.js"></script>
+  <script src="/public/ol/js/map_helpers_v1.js"></script>
+  
+  <!-- Map config -->
+  <script src="/public/ol/js/map_config.js"></script>
+
+
+  <script>   
+    var termsLink = "";
+    var mastermap_api_key = "{{ data.API_KEY }}";
+    var map_base_layer_view_name = "m0100";
+    var wfs_server_url = "{{ data.WFS_URL }}";
+    var wmts_server_url = "{{ data.WMTS_URL }}";
+  
+    MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
+  </script>
+  
+ 
+  <!-- OpenLayers Map -->
+  <script src="/public/ol/js/map.js"></script>
+  <script src="/public/ol/js/save_geometries_guide.js"></script>
+
+<script>
+  // Add map controls: this is now only the scale line
+  // controls are now GDS components
+  var controls;
+
+  MAP_HELPERS.init_controls(map, controls);
+</script>
+
+
+<script type="text/javascript">
+
+  $(function () {
+    load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
+  });
+  </script>
+  
+  <script>
+  ///////////////////////////////////////////////
+  // init select area
+  ///////////////////////////////////////////////
+  $( document ).ready(function() {
+
+    // hack the map height
+    let page_height = Math.floor($(window).height());
+    $("#map").css("height", page_height - 130);    
+    $("#container").css("height", page_height - 120);    
+    $('.scroll').css('height', page_height - 70);
+    // hack the nav buttons
+    let map_width = Math.floor($('#map').width());
+    $(".nav-controls-fullwidth").css("left", map_width - 140);
+    
+    //hide the postcode list
+    $('#address-list').hide();
+    $('#selected-address').hide();
+    $('#results-heading').hide();
+    $('#results-guide').hide();
+    //hide the results charge list
+    $('.results-title').hide();
+    $('.results').hide();
+
+    // trigger map resize
+    window.dispatchEvent(new Event('resize'));
+
+    // add map event listeners to hide area on mouse out
+    map.getViewport().addEventListener('mouseover', function(event){
+         //MAP_CONFIG.draw_source.clear();
+          MASTER_MAP_VECTOR_LAYER.enable()
+      }, false);
+      map.getViewport().addEventListener('mouseout', function(event){
+         //MAP_CONFIG.draw_source.clear();
+          MASTER_MAP_VECTOR_LAYER.disable()
+      }, false);
+
+
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    MASTER_MAP_VECTOR_LAYER.enable()
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+  
+    MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+      layers: [MASTER_MAP_VECTOR_LAYER.layer],
+      style: draw_layer_styles.style[draw_layer_styles.DRAW]
+    });
+  
+    MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+      MAP_UNDO.store_state();
+      feature = event.target.item(0).clone();
+      if (feature) {
+        geometry = feature.getGeometry();
+        //Convert multi polygons to features
+        if (geometry instanceof ol.geom.MultiPolygon) {
+          geometry.getPolygons().forEach(function (geometry) {
+            MAP_CONTROLS.addGeometryToMap(geometry)
+          })
+        }
+        else {
+          MAP_CONTROLS.addGeometryToMap(geometry)
+        }
+      }
+    });
+  
+    MAP_CONTROLS.vectorControls.copy_enabled = true;
+    map.addInteraction(MAP_CONTROLS.current_interaction);
+
+    MAP_CONTROLS.vectorControls.snap_to_enabled = true;
+    // Enable the snap to interaction and vector layer
+    SNAP_TO_VECTOR_LAYER.enable();
+    map.addInteraction(snap_to_interaction);
+
+
+
+    //zoom out to hack bounds box
+/*     const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom - 4),
+      duration: 0
+    }); */
+  });
+  
+</script>
+
+<script type="text/javascript">
+  var center = [];
+
+  function checkZoom() {
+    const view = map.getView();
+    const zoom = view.getZoom();
+
+    if (zoom < 12 && zoom > 0) { //stops the check disabling select-area at start
+      $("#select").prop('disabled', 'true');
+      // if select was checked, uncheck it and set as draw
+      if ($("#select").prop('checked') == true) {
+        $("#draw").prop('checked', 'true');
+      }
+      $("#snap_to_map").prop('disabled', 'true');
+    } else {
+      $("#select").removeAttr("disabled");
+      $("#snap_to_map").removeAttr("disabled");
+    }
+
+    //reset the controls
+    setMode();
+  }
+
+
+  map.on('moveend', checkZoom);
+  
+  document.getElementById('zoom-out').onclick = function () {
+    console.log('click OUT');
+    checkZoom();
+    const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom - 1),
+      duration: 300
+    });
+  };
+    
+  document.getElementById('zoom-in').onclick = function () {
+    console.log('click IN');
+    checkZoom();
+    const view = map.getView();
+    const zoom = view.getZoom();
+    view.animate({
+      zoom: (zoom + 1),
+      duration: 300
+    });
+  };
+    
+/*   document.getElementById('fullscreen').onclick = function () {
+    window.open("fullscreen", "_self");
+  }; */
+
+  document.getElementById('clearAllBtn').onclick = function () {
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
+    MAP_CONFIG.draw_source.clear();
+    setMode();
+  };
+
+  document.getElementById('undoBtn').onclick = function () {
+    MAP_UNDO.undo();
+    setMode();
+  };
+
+
+  $(document).on("change", "input[type=radio]", function () {
+    setMode();
+  });
+
+
+  function setMode(){
+    var radio = $('[name="edit-mode"]:checked').val();
+    map.removeInteraction(MAP_CONTROLS.hover_interaction);
+    console.log(radio);
+    //hide cross hair
+    $('.center').addClass('govuk-visually-hidden');
+
+    if (radio == "draw-area" || radio == "cutout-area" || radio == "add-line") {
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+      MASTER_MAP_VECTOR_LAYER.enable()
+      MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+      MAP_CONTROLS.add_draw_interaction("Polygon", $('#' + MAP_CONTROLS.addAreaButtonId));
+    }
+
+    if (radio == "select-area" || radio == "add-circle" || radio == "add-point") {
+      $('.center').removeClass('govuk-visually-hidden');
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+      MASTER_MAP_VECTOR_LAYER.enable()
+      MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+      MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+        layers: [MASTER_MAP_VECTOR_LAYER.layer],
+        style: draw_layer_styles.style[draw_layer_styles.DRAW]
+      });
+
+      // ADD hover functionality
+      MAP_CONTROLS.hover_interaction = new ol.interaction.Select({
+      condition: ol.events.condition.pointerMove,
+        style: draw_layer_styles.style[draw_layer_styles.HOVER]
+      });
+      map.addInteraction(MAP_CONTROLS.hover_interaction);
+
+      MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+        MAP_UNDO.store_state();
+        feature = event.target.item(0).clone();
+        if (feature) {
+          geometry = feature.getGeometry();
+          //Convert multi polygons to features
+          if (geometry instanceof ol.geom.MultiPolygon) {
+            geometry.getPolygons().forEach(function (geometry) {
+              MAP_CONTROLS.addGeometryToMap(geometry)
+            })
+          }
+          else {
+            MAP_CONTROLS.addGeometryToMap(geometry)
+          }
+        }
+      });
+
+      MAP_CONTROLS.vectorControls.copy_enabled = true;
+      map.addInteraction(MAP_CONTROLS.current_interaction);
+    }
+
+    if (radio == "edit-area") {
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.EDIT);
+
+        MAP_CONTROLS.current_interaction = new ol.interaction.Modify({
+          features: MAP_CONFIG.draw_features,
+          style: draw_layer_styles.style[draw_layer_styles.EDIT]
+        });
+
+        map.addInteraction(MAP_CONTROLS.current_interaction);
+        $("#" + MAP_CONTROLS.editButtonId).trigger("edit:toggled");
+        if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
+          map.addInteraction(snap_to_interaction)
+        }
+
+        MAP_CONTROLS.current_interaction.on('modifystart', function (event) {
+          MAP_UNDO.store_state();
+        });
+
+    }
+
+
+    if (radio == "delete-area") {
+      $('.center').removeClass('govuk-visually-hidden');
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.REMOVE);
+
+        MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+          layers: [MAP_CONFIG.draw_layer]
+        });
+
+        MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+          var feature_id = event.element.getProperties().id;
+
+          MAP_CONTROLS.remove_selected_feature(feature_id);
+          MAP_CONTROLS.current_interaction.getFeatures().clear();
+        });
+
+        map.addInteraction(MAP_CONTROLS.current_interaction)
+
+    }
+
+  };
+
+  // Not sure about this - vector snap also depends on zoom level
+  // this is because we can only load in a set number of polygons to use for the 'snap'
+  $('#snap_to_map').change(function () {
+    MAP_CONTROLS.vectorControls.snap_to_enabled = $(this).is(':checked');
+
+    if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
+      // Enable the snap to interaction and vector layer
+      SNAP_TO_VECTOR_LAYER.enable();
+      map.addInteraction(snap_to_interaction);
+      MAP_CONTROLS.vectorControls.snap_to_enabled = true;
+    } else {
+      // Disable the snap to interaction and vector layer, but not the snap to button
+      // Don't disable vector layer if copy active
+      if (!MAP_CONTROLS.vectorControls.copy_enabled) {
+        SNAP_TO_VECTOR_LAYER.disable();
+      }
+      map.removeInteraction(snap_to_interaction);
+      MAP_CONTROLS.vectorControls.snap_to_enabled = false;
+    }
+  });
+
+  $('#hatching').change(function () {
+    showHatching = $(this).is(':checked');
+    MAP_CONTROLS.toggle_draw_layer_style(MAP_CONTROLS.current_style);
+  });
+
+/*   document.getElementById('select-centre').onclick = function (evt) {
+    var radio = $('[name="edit-mode"]:checked').val();
+
+    if (radio == "draw-area" || radio == "select-area") {
+        selectCentre(evt)
+    }
+    if (radio == "delete-area") {
+      console.log('delete');
+      deleteCentre(evt);
+    }
+  }; */
+
+
+  function selectCentre(evt){
+    console.log('x');
+    // get centre of map
+    let center = getCenterCoords();
+    // get polygon at those coords
+    MASTER_MAP_VECTOR_LAYER.enable();
+    MAP_UNDO.store_state();
+    var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
+    var features = source.getFeatures();
+    var feature = source.getFeaturesAtCoordinate(center)[0];
+
+    if (feature) {
+      geometry = feature.getGeometry();
+      MAP_CONTROLS.addGeometryToMap(geometry)
+    }
+    MASTER_MAP_VECTOR_LAYER.disable();
+
+    setMode();
+  };
+
+
+  function deleteCentre(evt){
+    // the app creates a drawn layer with the selected polygons, with a timestamp id
+    // to remove a polygon, get the feature that contains the centre coords, get it's id and remove it
+    console.log('delete');
+    // get centre of map
+    let center = getCenterCoords();
+    // get polygon of the drawn layer at those coords
+    var source = MAP_CONFIG.draw_layer.getSource();
+    var features = source.getFeatures();
+    var feature = source.getFeaturesAtCoordinate(center)[0];
+
+    if (feature) {
+      console.log('got feature');
+      var feature_id = feature.getProperties().id;
+      MAP_CONTROLS.remove_selected_feature(feature_id);
+    }
+
+    setMode();
+  };
+
+  function getCenterCoords() {
+    center = map.getView().getCenter(map.getSize());
+    console.log(center);
+    return center;
+  }
+</script>
+
+<script>
+  //////////////////////////////////////////////////////////////////////
+  // button pixel panning 
+  ////////////////////////////////////////////////////////////////////// 
+  const step = 10; // pixels
+  function moveMap([xDirection, yDirection]) {
+    var center = map.getView().getCenter();
+    var resolution = map.getView().getResolution();
+    map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
+  }
+
+/*   document.getElementById('pan-up').onclick = function () {
+    moveMap([0, step]);
+  };
+  document.getElementById('pan-left').onclick = function () {
+    moveMap([-step, 0]);
+  };
+  document.getElementById('pan-right').onclick = function () {
+    moveMap([step, 0]);
+  };
+  document.getElementById('pan-down').onclick = function () {
+    moveMap([0, -step]);
+  }; */
+</script>
+
+<script>
+  //////////////////////////////////////////////////////////////////////
+  // key pixel panning: Arrows and space bar
+  ////////////////////////////////////////////////////////////////////// 
+  const step_by_key = 10; // pixels
+
+  function moveMap([xDirection, yDirection]) {
+    var center = map.getView().getCenter();
+    var resolution = map.getView().getResolution();
+    //map.getView().setCenter([center[0] + xDirection * resolution, center[1] + yDirection * resolution]);
+    let coords = [center[0] + xDirection * resolution, center[1] + yDirection * resolution];
+    let view = map.getView();
+    let zoom = view.getZoom();
+    view.animate({
+            center: coords,
+            duration: 100
+          });
+  }
+
+  document.getElementById('map').addEventListener("keydown", (evt) => {
+    console.log(evt.key);
+    evt.stopPropagation();
+    let view = map.getView();
+    let zoom = view.getZoom();
+    if(evt.altKey || evt.shiftKey){
+      switch (evt.key) {
+        case "w":
+        case "ArrowUp":
+        moveMap([0, step_by_key]);
+          break;
+        case "ArrowLeft":
+        moveMap([-step_by_key, 0]);
+          break;
+        case "ArrowRight":
+        moveMap([step_by_key, 0]);
+          break;
+        case "ArrowDown":
+        moveMap([0, -step_by_key]);
+          break;
+        case "ArrowDown":
+        moveMap([0, -step_by_key]);
+          break;
+        case "+":
+          view.animate({
+            zoom: (zoom + 1),
+            duration: 300
+          });
+          break;
+        case "_":
+          view.animate({
+            zoom: (zoom - 1),
+            duration: 300
+          });
+          break;
+        default:
+          break;
+      } 
+    } else {
+
+      switch(evt.key) {
+        case "w":
+        moveMap([0, step_by_key*13]);
+          break;
+        case "a":
+        moveMap([-step_by_key*13, 0]);
+          break;
+        case "d":
+        moveMap([step_by_key*13, 0]);
+          break;
+        case "s":
+        moveMap([0, -step_by_key*13]);
+          break;
+        case "e":
+        case "=":
+          view.animate({
+            zoom: (zoom + 1),
+            duration: 300
+          });
+          break;
+        case "q":
+        case "_":
+          view.animate({
+            zoom: (zoom - 1),
+            duration: 300
+          });
+          break;
+          }
+      }
+
+    var code = event.charCode || event.keyCode;
+    if((code === 32)|| (code === 13)){ // space (32)or Enter (13)
+      event.preventDefault();
+      var radio = $('[name="edit-mode"]:checked').val();
+
+        if (radio == "draw-area" || radio == "select-area") {
+            selectCentre(evt)
+        }
+        if (radio == "delete-area") {
+          console.log('delete');
+          deleteCentre(evt);
+        }
+    }
+
+  });
+
+  $( window ).on( "resize", function() {
+    let map_width = Math.floor($('#map').width());
+    $(".nav-controls-fullwidth").css("left", map_width - 140);
+    //let ht = $( window ).height()
+    //$(".scroll").css("height", ht - 140);
+    //console.log('ht', ht);
+
+  } );
+
+  ///////////////////////////////////////////////
+  // postcode / address check
+  ///////////////////////////////////////////////
+  $("#find-btn").click(function(e){
+    $('#address-list').show();
+    $('#selected-address').hide();
+    $('#results-heading').show();
+    $("#postcodes").css("height", 400);   
+  });  
+  
+  $("li a").click(function(e){
+    console.log(this.text);
+    $('#address-list').hide();
+    $("#postcodes").css("height", 240); 
+    $('#selected-address').html("This is the map for:<br/>" + this.text);
+    $('#selected-address').show();
+    $('#results-heading').hide();
+    $('#results-guide').show();
+
+    const view = map.getView();
+    const zoom = view.getZoom();
+
+    let coords =[532050, 181750];
+      view.animate({
+        center: coords,
+        zoom: (zoom + 3),
+        duration: 0
+      }); 
+/*     view.animate({
+      zoom: (zoom + 3),
+      duration: 0
+    }); */
+
+
+    console.log(this.text.substr(0, 3));
+
+
+    if (this.text.substr(0, 3) === "5-6"){
+      console.log('*** show area ****');
+      
+      load_previous_data({ "features": [{ "geometry": { "coordinates": [
+        [
+          //[532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532028.75, 181737.2], [532031.05, 181738.65], [532032.2, 181739.4], [532034.1, 181740.7], [532038.9, 181743.9], [532042, 181745.9], [532042.5, 181746.25], [532043.55, 181746.95], [532045.05, 181747.95], [532048.3, 181750.1], [532047.5, 181751.45], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
+          //5 - 6
+          [532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532028.75, 181737.2], [532031.05, 181738.65], [532032.2, 181739.4], [532034.1, 181740.7], [532038.9, 181743.9], [532042.0, 181745.9], [532040.7, 181747.9], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
+        ] 
+      ], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
+    
+    }
+
+    MAP_CONTROLS.vectorControls.snap_to_enabled = $('#snap_to_map').is(':checked');
+    SNAP_TO_VECTOR_LAYER.enable();
+    map.addInteraction(snap_to_interaction);
+  });
+
+</script>
+{% endblock %}
