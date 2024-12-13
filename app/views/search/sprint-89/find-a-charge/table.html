@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="List of charges for your search area - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+{% set items = [
+  "LLC-301", "LLC-PN3", "LLC-PN4", "LLC-PN5", "LLC-PN6", "LLC-PN7", "LLC-PRQ", "LLC-PRR", "LLC-PRS", "LLC-PRT", "LLC-PRV", "LLC-PRX", "LLC-PRY", "LLC-PRZ", "LLC-PS1", "LLC-PS2", "LLC-PSD", "LLC-PSG", "LLC-PSH", "LLC-PSJ", "LLC-PSK", "LLC-PSL", "LLC-PSM", "LLC-PSN", "LLC-PSP", "LLC-PSQ", "LLC-PSR", "LLC-PSS", "LLC-PSW", "LLC-PSX", "LLC-PSY", "LLC-PSZ", "LLC-PT0", "LLC-PT1", "LLC-PT2", "LLC-PT3", "LLC-PT4", "LLC-PT5", "LLC-PT9", "LLC-PTC", "LLC-PTD", "LLC-PTF", "LLC-PTG", "LLC-PTJ", "LLC-PTK", "LLC-PTL", "LLC-PTM", "LLC-PTN", "LLC-PTP", "LLC-PTQ", "LLC-PTR", "LLC-PTS", "LLC-PTT", "LLC-PTV", "LLC-PTW", "LLC-PTX", "LLC-PTY", "LLC-PTZ", "LLC-PV0", "LLC-PV1", "LLC-PV2", "LLC-PV3", "LLC-PV4", "LLC-PV5", "LLC-PV6", "LLC-Q2D", "LLC-Q2F", "LLC-Q2Y", "LLC-Q30", "LLC-Q32", "LLC-Q6D", "LLC-Q6P", "LLC-QN2", "LLC-QN3", "LLC-QN4", "LLC-QN5", "LLC-QN6", "LLC-QRP", "LLC-QRQ", "LLC-QRR", "LLC-QRS", "LLC-QRT", "LLC-QRW", "LLC-QRX", "LLC-QRY", "LLC-QS0", "LLC-QS1", "LLC-QSC", "LLC-QSF", "LLC-QSG", "LLC-QSH", "LLC-QSJ", "LLC-QSK", "LLC-QSL", "LLC-QSM", "LLC-QSN", "LLC-QSP", "LLC-QSQ", "LLC-QSR", "LLC-QSV", "LLC-QSW", "LLC-QSX", "LLC-QSY", "LLC-QSZ", "LLC-QT0", "LLC-QT1", "LLC-QT2", "LLC-QT3", "LLC-QT4", "LLC-QT8", "LLC-QTB", "LLC-QTC", "LLC-QTD", "LLC-QTF", "LLC-QTH", "LLC-QTJ", "LLC-QTK", "LLC-QTL", "LLC-QTM", "LLC-QTN", "LLC-QTP", "LLC-QTQ", "LLC-QTR", "LLC-QTS", "LLC-QTT", "LLC-QTV", "LLC-QTW", "LLC-QTX", "LLC-QTY", "LLC-QTZ", "LLC-QV0", "LLC-QV1", "LLC-QV2", "LLC-QV3", "LLC-QV4", "LLC-QV5", "LLC-R2C", "LLC-R2D", "LLC-R2X", "LLC-R2Z", "LLC-R31", "LLC-R6C", "LLC-R6N", "LLC-RN1", "LLC-RN2", "LLC-RN3", "LLC-RN4", "LLC-RN5", "LLC-RRN", "LLC-RRP", "LLC-RRQ", "LLC-RRR", "LLC-RRS", "LLC-RRV", "LLC-RRW", "LLC-RRX", "LLC-RRZ", "LLC-RS0", "LLC-RSB", "LLC-RSD", "LLC-RSF", "LLC-RSG", "LLC-RSH", "LLC-RSJ", "LLC-RSK", "LLC-RSL", "LLC-RSM", "LLC-RSN", "LLC-RSP", "LLC-RSQ", "LLC-RST", "LLC-RSV", "LLC-RSW", "LLC-RSX", "LLC-RSY", "LLC-RSZ", "LLC-RT0", "LLC-RT1", "LLC-RT2", "LLC-RT3", "LLC-RT7", "LLC-RT9", "LLC-RTB", "LLC-RTC", "LLC-RTD", "LLC-RTG", "LLC-RTH", "LLC-RTJ", "LLC-RTK", "LLC-RTL", "LLC-RTM", "LLC-RTN", "LLC-RTP", "LLC-RTQ", "LLC-RTR", "LLC-RTS", "LLC-RTT", "LLC-RTV", "LLC-RTW", "LLC-RTX", "LLC-RTY", "LLC-RTZ", "LLC-RV0", "LLC-RV1", "LLC-RV2", "LLC-RV3", "LLC-RV4", "LLC-S2B", "LLC-S2C", "LLC-S2W", "LLC-S2Y", "LLC-S30", "LLC-S6B", "LLC-S6M", "LLC-SN0", "LLC-SN1", "LLC-SN2", "LLC-SN3", "LLC-SN4", "LLC-SRM", "LLC-SRN", "LLC-SRP", "LLC-SRQ", "LLC-SRR", "LLC-SRT", "LLC-SRV", "LLC-SRW", "LLC-SRY", "LLC-SRZ", "LLC-SS9", "LLC-SSC", "LLC-SSD", "LLC-SSF", "LLC-SSG", "LLC-SSH", "LLC-SSJ", "LLC-SSK", "LLC-SSL", "LLC-SSM", "LLC-SSN", "LLC-SSP", "LLC-SSS", "LLC-SST", "LLC-SSV", "LLC-SSW", "LLC-SSX", "LLC-SSY", "LLC-SSZ", "LLC-ST0", "LLC-ST1", "LLC-ST2", "LLC-ST6", "LLC-ST8", "LLC-ST9", "LLC-STB", "LLC-STC", "LLC-STF", "LLC-STG", "LLC-STH", "LLC-STJ", "LLC-STK", "LLC-STL", "LLC-STM", "LLC-STN", "LLC-STP", "LLC-STQ", "LLC-STR", "LLC-STS", "LLC-STT", "LLC-STV", "LLC-STW", "LLC-STX", "LLC-STY", "LLC-STZ", "LLC-SV0", "LLC-SV1", "LLC-SV2", "LLC-SV3", "LLC-T29", "LLC-T2B", "LLC-T2V", "LLC-T2X", "LLC-T2Z", "LLC-T69", "LLC-T6L", "LLC-TMZ", "LLC-TN0", "LLC-TN1", "LLC-TN2", "LLC-TN3", "LLC-TRL", "LLC-TRM", "LLC-TRN", "LLC-TRP", "LLC-TRQ", "LLC-TRS", "LLC-TRT", "LLC-TRV", "LLC-TRX", "LLC-TRY", "LLC-TS8", "LLC-TSB", "LLC-TSC", "LLC-TSD", "LLC-TSF", "LLC-TSG", "LLC-TSH", "LLC-TSJ", "LLC-TSK", "LLC-TSL", "LLC-TSM", "LLC-TSN", "LLC-TSR", "LLC-TSS", "LLC-TST", "LLC-TSV", "LLC-TSW", "LLC-TSX", "LLC-TSY", "LLC-TSZ", "LLC-TT0", "LLC-TT1", "LLC-TT5", "LLC-TT7", "LLC-TT8", "LLC-TT9", "LLC-TTB", "LLC-TTD", "LLC-TTF", "LLC-TTG", "LLC-TTH", "LLC-TTJ", "LLC-TTK", "LLC-TTL", "LLC-TTM", "LLC-TTN", "LLC-TTP", "LLC-TTQ", "LLC-TTR", "LLC-TTS", "LLC-TTT", "LLC-TTV", "LLC-TTW", "LLC-TTX", "LLC-TTY", "LLC-TTZ", "LLC-TV0", "LLC-TV1", "LLC-TV2", "LLC-V28", "LLC-V29", "LLC-V2T", "LLC-V2W", "LLC-V2Y", "LLC-V68", "LLC-V6K", "LLC-1GC", "LLC-1GD", "LLC-1GF", "LLC-1GG", "LLC-1GH", "LLC-1KZ", "LLC-1L0", "LLC-1L1", "LLC-1L2", "LLC-1L3", "LLC-1L5", "LLC-1L6", "LLC-1L7", "LLC-1L9", "LLC-1LB", "LLC-1LN", "LLC-1LQ", "LLC-1LR", "LLC-1LS", "LLC-1LT", "LLC-1LV", "LLC-1LW", "LLC-1LX", "LLC-1LY", "LLC-1LZ", "LLC-1M0", "LLC-1M1", "LLC-1M4", "LLC-1M5", "LLC-1M6", "LLC-1M7", "LLC-1M8", "LLC-1M9", "LLC-1MB", "LLC-1MC", "LLC-1MD", "LLC-1MF", "LLC-1MK", "LLC-1MM", "LLC-1MN", "LLC-1MP", "LLC-1MQ", "LLC-1MS", "LLC-1MT", "LLC-1MV", "LLC-1MW", "LLC-1MX", "LLC-1MY", "LLC-1MZ", "LLC-1N0", "LLC-1N1", "LLC-1N2", "LLC-1N3", "LLC-1N4", "LLC-1N5", "LLC-1N6", "LLC-1N7", "LLC-1N8", "LLC-1N9", "LLC-1NB", "LLC-1NC", "LLC-1ND", "LLC-1NF", "LLC-1NG", "LLC-1WN", "LLC-1WP", "LLC-1X6", "LLC-1X8", "LLC-1XB", "LLC-20N", "LLC-20Y", "LLC-D8", "LLC-D9", "LLC-DB", "LLC-DC", "LLC-DD", "LLC-HW", "LLC-HX", "LLC-HY", "LLC-HZ", "LLC-J0", "LLC-J2", "LLC-J3", "LLC-J4", "LLC-J6", "LLC-J7", "LLC-JK", "LLC-JM", "LLC-JN", "LLC-JP", "LLC-JQ", "LLC-JR", "LLC-JS", "LLC-JT", "LLC-JV", "LLC-JW", "LLC-JX", "LLC-JY", "LLC-K1", "LLC-K2", "LLC-K3", "LLC-K4", "LLC-K5", "LLC-K6", "LLC-K7", "LLC-K8", "LLC-K9", "LLC-KB", "LLC-KG", "LLC-KJ", "LLC-KK", "LLC-KL", "LLC-KM", "LLC-KP", "LLC-KQ", "LLC-KR", "LLC-KS", "LLC-KT", "LLC-KV", "LLC-KW", "LLC-KX", "LLC-KY", "LLC-KZ", "LLC-L0", "LLC-L1", "LLC-L2", "LLC-L3", "LLC-L4", "LLC-L5", "LLC-L6", "LLC-L7", "LLC-L8", "LLC-L9", "LLC-LB", "LLC-LC", "LLC-TK", "LLC-TL", "LLC-V3", "LLC-V5", "LLC-V7", "LLC-YK", "LLC-YV", "LLC-2P7P"] %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-!-margin-bottom-3">
+      <h1 class="govuk-heading-l">
+        List of charges for your search area
+      </h1>
+      <p class="govuk-body">There are 42 local land charges for this search area.</p>
+    </div>
+
+
+
+
+        <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+          <table class="govuk-table govuk-table--small-text-until-tablet">
+            <caption class="govuk-table__caption govuk-table__caption--m">List of charges</caption>
+<!--               <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Reference</th>
+                  <th scope="col" class="govuk-table__header">Location</th>
+                  <th scope="col" class="govuk-table__header">Description</th>
+                  <th scope="col" class="govuk-table__header">Creation date</th>
+                  <th scope="col" class="govuk-table__header" style="width:20%">Extent</th>
+                </tr>
+              </thead> -->
+              <tbody class="govuk-table__body">
+              {% set count = 0 %}
+              {% set columns = 8 %}
+              {% set rows = (items.length / columns ) | int %}
+
+              {% for i in range(0, rows) %}
+              <tr class="govuk-table__row">
+                {% for j in range(0, columns) %}
+                {% set idx = i * columns + j %}
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16">
+                  {{items[idx]}}{{idx}}  
+                </td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+
+              {% for item in items %}
+              {% set colCount = 0 %}
+              {% set row = (loop.index / columns) | int %}
+              {% set count = count+1 %}
+              {% if row === (loop.index / columns)  %}
+                
+              {% endif %}
+
+                  
+
+                
+              {% if row === (loop.index / columns)  %}
+            </tr>
+              {% endif %}
+
+              {% endfor %}
+              </tbody>
+            </table>
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+</div>
+
+{% endblock %}
