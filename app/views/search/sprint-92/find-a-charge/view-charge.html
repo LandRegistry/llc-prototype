@@ -1,0 +1,265 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="View local land charge - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% set categories = data.charges.categories %}
+
+{% block content %}
+<style>
+   .govuk-summary-list__actions {
+    width:15%;
+    vertical-align:top;
+   }
+   .govuk-summary-list__key{
+    vertical-align:top;
+   }
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters-from-desktop">
+
+      <h1 class="govuk-heading-l">View local land charge</h1>
+
+      <ul class="govuk-list govuk-!-padding-top-3 govuk-!-padding-bottom-6">
+        <li>
+          <a class="govuk-link" href="update-charge?index={{index}}">Update charge</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="cancel-reason">Cancel charge</a>
+        </li>
+        <!-- <li>
+          <a class="govuk-link" href="#">Update quality check results</a>
+        </li> -->
+      </ul>
+{% set category = 0 %}
+{% if index|length == 0 %}
+{% set index = 0 %}
+{% endif %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            HM Land Registry reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].charges[index].hmlrReference  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="view-history?index={{index}}">View history</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].category  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning subcategory
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].charges[index].subcategory  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Law
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].charges[index].law  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal document
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].charges[index].legalDocument  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ categories[category].charges[index].description  }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="charge-description">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Originating authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].charges[index].originatingAuthority  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registered on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ categories[category].charges[index].registrationDate  }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Updated on
+          </dt>
+          <dd class="govuk-summary-list__value">
+            20 May 1987
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="view-history?index={{index}}">View history</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ categories[category].charges[index].location  }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Extent
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+          {% if index == "3" or index == "7" %}
+            <img src="/public/images/number9/charge_13_blue.png"  style="width:100%">
+          {% elseif index=="4" %}
+            <img src="/public/images/number9/charge_12_blue.png" style="width:100%">
+          {% elseif index=="8" %} 
+            <img src="/public/images/number9/address1_blue.png" style="width:100%">
+          {% elseif index=="9" %} 
+            <img src="/public/images/number9/address2_blue.png" style="width:100%">
+          {% elseif index=="10" or index == "12" or index == "13" %} 
+            <img src="/public/images/number9/address3_blue.png" style="width:100%">
+          {% elseif index=="11" or index == "14" %} 
+            <img src="/public/images/number9/address4_blue.png" style="width:100%">
+          {% else %} 
+            <img src="/public/images/number9/number9_blue.png" style="width:100%">
+          {% endif %}
+
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="#">Add a new charge using this extent</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Add a new charge using this extent on behalf of another organisation</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Download shapefiles for this extent</a>
+              </li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="map">Change<span class="govuk-visually-hidden"> </span></a>
+            <!-- <ul class="govuk-list">
+              <li>
+                <a class="govuk-link" href="#">Change</a>
+              </li>
+              <li>
+                <a class="govuk-link" href="#">Use extent</a>
+              </li>
+            </ul> -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Creation date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ categories[category].charges[index].creationDate  }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="date-of-charge">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+       
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Expiry date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ categories[category].charges[index].expiryDate or 'Does not expire' }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="charge-expire">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Source information
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Planning Department<br/>
+              Council Buildings<br/>
+              Works Road<br/>
+              Exeter<br/>
+              EX2 8BB</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="source-information">Change<span class="govuk-visually-hidden"> </span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Authority reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ categories[category].charges[index].authorityReference  }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="source-information">Change<span class="govuk-visually-hidden"> </span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+
+  
+
+
+      <p class="govuk-body"><a href="../dashboard">Return to main menu</a></p>
+    </div>
+    </div>
+
+
+  
+
+  </div>
+
+</main>
+{% endblock %}

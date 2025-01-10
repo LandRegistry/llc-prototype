@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="List of charges for your search area - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-!-margin-bottom-9">
+      <h1 class="govuk-heading-l">
+        View local land charges
+      </h1>
+
+
+<!--       <div class="govuk-inset-text">
+        There are 2 local land charges matching this reference number.
+      </div> -->
+      <p class="govuk-body">There are 3 local land charges matching this reference number.</p>
+
+      <p class="govuk-body">Charges registered outside your area</p>
+    </div>
+
+    <div class="govuk-!-margin-bottom-9">
+
+    <table class="govuk-table ">
+        <caption class="govuk-table__caption govuk-table__caption--m">Search results for LLC-9B2XF</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">HMLR reference</th>
+            <th scope="col" class="govuk-table__header">Authority reference</th>
+            <th scope="col" class="govuk-table__header">Originating authority</th>
+            <th scope="col" class="govuk-table__header">Charge type</th>
+            <th scope="col" class="govuk-table__header">Registration date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="view-charge?index=1" class="govuk-link govuk-link--no-visited-state" href="#">LLC-9B2XF </a></td>
+            <td class="govuk-table__cell">19/00876/FULL</td>
+            <td class="govuk-table__cell">City of London Corporation</td>
+            <td class="govuk-table__cell">Planning</td>
+            <td class="govuk-table__cell">2 August 2019</td>
+          </tr>
+<!--           <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="view-charge" class="govuk-link govuk-link--no-visited-state" href="#">LLC-2ZJLX</a></td>
+            <td class="govuk-table__cell">18/00796/FULL</td>
+            <td class="govuk-table__cell">Richmond District Council</td>
+            <td class="govuk-table__cell">Planning</td>
+            <td class="govuk-table__cell">14 January 2019</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="view-charge" class="govuk-link govuk-link--no-visited-state" href="#">LLC-123WW</a></td>
+            <td class="govuk-table__cell">18/00796/FULL</td>
+            <td class="govuk-table__cell">City of London Corporation</td>
+            <td class="govuk-table__cell">Planning</td>
+            <td class="govuk-table__cell">20 November 2015</td>
+          </tr> -->
+
+        </tbody>
+      </table>
+    </div>
+
+
+      <div>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">Start a new search</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+
+
+
+
+
+</div>
+{#% include "./map-includes/search-links.html" %#}
+{% endblock %}
