@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="List of charges for your search area - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+{% set items = [
+  {"date": "18&nbsp;October&nbsp;2024", time:"13:15:58", "version": "147547", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"11:54:39", "version": "134872", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"11:54:08", "version": "134495", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"11:01:45", "version": "126745", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"11:00:33", "version": "126299", "user":"HM Land Registry", "action":"Authority reference, Bulk Upload Reason, Location"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"10:43:21", "version": "114498", "user":"LA Administrator<br/><a href='#'>llcuserlogin+laadmin@gmail.com</a><br/>Blackpool Borough Council", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"10:42:04", "version": "113631", "user":"LA Administrator<br/><a href='#'>llcuserlogin+laadmin@gmail.com</a><br/>Blackpool Borough Council", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"10:23:42", "version": "100546", "user":"LA Administrator<br/><a href='#'>llcuserlogin+laadmin@gmail.com</a><br/>Blackpool Borough Council", "action":"Bulk Upload Reason"},
+  {"date": "17&nbsp;October&nbsp;2024", time:"10:22:26", "version": "99729", "user":"HM Land Registry", "action":"Authority reference, Bulk Upload Reason, Location"},
+
+  {"date": "12&nbsp;October&nbsp;2024", time:"11:58:38", "version": "87179", "user":"HM Land Registry", "action":"Authority reference, Bulk Upload Reason, Location"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"11:58:18", "version": "86958", "user":"LA Administrator<br/><a href='#'>llcuserlogin+laadmin@gmail.com</a><br/>Blackpool Borough Council", "action":"Bulk Upload Reason, Description"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"11:25:46", "version": "81841", "user":"HM Land Registry", "action":"Authority reference, Location"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"11:08:02", "version": "75635", "user":"HM Land Registry", "action":"Authority reference, Location"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"10:48:28", "version": "68650", "user":"LA User<br/><a href='#'>llcuserlogin+lauser@gmail.com</a><br/>Blackpool Borough Council", "action":"Bulk Upload Reason"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"09:09:50", "version": "65020", "user":"LA Administrator<br/><a href='#'>llcuserlogin+laadmin@gmail.com</a><br/>Blackpool Borough Council", "action":"Bulk Upload Reason"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"08:51:26", "version": "58813", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"08:31:48", "version": "51826", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "12&nbsp;October&nbsp;2024", time:"08:12:00", "version": "45314", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+
+  {"date": "11&nbsp;October&nbsp;2024", time:"16:15:12", "version": "38036", "user":"HM Land Registry", "action":"Bulk Upload Reason"},
+  {"date": "4&nbsp;October&nbsp;2024", time:"13:55:52", "version": "30460", "user":"HM Land Registry", "action":"Charge is added to the register"}
+  
+  ] %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-!-margin-bottom-3">
+      <h1 class="govuk-heading-l">
+        Charge history for LLC-27T
+      </h1>
+      <!-- <p class="govuk-body">There are 20 updates to this local land charge.</p> -->
+    </div>
+
+        <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+          <table class="govuk-table govuk-table--small-text-until-tablet">
+            <caption class="govuk-table__caption govuk-table__caption--m">List of charges</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Date</th>
+                  <th scope="col" class="govuk-table__header">Time</th>
+                  <th scope="col" class="govuk-table__header">Version</th>
+                  <th scope="col" class="govuk-table__header">User</th>
+                  <th scope="col" class="govuk-table__header">Reason</th>
+                  <!-- <th scope="col" class="govuk-table__header" style="width:20%;">Reason</th> -->
+                  <th scope="col" class="govuk-table__header">Action</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+
+              {% for item in items %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16">{{item.date | safe}}</td>
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16">{{item.time}}</td>
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16 govuk-!-text-align-right">{{item.version}}</td>
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16">{{item.user | safe}}</td>
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16">{{item.action}}</td>
+                <td class="govuk-table__cell govuk-!-font-tabular-numbers govuk-body govuk-!-font-size-16"><a href="#">View</a></td>
+  
+              </tr>
+              {% endfor %}
+               </tbody>
+            </table>
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+</div>
+
+{% endblock %}
