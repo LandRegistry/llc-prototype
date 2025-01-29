@@ -113,3 +113,44 @@
     }
 
   });
+
+
+  function selectCentre(evt){
+    console.log('x');
+    // get centre of map
+    let center = getCenterCoords();
+    // get polygon at those coords
+    MASTER_MAP_VECTOR_LAYER.enable();
+    MAP_UNDO.store_state();
+    var source = MASTER_MAP_VECTOR_LAYER.layer.getSource();
+    var features = source.getFeatures();
+    var feature = source.getFeaturesAtCoordinate(center)[0];
+
+    if (feature) {
+      geometry = feature.getGeometry();
+      MAP_CONTROLS.addGeometryToMap(geometry)
+    }
+    MASTER_MAP_VECTOR_LAYER.disable();
+
+    setMode();
+  };
+
+  function deleteCentre(evt){
+    // the app creates a drawn layer with the selected polygons, with a timestamp id
+    // to remove a polygon, get the feature that contains the centre coords, get it's id and remove it
+    console.log('delete');
+    // get centre of map
+    let center = getCenterCoords();
+    // get polygon of the drawn layer at those coords
+    var source = MAP_CONFIG.draw_layer.getSource();
+    var features = source.getFeatures();
+    var feature = source.getFeaturesAtCoordinate(center)[0];
+
+    if (feature) {
+      console.log('got feature');
+      var feature_id = feature.getProperties().id;
+      MAP_CONTROLS.remove_selected_feature(feature_id);
+    }
+
+    setMode();
+  };
