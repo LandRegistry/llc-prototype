@@ -80,6 +80,22 @@
     right: 0px;
   }
 
+  .zoom-controls{
+    position: relative;
+    z-index: 12;
+    top: 20px;
+    left: calc(100% - 140px);
+  }
+
+  .zoom-in{
+    position: absolute;
+    top: 0px;
+  }
+  .zoom-out{
+    position: absolute;
+    top:48px;
+  }
+
 /* HIDE GDS FOOTER AND DISPLAY IN NAVBAR */
   .footer {
     display: flex;

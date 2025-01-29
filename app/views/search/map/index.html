@@ -35,9 +35,8 @@
   <!-- MAP  -->
   <div class="govuk-grid-column-three-quarters">
 
-    <div style="position: relative; width: 0; height: 0">
-        <br />
-      <div class="nav-controls-fullwidth">
+    <div >
+      <div class="zoom-controls">
         <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
         <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
           <span class="govuk-visually-hidden">Zoom out</span>
@@ -168,9 +167,6 @@
     $("#map").css("height", page_height - 130);    
     $("#container").css("height", page_height - 120);    
     $('.scroll').css('height', page_height - 70);
-    // hack the nav buttons
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
     
     //hide the postcode list
     $('#address-list').hide();
@@ -181,8 +177,6 @@
     $('.results-title').hide();
     $('.results').hide();
 
-    // trigger map resize
-    window.dispatchEvent(new Event('resize'));
 
     // add map event listeners to hide Select area hover state on mouseout
     map.getViewport().addEventListener('mouseover', function(event){
@@ -272,14 +266,7 @@
     return center;
   }
 
-  // set postion of zoom controls
-  $(window).on( "resize", function() {
-    let map_width = Math.floor($('#map').width());
-    $(".nav-controls-fullwidth").css("left", map_width - 140);
-  } );
-
-
-  map.on('moveend', checkZoom);
+   map.on('moveend', checkZoom);
   
 
 
