@@ -115,8 +115,13 @@
   });
 
 
+  function getCenterCoords() {
+    center = map.getView().getCenter(map.getSize());
+    console.log(center);
+    return center;
+  }
+
   function selectCentre(evt){
-    console.log('x');
     // get centre of map
     let center = getCenterCoords();
     // get polygon at those coords

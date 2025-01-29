@@ -123,7 +123,6 @@
   <!-- Map config -->
   <script src="/public/ol/js/map_config.js"></script>
 
-
   <script type="text/javascript">  
     var termsLink = "";
     var mastermap_api_key = "{{ data.API_KEY }}";
@@ -143,11 +142,16 @@
   <script src="/public/ol/js/postcode_actions.js"></script>
   <script src="/public/ol/js/custom_controls.js"></script>
 
+
+
+
   
   <script type="text/javascript">
     // Add open layers map controls: this is now only the scale line
     // all other controls are now GDS components
     var controls;
+    var center = [];
+
 
     MAP_HELPERS.init_controls(map, controls);
 
@@ -186,6 +190,8 @@
         MASTER_MAP_VECTOR_LAYER.disable()
     }, false);
 
+    // check the zoom level after zooming in/out and toggle snap-to and select-area options
+    map.on('moveend', checkZoom);
 
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
@@ -230,43 +236,9 @@
     });
   });
   
-</script>
 
-<script type="text/javascript">
-  var center = [];
 
-  function checkZoom() {
-    const view = map.getView();
-    const zoom = view.getZoom();
 
-    if (zoom < 12 && zoom > 0) { //stops the check disabling select-area at start
-      $("#select").prop('disabled', 'true');
-      // if select was checked, uncheck it and set as draw
-      if ($("#select").prop('checked') == true) {
-        $("#draw").prop('checked', 'true');
-      }
-      // disable snap to map when zoomed out
-      $("#snap_to_map").prop('disabled', 'true');
-      $("#snap_to_map").prop('checked', false)
-    } else {
-      $("#select").removeAttr("disabled");
-      // enable snap to map when zoomed out
-      $("#snap_to_map").removeAttr("disabled");
-
-      $("#snap_to_map").prop('checked', userSetSnapToMap)
-    }
-
-    //reset the controls
-    setMode();
-  }
-
-  function getCenterCoords() {
-    center = map.getView().getCenter(map.getSize());
-    console.log(center);
-    return center;
-  }
-
-   map.on('moveend', checkZoom);
   
 
 
