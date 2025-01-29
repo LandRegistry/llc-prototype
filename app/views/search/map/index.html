@@ -94,34 +94,33 @@
 
 
 {% block pageScripts %}
-  <link rel=stylesheet href="/public/ol/css/maintain-frontend-custom.css"type="text/css" >
   <!--  Custom map styles for this page -->
-  <link rel="stylesheet" href="/public/css/map-styles.css">
+  <link rel="stylesheet" href="/public/map/css/map-styles.css">
 
   <!-- Jquery -->
-  <script src="/public/ol/js/jquery.min.js"></script>
+  <script src="/public/map/jquery.min.js"></script>
 
   <!-- Open Layers -->
-  <script src="/public/ol/js/ol.js"></script>
-  <script src="/public/ol/js/proj4.js"></script>
-  <script src="/public/ol/js/union.js"></script>
+  <script src="/public/map/ol.js"></script>
+  <script src="/public/map/proj4.js"></script>
+  <script src="/public/map/union.js"></script>
 
   <!-- Custom Map Styles -->
-  <script src="/public/ol/js/hatching_style.js"></script>
-  <script src="/public/ol/js/map_styles.js"></script>
+  <script src="/public/map/hatching_style.js"></script>
+  <script src="/public/map/map_styles.js"></script>
   
   <!-- Master Map Vector Layer -->
   <!--------  NB HACK TO FIX THE MASTER MAP SOURCE  -------->
-  <script src="/public/ol/js/master_map_vector_layer_fixed.js"></script>
-  <script src="/public/ol/js/snap_to_vector_layer.js"></script>
+  <script src="/public/map/master_map_vector_layer_fixed.js"></script>
+  <script src="/public/map/snap_to_vector_layer.js"></script>
   
   <!-- Custom Map Controls -->
-  <script src="/public/ol/js/map_undo_v1.js"></script>
-  <script src="/public/ol/js/map_controls.js"></script>
-  <script src="/public/ol/js/map_helpers_v1.js"></script>
+  <script src="/public/map/map_undo_v1.js"></script>
+  <script src="/public/map/map_controls.js"></script>
+  <script src="/public/map/map_helpers_v1.js"></script>
   
   <!-- Map config -->
-  <script src="/public/ol/js/map_config.js"></script>
+  <script src="/public/map/map_config.js"></script>
 
   <script type="text/javascript">  
     var termsLink = "";
@@ -134,13 +133,13 @@
   </script>
   
    <!-- OpenLayers Map (Note: must be after the key config) -->
-  <script src="/public/ol/js/map.js"></script>
-  <script src="/public/ol/js/save_geometries.js"></script>
+  <script src="/public/map/map.js"></script>
+  <script src="/public/map/save_geometries.js"></script>
 
   <!-- Custom actions for this page -->
-  <script src="/public/ol/js/keyboard_panning.js"></script>
-  <script src="/public/ol/js/postcode_actions.js"></script>
-  <script src="/public/ol/js/custom_controls.js"></script>
+  <script src="/public/map/keyboard_panning.js"></script>
+  <script src="/public/map/postcode_actions.js"></script>
+  <script src="/public/map/custom_controls.js"></script>
 
 
 
@@ -158,11 +157,21 @@
     // use this to prepopulate with an extent
     // or in this case to set the initial map bounds
     $(function () {
-      load_previous_data({ "features": [{ "geometry": { "coordinates": [[[532042.65, 181758.8]]], "type": "Polygon" }, "properties": { "id": 1696925633279 }, "type": "Feature" }], "type": "FeatureCollection" });
+      load_previous_data({ 
+        "features": [
+          { "geometry": 
+            { 
+              //set the coordinates to center the map
+              "coordinates": [[[532042.65, 181758.8]]],
+              "type": "Polygon" 
+            },
+        "properties": { "id": 10000000000001 },
+        "type": "Feature" }],
+        "type": "FeatureCollection" });
     });
 
   ///////////////////////////////////////////////
-  // init select area
+  // initialise including setMode for select area
   ///////////////////////////////////////////////
   $( document ).ready(function() {
 
@@ -183,41 +192,10 @@
     // check the zoom level after zooming in/out and toggle snap-to and select-area options
     map.on('moveend', checkZoom);
 
-    map.removeInteraction(MAP_CONTROLS.current_interaction);
-    MASTER_MAP_VECTOR_LAYER.enable()
-    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
-  
-    MAP_CONTROLS.current_interaction = new ol.interaction.Select({
-      layers: [MASTER_MAP_VECTOR_LAYER.layer],
-      style: draw_layer_styles.style[draw_layer_styles.DRAW]
-    });
-  
-    MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
-      MAP_UNDO.store_state();
-      feature = event.target.item(0).clone();
-      if (feature) {
-        geometry = feature.getGeometry();
-        //Convert multi polygons to features
-        if (geometry instanceof ol.geom.MultiPolygon) {
-          geometry.getPolygons().forEach(function (geometry) {
-            MAP_CONTROLS.addGeometryToMap(geometry)
-          })
-        }
-        else {
-          MAP_CONTROLS.addGeometryToMap(geometry)
-        }
-      }
-    });
-  
-    MAP_CONTROLS.vectorControls.copy_enabled = true;
-    map.addInteraction(MAP_CONTROLS.current_interaction);
+    // initialise all the drawing layers based on the selected radio option
+    setMode();
 
-    MAP_CONTROLS.vectorControls.snap_to_enabled = true;
-    // Enable the snap to interaction and vector layer
-    SNAP_TO_VECTOR_LAYER.enable();
-    map.addInteraction(snap_to_interaction);
-
-    //zoom out to hack bounds box
+    // zoom out to hack bounds box
     const view = map.getView();
     const zoom = view.getZoom();
     view.animate({
@@ -227,6 +205,4 @@
   });
   
 </script>
-
-
 {% endblock %}
