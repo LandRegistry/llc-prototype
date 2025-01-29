@@ -172,16 +172,6 @@
     $("#container").css("height", page_height - 120);    
     $('.scroll').css('height', page_height - 70);
     
-    //hide the postcode list
-    $('#address-list').hide();
-    $('#selected-address').hide();
-    $('#results-heading').hide();
-    $('#results-guide').hide();
-    //hide the results charge list
-    $('.results-title').hide();
-    $('.results').hide();
-
-
     // add map event listeners to hide Select area hover state on mouseout
     map.getViewport().addEventListener('mouseover', function(event){
         MASTER_MAP_VECTOR_LAYER.enable()
@@ -236,16 +226,6 @@
     });
   });
   
-
-
-
-  
-
-
-
-
-
-
 </script>
 
 
