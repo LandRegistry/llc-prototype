@@ -263,7 +263,15 @@
               {% set count = count+1 %}
               {% if count <20 %}
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell"><a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
+                  <td class="govuk-table__cell">
+                    {% if loop.index0 == 0  or loop.index0 == 2 %}
+                    <strong class="govuk-tag">
+                      Cancelled
+                    </strong>
+                    <br/>
+                    <br/>
+                    {% endif %}
+                    <a href="view-charge?index={{ loop.index0 }}" class="govuk-link govuk-link--no-visited-state" href="#">
                     {{ charge.hmlrReference }}</a>
                   <br/>
                     {{ charge.authorityReference }}</td>

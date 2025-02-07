@@ -148,13 +148,13 @@ draw_layer_styles = {
     6:  new ol.style.Style({
       fill: new ol.style.Fill({
         //color: 'rgba(0,48,120,0.3)'
-        color: [255, 221, 0, 0.6]
+        color: [255, 221, 0, 0.2]
       }),
       stroke: new ol.style.Stroke({
         //color: 'rgba(0,48,120,1)',
        // color: '#b1b4b6',
         color: '#003078',
-        width: 3
+        width: 1
       }),
       radius: 5
     }),
