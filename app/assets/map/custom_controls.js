@@ -5,7 +5,44 @@ function setMode(){
   //hide cross hair
   $('.center').addClass('govuk-visually-hidden');
 
-  if (radio == "draw-area" || radio == "cutout-area" || radio == "add-line") {
+  if (radio == "cutout-area" ) {
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.cutHoleButtonId));
+    if (toggled_on) {
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.HOLE);
+        
+        MAP_CONTROLS.current_interaction = new ol.interaction.DrawHole({
+            layers: [MAP_CONFIG.draw_layer],
+            style: draw_layer_styles.style[draw_layer_styles.HOLE],
+            geometryFunction: function(coords, geometry) {
+                if(!geometry) {
+                    geometry = new ol.geom.Polygon([]);
+                }
+                geometry.setCoordinates([coords[0].concat([coords[0][0]])]);
+                MAP_UNDO.drawing = coords[0].length > 1;
+                return geometry;
+            }
+        });
+
+        map.addInteraction(MAP_CONTROLS.current_interaction);
+       /*  $("#" + MAP_CONTROLS.cutHoleButtonId).trigger("edit:toggled"); */
+        if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
+            map.addInteraction(snap_to_interaction)
+        }
+
+        MAP_CONTROLS.current_interaction.on('drawstart', function(event) {
+            MAP_UNDO.store_state();
+        });
+
+        MAP_CONTROLS.current_interaction.on('drawend', function(event) {
+            MAP_UNDO.drawing = false;
+        });
+    } else {
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE);
+    }
+  }
+
+  if (radio == "draw-area") {
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()
     MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
@@ -13,7 +50,29 @@ function setMode(){
     MAP_CONTROLS.add_draw_interaction("Polygon", $('#' + MAP_CONTROLS.addAreaButtonId));
   }
 
-  if (radio == "select-area" || radio == "add-circle" || radio == "add-point") {
+  if (radio == "add-circle") {
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    MASTER_MAP_VECTOR_LAYER.enable()
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+    MAP_CONTROLS.add_draw_interaction("Circle", $('#' + MAP_CONTROLS.addAreaButtonId));
+  }
+  if (radio == "add-point") {
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    MASTER_MAP_VECTOR_LAYER.enable()
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+    MAP_CONTROLS.add_draw_interaction("Point", $('#' + MAP_CONTROLS.addAreaButtonId));
+  }
+  if (radio == "add-line") {
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+    MASTER_MAP_VECTOR_LAYER.enable()
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+    MAP_CONTROLS.add_draw_interaction("LineString", $('#' + MAP_CONTROLS.addAreaButtonId));
+  }
+
+  if (radio == "select-area") {
     $('.center').removeClass('govuk-visually-hidden');
     map.removeInteraction(MAP_CONTROLS.current_interaction);
     MASTER_MAP_VECTOR_LAYER.enable()

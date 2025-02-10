@@ -66,7 +66,7 @@
     height: 38px;
     width: 38px;
     cursor: pointer;
-    background: #0B0C0C url("/public/images/search-button.png") no-repeat 2px 50%;
+    background: #0B0C0C url("/public/map/search-button.png") no-repeat 2px 50%;
     border: 0;
     border-radius: 0;
   }

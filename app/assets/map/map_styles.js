@@ -27,8 +27,8 @@ draw_layer_styles = {
   REMOVE: 2,
   // No Interactions Toggled
   NONE: 3,
-  // Hidden
-  HIDDEN: 4,
+  // Draw hole interaction
+  HOLE: 4,
   // Hover
   HOVER: 5,
   // highlight charges
@@ -123,15 +123,22 @@ draw_layer_styles = {
         })
       })
     }),
-    // HIDDEN
+    // HOLE
     4: new ol.style.Style({
-      stroke: new ol.style.Stroke({
-        color: 'rgba(0, 0, 255, 0)',
-        width: 1
-      }),
       fill: new ol.style.Fill({
-        color: 'rgba(0, 0, 255, 0)'
-      })
+        color: add_fill
+      }),
+      stroke: new ol.style.Stroke({
+        color: add_colour,
+        width: 3,
+        lineDash: [1, 5]
+      }),
+      image: new ol.style.Circle({
+          radius: 5,
+          fill: new ol.style.Fill({
+              color: add_colour
+          })
+      }),
     }),
     // HOVER
     5:  new ol.style.Style({
