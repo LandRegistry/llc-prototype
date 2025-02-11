@@ -84,7 +84,7 @@ draw_layer_styles = {
         })
       }),
       geometry: function(feature) { // creating a custom geometry to draw points on
-          var coordinates = feature.getGeometry().getCoordinates()[0];
+        var coordinates = feature.getGeometry().getCoordinates().flat(1);
           if (Array.isArray(coordinates)) {
             return new ol.geom.MultiPoint(coordinates);
           }
