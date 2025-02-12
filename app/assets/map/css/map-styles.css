@@ -105,6 +105,25 @@
     overflow: hidden;
     text-indent: -5000px;
   }
+  /* OpenLayers Scale Line Override */
+  .ol-scale-line {
+    background: rgba(255, 255, 255, .8) !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+    position: absolute !important;
+  }
+
+  .ol-scale-line-inner {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    border-top: none !important;
+  }
+
+  .ol-scale-line-inner{
+    color: #0b0c0c;
+    font-family: "GDS Transport", arial, sans-serif;
+  }
+  
   .zoom-controls{
     position: relative;
     z-index: 12;
