@@ -1,0 +1,467 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Geospatial extents" %}
+{% set pageName = serviceName %}
+
+{% set bodyClasses = "full-width" %}
+{% set containerClasses = "full-width" %}
+
+{% block content %}
+
+<div id="container" class="govuk-grid-row">
+  <!--  NAVIGATION  -->
+  <div id="navbar" class="govuk-grid-column-20-percent scroll">
+    <a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+    <h2 class="govuk-heading-m">Geospatial extents</h2>
+
+    {#% include "./includes/postcode-search.html" %#}
+
+
+    <div class="govuk-button-group">
+      <button id="prevBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Previous
+      </button>
+      <br />
+      <button id="nextBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Next
+      </button>
+      <br />
+    </div>
+    <div style="height:480px;">
+    </div>
+
+    {% include "./includes/footer.html" %}
+
+  </div>
+
+
+  <!-- MAP  -->
+  <div class="govuk-grid-column-three-quarters">
+
+    <div>
+      <div class="zoom-controls">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span
+            class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+      </div>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
+      <noscript>
+        <div id="nojs" class="nojs-content">
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
+        </div>
+      </noscript>
+    </div>
+<!--     <div class=" govuk-!-padding-top-2">
+      <div class="govuk-heading-s ">
+        Map key
+
+        <img class="key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png"
+          alt="Location available key" height="19" width="19">
+        <span class="key-text govuk-body-s">Location available</span>
+
+        <img class="key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="key-text govuk-body-s">Location not available</span>
+
+        <span class="govuk-body-s align-right">
+          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and
+            conditions</a>
+        </span>
+      </div>
+    </div> -->
+
+  </div>
+
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+{% block pageScripts %}
+<!--  Custom map styles for this page -->
+<link rel="stylesheet" href="/public/map/css/map-styles.css">
+
+<!-- Jquery -->
+<script src="/public/map/jquery.min.js"></script>
+
+<!-- Open Layers -->
+<script src="/public/map/ol.js"></script>
+<script src="/public/map/proj4.js"></script>
+<script src="/public/map/union.js"></script>
+<script src="/public/map/draw_hole.js"></script>
+
+<!-- Custom Map Styles -->
+<script src="/public/map/hatching_style.js"></script>
+<script src="/public/map/map_styles.js"></script>
+
+<!-- Master Map Vector Layer -->
+<!--------  NB HACK TO FIX THE MASTER MAP SOURCE  -------->
+<script src="/public/map/master_map_vector_layer_fixed.js"></script>
+<script src="/public/map/snap_to_vector_layer.js"></script>
+
+<!-- Custom Map Controls -->
+<script src="/public/map/map_undo_v1.js"></script>
+<script src="/public/map/map_controls.js"></script>
+<script src="/public/map/map_helpers_v1.js"></script>
+
+<!-- Map config -->
+<script src="/public/map/map_config.js"></script>
+
+<script type="text/javascript">
+  var termsLink = "";
+  var mastermap_api_key = "{{ data.API_KEY }}";
+  var map_base_layer_view_name = "m0100";
+  var wfs_server_url = "{{ data.WFS_URL }}";
+  var wmts_server_url = "{{ data.WMTS_URL }}";
+
+  MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
+</script>
+
+<!-- OpenLayers Map (Note: must be after the key config) -->
+<script src="/public/map/map.js"></script>
+<script src="/public/map/save_geometries.js"></script>
+
+<!-- Custom actions for this page -->
+<script src="/public/map/keyboard_panning.js"></script>
+<script src="/public/map/postcode_actions.js"></script>
+<!--   <script src="/public/map/custom_controls.js"></script> -->
+
+
+
+
+
+<script type="text/javascript">
+  // Add open layers map controls: this is now only the scale line
+  // all other controls are now GDS components
+  var controls;
+  var center = [];
+
+  let count = 0;
+
+
+  MAP_HELPERS.init_controls(map, controls);
+
+  // use this to prepopulate with an extent
+  // or in this case to set the initial map bounds
+  $(function () {
+    load_previous_data({
+      "features": [
+        {
+          "geometry":
+          {
+            //set the coordinates to center the map
+            "coordinates": [[[532042.65, 181758.8]]],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1000 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    });
+  });
+
+  ///////////////////////////////////////////////
+  // initialise 
+  ///////////////////////////////////////////////
+  $(document).ready(function () {
+
+    // hack the map height
+    let page_height = Math.floor($(window).height());
+    $("#map").css("height", page_height - 70);
+    $("#container").css("height", page_height - 120);
+    $('.scroll').css('height', page_height - 70);
+
+    // fade the tiles 
+    MAP_CONFIG.base_layer.setOpacity(0.6);
+
+    document.getElementById('prevBtn').onclick = function () {
+      count--;
+      if (count < 0) {
+        count = extents.length - 1;
+      }
+      showExtent();
+    };
+    document.getElementById('nextBtn').onclick = function () {
+      count++;
+      if (count >= extents.length) {
+        count = 0;
+      }
+      showExtent();
+    };
+
+    // init
+    showExtent();
+  });
+
+  function showExtent() {
+    MAP_CONFIG.draw_source.clear();
+    load_previous_data(extents[count]);
+  }
+
+
+
+  let extents = [
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1000 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532032.2, 181739.4], [532036.2, 181734.35], [532042.7, 181739.1], [532046.3, 181741.7], [532048.35, 181743.2], [532053.1, 181736.4], [532060.45, 181740.65], [532051.95, 181752.55], [532048.3, 181750.1], [532047.5, 181751.45], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532040.7, 181747.9], [532032.7, 181742.95], [532034.1, 181740.7], [532032.2, 181739.4]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1001 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532032.7, 181742.95], [532034.1, 181740.7], [532038.9, 181743.9], [532042, 181745.9], [532042.5, 181746.25], [532043.55, 181746.95], [532045.05, 181747.95], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754], [532050.8, 181755], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532040.7, 181747.9], [532032.7, 181742.95]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1002 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532028.75, 181737.2], [532031.05, 181738.65], [532032.2, 181739.4], [532034.1, 181740.7], [532038.9, 181743.9], [532042, 181745.9], [532042.5, 181746.25], [532043.55, 181746.95], [532045.05, 181747.95], [532048.3, 181750.1], [532047.5, 181751.45], [532046.85, 181752.4], [532042.65, 181758.8], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1003 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532096.659508772, 181839.07500000004], [531978.2764912281, 181784.47500000006], [531943.9524210526, 181764.17500000005], [531860.5939649123, 181713.77500000005], [531894.2175438596, 181676.67500000005], [531915.9327719299, 181654.97500000006], [531945.3534035088, 181629.77500000005], [532033.6152982457, 181535.97500000006], [532068.6398596491, 181568.17500000005], [532116.2732631579, 181582.17500000005], [532137.2880000001, 181614.37500000006], [532096.659508772, 181839.07500000004]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1004 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1005 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532096.659508772, 181839.07500000004], [531978.2764912281, 181784.47500000006], [531943.9524210526, 181764.17500000005], [531860.5939649123, 181713.77500000005], [531894.2175438596, 181676.67500000005], [531915.9327719299, 181654.97500000006], [531945.3534035088, 181629.77500000005], [532033.6152982457, 181535.97500000006], [532068.6398596491, 181568.17500000005], [532116.2732631579, 181582.17500000005], [532137.2880000001, 181614.37500000006], [532096.659508772, 181839.07500000004]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1006 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532030.55, 181725.8], [532035.3, 181729.15], [532038.55, 181731.4], [532036.2, 181734.35], [532042.7, 181739.1], [532046.3, 181741.7], [532048.35, 181743.2], [532053.1, 181736.4], [532060.45, 181740.65], [532061.9, 181737.85], [532063.75, 181739.25], [532064.6, 181737.6], [532065.5, 181738], [532069.1, 181739.8], [532073.95, 181742.25], [532076.5, 181736.6], [532076.9, 181736.85], [532077.35, 181737.1], [532077.5, 181736.8], [532079.3, 181737.45], [532078.65, 181742], [532082.2, 181742.5], [532080.5, 181753.8], [532073.85, 181752.8], [532073.15, 181756.8], [532073.05, 181758.75], [532072.85, 181759.45], [532069.7, 181764.5], [532072.6, 181766.15], [532067.8, 181776.05], [532058.3, 181769.8], [532046.45, 181761.45], [532042.65, 181758.8], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1007 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532042.5, 181746.25], [532042, 181745.9], [532040.7, 181747.9], [532036.3, 181754.65], [532042.65, 181758.8], [532046.85, 181752.4], [532047.5, 181751.45], [532048.3, 181750.1], [532045.05, 181747.95], [532043.55, 181746.95], [532042.5, 181746.25]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1008 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532062.65, 181763.15], [532064.1, 181760.85], [532062.15, 181759.5], [532059.45, 181757.65], [532052.25, 181752.75], [532051.5, 181754], [532050.8, 181755], [532046.45, 181761.45], [532058.3, 181769.8], [532062.65, 181763.15]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1009 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532058.3, 181769.8], [532062.65, 181763.15], [532064.1, 181760.85], [532069.7, 181764.5], [532072.6, 181766.15], [532067.8, 181776.05], [532058.3, 181769.8]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1010 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532017.1, 181740.25], [532023.3, 181733.7], [532023.9, 181734.05], [532030.55, 181725.8], [532035.3, 181729.15], [532038.55, 181731.4], [532036.2, 181734.35], [532042.7, 181739.1], [532046.3, 181741.7], [532048.35, 181743.2], [532053.1, 181736.4], [532060.45, 181740.65], [532061.9, 181737.85], [532063.75, 181739.25], [532064.6, 181737.6], [532065.5, 181738], [532069.1, 181739.8], [532073.95, 181742.25], [532076.5, 181736.6], [532076.9, 181736.85], [532077.35, 181737.1], [532077.5, 181736.8], [532079.3, 181737.45], [532078.65, 181742], [532082.2, 181742.5], [532080.5, 181753.8], [532073.85, 181752.8], [532073.15, 181756.8], [532073.05, 181758.75], [532072.85, 181759.45], [532069.7, 181764.5], [532072.6, 181766.15], [532067.8, 181776.05], [532058.3, 181769.8], [532046.45, 181761.45], [532042.65, 181758.8], [532036.3, 181754.65], [532029.7, 181750.4], [532017.45, 181742.55], [532017.1, 181740.25]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1011 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532062.65, 181763.15], [532064.1, 181760.85], [532062.15, 181759.5], [532059.45, 181757.65], [532052.25, 181752.75], [532051.5, 181754], [532050.8, 181755], [532046.45, 181761.45], [532058.3, 181769.8], [532062.65, 181763.15]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1012 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    },
+    {
+      "features": [
+        {
+          "geometry":
+          {
+            "coordinates": [
+              [
+                [532051.95, 181792.9], [532059.05, 181791.5], [532065.3, 181781.4], [532054.6, 181774.3], [532046.3, 181768.85], [532042, 181775.2], [532040.85, 181775.5], [532036.35, 181782.95], [532044.8, 181788.4], [532051.95, 181792.9]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "properties": { "id": 1013 },
+          "type": "Feature"
+        }],
+      "type": "FeatureCollection"
+    }
+
+  ]
+
+
+
+
+
+</script>
+{% endblock %}
