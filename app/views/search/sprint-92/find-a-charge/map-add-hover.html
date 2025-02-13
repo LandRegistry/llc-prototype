@@ -82,14 +82,14 @@
   }
 
   .govuk-grid-column-15-pc{
-    width: 20%;
+    width: 21%;
     box-sizing: border-box;
     padding: 0 15px;
     float: left;
   }
 
   .govuk-grid-column-three-quarters{
-    width:80%;
+    width:79%;
   }
 
   #map{
@@ -142,6 +142,11 @@
 
   #navbar{
     padding-right:0;
+  }
+
+  .os-terms{
+    line-height: 26px;
+    padding-right: 15px;
   }
 </style>
 
@@ -202,8 +207,6 @@
       </div>
     </footer>
 
-    {% include "./map-includes/map-links.html" %}
-
     </div> 
     
 
@@ -240,16 +243,16 @@
       <div class="govuk-heading-s ">
         Map key
 
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+        <img class="map-key-image govuk-!-padding-left-1" src="/public/ol/images/information_available.png" alt="Location available key"
           height="19" width="19">
         <span class="map-key-text govuk-body-s">Location available</span>
 
-        <img class="map-key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+        <img class="map-key-image govuk-!-padding-left-1" src="/public/ol/images/information_not_available.png"
           alt="Location not available key" height="19" width="19">
         <span class="map-key-text govuk-body-s">Location not available</span>
 
-        <span class="govuk-body-s align-right">
-          Use of address and mapping data is subject to <a href="#" target="_blank">Ordnance Survey terms and conditions</a>
+        <span class="govuk-body-s align-right os-terms">
+          Use of address and mapping data is subject to <a href="#" target="_blank">OS terms and conditions</a>
         </span>
       </div>
     </div>
@@ -287,7 +290,6 @@
   <script src="/public/ol/js/map_styles_draw_hole.js"></script>
   
   <!-- Master Map Vector Layer -->
-  <!--------  NB HACK TO FIX THE MASTER MAP SOURCE  -------->
   <script src="/public/ol/js/master_map_vector_layer.js"></script>
   <script src="/public/ol/js/snap_to_vector_layer.js"></script>
   
@@ -330,7 +332,12 @@
    const view = map.getView();
     const zoom = view.getZoom();
 
-    let coords =[532050, 181750];
+    // plymouth [248470, 57989]
+    // liverpool [336624, 390333]
+    // leeds [430023, 433317]
+    // newbury street [532050, 181750]
+    // ripon [429955, 471927]
+    let coords =[429955, 471927];
      view.animate({
       center: coords,
       zoom: (zoom + 12.25),
@@ -349,7 +356,7 @@
 
     // hack the map height
     let page_height = Math.floor($(window).height());
-    $("#map").css("height", page_height - 130);    
+    $("#map").css("height", page_height - 115);    
     $("#container").css("height", page_height - 120);    
     $('.scroll').css('height', page_height - 70);
     // hack the nav buttons
