@@ -111,8 +111,7 @@
   <script src="/public/map/map_styles.js"></script>
   
   <!-- Master Map Vector Layer -->
-  <!--------  NB HACK TO FIX THE MASTER MAP SOURCE  -------->
-  <script src="/public/map/master_map_vector_layer_fixed.js"></script>
+  <script src="/public/map/master_map_vector_layer.js"></script>
   <script src="/public/map/snap_to_vector_layer.js"></script>
   
   <!-- Custom Map Controls -->
@@ -157,7 +156,7 @@
 
     // use this to prepopulate with an extent
     // or in this case to set the initial map bounds
-    $(function () {
+/*     $(function () {
       load_previous_data({ 
         "features": [
           { "geometry": 
@@ -169,7 +168,7 @@
         "properties": { "id": 10000000000001 },
         "type": "Feature" }],
         "type": "FeatureCollection" });
-    });
+    }); */
 
   ///////////////////////////////////////////////
   // initialise including setMode for select area
@@ -199,10 +198,13 @@
     // zoom out to hack bounds box
     const view = map.getView();
     const zoom = view.getZoom();
-    view.animate({
-      zoom: (zoom - 4),
+
+    let coords =[532050, 181750];
+     view.animate({
+      center: coords,
+      zoom: zoom + 12,
       duration: 0
-    });
+    }); 
   });
   
 </script>
