@@ -121,6 +121,11 @@
 <script src="/public/map/map_controls.js"></script>
 <script src="/public/map/map_helpers_v1.js"></script>
 
+<!-- Custom actions for this page -->
+<script src="/public/map/keyboard_panning.js"></script>
+<script src="/public/map/custom_controls.js"></script>
+
+
 <!-- Map config -->
 <script src="/public/map/map_config.js"></script>
 
@@ -154,6 +159,7 @@
   var center = [];
 
   let count = 0;
+  let style_count = 3;
 
 
   MAP_HELPERS.init_controls(map, controls);
@@ -193,16 +199,26 @@
 
     document.getElementById('prevBtn').onclick = function () {
       count--;
+      style_count--;
       if (count < 0) {
         count = extents.length - 1;
       }
+      if(style_count<0){
+        style_count = 12;
+      }
+      MAP_CONTROLS.toggle_draw_layer_style(style_count);
       showExtent();
     };
     document.getElementById('nextBtn').onclick = function () {
       count++;
+      style_count++;
       if (count >= extents.length) {
         count = 0;
       }
+      if(style_count>12){
+        style_count = 0;
+      }
+      MAP_CONTROLS.toggle_draw_layer_style(style_count);
       showExtent();
     };
 
