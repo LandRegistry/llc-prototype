@@ -1,0 +1,283 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="How to use the map - Search for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        How to use the map
+      </h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <ul class="govuk-list govuk-list--no-bullet">
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#select">Select area from map</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#draw">Draw an extent area</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#"edit>Edit your extent area</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#circle">Draw a circle</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#point">Draw a point</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#line">Draw a line</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#cut_out">Cut out an area</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#delete">Delete one extent area</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#clear">How to clear all</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#undo">Undo your last map interaction</a> </li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="#">Use the map with a keyboard only</a> </li>
+      </ul>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-row">
+        <h2 class="govuk-heading-l">
+          Tools to create an extent
+        </h2>
+      </div>
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="select">How to use Select area from map</h2>
+        <p class="govuk-body">
+          You can only select an area from the map when you are zoomed in to a location (seeing a place close-up). This
+          option will be inactive until you are zoomed in enough. Make sure you can see building outlines on the map.
+        </p>
+        <p class="govuk-body">
+          Before confirming, ensure your search area includes all of the properties and land you want to search against,
+          including any driveways, alleys or gardens, etc. Using the select area from map feature once may not capture
+          all of your search area.
+        </p>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to select an area from the map.
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the select area from map radio button.</li>
+          <li>Selects different map areas one after the other to create a combined search area.</li>
+        </ul>
+      </div>
+
+
+      <div class="govuk-grid-row  govuk-!-padding-top-9">
+        <h2 class="govuk-heading-m" id="draw">How to draw your search area</h2>
+        <p class="govuk-body">
+          Before confirming, ensure your search area includes all of the properties and land you want to search against,
+          including any driveways, alleys or gardens, etc. Using the select area from map feature once may not capture
+          all of your search area.
+        </p>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to select an area from the map.
+          <br />
+          In the video, to draw a search area with straight edges, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the draw area radio button.</li>
+          <li>Selects a place on the map to start drawing.</li>
+          <li>Keeps selecting around the edges of the search area.</li>
+          <li>Joins the points to stop drawing.</li>
+        </ul>
+
+        <p class="govuk-body govuk-!-padding-top-3">
+          In the video, to draw an extent with curved edges, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the draw area radio button.</li>
+          <li>Selects a place on the map to start drawing.</li>
+          <li>Hold the SHIFT key and drag the cursor to draw a curved search area.</li>
+          <li>Release the SHIFT key and mouse button to stop drawing.</li>
+        </ul>
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="edit">How to edit your search area</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the edit area radio button.</li>
+          <li>Sees the search area turn green.</li>
+          <li>Selects one of the points.</li>
+          <li>Drags the point to change the search area.</li>
+          <li>Holds ALT key while selecting another point to delete it.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="circle">How to draw a circle</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to draw circle  using the draw circle radio button.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the add circle radio button.</li>
+          <li>Selects a point on the map.</li>
+          <li>Drags the point to cover the search area.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="point">How to draw a point</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to draw a point  using the draw point radio button.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the add point radio button.</li>
+          <li>Selects a point on the map.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="line">How to draw a line</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to add a line using the Add line radio button.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the Add line radio button.</li>
+          <li>Selects a point on the map.</li>
+          <li>Drags the point to draw a line.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="cut_out">How to cut out an area from a charge extent area</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to cut out an area of your search area using the cut out area radio button.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the Cut out area radio button.</li>
+          <li>Selects a point on the map inside the charge extent.</li>
+          <li>Keeps selecting points inside the charge extent.</li>
+          <li>Joins the points to stop drawing.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="delete">How to delete a search area</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to delete a search area using the delete area radio button.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the delete area radio button.</li>
+          <li>Sees the search area turn red.</li>
+          <li>Selects two parts of the search area to remove them.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m"id="clear">How to clear all areas</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to delete everything you have drawn on the map using the clear all button.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Selects the clear all button.</li>
+          <li>Sees everything they have drawn on the map being deleted.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+      <div class="govuk-grid-row govuk-!-padding-top-6">
+        <h2 class="govuk-heading-m" id="undo">How to undo your last map interaction</h2>
+        <p class="govuk-body govuk-!-padding-top-3">
+          This video shows how to undo interactions with the map. Up to ten interactions can be undone.
+          <br/>
+          In the video, a user:
+        </p>
+        <ul class="govuk-list govuk-list--number">
+          <li>Draws an area on the map.</li>
+          <li>Deletes an area.</li>
+          <li>Selects the undo button to undo deleting an area.</li>
+          <li>Selects the undo button again to undo drawing an area.</li>
+        </ul>
+        <p class="govuk-body " style="height:320px">
+          <video controls="" loop="" class="govuk-grid-column-full govuk-!-padding-0" id="draw_area_video">
+            <source src="/public/images/add-area.mp4" type="video/mp4">
+          </video>
+        </p>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</main>
+{% endblock %}
