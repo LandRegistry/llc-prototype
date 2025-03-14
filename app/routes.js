@@ -16,6 +16,14 @@ router.get('/prototype-admin/clear-data', function (req, res) {
   res.redirect('/')
 })
 
+// process all pages
+router.get('*', function (req, res, next) {
+  console.log('get page');
+  console.log(req.session.data);
+  
+  next()
+})
+
 // Grab the feature urls for the aside heroku links
 router.use('/', (req, res, next) => {
   res.locals.feature = req.url

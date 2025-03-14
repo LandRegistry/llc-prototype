@@ -1,0 +1,259 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Source information - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .search-button {
+    height: 40px;
+    width: 38px;
+    cursor: pointer;
+    background: #0B0C0C url("/public/images/search-button.png") no-repeat 2px 50%;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    height: 38px;
+  }
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        What is the applicant’s address?
+      </h1>
+      <h2 class="govuk-heading-m">
+        Applicant 1
+      </h2>
+
+
+
+      <div class="search-bar govuk-!-padding-top-0 govuk-!-margin-bottom-2">
+        <input class="govuk-input search-field map__search_term govuk-input--width-20" id="search-field" name="search"
+          type="text" value="">
+        <div class="search-bar-input">
+          <button class="search-button map__search_button" type="button" name="search" id="find-btn"
+            data-bind="click: flexSearchAddresses">
+        </div>
+      </div>
+
+      <!--   /////////////////////////////////////////////   -->
+      <div class="">
+       <!--  <p id="results-heading" class="govuk-body">Search results</p> -->
+
+        <ul id="address-list" class="govuk-list govuk-list--spaced category-container  govuk-!-padding-top-5">
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-1">From Newbury
+              Street To Braidwood Passage, Cloth Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-2">Bin Stores, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-3">Flat 1, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-4">Flat 2, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-5">Flat 3, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-6">Flat 4, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-7">Flat 5, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-8">Flat 6, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-9">Flat 7, 1-3
+              Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-10">5-6 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-11">7-8 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-12">9 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-13">Urban Mesh
+              Design Ltd, 9 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-14">City Apartments,
+              Newbury House, 10-13 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-15">Flat 1, Newbury
+              House, 10-13 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-16">Flat 2, Newbury
+              House, 10-13 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-17">Flat 3, Newbury
+              House, 10-13 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-18">Flat 4, Newbury
+              House, 10-13 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-19">14-15 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-20">Auxero Ltd,
+              14-15 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-21">Industry
+              Partners Ltd, 14-15 Newbury Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-22">24-26 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-23">27-28 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+          <li class="">
+            <a href="applicant-details" class="govuk-link govuk-link--no-visited-state" id="address-24">31 Newbury
+              Street, London EC1A 7HU
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+  <ul class="govuk-list govuk-!-padding-top-5">
+    <li>
+      <a class="govuk-link" href="applicant-address">Enter address manually</a>
+    </li>
+    <li class="govuk-!-padding-top-5">
+      <a class="govuk-link" href="#">Cancel and return to main menu</a>
+    </li>
+  </ul>
+
+  </div>
+
+</main>
+
+
+<script src="/public/ol/js/jquery.min.js"></script>
+
+<script>
+  ///////////////////////////////////////////////
+  // init select area
+  ///////////////////////////////////////////////
+  $(document).ready(function () {
+
+    // hack the map height
+    let page_height = Math.floor($(window).height());
+    $("#map").css("height", page_height - 130);
+    $("#container").css("height", page_height - 120);
+    $('.scroll').css('height', page_height - 70);
+
+    //hide the postcode list
+    $('#address-list').hide();
+    /*     $('#selected-address').hide();
+        $('#results-heading').hide();
+        $('#results-guide').hide();
+        //hide the results charge list
+        $('.results-title').hide();
+        $('.results').hide(); */
+
+    $("#find-btn").click(function (e) {
+      $('#address-list').show();
+      /*     $('#selected-address').hide();
+            $('#results-heading').show();
+           $("#postcodes").css("height", 400);    */
+    });
+
+  });
+
+</script>
+
+{% endblock %}

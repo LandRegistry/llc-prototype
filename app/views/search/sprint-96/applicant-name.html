@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Source information - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+  @media (min-width: 40.0625em) {
+  .govuk-textarea {
+    margin-bottom: 5px;
+  }
+}
+</style>
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        What is the applicant’s name?
+      </h1>
+      <h2 class="govuk-heading-m">
+        Applicant 1
+      </h2>
+   
+      <div class="govuk-form-group">
+
+        <div class="govuk-form-group govuk-!-padding-bottom-3">
+
+            <label class="govuk-label" for="more-detail">
+              Full name or company name
+            </label>
+            <!-- <div id="event-name-hint" class="govuk-hint">
+              The name you’ll use on promotional material
+            </div> -->
+            <textarea class="govuk-textarea govuk-js-character-count" id="more-detail" name="moreDetail" rows="5"
+            aria-describedby="more-detail-hint"></textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+              You have 500 characters remaining
+            </div>
+
+        </div>
+      </div>
+
+
+      {{ govukButton({
+        text: "Continue",
+        href:"choose-applicant-address"
+      }) }}
+
+      <ul class="govuk-list govuk-!-padding-top-5">
+        <li>
+          <a class="govuk-link govuk-link--no-visited-state" href="#">Cancel and return to main menu</a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+{% endblock %}
