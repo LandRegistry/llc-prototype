@@ -1,0 +1,569 @@
+{% extends "layouts/frontend2025.html" %}
+
+{% set pageName="Edit search area - Search for local land charges" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner-live.html" %}
+{% include "includes/language-switcher-heading.html" %}
+<style>
+  .ol-zoom-in {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+
+  .ol-zoom-out {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+
+  .ol-zoom {
+    display: block;
+    float: right;
+    clear: right;
+    width: 40px;
+    height: auto;
+    margin-top: 5px;
+  }
+
+  .ol-fullscreen {
+    position: absolute;
+    float: left;
+    clear: right;
+    top: 14px;
+    left: 14px;
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+    border: none;
+    z-index:10;
+    outline: none;
+    background: no-repeat center url("/public/ol/images/fullscreen.svg");
+    background-color: #fff;
+    background-size: 36px 36px;
+    cursor: pointer;
+  }
+
+  .ol-fullscreen:hover {
+  background-color: #b1b4b6;
+  outline: none;
+  background-clip: padding-box;
+}
+
+  .ol-zoom-in,
+  .ol-zoom-out {
+    display: block;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    cursor: pointer;
+    background-color: #fff;
+    background-size: 30px;
+    background-position: 5px 5px;
+    overflow: hidden;
+    text-indent: -5000px;
+  }
+  /* hide the controls as the JS checks for their state */
+  #draw-controls {
+    visibility: hidden;
+  }
+  .map-key-image{
+    position: relative;
+    top:3px;
+  }
+  .govuk-heading-s{
+    margin-bottom: 10px;
+  }
+  .ol-scale-line-inner{
+    color: #0b0c0c;
+    font-family: "GDS Transport", arial, sans-serif;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">Edit search area</h1>
+<div id="container" class="govuk-grid-row">
+
+  <div class="govuk-grid-column-three-quarters">
+    <div style="position: relative; width: 0; height: 0">
+      <button id="fullscreen" class=" ol-fullscreen" type="button" title="Full screen" ></button>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="1">
+
+      <noscript>
+        <div id="nojs" class="nojs-content">
+            <div id="nojs-message" class="notification-summary">
+                <p>
+                    You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+                    <a id="“assistance-link”" href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+                </p>
+            </div>
+        </div>
+    </noscript>
+    </div>
+
+    <div class=" govuk-!-padding-top-3 govuk-!-padding-right-6">
+      <div class="">
+        <p><a class="govuk-link govuk-body-m" href="help" target="_blank">Learn more about how to use this map (opens in a new tab)</a></p>
+      </div>
+      <div class="govuk-inset-text">
+        Use of address and mapping data (including the link between the address and its location) is subject to
+        <a href="https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html"
+          target="_blank">Ordnance Survey Licence Terms and Conditions</a> (link opens in new tab).
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="navbar" class="govuk-grid-column-one-quarter">
+
+    <h2 class="govuk-heading-m">Edit options</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area"
+              aria-describedby="sign-in-item-hint" checked>
+            <label class="govuk-label govuk-radios__label" for="select">
+              <span class="">
+                <span class=""></span>
+                Select area
+              </span>
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area"
+              aria-describedby="sign-in-item-hint" data-aria-controls="conditional-sign-in">
+            <label class="govuk-label govuk-radios__label" for="draw">
+              <span class="">
+                <span class=""></span>
+                Draw area
+              </span>
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area"
+              aria-describedby="sign-in-item-hint">
+            <label class="govuk-label govuk-radios__label" for="edit">
+              <span class="r">
+                <span class="defra-map-key__symbol  defra-map-key__symbol--big"></span>
+                Edit area
+              </span>
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area"
+              aria-describedby="sign-in-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="delete">
+              <span class="">
+                <span class="defra-map-key__symbol defra-map-key__symbol--big"></span>
+                Delete area
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-top-3 govuk-!-padding-bottom-3">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-3" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap">
+            <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+              Snap to map
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="hatching" name="hatching" type="checkbox" value="hatched" >
+            <label class="govuk-label govuk-checkboxes__label" for="hatching">
+              Show shading
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible ">
+
+    <div class="govuk-grid-row govuk-!-padding-bottom-6">
+      <div class="govuk-grid-column-full govuk-!-padding-top-3">
+        <div class="">
+          <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Undo
+          </button>
+          <br />
+          <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Clear all
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="govuk-!-padding-bottom-6">
+    {{ govukButton({
+      text: "Confirm area",
+      href:"results"
+    }) }}
+    </div>
+
+    <div class="govuk-!-padding-top-9">
+      <div class="govuk-heading-s ">
+          Map key
+      </div>
+      <div class="">
+        <img class="map-key-image" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location available</span>
+      </div>
+      <div class="">
+        <img class="map-key-image" src="/public/ol/images/information_not_available.png" alt="Location not available key"
+          height="19" width="19">
+        <span class="map-key-text govuk-body-s">Location not available</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<!-- GDS Styles -->
+<!--   <link rel=stylesheet media="screen, print" type=text/css href="/public/ol/css/govuk-template.css">
+  <link rel=stylesheet media="screen, print" type=text/css href="/public/ol/css/common-frontend-custom.css"> -->
+<link rel=stylesheet media="screen, print" type=text/css href="/public/ol/css/maintain-frontend-custom.css">
+<link rel="stylesheet" href="/public/ol/css/ol.css" type="text/css">
+
+<script>
+  $SCRIPT_ROOT = "";
+  document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled')
+</script>
+<script src="/public/ol/js/gov-uk-template.js"></script>
+<!-- Jquery -->
+<script src="/public/ol/js/jquery.min.js"></script>
+
+<script src="/public/ol/js/knockout.js"></script>
+<!-- Open Layers -->
+<script src="/public/ol/js/ol.js"></script>
+<script src="/public/ol/js/proj4.js"></script>
+<script src="/public/ol/js/union.js"></script>
+<script src="/public/ol/js/draw_hole.js"></script>
+
+<!-- Used to get the undo button -->
+<script>
+  var staticContentUrl = "/public";
+</script>
+
+<!-- Custom Map Styles -->
+<script src="/public/ol/js/hatching_style.js"></script>
+<script src="/public/ol/js/map_styles.js"></script>
+
+<!-- Master Map Vector Layer -->
+<script src="/public/ol/js/master_map_vector_layer.js"></script>
+<script src="/public/ol/js/snap_to_vector_layer.js"></script>
+
+<!-- Custom Map Controls -->
+<script src="/public/ol/js/map_undo.js"></script>
+<script src="/public/ol/js/map_controls.js"></script>
+<script src="/public/ol/js/map_helpers.js"></script>
+
+<!-- Map config -->
+<script src="/public/ol/js/map_config.js"></script>
+<script>
+  var termsLink = "https://www.ordnancesurvey.co.uk/about/governance/policies/hm-land-registry-local-land-searches-service.html";
+  var mastermap_api_key = "{{ data.API_KEY }}";
+  var map_base_layer_view_name = "m0100";
+  var wfs_server_url = "{{ data.WFS_URL }}";
+  var wmts_server_url = "{{ data.WMTS_URL }}";
+
+  MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
+</script>
+
+<!-- Layers -->
+<!-- <script src="/public/ol/js/geoserver.js"></script> -->
+
+<!-- <script>
+  var geoserver_url = "";
+  configureGeoserverLayerForUser(geoserver_url, '{{ data.GEOSERVER_KEY }}');
+</script> -->
+
+<!-- OpenLayers with Mapbox Map -->
+<script src="/public/ol/js/map.js"></script>
+<script src="/public/ol/js/address_marker.js"></script>
+
+<!-- <script src="/public/ol/js/map_styles.js"></script> -->
+<script src="/public/ol/js/save_geometries.js"></script>
+<script src="/public/ol/js/add_location.js"></script>
+<script src="/public/ol/js/full-screen-map-sidebar.js"></script>
+
+<script>
+  addLocation.init("/static");
+  $(function () {
+    $("#static-map").attr('height', '960px');
+    map.updateSize();
+  });
+
+
+///////////////////////////////////////////////
+// init select area
+///////////////////////////////////////////////
+$( document ).ready(function() {
+  map.removeInteraction(MAP_CONTROLS.current_interaction);
+  MASTER_MAP_VECTOR_LAYER.enable()
+  MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+  MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+    layers: [MASTER_MAP_VECTOR_LAYER.layer],
+    style: draw_layer_styles.style[draw_layer_styles.DRAW]
+  });
+
+  // ADD hover functionality
+  MAP_CONTROLS.hover_interaction = new ol.interaction.Select({
+    condition: ol.events.condition.pointerMove,
+      style: draw_layer_styles.style[draw_layer_styles.HOVER]
+    });
+  map.addInteraction(MAP_CONTROLS.hover_interaction);
+
+  MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+    MAP_UNDO.store_state();
+    feature = event.target.item(0).clone();
+    if (feature) {
+      geometry = feature.getGeometry();
+      //Convert multi polygons to features
+      if (geometry instanceof ol.geom.MultiPolygon) {
+        geometry.getPolygons().forEach(function (geometry) {
+          MAP_CONTROLS.addGeometryToMap(geometry)
+        })
+      }
+      else {
+        MAP_CONTROLS.addGeometryToMap(geometry)
+      }
+    }
+  });
+
+  MAP_CONTROLS.vectorControls.copy_enabled = true;
+  map.addInteraction(MAP_CONTROLS.current_interaction)
+
+});
+
+
+
+</script>
+
+
+<script type="text/javascript">
+  $(function () {
+    load_previous_data({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[532042.65, 181758.8], [532046.85, 181752.4], [532047.15, 181751.9], [532047.5, 181751.45], [532048.3, 181750.1], [532051.95, 181752.55], [532052.25, 181752.75], [532051.5, 181754.0], [532050.8, 181755.0], [532046.45, 181761.45], [532042.65, 181758.8]]]}, "properties": {}}]});
+  });
+
+
+</script>
+
+
+<script type="text/javascript">
+  var center = [];
+   
+  function checkZoom(){
+    const view = map.getView();
+    const zoom = view.getZoom();
+
+    if (zoom < 12){
+      $("#select").prop('disabled', 'true');
+      // if select was checked, uncheck it and set as draw
+      if($("#select").prop('checked') == true){
+        $("#draw").prop('checked', 'true');
+      }
+
+      $("#snap_to_map").prop('disabled', 'true');
+    }else{
+      $("#select").removeAttr("disabled");
+      $("#snap_to_map").removeAttr("disabled");
+    }
+
+    setMode();
+  }
+
+
+  map.on('moveend', checkZoom);
+/* 
+  document.getElementsByClassName('ol-zoom-out').onclick = function () {
+    checkZoom();
+    //view.setZoom(zoom - 1);
+  };
+  
+  document.getElementsByClassName('ol-zoom-in').onclick = function () {
+    checkZoom();
+  //view.setZoom(zoom + 1);
+  };
+   */
+  document.getElementById('fullscreen').onclick = function () {
+    window.open("fullscreen", "_self");
+  };
+
+  document.getElementById('clearAllBtn').onclick = function () {
+    console.log('clear');
+    map.removeInteraction(MAP_CONTROLS.current_interaction);
+
+    MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
+    MAP_CONFIG.draw_source.clear();
+
+    setMode();
+  };
+
+  document.getElementById('undoBtn').onclick = function () {
+    MAP_UNDO.undo();
+    setMode();
+  };
+
+
+  $(document).on("change", "input[type=radio]", function () {
+    setMode();
+  });
+
+  function setMode(){
+    var radio = $('[name="edit-mode"]:checked').val();
+    map.removeInteraction(MAP_CONTROLS.hover_interaction);
+
+    if (radio == "draw-area") {
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+      MASTER_MAP_VECTOR_LAYER.enable()
+      MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+      MAP_CONTROLS.add_draw_interaction("Polygon", $('#' + MAP_CONTROLS.addAreaButtonId));
+    }
+
+
+    if (radio == "select-area") {
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+      MASTER_MAP_VECTOR_LAYER.enable()
+      MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.DRAW);
+
+      MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+        layers: [MASTER_MAP_VECTOR_LAYER.layer],
+        style: draw_layer_styles.style[draw_layer_styles.DRAW]
+      });
+
+      // ADD hover functionality
+      MAP_CONTROLS.hover_interaction = new ol.interaction.Select({
+        condition: ol.events.condition.pointerMove,
+          style: draw_layer_styles.style[draw_layer_styles.HOVER]
+        });
+      map.addInteraction(MAP_CONTROLS.hover_interaction);
+
+      MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+        MAP_UNDO.store_state();
+        feature = event.target.item(0).clone();
+        if (feature) {
+          geometry = feature.getGeometry();
+          //Convert multi polygons to features
+          if (geometry instanceof ol.geom.MultiPolygon) {
+            geometry.getPolygons().forEach(function (geometry) {
+              MAP_CONTROLS.addGeometryToMap(geometry)
+            })
+          }
+          else {
+            MAP_CONTROLS.addGeometryToMap(geometry)
+          }
+        }
+      });
+
+      MAP_CONTROLS.vectorControls.copy_enabled = true;
+      map.addInteraction(MAP_CONTROLS.current_interaction)
+
+    }
+
+
+    if (radio == "edit-area") {
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+      var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.editButtonId));
+
+      if (toggled_on) {
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.EDIT);
+
+        MAP_CONTROLS.current_interaction = new ol.interaction.Modify({
+          features: MAP_CONFIG.draw_features,
+          style: draw_layer_styles.style[draw_layer_styles.EDIT]
+        });
+
+        map.addInteraction(MAP_CONTROLS.current_interaction);
+        $("#" + MAP_CONTROLS.editButtonId).trigger("edit:toggled");
+        if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
+          map.addInteraction(snap_to_interaction)
+        }
+
+        MAP_CONTROLS.current_interaction.on('modifystart', function (event) {
+          MAP_UNDO.store_state();
+        });
+
+      } else {
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE);
+      }
+    }
+
+
+    if (radio == "delete-area") {
+      map.removeInteraction(MAP_CONTROLS.current_interaction);
+      var toggled_on = MAP_CONTROLS.toggle_button($('#' + MAP_CONTROLS.deleteButtonId));
+
+      if (toggled_on) {
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.REMOVE);
+
+        MAP_CONTROLS.current_interaction = new ol.interaction.Select({
+          layers: [MAP_CONFIG.draw_layer]
+        });
+
+        MAP_CONTROLS.current_interaction.getFeatures().on('add', function (event) {
+          var feature_id = event.element.getProperties().id;
+
+          MAP_CONTROLS.remove_selected_feature(feature_id);
+          MAP_CONTROLS.current_interaction.getFeatures().clear();
+        });
+
+        map.addInteraction(MAP_CONTROLS.current_interaction)
+      } else {
+        MAP_CONTROLS.toggle_draw_layer_style(draw_layer_styles.NONE)
+      }
+    }
+
+  }
+
+  // Not sure about this - maybe vector snap also depends on zoom level?
+  $('#snap_to_map').change(function () {
+    MAP_CONTROLS.vectorControls.snap_to_enabled = $(this).is(':checked');
+
+    if (MAP_CONTROLS.vectorControls.snap_to_enabled) {
+      // Enable the snap to interaction and vector layer
+      SNAP_TO_VECTOR_LAYER.enable()
+      map.addInteraction(snap_to_interaction)
+      MAP_CONTROLS.vectorControls.snap_to_enabled = true
+    } else {
+      // Disable the snap to interaction and vector layer, but not the snap to button
+      // Don't disable vector layer if copy active
+      if (!MAP_CONTROLS.vectorControls.copy_enabled) {
+        SNAP_TO_VECTOR_LAYER.disable()
+      }
+      map.removeInteraction(snap_to_interaction)
+      MAP_CONTROLS.vectorControls.snap_to_enabled = false
+    }
+  });
+
+  $('#hatching').change(function () {
+    showHatching = $(this).is(':checked');
+    MAP_CONTROLS.toggle_draw_layer_style(MAP_CONTROLS.current_style);
+  });
+
+</script>
+{% endblock %}

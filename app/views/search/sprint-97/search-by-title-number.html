@@ -1,0 +1,48 @@
+{% extends "layouts/frontend2025.html" %}
+
+{% set pageName="Identify a search area for local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner-live.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Search by title number
+    </h1>
+    <p>
+      You can find the title number on HM Land Registry documents, including copies of the register.
+    </p>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="event-name">
+        
+      </label>
+      <div id="event-name-hint" class="govuk-hint">
+        Title number should be xxx digits, eg 2197841
+      </div>
+      <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
+    </div>
+
+    <a href="map" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Search
+    </a>
+
+    {% include "includes/not-yet-available.html" %}
+
+    {% include "includes/search-inset-terms.html" %}
+    {% set method = "title" %}
+    {% include "includes/search-methods-v2.html" %}
+
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    
+  </div>
+
+</div>
+{% endblock %}
