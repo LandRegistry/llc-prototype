@@ -11,6 +11,16 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   .govuk-footer__copyright-logo {
     background-image: url("../../../public/images/govuk-crest.svg");
   }
+
+  #navigation{
+
+  }
+  .last-item {
+    position: absolute;
+    top:60px;
+    left:1030px;
+    float:right
+  }
   </style>
   {% endblock %}
 
@@ -34,7 +44,10 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         href: "start",
         text: "Sign out"
       }
-    ]
+    ],
+    slots: {
+      end: " <div class='govuk-service-navigation__item govuk-body last-item'> English | <a href='#0' class='govuk-link--no-visited-state'>Cymraeg</a> </div> "
+    }
   }) }}
 
   {% endblock %}
