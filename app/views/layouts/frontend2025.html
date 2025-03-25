@@ -16,7 +16,8 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
   {% block header %}
   {{ govukHeader({
-    homepageUrl: "/"
+    homepageUrl: "/",
+    classes:"govuk-header--full-width-border"
   }) }}
 
   {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
