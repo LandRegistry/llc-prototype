@@ -1,0 +1,213 @@
+
+
+{% extends "layouts/frontendCCA.html" %}
+{% set serviceName= "Register your contractual control" %}
+
+{% set pageName="Check your answers" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner-CCA.html" %}
+{% include "includes/language-switcher-2025.html" %}
+{% endblock %}
+
+
+{% block content %}
+<style>
+.govuk-summary-list__actions, .govuk-summary-list__key {
+  vertical-align: top;
+}
+.govuk-service-navigation__service-name:not(:last-child){
+  margin-right: 0 ! important;
+}
+
+</style>
+
+
+
+  <div class="govuk-grid-row govuk-!-padding-top-9">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+      <!-- <h2 class="govuk-heading-m">Personal details</h2> -->
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Title number(s)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            CS 2546672
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Solicitor Regulation Authority (SRA)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            637488
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Council for Licensed Conveyancers (CLC)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal registration number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            11099
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of contractual control
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">xxxx</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Territorial extent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            England and Wales
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Other territorial extent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">None</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Boundary
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <img src="/public/images/number9/number9_red.png" alt="Map of charge extent" style="width:100%; height:170px">
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantee Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">XLS Property Law Limited</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantee registration body
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">
+              Solicitors Regulation Authority</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">4 April 2025</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contract long stop date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">3 April 2035</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Is there an ability to extend this Contractual Control?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Yes</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div> -->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Conditions for contract extension
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Single storey extension</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <form action="/form-handler" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Accept and send",
+          href:"add-charge-confirmation"
+          }) }}
+      </form>
+
+      <p class="govuk-body"><a href="../dashboard">Cancel</a></p>
+    </div>
+    </div>
+
+
+  
+
+  </div>
+
+
+{% endblock %}
