@@ -3,7 +3,7 @@
 {% extends "layouts/frontendCCA.html" %}
 {% set serviceName= "Register your contractual control" %}
 
-{% set pageName="Check your answers" %}
+{% set pageName="CCA data sheet" %}
 
 {% block beforeContent %}
 {% include "includes/phase-banner-CCA.html" %}
@@ -25,11 +25,20 @@
 
 
   <div class="govuk-grid-row govuk-!-padding-top-9">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Contractual Control Agreement</h1>
+    </div>
+
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">Check your answers</h1>
-       <h2 class="govuk-heading-m">Contract details</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Contract details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list ">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Title number
@@ -37,9 +46,9 @@
           <dd class="govuk-summary-list__value">
             CS254667
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
-          </dd>
+          </dd> -->
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -48,31 +57,22 @@
           <dd class="govuk-summary-list__value">
             Transfer
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-          </dd>
-        </div>        <div class="govuk-summary-list__row">
+          </dd> -->
+        </div>        
+        <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Legal representative registration
           </dt>
           <dd class="govuk-summary-list__value">
             637488
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-          </dd>
+          </dd> -->
         </div>
-<!--         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Council for Licensed Conveyancers (CLC)
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> customer reference</span></a>
-          </dd>
-        </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Legal registration number
@@ -80,24 +80,22 @@
           <dd class="govuk-summary-list__value">
             11099
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
-          </dd>
-        </div> -->
+          </dd> -->
+        </div> 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Type of contractual control
           </dt>
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">
-              Conditional Contract<br/>
-              Option Agreement<br/>
               Pre-emption Agreement<br/>
             </p>
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -106,9 +104,9 @@
           <dd class="govuk-summary-list__value">
             Whole of the boundary
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -117,111 +115,32 @@
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">Yes</p>
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Boundary
           </dt>
           <dd class="govuk-summary-list__value">
-            <img src="/public/images/CCA/small_boundary2.png" alt="Map of charge extent" style="width:100%; height:275px">
+            <img src="/public/images/CCA/boundary2.png" alt="Map of charge extent" >
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
-      </dl>
 
-      <h2 class="govuk-heading-m">Grantee details</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">XLS Property Development Ltd</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Registration body
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">Companies House</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Company number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">017998055</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div>
-      </dl>
- 
-
-      <h2 class="govuk-heading-m">Grantor details</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">Mrs Field Owner</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Registration body
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">An individual</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Company number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">Not applicable</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div>
-      </dl>
-
-
-      <h2 class="govuk-heading-m">Additional information</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Date of agreement
+            Agreement date
           </dt>
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">4 April 2025</p>
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -230,21 +149,21 @@
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">3 April 2035</p>
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
-        <!-- <div class="govuk-summary-list__row">
+        <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Is there an ability to extend this Contractual Control?
           </dt>
           <dd class="govuk-summary-list__value">
             <p class="govuk-body">Yes</p>
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
-        </div> -->
+          </dd> -->
+        </div> 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Conditions for contract extension
@@ -256,27 +175,106 @@
               Planning permission</br>
               </p>
           </dd>
-          <dd class="govuk-summary-list__actions">
+          <!--<dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-          </dd>
+          </dd> -->
         </div>
 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantee name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">XLS Property Development Ltd</p>
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd> -->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantee registration body
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Companies House</p>
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd> -->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantee company number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">017998055</p>
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd> -->
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantor name 
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Mrs Field Owner</p>
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd> -->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantor registration body
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">An individual</p>
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd> -->
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Grantor company number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Not applicable</p>
+          </dd>
+          <!--<dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd> -->
+        </div>
       </dl>
+      </div>
+      </div>
 
-
-      <h2 class="govuk-heading-m">Now send your application</h2>
-      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-      <form action="/form-handler" method="post" novalidate>
-        <input type="hidden" name="answers-checked" value="true">
-
-        {{ govukButton({
-          text: "Accept and send",
-          href:"add-charge-confirmation"
-          }) }}
-      </form>
-
-      <p class="govuk-body"><a href="../dashboard">Cancel</a></p>
     </div>
+
+
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-s">View the data</h3>
+      <p class="govuk-body-s">You can explore this data</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-body-s" href="#">On a map</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-body-s" href="#">As a list</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Download the data</h3>
+      <p class="govuk-body-s">You can take a copy of this data as</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-body-s" href="#">CSV</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-body-s" href="#">JSON</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-body-s" href="#">GeoJSON</a></li>
+      </ul>
+
+      <h3 class="govuk-heading-s">Dataset definition </h3>
+      <p class="govuk-body-s">You can view the definition of this dataset including the list of fields</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-body-s" href="#">Dataset definition for Contractual Control Agreements</a></li>
+      </ul>  
     </div>
 
 

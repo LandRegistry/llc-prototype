@@ -1,0 +1,128 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-s">Map options</h2>
+    <div class="govuk-radios  govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="select" name="edit-mode" type="radio" value="select-area" checked>
+        <label class="govuk-label govuk-radios__label" for="select">
+          <span class="">
+            <span class=""></span>
+            Select area from map
+          </span>
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="draw" name="edit-mode" type="radio" value="draw-area">
+        <label class="govuk-label govuk-radios__label" for="draw">
+          <span class="">
+            <span class=""></span>
+            Draw area
+          </span>
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="cutout" name="edit-mode" type="radio" value="cutout-area">
+        <label class="govuk-label govuk-radios__label" for="cutout">
+          <span class="r">
+            <span class=""></span>
+            Cut out area
+          </span>
+        </label>
+      </div>
+
+      <div class="govuk-!-padding-bottom-1"></div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="add-circle" name="edit-mode" type="radio" value="add-circle">
+        <label class="govuk-label govuk-radios__label" for="add-circle">
+          <span class="">
+            <span class=""></span>
+            Add circle
+          </span>
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="add-point" name="edit-mode" type="radio" value="add-point">
+        <label class="govuk-label govuk-radios__label" for="add-point">
+          <span class="">
+            <span class=""></span>
+            Add point
+          </span>
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="add-line" name="edit-mode" type="radio" value="add-line">
+        <label class="govuk-label govuk-radios__label" for="add-line">
+          <span class="">
+            <span class=""></span>
+            Add line
+          </span>
+        </label>
+      </div>
+
+      <div class="govuk-!-padding-bottom-2"></div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="edit" name="edit-mode" type="radio" value="edit-area">
+        <label class="govuk-label govuk-radios__label" for="edit">
+          <span class="r">
+            <span class=""></span>
+            Edit area
+          </span>
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="delete" name="edit-mode" type="radio" value="delete-area">
+        <label class="govuk-label govuk-radios__label" for="delete">
+          <span class="">
+            <span class=""></span>
+            Delete area
+          </span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--visible govuk-!-padding-bottom-2">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-checkboxes govuk-checkboxes--small govuk-!-padding-top-1" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="snap_to_map" name="snap_to_map" type="checkbox" value="snap" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="snap_to_map">
+          Snap to line on map
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-1">
+
+<div class="govuk-grid-row govuk-!-padding-bottom-2">
+  <div class="govuk-grid-column-full govuk-!-padding-top-3">
+
+    <div class="govuk-button-group">
+      <button id="undoBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button" disabled>
+        Undo
+      </button>
+      <br />
+      <button id="clearAllBtn" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear all
+      </button>
+      <br />
+    </div>
+
+  </div>
+</div>
+
+
+{{ govukButton({
+id: "continueButton",
+text: "Continue",
+href:"confirm-address"
+}) }}

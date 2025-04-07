@@ -1,0 +1,182 @@
+<h2 class="govuk-heading-s">
+  Search by postcode, street name or town
+</h2>
+
+<div class="search-bar govuk-!-padding-top-0 govuk-!-margin-bottom-2">
+  <input class="govuk-input search-field map__search_term" id="search-field" name="search" type="text" value="">
+  <div class="search-bar-input">
+    <button class="search-button map__search_button" type="button" name="search" id="find-btn"
+      data-bind="click: flexSearchAddresses">
+  </div>
+</div>
+
+
+<div class="">
+  <p id="results-heading" class="govuk-body hidden" style="display: none;">Search results</p>
+  <p id="selected-address" class="govuk-body" style="display: none;"> </p>
+
+  <ul id="address-list" class="govuk-list govuk-list--spaced category-container" style="display: none;">
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-1">
+        From Newbury Street To Braidwood
+        Passage, Cloth Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-2">
+        General Stores, 1-3 Newbury Street, London
+        EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-3">
+        Flat 1, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-4">
+        Flat 2, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-5">
+        Flat 3, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-6">
+        Flat 4, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-7">
+        Flat 5, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-8">
+        Flat 6, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-9">
+        Flat 7, 1-3 Newbury Street, London EC1A
+        7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-10">
+        5-6 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-11">
+        7-8 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-12">
+        9 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-13">
+        Urban Designers Ltd, 9 Newbury
+        Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-14">
+        City Apartments, Newbury House, 10-13
+        Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-15">
+        Flat 1, Newbury House, 10-13 Newbury
+        Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-16">
+        Flat 2, Newbury House, 10-13 Newbury
+        Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-17">
+        Flat 3, Newbury House, 10-13 Newbury
+        Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-18">
+        Flat 4, Newbury House, 10-13 Newbury
+        Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-19">
+        14-15 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-20">
+        Barbican Ltd, 14-15 Newbury Street,
+        London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-21">
+        Heavy Industry  dLtd, 14-15 Newbury
+        Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-22">
+        24-26 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-23">
+        27-28 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+    <li class="govuk-body-s">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" id="address-24">
+        31 Newbury Street, London EC1A 7HU
+      </a>
+    </li>
+
+  </ul>
+</div>
