@@ -1,0 +1,172 @@
+  /* PAGE LAYOUT */
+  .govuk-grid-column-20-percent{
+    width: 20%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    float: left;
+  }
+
+  .govuk-grid-column-three-quarters{
+    width:80%;
+  }
+
+  .govuk-main-wrapper {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  .govuk-width-container{
+    max-width:98%;
+    width:98%;
+  }
+
+  #navbar{
+    padding-right:0;
+  }
+
+  #map{
+    height:1000px;
+  }
+
+  .scroll{
+    height: 720px;
+    overflow-x: none;
+    overflow-y: scroll;
+    margin: 0;
+  }
+
+
+  /* POSTCODE LOOK UP */
+  .search-field {
+    height: 38px;
+  }
+
+  .map__search_term {
+    position: relative;
+    z-index: 10;
+    height: 38px;
+    margin: 0;
+    padding: 1px;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    width: 85%;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    height: 38px;
+  }
+
+  .search-bar-input{
+    padding-right:15px;
+  }
+
+  .search-button {
+    height: 38px;
+    width: 38px;
+    cursor: pointer;
+    background: #0B0C0C url("/public/map/search-button.png") no-repeat 2px 50%;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .govuk-button-group{
+    margin-bottom:0;
+  }
+
+  .align-right {
+    position: absolute;
+    right: 0px;
+  }
+
+
+  /* Customise the ol zoom controls */
+  .ol-zoom-in {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+
+  .ol-zoom-out {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+  
+  .ol-zoom-in,
+  .ol-zoom-out {
+    display: block;
+    border: 0;
+    outline: 2px solid rgba(0,0,0,0.2);
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    cursor: pointer;
+    background-color: #fff;
+    background-size: 30px;
+    background-position: 5px 5px;
+    overflow: hidden;
+    text-indent: -5000px;
+  }
+  /* OpenLayers Scale Line Override */
+  .ol-scale-line {
+    background: rgba(255, 255, 255, .8) !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+    position: absolute !important;
+  }
+
+  .ol-scale-line-inner {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    border-top: none !important;
+  }
+
+  .ol-scale-line-inner{
+    color: #0b0c0c;
+    font-family: "GDS Transport", arial, sans-serif;
+  }
+  
+  .zoom-controls{
+    position: relative;
+    z-index: 12;
+    top: 20px;
+    left: calc(100% - 140px);
+  }
+
+  .zoom-in{
+    position: absolute;
+    top: 0px;
+  }
+
+  .zoom-out{
+    position: absolute;
+    top:48px;
+  }
+
+/* HIDE GDS FOOTER AND DISPLAY IN NAVBAR */
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .govuk-footer {
+    display:none;
+  }
+
+  .govuk-footer-x{
+    border-top: 1px solid #b1b4b6;
+    color: #0b0c0c;
+    background: #f3f2f1;
+  }
+
+  footer .govuk-list{
+    font-size: 16px;
+  }
+
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+    background-size: 90px 75px;
+    padding-top: 82px;
+  }
+
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+  }
