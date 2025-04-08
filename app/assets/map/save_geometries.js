@@ -107,15 +107,15 @@ function load_fake_data(information) {
                 });
 
                 // get the map zoom with the new extents
-                const view = map.getView();
+ /*                const view = map.getView();
                 const zoom = view.getZoom();
                 // then zoom out slightly to show the context / surrounding area
                 let coords =[532050, 181750];
                  view.animate({
-                  center: coords,
+                  //center: coords,
                   zoom: (zoom + 1.8),
                   duration: 0
-                }); 
+                });  */
             }
         } catch (e) {
         }
