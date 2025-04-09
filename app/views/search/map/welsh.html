@@ -1,0 +1,213 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName= "Maintain LLC" %}
+{% set pageName="Add a charge" %}
+
+{% set bodyClasses = "full-width" %}
+{% set containerClasses = "full-width" %}
+
+{% block content %}
+
+<div id="container" class="govuk-grid-row">
+  <!--  NAVIGATION  -->
+  <div id="navbar" class="govuk-grid-column-20-percent scroll">
+    <a class="govuk-back-link" href="javascript: history.go(-1)">Yn ôl</a>
+    <h2 class="govuk-heading-m">Ychwanegu stent</h2>
+
+    {% include "./includes/postcode-search-welsh.html" %}
+
+    <p class="govuk-body">
+      <ul class="govuk-list">
+        <li><a href="search-by-upload" class="govuk-link govuk-link--no-visited-state">Ychwanegu stent trwy uwchlwytho ffeil siâp</a></li>
+        <li><a href="search-by-title" class="govuk-link govuk-link--no-visited-state">Ychwanegu stent yn ôl rhif teitl</a></li>
+      </ul>
+    </p>
+
+    {% include "./includes/controls-welsh.html" %}
+
+    {% include "./includes/help-welsh.html" %}
+
+    {% include "./includes/footer.html" %}
+
+  </div> 
+    
+
+  <!-- MAP  -->
+  <div class="govuk-grid-column-three-quarters">
+
+    <div >
+      <div class="zoom-controls">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+      </div>
+    </div>
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
+      <!-- <div class="center">
+        <div class="horizontal"></div>
+        <div class="vertical"></div>
+      </div> -->
+      <noscript>
+        <div id="nojs" class="nojs-content">
+          <div id="nojs-message" class="notification-summary">
+            <p>
+              You need to turn on JavaScript to use this service. Or, for assistance, please use the following link -
+              <a id="“assistance-link”"
+                href="https://customerhelp.landregistry.gov.uk/local-land-charges">https://customerhelp.landregistry.gov.uk/local-land-charges</a>
+            </p>
+          </div>
+        </div>
+      </noscript>
+    </div>
+    <div class=" govuk-!-padding-top-2">
+      <div class="govuk-heading-s ">
+        Allwedd map 
+
+        <img class="key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
+          height="19" width="19">
+        <span class="key-text govuk-body-s">Mae’r lleoliad ar gael </span>
+
+        <img class="key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
+          alt="Location not available key" height="19" width="19">
+        <span class="key-text govuk-body-s">Nid yw’r lleoliad ar gael</span>
+
+        <span class="govuk-body-s align-right govuk-grid-column-one-half">
+          Mae defnyddio data cyfeiriad a mapio yn ddarostyngedig i <a href="#" target="_blank">Telerau ac Amodau Trwydded yr Arolwg Ordnans (mae’n agor mewn tab newydd)</a>. Mae hyn yn cynnwys y cyswllt rhwng y cyfeiriad a’i leoliad. 
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+{% block pageScripts %}
+  <!--  Custom map styles for this page -->
+  <link rel="stylesheet" href="/public/map/css/map-styles.css">
+
+  <!-- Jquery -->
+  <script src="/public/map/jquery.min.js"></script>
+
+  <!-- Open Layers -->
+  <script src="/public/map/ol.js"></script>
+  <script src="/public/map/proj4.js"></script>
+  <script src="/public/map/union.js"></script>
+  <script src="/public/map/draw_hole.js"></script>
+
+  <!-- Custom Map Styles -->
+  <script src="/public/map/hatching_style.js"></script>
+  <script src="/public/map/map_styles.js"></script>
+  
+  <!-- Master Map Vector Layer -->
+  <script src="/public/map/master_map_vector_layer.js"></script>
+  <script src="/public/map/snap_to_vector_layer.js"></script>
+  
+  <!-- Custom Map Controls -->
+  <script src="/public/map/map_undo_v1.js"></script>
+  <script src="/public/map/map_controls.js"></script>
+  <script src="/public/map/map_helpers_v1.js"></script>
+  
+  <!-- Map config -->
+  <script src="/public/map/map_config.js"></script>
+
+  <script type="text/javascript">  
+    var termsLink = "";
+    var mastermap_api_key = "{{ data.API_KEY }}";
+    var map_base_layer_view_name = "m0100";
+    var wfs_server_url = "{{ data.WFS_URL }}";
+    var wmts_server_url = "{{ data.WMTS_URL }}";
+  
+    MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
+  </script>
+  
+   <!-- OpenLayers Map (Note: must be after the key config) -->
+  <script src="/public/map/map.js"></script>
+  <script src="/public/map/save_geometries.js"></script>
+
+  <!-- Custom actions for this page -->
+  <script src="/public/map/keyboard_panning.js"></script>
+  <script src="/public/map/postcode_actions.js"></script>
+  <script src="/public/map/custom_controls.js"></script>
+
+
+
+
+  
+  <script type="text/javascript">
+    // Add open layers map controls: this is now only the scale line
+    // all other controls are now GDS components
+    var controls;
+    var center = [];
+
+
+    MAP_HELPERS.init_controls(map, controls);
+
+    // use this to prepopulate with an extent
+    // or in this case to set the initial map bounds
+/*     $(function () {
+      load_previous_data({ 
+        "features": [
+          { "geometry": 
+            { 
+              //set the coordinates to center the map
+              "coordinates": [[[532042.65, 181758.8]]],
+              "type": "Polygon" 
+            },
+        "properties": { "id": 10000000000001 },
+        "type": "Feature" }],
+        "type": "FeatureCollection" });
+    }); */
+
+  ///////////////////////////////////////////////
+  // initialise including setMode for select area
+  ///////////////////////////////////////////////
+  $( document ).ready(function() {
+
+    // hack the map height
+    let page_height = Math.floor($(window).height());
+    $("#map").css("height", page_height - 130);    
+    $("#container").css("height", page_height - 120);    
+    $('.scroll').css('height', page_height - 70);
+    
+    // add map event listeners to hide Select area hover state on mouseout
+    map.getViewport().addEventListener('mouseover', function(event){
+        MASTER_MAP_VECTOR_LAYER.enable()
+    }, false);
+    map.getViewport().addEventListener('mouseout', function(event){
+        MASTER_MAP_VECTOR_LAYER.disable()
+    }, false);
+
+    // check the zoom level after zooming in/out and toggle snap-to and select-area options
+    map.on('moveend', checkZoom);
+
+    // initialise all the drawing layers based on the selected radio option
+    setMode();
+
+    // zoom out to hack bounds box
+    const view = map.getView();
+    const zoom = view.getZoom();
+
+    let coords =[532050, 181750];
+    view.animate({
+      center: coords,
+      zoom: zoom + 12,
+      duration: 0
+    }); 
+
+  });
+
+  
+</script>
+{% endblock %}
