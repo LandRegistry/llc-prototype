@@ -61,17 +61,18 @@
       </noscript>
     </div>
     <div class=" govuk-!-padding-top-2">
-      <div class="govuk-heading-s ">
+      <div class="govuk-heading-s " style="width:10%; float:left">
         Allwedd map 
-
+      </div>
+      <div class="govuk-grid-column-one-quarter">
         <img class="key-image govuk-!-padding-left-3" src="/public/ol/images/information_available.png" alt="Location available key"
           height="19" width="19">
         <span class="key-text govuk-body-s">Mae’r lleoliad ar gael </span>
-
+        <br/>
         <img class="key-image govuk-!-padding-left-3" src="/public/ol/images/information_not_available.png"
           alt="Location not available key" height="19" width="19">
         <span class="key-text govuk-body-s">Nid yw’r lleoliad ar gael</span>
-
+      </div>
         <span class="govuk-body-s align-right govuk-grid-column-one-half">
           Mae defnyddio data cyfeiriad a mapio yn ddarostyngedig i <a href="#" target="_blank">Telerau ac Amodau Trwydded yr Arolwg Ordnans (mae’n agor mewn tab newydd)</a>. Mae hyn yn cynnwys y cyswllt rhwng y cyfeiriad a’i leoliad. 
         </span>
@@ -177,7 +178,7 @@
 
     // hack the map height
     let page_height = Math.floor($(window).height());
-    $("#map").css("height", page_height - 130);    
+    $("#map").css("height", page_height - 40);    
     $("#container").css("height", page_height - 120);    
     $('.scroll').css('height', page_height - 70);
     
@@ -199,7 +200,9 @@
     const view = map.getView();
     const zoom = view.getZoom();
 
-    let coords =[532050, 181750];
+   // let coords =[532050, 181750]; // newbury street
+    // let coords =[429954.53, 471944.32]; //ripon for video add point, circle
+    let coords =[429954.53, 471944.32]; //ripon for video dlete area
     view.animate({
       center: coords,
       zoom: zoom + 12,
