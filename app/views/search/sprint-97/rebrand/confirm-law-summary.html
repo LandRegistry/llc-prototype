@@ -1,0 +1,82 @@
+{% set serviceName= "Maintain LLC" %}
+{% extends "layouts/maintain-rebrand.html" %}
+
+{% set pageName="Confirm the law and legal document - Maintain Local land charges - GOV.UK" %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        Confirm the law and legal document
+      </h1>
+
+      <p class="govuk-body">Based on your chosen category and subcategory, we have found 1 law and 1 legal document (instrument) for your charge. We need you to confirm these are correct.</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Category
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Planning
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the law</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Subcategory
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Conditional planning consent
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the law</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Law
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Town and Country Planning Act 1990 section 70
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the law</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal document
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Planning permission
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the legal document</span></a>
+          </dd>
+        </div>
+      </dl>
+   
+
+      {{ govukButton({
+        classes:" govuk-!-margin-top-6",
+        text: "Confirm",
+        href:"date-of-charge"
+      }) }}
+
+      <!-- <p class="govuk-body"><a href="choose-a-charge">Choose a different charge category</a></p> -->
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

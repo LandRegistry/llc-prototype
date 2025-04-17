@@ -32,9 +32,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     color:  #0b0c0c;
     border-top: 10px solid #1d70b8;
   }
-  .govuk-footer__copyright-logo {
-   /*  background-image: url("/public/images/govuk-crest-primary.svg"); */
-  }
+
   /* Colour in the Dot */
   .govuk-logo-dot {
     fill: #11e0f1;
@@ -86,9 +84,22 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   {% if isLoggedOut == "true" %}
   {{ govukServiceNavigation({
     serviceName: serviceName,
-    serviceUrl: "/"
-    
+    serviceUrl: "/",
+    slots: {
+      navigationEnd: " <li class='govuk-service-navigation__item govuk-body'> English | <a href='#0' class='govuk-link--no-visited-state'>Cymraeg</a> </li> "
+    }
+  }) 
+  }}
+  {% elseif serviceName == "Maintain LLC" %}
+  {{ govukServiceNavigation({
+    serviceName: serviceName,
+    serviceUrl: "/",
+    slots:
+    {
+      navigationEnd: "<li class='govuk-service-navigation__item'>HMLR Admin</li> <li class='govuk-service-navigation__item'><a class='govuk-service-navigation__link' href='dashboard'>Sign out</a></li> <li class='govuk-service-navigation__item govuk-body'> English | <a href='#0' class='govuk-link--no-visited-state'>Cymraeg</a> </li> "
+    }
   }) }}
+
   {% else %}
 
   {{ govukServiceNavigation({
