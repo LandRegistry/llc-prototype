@@ -85,13 +85,15 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     
   }) }}
   {% else %}
+
   {{ govukServiceNavigation({
     serviceName: serviceName,
     serviceUrl: "/",
     navigation: [
       {
-        href: "/",
-        text: "My account"
+        href: "my-account",
+        text: "My account",
+        active: isAccountActive
       },
       {
         href: "start",
