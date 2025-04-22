@@ -1,0 +1,176 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+  
+  {% block bodyStart %}
+  <!-- Override prototype kit crown logo -->
+  <style>
+  .govuk-footer__copyright-logo {
+    background-image: url("../../../public/images/govuk-crest.svg");
+  }
+
+  .govuk-service-navigation__wrapper{
+    flex-grow: 100;
+  }
+  .govuk-service-navigation__wrapper {
+    display:flex;
+    align-items: end;
+  }
+  .govuk-service-navigation__list {
+    margin-left: auto;
+    order: 2;
+  }   
+
+  .govuk-header {
+    background:  #1d70b8;
+    border-bottom: none;
+  }
+  .govuk-footer {
+    background-color: #f4f8fb;
+    color:  #0b0c0c;
+    border-top: 10px solid #1d70b8;
+  }
+  .govuk-footer__copyright-logo {
+   /*  background-image: url("/public/images/govuk-crest-primary.svg"); */
+  }
+  /* Colour in the Dot */
+  .govuk-logo-dot {
+    fill: #11e0f1;
+  }
+  .govuk-header__containerHack{
+    position: relative;
+    margin-bottom: -5px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    /* border-bottom: 10px solid #1d70b8; */
+  }
+
+  </style>
+  {% endblock %}
+
+  {% block header %}
+  <header class="govuk-header" data-module="govuk-header">
+    <div class="govuk-header__containerHack govuk-width-container">
+      <div class="govuk-header__logo">
+        <a href="/" class="govuk-header__link govuk-header__link--homepage">
+          <svg
+   focusable="false"
+   role="img"
+   xmlns="http://www.w3.org/2000/svg"
+   viewBox="0 0 159 30"
+   height="30"
+   width="159" class="govuk-header__logotype" aria-label="GOV.UK"
+            ><title>GOV.UK</title><g>
+                  <circle cx="10.1" cy="8.8" r="1.8"/>
+                  <circle cx="5.2" cy="11.7" r="1.8"/>
+                  <circle cx="1.9" cy="16.6" r="1.8"/>
+                  <circle cx="16" cy="15.3" r="1.8"/>
+                  <circle cx="21.9" cy="8.8" r="1.8"/>
+                  <circle cx="26.8" cy="11.7" r="1.8"/>
+                  <circle cx="30.1" cy="16.6" r="1.8"/>
+                  <circle cx="16" cy="15.3" r="1.8"/>
+                  <path d="m16.7 4.9.2-.2 2.3 1.2V2.5l-2.3.7s-.1-.2-.2-.2l.9-2.9h-3.4l.9 2.9s-.2.1-.2.2l-2.3-.7v3.4l2.3-1.2.2.2-1.3 4c-.5 1.4.6 2.9 2.1 2.9s2.5-1.4 2.1-2.9l-1.3-4Zm2 14s-1.7 1.9-2.1 3c1.1 0 2.1-.3 3.2-1.4l-.4 4.3c-1-1.4-2.2-2-2.9-1.9 0 1.5.2 3.4 2.9 3.6 1.9.2 3.4-.8 3.5-1.9.2-1.3-1-2.2-1.9-.8-.7-2.3 1.2-3 2.5-1.6-1-2.2-.9-3.8 1.2-5.4 1.5 2 1.3 3.7-.6 5.5 1.2-.7 3.1 0 2 2.3-.6-1.4-1.8-1.1-2.1.1-.2.9.3 1.9 1.5 2.1.9.2 2.4-.5 3.5-2.9-.6 0-1.2.3-2 .8l1.2-4c.3 1.1.7 1.9 1.1 2.3.3-.8.2-1.4 0-2.7l2.5.9c-1.3 1.8-2.6 4.3-3.7 8.8-3.7-.5-7.9-.8-12.3-.8s-8.6.3-12.3.8c-1.1-4.4-2.3-7-3.7-8.8l2.5-.9c-.2 1.3-.3 1.9 0 2.7.4-.4.8-1.1 1.1-2.3l1.2 4c-.7-.5-1.3-.8-2-.8 1.2 2.5 2.6 3.1 3.5 2.9 1.1-.2 1.7-1.2 1.5-2.1-.3-1.2-1.5-1.5-2.1-.1-1.1-2.3.8-3 2-2.3-1.9-1.9-2.1-3.5-.6-5.5C9 18.4 9 20 8.1 22.2c1.2-1.4 3.2-.7 2.5 1.6-.9-1.4-2.1-.5-1.9.8.2 1.1 1.7 2.1 3.5 1.9 2.7-.2 2.9-2.1 2.9-3.6-.7-.1-1.9.5-2.9 1.9l-.4-4.3c1.1 1.1 2.1 1.4 3.2 1.4-.4-1.2-2.1-3-2.1-3h5.3Z"/>
+                </g>
+                <circle class="govuk-logo-dot" cx="109.81" cy="17.83" r="3.7"></circle>
+                <path d="m43.61,17.93c0,.9.1,1.8.3,2.7s.6,1.6,1.1,2.3c.5.7,1.1,1.2,1.8,1.6s1.6.6,2.6.6,1.8-.2,2.4-.5c.7-.3,1.2-.7,1.6-1.2.4-.5.7-1,.8-1.5s.2-1,.2-1.5v-.2h-5.5v-3.3h9.8v12h-3.8v-2.7c-.3.4-.6.8-1,1.2-.4.4-.9.6-1.4.9-.5.2-1.1.4-1.7.6s-1.2.2-1.9.2c-1.6,0-3-.3-4.2-.9s-2.3-1.4-3.1-2.4-1.5-2.2-1.9-3.5-.7-2.8-.7-4.4.2-3,.7-4.4,1.2-2.5,2.1-3.5,2-1.8,3.3-2.4,2.7-.9,4.3-.9,2,.1,2.9.4c.9.2,1.8.6,2.5,1,.8.4,1.4,1,2,1.6s1.1,1.3,1.4,2.1l-3.8,2.2c-.2-.5-.5-.9-.8-1.3-.3-.4-.7-.7-1.1-1-.4-.3-.9-.5-1.4-.7s-1.1-.2-1.8-.2c-1,0-1.9.2-2.6.6-.7.4-1.3.9-1.8,1.6s-.8,1.4-1.1,2.3c-.2.9-.3,1.8-.3,2.7h0v.1l.1-.2Zm29.1-11.2c1.6,0,3.1.3,4.3.9,1.2.6,2.4,1.4,3.3,2.4s1.6,2.2,2,3.5.7,2.8.7,4.4-.2,3-.7,4.4-1.2,2.5-2,3.5-2,1.8-3.3,2.4-2.7.9-4.3.9-3.1-.3-4.3-.9-2.4-1.4-3.2-2.4-1.6-2.2-2-3.5-.7-2.8-.7-4.4.2-3,.7-4.4,1.2-2.5,2-3.5,2-1.8,3.2-2.4,2.7-.9,4.3-.9Zm0,18.3c.9,0,1.8-.2,2.5-.5s1.3-.9,1.8-1.5.9-1.4,1.1-2.2c.2-.9.4-1.8.4-2.8h0c0-1.1-.1-2.1-.4-3s-.6-1.6-1.1-2.3c-.5-.6-1.1-1.1-1.8-1.5s-1.6-.5-2.5-.5-1.8.2-2.5.5c-.7.4-1.3.9-1.8,1.5s-.9,1.4-1.1,2.3c-.2.9-.4,1.8-.4,2.8h0c0,1.2.1,2.1.4,3,.2.9.6,1.6,1.1,2.2s1.1,1.1,1.8,1.5c.7.4,1.6.5,2.5.5Zm18.1,3.8l-6.1-22h4.9l4.2,16.5h.2l4.1-16.5h4.9l-6.1,22h-6.1Zm36.9-3.8c.6,0,1.2,0,1.8-.3s1-.5,1.4-.9.7-.9.9-1.4c.2-.6.4-1.3.4-2V6.83h4.3v14.2c0,1.2-.2,2.3-.7,3.3-.4,1-1.1,1.8-1.8,2.5s-1.7,1.2-2.8,1.6-2.3.6-3.5.6-2.5-.2-3.5-.6c-1.1-.4-2-.9-2.8-1.6s-1.4-1.5-1.8-2.5-.7-2.1-.7-3.3V6.83h4.3v13.6c0,.8.1,1.5.4,2,.2.6.6,1.1,1,1.4.4.4.9.7,1.4.9s1.1.3,1.8.3h-.1Zm12.7-18.2h4.4v9.6l7.8-9.6h5.4l-7.5,8.8,8,13.2h-5.1l-5.7-9.9-2.8,3.1v6.7h-4.4V6.83h-.1Z"></path>
+            </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+           
+
+  {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+  {% if isLoggedOut == "true" %}
+  {{ govukServiceNavigation({
+    serviceName: serviceName,
+    serviceUrl: "/"
+    
+  }) }}
+  {% else %}
+
+  {{ govukServiceNavigation({
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "my-account",
+        text: "My account",
+        active: isAccountActive
+      },
+      {
+        href: "start",
+        text: "Sign out"
+      }
+    ],
+    slots: {
+      navigationEnd: " "
+    }
+  }) }}
+  {% endif %}
+  {% endblock %}
+
+  {% block footer %}
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <h2 class="govuk-visually-hidden">Support links</h2>
+          <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">
+                Contact HM Land Registry
+              </a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">
+                Accessibility 
+              </a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">
+                Cookies 
+              </a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">
+                Terms and conditions  
+              </a>
+            </li>
+          </ul>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            class="govuk-footer__licence-logo"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 483.2 195.7"
+            height="17"
+            width="41">
+            <path
+              fill="currentColor"
+              d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
+          </svg>
+          <span class="govuk-footer__licence-description">
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+          </span>
+        </div>
+        <div class="govuk-footer__meta-item">
+          <a
+            class="govuk-footer__link govuk-footer__copyright-logo"
+            href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+            © Crown copyright
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  {% endblock %}
+  
