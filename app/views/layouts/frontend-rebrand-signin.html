@@ -80,9 +80,8 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
            
 
   {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
-  {% if isLoggedOut == "true" %}
 
-    {% if isSigninPage == "true" %}
+
     {{ govukServiceNavigation({
       serviceName: serviceName,
       serviceUrl: "/",
@@ -97,35 +96,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
       }
     }) }}
 
-    {% else %}
-    {{ govukServiceNavigation({
-      serviceName: serviceName,
-      serviceUrl: "/"
-      
-    }) }}
-    {% endif %}
 
-  {% else %}
-
-  {{ govukServiceNavigation({
-    serviceName: serviceName,
-    serviceUrl: "/",
-    navigation: [
-      {
-        href: "my-account",
-        text: "My account",
-        active: isAccountActive
-      },
-      {
-        href: "start",
-        text: "Sign out"
-      }
-    ],
-    slots: {
-      navigationEnd: " <li class='govuk-service-navigation__item govuk-body'> English | <a href='#0' class='govuk-link--no-visited-state'>Cymraeg</a> </li> "
-    }
-  }) }}
-  {% endif %}
   {% endblock %}
 
   {% block footer %}
