@@ -8,9 +8,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   {% block bodyStart %}
   <!-- Override prototype kit crown logo -->
   <style>
-  .govuk-footer__copyright-logo {
-    background-image: url("../../../public/images/govuk-crest.svg");
-  }
   .govuk-service-navigation__wrapper{
     flex-grow: 100;
   }
@@ -22,7 +19,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     margin-left: auto;
     order: 2;
   }   
-
   .govuk-header {
     background:  #1d70b8;
     border-bottom: none;
@@ -33,9 +29,11 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     border-top: 10px solid #1d70b8;
   }
   .govuk-footer__copyright-logo {
-   /*  background-image: url("/public/images/govuk-crest-primary.svg"); */
+    background-image: url("/public/images/govuk-crest-primary.svg");
   }
-  /* Colour in the Dot */
+  .govuk-footer__link:link, .govuk-footer__link:visited {
+    color: #0b0c0c;
+  }
   .govuk-logo-dot {
     fill: #11e0f1;
   }
@@ -44,7 +42,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     margin-bottom: -5px;
     padding-top: 15px;
     padding-bottom: 10px;
-    /* border-bottom: 10px solid #1d70b8; */
   }
 
   </style>
