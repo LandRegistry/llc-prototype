@@ -22,6 +22,8 @@ var charges = require('./sample-charges-v2.json')
 
 module.exports = {
 
+  PROJECT_API_KEY: process.env.PROJECT_API_KEY,
+  
   API_KEY: process.env.MASTERMAP_API_KEY,
   WFS_URL: process.env.WFS_URL,
   WMTS_URL: process.env.WMTS_URL,
