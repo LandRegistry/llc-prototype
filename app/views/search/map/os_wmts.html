@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+{% set pageName="OS Maps API | Basic Map ZXY (EPSG:3857) | OpenLayers" %}
+
+
+{% block content %}
+  <style>
+    body { margin:0; padding:0; }
+    #map { 
+      position:absolute; 
+      top:60px;
+      bottom:0;
+      height:800px;
+      width:960px;
+      background-color: aliceblue;
+    }
+  </style>
+
+  <div id="map"></div>
+
+
+
+{% endblock %}
+
+{% block pageScripts %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/OrdnanceSurvey/os-api-branding@0.3.1/os-api-branding.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.5.0/ol.css" />
+
+
+<script src="https://cdn.jsdelivr.net/gh/OrdnanceSurvey/os-api-branding@0.3.1/os-api-branding.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ol@v10.5.0/dist/ol.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.15.0/proj4.js"></script>
+<script>
+
+    const apiKey = "{{ data.PROJECT_API_KEY }}";
+
+    // Setup the EPSG:27700 (British National Grid) projection.
+    proj4.defs("EPSG:27700", "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs");
+    ol.proj.proj4.register(proj4);
+
+    const tilegrid = new ol.tilegrid.TileGrid({
+        resolutions: [ 896.0, 448.0, 224.0, 112.0, 56.0, 28.0, 14.0, 7.0, 3.5, 1.75 ],
+        origin: [ -238375.0, 1376256.0 ]
+    });
+
+    // Initialize the map object.
+    const map = new ol.Map({
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: 'https://api.os.uk/maps/raster/v1/zxy/Outdoor_27700/{z}/{x}/{y}.png?key=' + apiKey,
+                    projection: 'EPSG:27700',
+                    tileGrid: tilegrid
+                })
+            })
+        ],
+        target: 'map',
+        view: new ol.View({
+            projection: 'EPSG:27700',
+            extent: [ -238375.0, 0.0, 900000.0, 1376256.0 ],
+            resolutions: tilegrid.getResolutions(),
+            minZoom: 0,
+            maxZoom: 20,
+            center: [ 337297, 503695 ],
+            zoom: 7
+        })
+    });
+
+</script>
+{% endblock %}
