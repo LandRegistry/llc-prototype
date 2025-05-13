@@ -26,7 +26,7 @@ const vectorSource = new ol.source.Vector({
           //ne = parseFloat(extent[0])+0.5 + ',' + parseFloat(extent[1])+0.5;
 
       let coords = sw + ' ' + ne;
-      console.log(coords);
+      //console.log(coords);
       
 
       // Create an OGC XML filter parameter value which will select the Airport
@@ -46,27 +46,8 @@ const vectorSource = new ol.source.Vector({
       //xml += '</ogc:And>';
       xml += '</ogc:Filter>';
 
-/*       const wfsParams = {
-          key: os_api_key,
-          service: 'WFS',
-          request: 'GetFeature',
-          version: '2.0.0',
-          typeNames: 'Sites_FunctionalSite',
-          outputFormat: 'GEOJSON',
-          filter: xml
-      }; */
-// Define (WFS) parameters object.
-/* const wfsParams = {
-  key: os_api_key,
-  service: 'WFS',
-  request: 'GetFeature',
-  version: '2.0.0',
-  typeNames: 'Topography_TopographicArea',
-  propertyName: 'TOID,DescriptiveGroup,SHAPE',
-  outputFormat: 'GEOJSON',
-  count: 1
-}; */
 
+    // Define (WFS) parameters object.
       const wfsParams = {
         key: os_api_key,
         service: 'WFS',
@@ -76,6 +57,7 @@ const vectorSource = new ol.source.Vector({
         propertyName: 'TOID,DescriptiveGroup,SHAPE',
         outputFormat: 'GEOJSON',
         srsName: 'EPSG:27700', 
+        //startIndex: 901,
         filter: xml
       };
 
@@ -92,9 +74,7 @@ const vectorSource = new ol.source.Vector({
               // Add unique id to each feature to stop duplicates being
               // loaded via the bbox strategy.
               data.features.forEach(function(obj) {
-                console.log(obj.properties.OBJECTID);
-                
-                  obj.id = obj.properties.OBJECTID;
+                obj.id = obj.properties.OBJECTID;
               });
 
               const format = vectorSource.getFormat();
@@ -113,7 +93,7 @@ MASTER_MAP_VECTOR_LAYER.layer = new ol.layer.Vector({
     source: vectorSource,
     style: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(0, 0, 255, 1)',
+            color: 'rgba(0, 0, 255, 0)',
             width: 1
         }),
         fill: new ol.style.Fill({
