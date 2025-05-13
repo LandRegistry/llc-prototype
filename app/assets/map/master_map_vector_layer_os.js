@@ -64,7 +64,6 @@ const vectorSource = new ol.source.Vector({
       const onError = function() {
           vectorSource.removeLoadedExtent(extent);
       }
-      console.log(getUrl(wfsParams));
 
       // Use fetch() method to request GeoJSON data from the OS Features API.
       // If successful - add the response data to the vector source.

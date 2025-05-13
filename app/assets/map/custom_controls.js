@@ -1,7 +1,7 @@
 function setMode(){
   var radio = $('[name="edit-mode"]:checked').val();
   map.removeInteraction(MAP_CONTROLS.hover_interaction);
-  console.log(radio);
+  //console.log(radio);
   //hide cross hair
   $('.center').addClass('govuk-visually-hidden');
 
