@@ -110,8 +110,7 @@
   <script src="/public/map/hatching_style.js"></script>
   <script src="/public/map/map_styles.js"></script>
   
-  <!-- Master Map Vector Layer -->
-  <script src="/public/map/master_map_vector_layer.js"></script>
+ 
   <script src="/public/map/snap_to_vector_layer.js"></script>
   
   <!-- Custom Map Controls -->
@@ -124,7 +123,7 @@
 
   <script type="text/javascript">  
     var termsLink = "";
-    var mastermap_api_key = "{{ data.MASTERMAP_API_KEY }}";
+    var mastermap_api_key = "{{ data.API_KEY }}";
     var os_api_key = "{{ data.PROJECT_API_KEY }}";
     var map_base_layer_view_name = "m0100";
     var wfs_server_url = "{{ data.WFS_URL }}";  // WEB FEATURE SERVICE
@@ -132,6 +131,9 @@
   
     MAP_CONFIG.setBaseLayer(MAP_CONFIG.base_layer_zindex, MAP_CONFIG.mastermapResolutions, MAP_CONFIG.projection, termsLink, false);
   </script>
+
+   <!-- Master Map Vector Layer -->
+   <script src="/public/map/master_map_vector_layer_os.js"></script>
   
    <!-- OpenLayers Map (Note: must be after the key config) -->
   <script src="/public/map/map.js"></script>
