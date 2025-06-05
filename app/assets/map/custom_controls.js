@@ -94,7 +94,7 @@ function setMode(){
       MAP_UNDO.store_state();
       feature = event.target.item(0).clone();
       if (feature) {
-        geometry = feature.getGeometry();
+        geometry = feature.getGeometry();       
         //Convert multi polygons to features
         if (geometry instanceof ol.geom.MultiPolygon) {
           geometry.getPolygons().forEach(function (geometry) {

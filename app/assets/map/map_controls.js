@@ -480,6 +480,7 @@ MAP_CONTROLS.copy_button = function() {
 MAP_CONTROLS.addGeometryToMap = function(geometry) {
     // Convert geometry into geojson as union function requires geojson
     geoJsontoAdd = JSON.parse(new ol.format.GeoJSON().writeGeometry(geometry))
+  console.log(geoJsontoAdd);
   
     featuresToRemove = []
   
