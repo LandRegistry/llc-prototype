@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OS NGD API – Tiles | Add Overlay | OpenLayers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/OrdnanceSurvey/os-api-branding@0.3.1/os-api-branding.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.5.0/ol.css" />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<style>
+    .ol-popup {
+        position: fixed;
+        background-color: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        bottom: 12px;
+        left: -50px;
+        min-width: 280px;
+    }
+    .ol-popup:after, .ol-popup:before {
+        top: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    .ol-popup:after {
+        border-top-color: white;
+        border-width: 10px;
+        left: 48px;
+        margin-left: -10px;
+    }
+    .ol-popup:before {
+        border-top-color: #ccc;
+        border-width: 11px;
+        left: 48px;
+        margin-left: -11px;
+    }
+    .ol-popup-closer {
+        text-decoration: none;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        color: #333;
+        font-size: smaller;
+    }
+    .ol-popup-closer:after {
+        content: "✖";
+    }
+    #popup-content {
+        font: 12px/1.5 Arial, Helvetica, sans-serif;
+        margin-right: 10px;
+        max-height: 200px;
+        overflow: auto;
+    }
+    #popup-content hr {
+        border: 0;
+        border-top: 1px solid #ddd;
+    }
+</style>
+
+<div id="map"></div>
+<div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/OrdnanceSurvey/os-api-branding@0.3.1/os-api-branding.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ol@v10.5.0/dist/ol.js"></script>
+<script src="https://unpkg.com/ol-mapbox-style@12.3.5/dist/olms.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+<script>
+
+    const apiKey = 'jCplheuYvKwmYix7AAyVbt4CjHd6Pd7S';
+
+    const tmsPromise = fetch('https://api.os.uk/maps/vector/ngd/ota/v1/tilematrixsets/3857').then((response) => response.json());
+    const glStylePromise = fetch('https://api.os.uk/maps/vector/ngd/ota/v1/collections/ngd-base/styles/3857').then((response) => response.json());
+
+    Promise.all([ tmsPromise, glStylePromise ]).then((values) => {
+        const tms = values[0];
+        const glStyle = values[1];
+
+        const tilegrid = new ol.tilegrid.TileGrid({
+            resolutions: tms.tileMatrices.map(({ cellSize }) => cellSize),
+            origin: tms.tileMatrices[0].pointOfOrigin,
+            tileSize: [ tms.tileMatrices[0].tileHeight, tms.tileMatrices[0].tileWidth ]
+        });
+
+        // Define the vector tile layer.
+        const formatMvt = new ol.format.MVT();
+        formatMvt.supportedMediaTypes.push('application/octet-stream');
+
+        const vectorTileLayer = new ol.layer.VectorTile({
+            name: 'base',
+            source: new ol.source.OGCVectorTile({
+                url: `https://api.os.uk/maps/vector/ngd/ota/v1/collections/ngd-base/tiles/3857?key=${apiKey}`,
+                format: formatMvt,
+                projection: 'EPSG:3857',
+                tileGrid: tilegrid
+            }),
+            className: 'ol-base', // Required to stop ngd-base labels rendering above overlay features.
+            declutter: true
+        });
+
+        // Apply a style function to the vector tile layer.
+        olms.applyStyle(
+            vectorTileLayer,
+            glStyle,
+            { source: 'ngd-base', updateSource: false },
+            { styleUrl: null },
+            tilegrid.getResolutions()
+        );
+
+        // Overlay the Lower Tier Local Authority features from the asu-bdy collection.
+        const formatMvtOverlay = new ol.format.MVT({
+            layers: 'asu_bdy_lowertierlocalauthority'
+        });
+        formatMvtOverlay.supportedMediaTypes.push('application/octet-stream');
+
+        const vectorTileOverlay = new ol.layer.VectorTile({
+            name: 'overlay',
+            source: new ol.source.OGCVectorTile({
+                url: `https://api.os.uk/maps/vector/ngd/ota/v1/collections/asu-bdy/tiles/3857?key=${apiKey}`,
+                format: formatMvtOverlay,
+                projection: 'EPSG:3857',
+                tileGrid: tilegrid
+            }),
+            style: new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: 'rgba(106,84,180,0.3)'
+                }),
+                stroke: new ol.style.Stroke({
+                    color: '#6a54b4',
+                    width: 1
+                })
+            })
+        });
+
+        // Initialize the map object.
+        const map = new ol.Map({
+            layers: [ vectorTileLayer, vectorTileOverlay ],
+            target: 'map',
+            view: new ol.View({
+                projection: 'EPSG:3857',
+                extent:ol.proj.transformExtent([ -8.74, 49.84, 1.96, 60.9 ], 'EPSG:4326', 'EPSG:3857'),
+                resolutions: tilegrid.getResolutions(),
+                minZoom: 6,
+                maxZoom: 19,
+                center: ol.proj.fromLonLat([ -1.436, 50.928 ]),
+                zoom: 8
+            })
+        });
+
+        // Elements that make up the popup.
+        const container = document.getElementById('popup');
+        const content = document.getElementById('popup-content');
+        const closer = document.getElementById('popup-closer');
+
+        // Create an overlay to anchor the popup to the map.
+        const overlay = new ol.Overlay({
+            element: container,
+            autoPan: {
+                animation: {
+                    duration: 250
+                }
+            }
+        });
+        map.addOverlay(overlay);
+
+        /**
+         * Add a click handler to hide the popup.
+         * @return {boolean} Don't follow the href.
+         */
+        closer.onclick = () => {
+            overlay.setPosition(undefined);
+            closer.blur();
+            return false;
+        };
+
+        // Create a 'singleclick' event handler which displays a popup with some basic
+        // HTML content.
+        map.on('singleclick', (evt) => {
+            overlay.setPosition(undefined);
+            closer.blur();
+
+            let selectedFeatures = [];
+
+            map.forEachFeatureAtPixel(evt.pixel, (feature, layer) => {
+                selectedFeatures.push(feature);
+            }, {
+                layerFilter: (layer) => {
+                    return layer.get('name') === 'overlay';
+                }
+            });
+
+            if( selectedFeatures.length > 0 ) {
+                // Get the feature properties.
+                let properties = selectedFeatures[0].getProperties();
+                properties = (({ layer, ...o }) => o)(properties);
+
+                // Construct the popup content.
+                let htmlContent = '<table style="font-size:1em;">';
+                for( let [ key, value ] of Object.entries(properties) ) {
+                    if( key === 'versionavailablefromdate' ) value = getFormattedDate(value);
+                    htmlContent += `<tr><td>${key}</td><td>${value}</td></tr>`;
+                }
+                htmlContent += '<table>';
+
+                content.innerHTML = htmlContent;
+                overlay.setPosition(evt.coordinate);
+            }
+        });
+
+        // Use hasFeatureAtPixel() to indicate that the features are clickable by changing
+        // the cursor style to 'pointer'.
+        map.on('pointermove', (evt) => {
+            if( evt.dragging ) return;
+
+            let hit = map.hasFeatureAtPixel(evt.pixel, {
+                layerFilter: (layer) => {
+                    return layer.get('name') === 'overlay';
+                }
+            });
+
+            map.getViewport().style.cursor = hit ? 'pointer' : '';
+        });
+    });
+
+    /**
+     * Returns formatted date string.
+     * @param {integer} timestamp Timestamp (number of seconds since the Unix Epoch).
+     * @return {string} Date in ISO8601 `YYYY-MM-DDTHH:mm:ssZ` format.
+     */
+    function getFormattedDate(timestamp) {
+        return moment.unix(timestamp).format('YYYY-MM-DDTHH:mm:ss[Z]');
+    }
+
+</script>
+
+</body>
+</html>
