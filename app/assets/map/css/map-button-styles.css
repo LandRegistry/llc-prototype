@@ -1,6 +1,13 @@
+   #map{
+    height:600px;
+  }
+  
   /* Customise the ol zoom controls */
-  .nav-controls{
-      top: 0px;
+   .nav-controls {
+    position: relative;
+    z-index: 12;
+    top: 0px;
+    left: 655px;
   }
   .ol-zoom-in {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
@@ -31,12 +38,15 @@
     border-radius: 5px !important;
     padding: 2px !important;
     position: absolute !important;
+    top:560px;
+    left:10px;
   }
 
   .ol-scale-line-inner {
     color: #000 !important;
     border: 1px solid #000 !important;
     border-top: none !important;
+    padding-left:4px;
   }
 
   .ol-scale-line-inner{
