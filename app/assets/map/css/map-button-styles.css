@@ -1,0 +1,92 @@
+  /* Customise the ol zoom controls */
+  .nav-controls{
+      top: 0px;
+  }
+  .ol-zoom-in {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+
+  .ol-zoom-out {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+  
+  .ol-zoom-in,
+  .ol-zoom-out {
+    display: block;
+    border: 0;
+    outline: 2px solid rgba(0,0,0,0.2);
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    cursor: pointer;
+    background-color: #fff;
+    background-size: 30px;
+    background-position: 5px 5px;
+    overflow: hidden;
+    text-indent: -5000px;
+  }
+  /* OpenLayers Scale Line Override */
+  .ol-scale-line {
+    background: rgba(255, 255, 255, .8) !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+    position: absolute !important;
+  }
+
+  .ol-scale-line-inner {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    border-top: none !important;
+  }
+
+  .ol-scale-line-inner{
+    color: #0b0c0c;
+    font-family: "GDS Transport", arial, sans-serif;
+  }
+  
+  .zoom-controls{
+    position: relative;
+    z-index: 12;
+    top: 20px;
+    left: calc(100% - 140px);
+  }
+
+  .zoom-in{
+    position: absolute;
+    top: 0px;
+  }
+
+  .zoom-out{
+    position: absolute;
+    top:48px;
+  }
+
+/* HIDE GDS FOOTER AND DISPLAY IN NAVBAR */
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .govuk-footer {
+    display:none;
+  }
+
+  .govuk-footer-x{
+    border-top: 1px solid #b1b4b6;
+    color: #0b0c0c;
+    background: #f3f2f1;
+  }
+
+  footer .govuk-list{
+    font-size: 16px;
+  }
+
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+    background-size: 90px 75px;
+    padding-top: 82px;
+  }
+
+  .govuk-footer__copyright-logo {
+    margin-left:40px;
+  }
