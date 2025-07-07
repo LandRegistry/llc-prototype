@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "Maintain LLC" %}
+
+{% set pageName="API Threshold levels - Maintain Local land charges - GOV.UK" %}
+
+
+{% block beforeContent %}
+{% include "includes/phase-banner-CCA.html" %}
+{% include "includes/language-switcher-heading.html" %}
+{% endblock %}
+
+
+{% block content %}
+<style>
+  .govuk-summary-list__actions,
+  .govuk-summary-list__key {
+    vertical-align: top;
+  }
+
+  .govuk-service-navigation__service-name:not(:last-child) {
+    margin-right: 0 ! important;
+  }
+
+  .highlight {
+    background-color: aliceblue;
+  }
+
+  .minContent {
+    min-width: 150px;
+    inline-size: min-content;
+  }
+</style>
+
+
+
+<div class="govuk-grid-row govuk-!-padding-top-9">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l govuk-!-padding-bottom-6">Local Authority Thresholds and Warnings</h1>
+    <table class="govuk-table ">
+
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">4 July 2025</caption> -->
+
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+
+          <th scope="col" class="govuk-table__header govuk-body-s">Local Authority</th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Add Threshold</th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Vary Threshold</th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Cancel Threshold</th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Add Warning</th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Vary Warning</th>
+
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Cancel Warning</th>
+
+          <th scope="col" class="govuk-table__header govuk-body-s">Service Suspended</th>
+
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        {% for item in data.thresholds %}
+        {% if item.suspended_until =="" %}
+        <tr class="govuk-table__row">
+          {% else %}
+        <tr class="govuk-table__row highlight">
+          {% endif %}
+          <th scope="row" class="govuk-table__header govuk-body-s">{{item.organisation}}</th>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.add_threshold}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.vary_threshold}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.cancel_threshold}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.add_warning}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.vary_warning}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.cancel_warning}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s minContent">{{item.suspended_until}}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+
+{% endblock %}

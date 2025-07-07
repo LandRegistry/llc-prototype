@@ -18,7 +18,8 @@ Example usage:
 */
 console.log("default values for user session data");
 var charges = require('./sample-charges-v2.json')
-//console.log(charges);
+var thresholds = require('./thresholds.json')
+console.log(thresholds);
 
 module.exports = {
 
@@ -370,7 +371,8 @@ module.exports = {
     "Wyre Borough Council",
     "Wyre Forest District Council"
   ],
-  charges:charges
+  charges,
+  thresholds
 
 
 }
