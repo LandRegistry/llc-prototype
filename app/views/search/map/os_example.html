@@ -81,7 +81,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
 <script>
 
-    const apiKey = 'jCplheuYvKwmYix7AAyVbt4CjHd6Pd7S';
+    const apiKey = '{{ data.PROJECT_API_KEY }}';
 
     const tmsPromise = fetch('https://api.os.uk/maps/vector/ngd/ota/v1/tilematrixsets/3857').then((response) => response.json());
     const glStylePromise = fetch('https://api.os.uk/maps/vector/ngd/ota/v1/collections/ngd-base/styles/3857').then((response) => response.json());

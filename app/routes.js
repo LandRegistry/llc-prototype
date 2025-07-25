@@ -19,7 +19,7 @@ router.get('/prototype-admin/clear-data', function (req, res) {
 // process all pages
 router.get('*', function (req, res, next) {
   console.log('get page');
-  console.log(req.session.data);
+  //console.log(req.session.data);
   
   next()
 })

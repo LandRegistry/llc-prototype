@@ -1,0 +1,537 @@
+{% extends "layouts/main.html" %}
+{% set serviceName= "View contractual controls" %}
+{% set isLoggedOut = "true" %}
+
+{% set pageName="Find contractual controls" %}
+
+{% block beforeContent %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.3.1/ol.css" />
+{% endblock %}
+
+{% set bodyClasses = "full-width" %}
+{% set containerClasses = "full-width" %}
+
+
+
+{% block content %}
+<style>
+  #navbar{
+    min-width: none;
+    max-width:300px;
+    overflow: hidden;
+    padding-right:10px;
+  }
+  #map{
+    height: 820px !important;
+    background-color: aliceblue;
+  }
+
+  /* PAGE LAYOUT */
+  .govuk-grid-column-20-percent{
+    width: 20%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    float: left;
+  }
+
+  .govuk-main-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .govuk-width-container{
+    max-width:98%;
+    width:98%;
+  }
+
+  /* HIDE GDS FOOTER AND DISPLAY IN NAVBAR */
+  .govuk-footer {
+    display:none;
+  }
+
+  /* HACK FOR REBRAND */
+  .govuk-service-navigation__service-name:not(:last-child){
+    margin-right: 0 ! important;
+  }
+  .links {
+    min-width:280px;
+  }
+  .logo {
+    min-width:260px;
+  }
+  .govuk-service-navigation__wrapper{
+    margin-left: auto;
+  }
+
+
+
+  .govuk-summary-list__value{
+    height: 50px;
+  }
+
+  .ol-scale-line {
+    top: 780px;
+    left: 20px;
+  }
+  .max-width{
+    width: calc(100% - 300px);
+    float: left;
+  }
+
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-align: center;
+    display: none;
+    width: 300px;
+  }
+        
+  .loading.show {
+      display: block;
+  }
+  .govuk-summary-list{
+    visibility: hidden;
+  }
+  #view_agreement{
+    visibility: hidden;
+  }
+    /* Customise the ol zoom controls */
+  .ol-zoom-in {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3Crect width='2' height='14' x='14' y='8' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+
+  .ol-zoom-out {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect width='14' height='2' x='8' y='14' style='fill:%230b0c0c'/%3E%3C/svg%3E");
+  }
+  
+  .ol-zoom-in,
+  .ol-zoom-out {
+    display: block;
+    border: 0;
+    outline: 2px solid rgba(0,0,0,0.2);
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    cursor: pointer;
+    background-color: #fff;
+    background-size: 30px;
+    background-position: 5px 5px;
+    overflow: hidden;
+    text-indent: -5000px;
+  }
+  /* OpenLayers Scale Line Override */
+  .ol-scale-line {
+    background: rgba(255, 255, 255, .8) !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+    position: absolute !important;
+  }
+
+  .ol-scale-line-inner {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    border-top: none !important;
+  }
+
+  .ol-scale-line-inner{
+    color: #0b0c0c;
+    font-family: "GDS Transport", arial, sans-serif;
+  }
+  
+  .zoom-controls{
+    position: relative;
+    z-index: 12;
+    top: 20px;
+    left: calc(100% - 60px);
+  }
+
+  .zoom-in{
+    position: absolute;
+    top: 0px;
+  }
+
+  .zoom-out{
+    position: absolute;
+    top:48px;
+  }
+  /* hide the buit-in controls */
+  .ol-control{
+    visibility: hidden;
+  }
+</style>
+
+
+<div id="container" class="govuk-grid-row">
+
+  <div class="loading" id="loading">
+    <h4 class="govuk-heading-s">Loading polygons...</h4>
+    <p class="govuk-body-s">Please wait while data is being loaded.</p>
+  </div>
+
+
+  <!--  NAVIGATION  -->
+  <div id="navbar" class="govuk-grid-column-20-percent">
+    <a class="govuk-back-link" href="javascript: history.go(-1)">Back</a>
+
+    {% include "./includes/results.html" %}
+
+    <p class="navbar_shim"></p>
+  </div> 
+    
+  <!-- MAP  -->
+  <div class="max-width">
+
+    <div >
+      <div class="zoom-controls">
+        <button id="zoom-in" class="zoom ol-zoom-in zoom-in" type="button" title="Zoom in">+<span class="govuk-visually-hidden">Zoom in</span></button>
+        <button id="zoom-out" class="zoom ol-zoom-out zoom-out" type="button" title="Zoom out">-
+          <span class="govuk-visually-hidden">Zoom out</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="map" class="maintain-llc-map" tabindex="0" aria-label="Image showing search extent">
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+{% block pageScripts %}
+ <script src="https://cdn.jsdelivr.net/npm/ol@10.3.1/dist/ol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/proj4@2.12.1/dist/proj4.js"></script>
+    <script>
+        // Configuration variables - Set these values
+        const OS_API_KEY = '{{ data.PROJECT_API_KEY }}';
+        const POLYGON_FILE = '/public/fields_copy.json';
+        
+        // Define the British National Grid projection
+        proj4.defs("EPSG:27700", "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs");
+        ol.proj.proj4.register(proj4);
+
+        // Update info panel with polygon file name
+        //document.getElementById('polygon-file').textContent = POLYGON_FILE;
+
+        // Create vector source - will be populated from external file
+        const vectorSource = new ol.source.Vector();
+
+        // Define styles
+        var add_colour = '#003078';
+        var hover_colour = '#00703c';
+        var add_fill = [0, 48, 120, 0.2 ];
+        var hover_fill = [0, 112, 60, 0.4];
+
+        const defaultStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: add_fill
+            }),
+            stroke: new ol.style.Stroke({
+                color: add_colour,
+                width: 2
+            })
+        });
+       
+
+        const hoverStyle = new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(0,48,120,0.3)',
+            }),
+            stroke: new ol.style.Stroke({
+                color: 'rgba(0,48,120,1)',
+                width: 2/* ,
+                lineDash: [4, 4] */
+            })
+        });
+
+        // Create vector layer
+        const vectorLayer = new ol.layer.Vector({
+            source: vectorSource,
+            style: defaultStyle
+        });
+
+        // Function to create OS Maps tile layer
+        function createOSMapsLayer(apiKey) {
+            return new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: `https://api.os.uk/maps/raster/v1/zxy/Outdoor_27700/{z}/{x}/{y}.png?key=${apiKey}`,
+                    projection: 'EPSG:27700',
+                    tileGrid: new ol.tilegrid.TileGrid({
+                        origin: [-238375.0, 1376256.0],
+                        resolutions: [896.0, 448.0, 224.0, 112.0, 56.0, 28.0, 14.0, 7.0, 3.5, 1.75, 0.875, 0.4375, 0.21875, 0.109375],
+                        matrixIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                    })
+                })
+            });
+        }
+
+        // Create map with OS Maps or fallback to OSM
+        let baseLayer;
+        if (OS_API_KEY && OS_API_KEY !== 'YOUR_OS_API_KEY_HERE') {
+            baseLayer = createOSMapsLayer(OS_API_KEY);
+        } else {
+            baseLayer = new ol.layer.Tile({
+                source: new ol.source.OSM()
+            });
+        }
+
+        const map = new ol.Map({
+            target: 'map',
+            layers: [
+                baseLayer,
+                vectorLayer
+            ],
+            view: new ol.View({
+                projection: 'EPSG:27700',
+                center: [227050, 61750],
+                zoom: 12
+            })
+        });
+
+        // Function to load polygons from external file
+        async function loadPolygons() {
+            const loadingElement = document.getElementById('loading');
+            loadingElement.classList.add('show');
+            console.log('loading');
+            
+            try {
+                const response = await fetch(POLYGON_FILE);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const geojsonData = await response.json();
+                
+                // Clear existing features
+                vectorSource.clear();
+                
+                // Add features from GeoJSON
+                const features = new ol.format.GeoJSON().readFeatures(geojsonData);
+                vectorSource.addFeatures(features);
+                
+                // Fit view to loaded features
+                const extent = vectorSource.getExtent();
+                if (extent && extent.some(coord => isFinite(coord))) {
+                  
+                    map.getView().fit(extent, {
+                        padding: [50, 50, 50, 50],
+                        maxZoom: 16
+                    });
+                }
+                
+                console.log(`Loaded ${features.length} polygons from ${POLYGON_FILE}`);
+                
+            } catch (error) {
+                console.error('Error loading polygons:', error);
+                
+                // Fallback to default polygons if external file fails
+                const defaultPolygons = {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "name": "Polygon 1",
+                                "id": 1,
+                                "area": "Industrial Zone"
+                            },
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[
+                                    [226800, 61600],
+                                    [226900, 61600],
+                                    [226900, 61700],
+                                    [226800, 61700],
+                                    [226800, 61600]
+                                ]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "name": "Polygon 2",
+                                "id": 2,
+                                "area": "Residential Area"
+                            },
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[
+                                    [227100, 61650],
+                                    [227250, 61650],
+                                    [227250, 61750],
+                                    [227100, 61750],
+                                    [227100, 61650]
+                                ]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "name": "Polygon 3",
+                                "id": 3,
+                                "area": "Commercial District"
+                            },
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[
+                                    [227000, 61800],
+                                    [227150, 61800],
+                                    [227200, 61900],
+                                    [227050, 61950],
+                                    [226950, 61900],
+                                    [227000, 61800]
+                                ]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "name": "Polygon 4",
+                                "id": 4,
+                                "area": "Green Space"
+                            },
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[
+                                    [226700, 61850],
+                                    [226850, 61850],
+                                    [226900, 61950],
+                                    [226750, 62000],
+                                    [226650, 61950],
+                                    [226700, 61850]
+                                ]]
+                            }
+                        }
+                    ]
+                };
+                
+                const fallbackFeatures = new ol.format.GeoJSON().readFeatures(defaultPolygons);
+                vectorSource.addFeatures(fallbackFeatures);
+                
+                // Fit view to fallback features
+                const extent = vectorSource.getExtent();
+                map.getView().fit(extent, {
+                    padding: [50, 50, 50, 50],
+                    maxZoom: 16
+                });
+                
+                console.log('Loaded fallback polygons due to file loading error');
+            } finally {
+                loadingElement.classList.remove('show');
+            }
+        }
+
+        // Add interaction for hover effects
+        let hoveredFeature = null;
+        const mapElement = map.getTargetElement();
+
+        map.on('pointermove', function(evt) {
+            const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature) {
+                return feature;
+            });
+
+            if (feature !== hoveredFeature) {
+                // Reset previous hovered feature to default style
+                if (hoveredFeature) {
+                    hoveredFeature.setStyle(null); // Reset to layer default style
+                }
+
+                // Set new hovered feature
+                if (feature) {
+                    feature.setStyle(hoverStyle);
+                    mapElement.style.cursor = 'pointer';
+                } else {
+                    mapElement.style.cursor = '';
+                }
+
+                hoveredFeature = feature;
+            }
+        });
+
+        // Add explicit mouse leave handling for map container
+        mapElement.addEventListener('mouseleave', function() {
+            if (hoveredFeature) {
+                hoveredFeature.setStyle(null); // Reset to layer default style
+                hoveredFeature = null;
+                mapElement.style.cursor = '';
+            }
+        });
+
+        // Add click handler for feature info
+        map.on('click', function(evt) {
+            const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature) {
+                return feature;
+            });
+
+            if (feature) {
+                const properties = feature.getProperties();
+                const coords = evt.coordinate;
+                
+                showCCA(properties.id - 1000);
+                //console.log(`Feature: ${properties.name}\nArea: ${properties.area}\nClicked at: ${coords[0].toFixed(0)}, ${coords[1].toFixed(0)}`);
+            }
+        });
+
+        // Transform view to show all features
+        const extent = vectorSource.getExtent();
+        console.log(extent);
+        
+        const contracts = [];//{{ data.agreements | dump | safe }};
+
+        function showCCA(id){
+          console.log('ID', id);
+         /*  console.log(contracts[id]);
+          
+          let contract = contracts[id];
+          console.log(contract);
+          $("#location").text(contract.contract_details.title_number);
+          $("#type").text(contract.contract_details.legal_document);
+          $("#date").text(contract.additional_information.expiry_date);
+          $("#grantee").text(contract.grantee_details.name);
+          $("#grantor").text(contract.grantor_details.name);
+          
+          $(".govuk-summary-list").css({visibility: "visible"});
+          $("#view_agreement").css({visibility: "visible"});
+          $("#view_agreement").attr("href", "../data-sheet?id=" + id); */
+        }
+
+        document.getElementById('zoom-out').onclick = function () {
+          console.log('click OUT');
+          //checkZoom();
+          const view = map.getView();
+          const zoom = view.getZoom();
+          view.animate({
+            zoom: (zoom - 1),
+            duration: 300
+          });
+        };
+          
+        document.getElementById('zoom-in').onclick = function () {
+          console.log('click IN');
+          //checkZoom();
+          const view = map.getView();
+          const zoom = view.getZoom();
+          view.animate({
+            zoom: (zoom + 1),
+            duration: 300
+          });
+        };
+    
+        loadPolygons();
+
+    </script>
+{% endblock %}
