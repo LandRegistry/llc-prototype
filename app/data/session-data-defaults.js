@@ -19,7 +19,17 @@ Example usage:
 console.log("default values for user session data");
 var charges = require('./sample-charges-v2.json')
 var thresholds = require('./thresholds.json')
-console.log(thresholds);
+//thresholds.sort((a, b) => a.organisation - b.organisation);
+thresholds.sort(function (a, b) {
+  if (a.organisation < b.organisation) {
+    return -1;
+  }
+  if (a.organisation > b.organisationame) {
+    return 1;
+  }
+  return 0;
+})
+
 
 module.exports = {
 

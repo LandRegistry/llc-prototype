@@ -36,9 +36,11 @@
 <div class="govuk-grid-row govuk-!-padding-top-9">
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-l govuk-!-padding-bottom-6">Local Authority Thresholds and Warnings</h1>
+
+    <p class="govuk-body govuk-!-padding-bottom-2"><a href="#">Download this data as a csv</a></p>
     <table class="govuk-table ">
 
-      <!--<caption class="govuk-table__caption govuk-table__caption--m">4 July 2025</caption> -->
+      <caption class="govuk-table__caption govuk-table__caption--m">Caption goes here</caption>
 
 
       <thead class="govuk-table__head">
@@ -46,19 +48,19 @@
 
           <th scope="col" class="govuk-table__header govuk-body-s">Local Authority</th>
 
-          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Add Threshold</th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Add threshold</th>
 
-          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Vary Threshold</th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Vary threshold</th>
 
-          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Cancel Threshold</th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Cancel threshold</th>
 
-          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Add Warning</th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Add warning</th>
 
-          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Vary Warning</th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Vary warning</th>
 
-          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Cancel Warning</th>
+          <th scope="col" class="govuk-table__header govuk-table__cell--numeric govuk-body-s">Cancel warning</th>
 
-          <th scope="col" class="govuk-table__header govuk-body-s">Service Suspended</th>
+          <th scope="col" class="govuk-table__header govuk-body-s">Service suspended</th>
 
         </tr>
       </thead>
@@ -71,7 +73,7 @@
           {% else %}
         <tr class="govuk-table__row highlight">
           {% endif %}
-          <th scope="row" class="govuk-table__header govuk-body-s">{{item.organisation}}</th>
+          <th scope="row" class="govuk-table__header govuk-body-s"><a href="#">{{item.organisation}}</a></th>
           <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.add_threshold}}</td>
           <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.vary_threshold}}</td>
           <td class="govuk-table__cell govuk-table__cell--numeric govuk-body-s">{{item.cancel_threshold}}</td>
